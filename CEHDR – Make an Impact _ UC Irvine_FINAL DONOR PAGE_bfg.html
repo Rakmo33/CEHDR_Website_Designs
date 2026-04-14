@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CEHDR – Make an Impact | UC Irvine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --uci-blue: #0064A4;
+      --uci-gold: #FFD200;
+      --uci-dark: #1B3A5C;
+      --accent-green: #2E7D5E;
+      --accent-teal: #1A8A7A;
+      --light-bg: #F4F8FC;
+      --text-dark: #1C2B3A;
+      --text-mid: #4A5568;
+      --white: #ffffff;
+      --border-light: #DCE8F0;
+    }
+    body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); background: var(--white); line-height: 1.7; }
+
+    .top-bar { background: var(--uci-dark); color: var(--uci-gold); text-align: center; padding: 10px 20px; font-size: 0.78rem; letter-spacing: 1.2px; font-weight: 700; text-transform: uppercase; }
+    .wp-block-columns, .wp-block-column, .wp-block-column>div { 
+      margin: 0 !important;
+    }
+    .hero {
+      position: relative; width: 100%; height: 520px;
+      background: linear-gradient(135deg, #0B2545 0%, #0064A4 45%, #1A8A7A 100%);
+      display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('your-hero-image.jpg') center/cover no-repeat;
+      opacity: 0.22;
+    }
+    .hero::after {
+      content: ''; position: absolute; width: 700px; height: 700px;
+      border-radius: 50%; border: 2px solid rgba(255,210,0,0.15);
+      top: -200px; right: -200px; pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 2; padding: 0 30px; }
+    .hero-eyebrow { display: inline-block; background: var(--uci-gold); color: var(--uci-dark); font-size: 0.75rem; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; padding: 5px 16px; border-radius: 20px; margin-bottom: 18px; }
+    .hero h1 { font-family: 'Merriweather', serif; font-size: clamp(2rem, 5vw, 3.2rem); color: var(--white) !important; line-height: 1.25; margin-bottom: 18px; }
+    .hero h1 span { color: var(--uci-gold); }
+    .hero p { color: rgba(255,255,255,0.88); font-size: 1.05rem; max-width: 660px; margin: 0 auto 30px; }
+    .btn-primary { display: inline-block; background: var(--uci-gold); color: var(--uci-dark); font-weight: 700; font-size: 1rem; padding: 14px 38px; border-radius: 40px; text-decoration: none; letter-spacing: 0.5px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 18px rgba(0,0,0,0.25); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.3); }
+
+    .stats-bar { background: var(--uci-dark); padding: 28px 40px; display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+    .stat-item { text-align: center; }
+    .stat-number { font-family: 'Merriweather', serif; font-size: 2rem; font-weight: 700; color: var(--uci-gold); line-height: 1; }
+    .stat-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.7); margin-top: 5px; }
+
+    .section { padding: 72px 24px; }
+    .section-alt { background: var(--light-bg); }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green); margin-bottom: 10px; }
+    .section-title { font-family: 'Merriweather', serif; font-size: clamp(1.6rem, 3.5vw, 2.2rem); color: var(--uci-dark); margin-bottom: 16px; }
+    .section-lead { font-size: 1.05rem; color: var(--text-mid); max-width: 740px; margin-bottom: 48px; }
+    .divider { width: 60px; height: 4px; background: var(--uci-gold); border-radius: 2px; margin: 0 0 24px; }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 26px; }
+    .card { background: var(--white); border-radius: 14px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,60,120,0.08); border: 1px solid var(--border-light); transition: transform 0.25s, box-shadow 0.25s; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 36px rgba(0,60,120,0.15); }
+    .card-accent { height: 6px; }
+    .thrive .card-accent { background: linear-gradient(90deg, #0064A4, #1A8A7A); }
+    .rise   .card-accent { background: linear-gradient(90deg, #2E7D5E, #4CAF87); }
+    .circle .card-accent { background: linear-gradient(90deg, #1A6BAA, #5BA4CF); }
+    .impact .card-accent { background: linear-gradient(90deg, #7B5EA7, #B48FD1); }
+    .card-body { padding: 26px 24px; flex: 1; }
+    .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 16px; }
+    .thrive .card-icon { background: #E8F4FD; }
+    .rise   .card-icon { background: #E8F8F1; }
+    .circle .card-icon { background: #E8F1FC; }
+    .impact .card-icon { background: #F3EEF9; }
+    .card-tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+    .thrive .card-tag { color: #0064A4; }
+    .rise   .card-tag { color: #2E7D5E; }
+    .circle .card-tag { color: #1A6BAA; }
+    .impact .card-tag { color: #7B5EA7; }
+    .card h3 { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--uci-dark); margin-bottom: 10px; line-height: 1.4; }
+    .card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
+
+    .video-section { background: var(--uci-dark); padding: 72px 24px; text-align: center; }
+    .video-section .section-label { color: var(--uci-gold); }
+    .video-section .section-title { color: var(--white); margin-bottom: 12px; }
+    .video-section .section-lead { color: rgba(255,255,255,0.78); margin: 0 auto 40px; }
+    .video-section .divider { background: var(--uci-gold); margin: 0 auto 24px; }
+    .video-wrapper {
+      position: relative; max-width: fit-content; margin: 0 auto;
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      border: 3px solid rgba(255,210,0,0.3);
+      background: #0B1E33;
+      min-height: 405px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .video-wrapper iframe { display: block; width: 100%; height: 405px; border: none; }
+    .video-placeholder {
+      width: 100%; height: 405px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 16px; padding: 40px;
+    }
+    .video-placeholder .play-icon {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(255,210,0,0.15);
+      border: 2px solid rgba(255,210,0,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+    }
+    .video-placeholder h4 { font-family: 'Merriweather', serif; font-size: 1.1rem; color: var(--white); }
+    .video-placeholder p { font-size: 0.88rem; color: rgba(255,255,255,0.55); max-width: 420px; line-height: 1.6; }
+    .video-caption { margin-top: 18px; font-size: 0.85rem; color: rgba(255,255,255,0.5); font-style: italic; }
+
+    .donate-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    @media(max-width: 700px){ .donate-wrapper { grid-template-columns: 1fr; } }
+    .donate-box { background: var(--white); border-radius: 14px; padding: 32px; box-shadow: 0 2px 16px rgba(0,60,120,0.08); border: 1px solid var(--border-light); }
+    .donate-box h3 { font-family: 'Merriweather', serif; font-size: 1.15rem; color: var(--uci-dark); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--uci-gold); }
+    .step-list { list-style: none; counter-reset: steps; }
+    .step-list li { counter-increment: steps; display: flex; gap: 14px; margin-bottom: 20px; font-size: 0.92rem; color: var(--text-mid); align-items: flex-start; }
+    .step-list li::before { content: counter(steps) !important; position: relative !important; min-width: 28px; height: 28px; background: var(--uci-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .step-content { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .step-text { line-height: 1.6; }
+    .pills-row { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 14px; background: #F4F8FC; border-radius: 10px; border: 1px solid var(--border-light); }
+    .tag-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 0.78rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; white-space: nowrap; }
+    .tag-pill.blue   { background: #E8F4FD; color: #0064A4; }
+    .tag-pill.green  { background: #E8F8F1; color: #2E7D5E; }
+    .tag-pill.teal   { background: #E6F4F2; color: #1A8A7A; }
+    .tag-pill.purple { background: #F3EEF9; color: #7B5EA7; }
+
+    .check-box { background: linear-gradient(135deg, #0B2545 0%, #0064A4 100%); border-radius: 14px; padding: 32px; color: white; }
+    .check-box h3 { font-family: 'Merriweather', serif; font-size: 1.15rem; color: var(--uci-gold); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid rgba(255,210,0,0.4); }
+    .check-box p, .check-box address { font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.7; font-style: normal; }
+    .check-box .check-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
+    .check-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+    .check-box strong { color: var(--uci-gold); }
+    .check-box address { margin-top: 4px; border-left: 3px solid var(--uci-gold); padding-left: 14px; }
+
+    .cta-strip { background: linear-gradient(135deg, #2E7D5E 0%, #0064A4 100%); padding: 64px 24px; text-align: center; }
+    .cta-strip h2 { font-family: 'Merriweather', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem); color: white; margin-bottom: 14px; }
+    .cta-strip p { color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 580px; margin: 0 auto 28px; }
+    .btn-secondary { display: inline-block; background: transparent; border: 2px solid var(--uci-gold); color: var(--uci-gold); font-weight: 700; font-size: 0.95rem; padding: 12px 32px; border-radius: 40px; text-decoration: none; margin: 6px 8px; transition: background 0.2s, color 0.2s; }
+    .btn-secondary:hover { background: var(--uci-gold); color: var(--uci-dark); }
+
+    .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+    .contact-card { background: var(--white); border-radius: 14px; padding: 28px; border: 1px solid var(--border-light); box-shadow: 0 2px 12px rgba(0,60,120,0.07); display: flex; gap: 18px; align-items: flex-start; }
+    .contact-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--uci-blue), var(--accent-teal)); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; flex-shrink: 0; }
+    .contact-info h4 { font-family: 'Merriweather', serif; font-size: 0.95rem; color: var(--uci-dark); margin-bottom: 4px; }
+    .contact-info .role { font-size: 0.78rem; color: var(--accent-green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
+    .contact-info p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.5; }
+    .contact-info a { color: var(--uci-blue); text-decoration: none; font-weight: 600; }
+    .contact-info a:hover { text-decoration: underline; }
+
+    /* footer { background: var(--uci-dark); color: rgba(255,255,255,0.6); text-align: center; padding: 28px 20px; font-size: 0.8rem; line-height: 1.7; } */
+    /* footer strong { color: var(--uci-gold); } */
+  </style>
+</head>
+<body>
+
+  <!-- <div class="top-bar">Center for Environmental Health Disparities Research &nbsp;|&nbsp; UC Irvine Joe C. Wen School of Population &amp; Public Health</div> -->
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Make a Difference Today</div>
+      <h1>Make an <span>Impact</span><br/>for Environmental Health Equity</h1>
+      <p>Support the Center for Environmental Health Disparities Research (CEHDR) in transforming environmental health research and advancing equity through THRIVE, RISE, CIRCLE, and IMPACT.</p>
+      <a href="https://secure.give.uci.edu/donation/?COA1=014530&COA2&tfa_165=C-26-017255" target="_blank" class="btn-primary">🎁 Give Today</a>
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Signature Initiatives</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">1</div>
+      <div class="stat-label">Unified Mission</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">∞</div>
+      <div class="stat-label">Community Impact</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Goes to CEHDR</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Our Mission</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Research that Changes Lives &amp; Communities</h2>
+      <p class="section-lead">Your gift amplifies community voices, empowers the next generation of diverse health leaders, and drives collaborative projects that turn research into real-world impact. Together, we can create healthier, stronger communities and ensure that every study, every student, every community, and every initiative contribute to lasting change.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-label">Our Initiatives</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Four Initiatives. One Powerful Mission.</h2>
+      <p class="section-lead">Every gift supports groundbreaking work across all four CEHDR pillars — or you can direct your support to a specific initiative that resonates with you.</p>
+      <div class="cards-grid">
+        <div class="card thrive">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon">🌱</div>
+            <div class="card-tag">THRIVE</div>
+            <h3>Transforming Health Research through Inclusion, Voices, and Equity</h3>
+            <p>CEHDR THRIVE ensures that every voice matters in shaping environmental health research, especially those from communities historically underrepresented in science. Donor support will fund community engagement, inclusive educational programming, and equity-centered training programs.</p>
+          </div>
+        </div>
+        <div class="card rise">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon">🎓</div>
+            <div class="card-tag">RISE</div>
+            <h3>Research Internships for Social &amp; Environmental Health Equity</h3>
+            <p>CEHDR RISE cultivates the next generation of leaders in environmental health equity by providing students with hands-on, community-engaged research experiences. Donations support student stipends, mentorship, and collaborative projects with local communities.</p>
+          </div>
+        </div>
+        <div class="card circle">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon">🤝</div>
+            <div class="card-tag">CIRCLE</div>
+            <h3>Community Initiatives for Research, Collaboration, Learning, and Engagement</h3>
+            <p>CEHDR CIRCLE strengthens partnerships between the Center and communities to co-create research, share knowledge, and drive solutions to environmental health challenges. Funding supports collaborative projects, workshops, and community-driven interventions.</p>
+          </div>
+        </div>
+        <div class="card impact">
+          <div class="card-accent"></div>
+          <div class="card-body">
+            <div class="card-icon">💡</div>
+            <div class="card-tag">IMPACT</div>
+            <h3>Innovative Minds Promoting Action, Collaboration, and Transformation</h3>
+            <p>The CEHDR IMPACT Distinguished Speaker Series spotlights transformative thinkers whose research and leadership drive meaningful change in environmental health and science. Your gift creates a vibrant academic environment where knowledge sparks action.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="video-section">
+    <div class="container">
+      <div class="section-label">CEHDR RISE Fellows in Action</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Meet the Next Generation of Health Equity Leaders</h2>
+      <p class="section-lead">Watch our CEHDR RISE Fellows on the front lines of environmental health research — and hear a powerful message of commitment from the Dean of the Joe C. Wen School of Population &amp; Public Health.</p>
+      <div class="video-wrapper">
+           <video src="https://sites.uci.edu/cehdr/files/2026/04/CEHDR-RISE-fellows.mp4" autoplay loop controls muted height="500px"></video>
+    </div>
+  </section>
+
+  <section id="give" class="section">
+    <div class="container">
+      <div class="section-label">How to Give</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Your Donation, Your Choice</h2>
+      <p class="section-lead">Every contribution — no matter the size — makes a meaningful difference. Follow the steps below to direct your gift online or by check.</p>
+      <div class="donate-wrapper">
+        <div class="donate-box">
+          <h3>💻 Giving Online</h3>
+          <ol class="step-list">
+            <li>
+              <div class="step-content">
+                <span class="step-text">Click the <strong>"Give Today"</strong> button to access the UCI donation portal.</span>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <span class="step-text">Select the <strong>Joe C. Wen School of Population &amp; Public Health – Public Health Centers Fund</strong> as your giving area.</span>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <span class="step-text">To direct your gift to a specific initiative, enter one of the following names in the <strong>"Comment"</strong> field:</span>
+                <div class="pills-row">
+                  <span class="tag-pill blue">🌱 CEHDR THRIVE</span>
+                  <span class="tag-pill green">🎓 CEHDR RISE</span>
+                  <span class="tag-pill teal">🤝 CEHDR CIRCLE</span>
+                  <span class="tag-pill purple">💡 CEHDR IMPACT</span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <span class="step-text">Optionally, honor someone special using the <strong>"Honor / Memory / Support of Someone"</strong> field.</span>
+              </div>
+            </li>
+            <li>
+              <div class="step-content">
+                <span class="step-text">Complete your gift — and thank you for your generosity!</span>
+              </div>
+            </li>
+          </ol>
+          <a href="https://secure.give.uci.edu/donation/?COA1=014530&COA2&tfa_165=C-26-017255" target="_blank" class="btn-primary" style="display:block; text-align:center; margin-top:8px;">🎁 Give Today</a>
+        </div>
+        <div class="check-box">
+          <h3>✉️ Giving by Check</h3>
+          <div class="check-item">
+            <span class="check-icon">✅</span>
+            <p>Make checks payable to: <strong>UC Irvine Foundation</strong></p>
+          </div>
+          <div class="check-item">
+            <span class="check-icon">✅</span>
+            <p>Write <strong>"CEHDR"</strong> in the memo line.</p>
+          </div>
+          <div class="check-item">
+            <span class="check-icon">📬</span>
+            <p>Mail your check to:</p>
+          </div>
+          <address>
+            <strong>UC Irvine Foundation</strong><br/>
+            Wen Public Health / CEHDR / Nikki Gaitan<br/>
+            101 Aldrich Hall<br/>
+            Irvine, CA 92697-5600
+          </address>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-strip">
+    <h2>Together, We Create Lasting Change</h2>
+    <p>Donate to CEHDR to turn groundbreaking environmental health research into real-world solutions that benefit all communities.</p>
+    <a href="https://secure.give.uci.edu/donation/?COA1=014530&COA2&tfa_165=C-26-017255" target="_blank" class="btn-primary">🎁 Give Today</a>
+    <a href="https://sites.uci.edu/cehdr/about/contact/" target="_blank" class="btn-secondary">Contact Us</a>
+  </section>
+
+  <section id="contacts" class="section section-alt">
+    <div class="container">
+      <div class="section-label">Get in Touch</div>
+      <div class="divider"></div>
+      <h2 class="section-title">We're Here to Help</h2>
+      <p class="section-lead">Whether you have questions about research, partnerships, or making a donation, our team is ready to connect with you.</p>
+      <div class="contacts-grid">
+        <div class="contact-card">
+          <div class="contact-avatar">🔬</div>
+          <div class="contact-info">
+            <h4>Dr. Bryan Gaines</h4>
+            <div class="role">Center Coordinator</div>
+            <p>For information about research, programs, projects, and community partnership opportunities.</p>
+            <br/>
+            <a href="mailto:bfgaines@hs.uci.edu">bfgaines@hs.uci.edu</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-avatar">🤲</div>
+          <div class="contact-info">
+            <h4>Nikki Gaitan</h4>
+            <div class="role">Senior Executive Director of Development</div>
+            <p>For information on making a donation or partnering with CEHDR.</p>
+            <br/>
+            <a href="mailto:nmgaitan@hs.uci.edu">nmgaitan@hs.uci.edu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <footer>
+    <p><strong>Center for Environmental Health Disparities Research (CEHDR)</strong></p>
+    <p>Joe C. Wen School of Population &amp; Public Health &nbsp;|&nbsp; University of California, Irvine</p>
+    <p style="margin-top:8px;">UC Irvine Foundation &nbsp;|&nbsp; 101 Aldrich Hall, Irvine, CA 92697-5600</p>
+    <p style="margin-top:8px; color: rgba(255,255,255,0.35);">© 2026 The Regents of the University of California. All rights reserved.</p>
+  </footer> -->
+
+</body>
+</html>
