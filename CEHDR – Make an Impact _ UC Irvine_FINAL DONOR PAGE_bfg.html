@@ -25,26 +25,26 @@
     .wp-block-columns, .wp-block-column, .wp-block-column>div { 
       margin: 0 !important;
     }
-    .hero {
-      position: relative; width: 100%; height: 380px;
+    .hero-impact {
+      position: relative; width: 100%; padding: 38px 0;
       background: linear-gradient(135deg, #0B2545 0%, #0064A4 45%, #1A8A7A 100%);
       display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden;
     }
-    .hero::before {
+    .hero-impact::before {
       content: ''; position: absolute; inset: 0;
       background: url('your-hero-image.jpg') center/cover no-repeat;
       opacity: 0.22;
     }
-    .hero::after {
+    .hero-impact::after {
       content: ''; position: absolute; width: 700px; height: 700px;
       border-radius: 50%; border: 2px solid rgba(255,210,0,0.15);
       top: -200px; right: -200px; pointer-events: none;
     }
     .hero-inner { position: relative; z-index: 2; padding: 0 30px; }
     .hero-eyebrow { display: inline-block; background: var(--uci-gold); color: var(--uci-dark); font-size: 0.85rem; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; padding: 4px 14px; border-radius: 20px; margin-bottom: 12px; }
-    .hero h1 { font-family: 'Merriweather', serif; font-size: clamp(1.5rem, 4vw, 2.4rem); color: var(--white) !important; line-height: 1.25; margin-bottom: 14px; }
-    .hero h1 span { color: var(--uci-gold); }
-    .hero p { color: rgba(255,255,255,0.88); font-size: 0.95rem; max-width: 660px; margin: 0 auto 24px; }
+    .hero-impact h1 { font-family: 'Merriweather', serif; font-size: clamp(1.5rem, 4vw, 2.4rem) !important; color: var(--white) !important; line-height: 1.25; margin-bottom: 14px; }
+    .hero-impact h1 span { color: var(--uci-gold); }
+    .hero-impact p { color: rgba(255,255,255,0.88); font-size: 0.95rem; max-width: 660px; margin: 0 auto 24px; }
     .btn-primary { display: inline-block; background: var(--uci-gold); color: var(--uci-dark); font-weight: 700; font-size: 0.9rem; padding: 11px 32px; border-radius: 40px; text-decoration: none; letter-spacing: 0.5px; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 18px rgba(0,0,0,0.25); }
     .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.3); }
 
@@ -57,7 +57,7 @@
     .section-alt { background: var(--light-bg); }
     .container { max-width: 1080px; margin: 0 auto; }
     .section-label { font-size: 1rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green); margin-bottom: 10px; }
-    .section-title { font-family: 'Merriweather', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem); color: var(--uci-dark); margin-bottom: 14px; }
+    .section-title { font-family: 'Merriweather', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem) !important; color: var(--uci-dark); margin-bottom: 14px !important; margin-top: 0 !important; }
     .section-lead { font-size: 0.95rem; color: var(--text-mid); margin-bottom: 22px; }
     .divider { width: 60px; height: 4px; background: var(--uci-gold); border-radius: 2px; margin: 0 0 24px; }
 
@@ -80,7 +80,7 @@
     .rise   .card-tag { color: #2E7D5E; }
     .circle .card-tag { color: #1A6BAA; }
     .impact .card-tag { color: #7B5EA7; }
-    .card h3 { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--uci-dark); margin-bottom: 8px; line-height: 1.4; }
+    .card h3 { font-family: 'Merriweather', serif; font-size: 1rem !important; color: var(--uci-dark); margin-bottom: 32px !important; margin-top: 0 !important; line-height: 1.4; }
     .card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
 
     .video-section { background: var(--uci-dark); padding: 36px 24px; text-align: left; }
@@ -119,16 +119,16 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 2rem;
     }
-    .video-placeholder h4 { font-family: 'Merriweather', serif; font-size: 1.1rem; color: var(--white); }
+    .video-placeholder h4 { font-family: 'Merriweather', serif; font-size: 1.1rem !important; color: var(--white); }
     .video-placeholder p { font-size: 0.88rem; color: rgba(255,255,255,0.55); max-width: 420px; line-height: 1.6; }
     .video-caption { margin-top: 18px; font-size: 0.85rem; color: rgba(255,255,255,0.5); font-style: italic; }
 
     .donate-wrapper { display: grid; grid-template-columns: 3fr 2fr; gap: 28px; align-items: start; }
     @media(max-width: 700px){ .donate-wrapper { grid-template-columns: 1fr; } }
     .donate-box { background: var(--white); border-radius: 14px; padding: 22px; box-shadow: 0 2px 16px rgba(0,60,120,0.08); border: 1px solid var(--border-light); }
-    .donate-box h3 { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--uci-dark); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--uci-gold); }
+    .donate-box h3 { font-family: 'Merriweather', serif; font-size: 1rem !important; color: var(--uci-dark); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--uci-gold); }
     .step-list { list-style: none; counter-reset: steps; }
-    .step-list li { counter-increment: steps; display: flex; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; color: var(--text-mid); align-items: flex-start; }
+    .step-list li { counter-increment: steps; display: flex; gap: 12px; margin-bottom: 16px; font-size: 0.85rem; color: var(--text-mid); align-items: flex-start; padding-left: 0 !important;}
     .step-list li::before { content: counter(steps) !important; position: relative !important; min-width: 28px; height: 28px; background: var(--uci-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
     .step-content { display: flex; flex-direction: column; gap: 10px; flex: 1; }
     .step-text { line-height: 1.6; }
@@ -140,7 +140,7 @@
     .tag-pill.purple { background: #F3EEF9; color: #7B5EA7; }
 
     .check-box { background: linear-gradient(135deg, #0B2545 0%, #0064A4 100%); border-radius: 14px; padding: 22px; color: white; }
-    .check-box h3 { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--uci-gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid rgba(255,210,0,0.4); }
+    .check-box h3 { font-family: 'Merriweather', serif; font-size: 1rem !important; color: var(--uci-gold); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid rgba(255,210,0,0.4); }
     .check-box p, .check-box address { font-size: 0.85rem; color: rgba(255,255,255,0.88); line-height: 1.6; font-style: normal; }
     .check-box .check-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
     .check-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
@@ -148,15 +148,15 @@
     .check-box address { margin-top: 4px; border-left: 3px solid var(--uci-gold); padding-left: 14px; }
 
     .cta-strip { background: linear-gradient(135deg, #2E7D5E 0%, #0064A4 100%); padding: 48px 24px; text-align: center; }
-    .cta-strip h2 { font-family: 'Merriweather', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem); color: white; margin-bottom: 12px; }
+    .cta-strip h2 { font-family: 'Merriweather', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem) !important; color: white; margin-bottom: 12px; }
     .cta-strip p { color: rgba(255,255,255,0.85); font-size: 0.9rem; max-width: 580px; margin: 0 auto 24px; }
     .btn-secondary { display: inline-block; background: transparent; border: 2px solid var(--uci-gold); color: var(--uci-gold); font-weight: 700; font-size: 0.85rem; padding: 10px 28px; border-radius: 40px; text-decoration: none; margin: 5px 6px; transition: background 0.2s, color 0.2s; }
     .btn-secondary:hover { background: var(--uci-gold); color: var(--uci-dark); }
 
     .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
-    .contact-card { background: var(--white); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light); box-shadow: 0 2px 12px rgba(0,60,120,0.07); display: flex; gap: 14px; align-items: flex-start; }
+    .contact-card { background: var(--white); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light); box-shadow: 0 2px 12px rgba(0,60,120,0.07); display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
     .contact-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--uci-blue), var(--accent-teal)); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; flex-shrink: 0; }
-    .contact-info h4 { font-family: 'Merriweather', serif; font-size: 0.88rem; color: var(--uci-dark); margin-bottom: 3px; }
+    .contact-info h4 { font-family: 'Merriweather', serif; font-size: 0.88rem !important; color: var(--uci-dark); margin-bottom: 3px !important;  }
     .contact-info .role { font-size: 0.78rem; color: var(--accent-green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
     .contact-info p { font-size: 0.78rem; color: var(--text-mid); line-height: 1.5; }
     .contact-info a { color: var(--uci-blue); text-decoration: none; font-weight: 600; }
@@ -170,7 +170,7 @@
 
   <!-- <div class="top-bar">Center for Environmental Health Disparities Research &nbsp;|&nbsp; UC Irvine Joe C. Wen School of Population &amp; Public Health</div> -->
 
-  <section class="hero">
+  <section class="hero-impact">
     <div class="hero-inner">
       <div class="hero-eyebrow">Make a Difference Today</div>
       <h1>Make an <span>Impact</span><br/>for Environmental Health Equity</h1>
