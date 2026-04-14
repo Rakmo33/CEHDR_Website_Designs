@@ -83,19 +83,26 @@
     .card h3 { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--uci-dark); margin-bottom: 8px; line-height: 1.4; }
     .card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
 
-    .video-section { background: var(--uci-dark); padding: 48px 24px; text-align: center; }
-    .video-section .section-label { color: var(--uci-gold); }
+    .video-section { background: var(--uci-dark); padding: 36px 24px; text-align: left; }
+    .video-section .container { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+    @media(max-width: 768px) { .video-section .container { grid-template-columns: 1fr; } }
+    .video-section .section-label { color: var(--uci-gold); margin-bottom: 8px; }
     .video-section .section-title { color: var(--white); margin-bottom: 10px; }
-    .video-section .section-lead { color: rgba(255,255,255,0.78); margin: 0 auto 32px; }
-    .video-section .divider { background: var(--uci-gold); margin: 0 auto 24px; }
+    .video-section .section-lead { color: rgba(255,255,255,0.78); margin: 0 0 24px 0; }
+    .video-section .divider { background: var(--uci-gold); margin: 0 0 16px 0; }
+    .video-content { display: flex; flex-direction: column; }
     .video-wrapper {
-      position: relative; max-width: fit-content; margin: 0 auto;
+      position: relative; max-width: 85vw; margin: 0;
+      min-height: 320px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .video-wrapper video {
       border-radius: 16px; overflow: hidden;
       box-shadow: 0 20px 60px rgba(0,0,0,0.5);
       border: 3px solid rgba(255,210,0,0.3);
       background: #0B1E33;
-      min-height: 320px;
-      display: flex; align-items: center; justify-content: center;
+      max-height: 500px;
+    
     }
     .video-wrapper iframe { display: block; width: 100%; height: 320px; border: none; }
     .video-placeholder {
@@ -116,7 +123,7 @@
     .video-placeholder p { font-size: 0.88rem; color: rgba(255,255,255,0.55); max-width: 420px; line-height: 1.6; }
     .video-caption { margin-top: 18px; font-size: 0.85rem; color: rgba(255,255,255,0.5); font-style: italic; }
 
-    .donate-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    .donate-wrapper { display: grid; grid-template-columns: 3fr 2fr; gap: 28px; align-items: start; }
     @media(max-width: 700px){ .donate-wrapper { grid-template-columns: 1fr; } }
     .donate-box { background: var(--white); border-radius: 14px; padding: 22px; box-shadow: 0 2px 16px rgba(0,60,120,0.08); border: 1px solid var(--border-light); }
     .donate-box h3 { font-family: 'Merriweather', serif; font-size: 1rem; color: var(--uci-dark); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--uci-gold); }
@@ -126,7 +133,7 @@
     .step-content { display: flex; flex-direction: column; gap: 10px; flex: 1; }
     .step-text { line-height: 1.6; }
     .pills-row { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 14px; background: #F4F8FC; border-radius: 10px; border: 1px solid var(--border-light); }
-    .tag-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 0.78rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; white-space: nowrap; }
+    .tag-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; white-space: nowrap; }
     .tag-pill.blue   { background: #E8F4FD; color: #0064A4; }
     .tag-pill.green  { background: #E8F8F1; color: #2E7D5E; }
     .tag-pill.teal   { background: #E6F4F2; color: #1A8A7A; }
@@ -251,12 +258,15 @@
 
   <section class="video-section">
     <div class="container">
-      <div class="section-label">CEHDR RISE Fellows in Action</div>
-      <div class="divider"></div>
-      <h2 class="section-title">Meet the Next Generation of Health Equity Leaders</h2>
-      <p class="section-lead">Watch our CEHDR RISE Fellows on the front lines of environmental health research — and hear their powerful messages.</p>
+      <div class="video-content">
+        <div class="section-label">CEHDR RISE Fellows in Action</div>
+        <div class="divider"></div>
+        <h2 class="section-title">Meet the Next Generation of Health Equity Leaders</h2>
+        <p class="section-lead">Watch our CEHDR RISE Fellows on the front lines of environmental health research — and hear their powerful messages.</p>
+      </div>
       <div class="video-wrapper">
-           <video src="https://sites.uci.edu/cehdr/files/2026/04/CEHDR-RISE-fellows.mp4" autoplay loop controls muted height="500px"></video>
+           <video src="https://sites.uci.edu/cehdr/files/2026/04/CEHDR-RISE-fellows.mp4" autoplay loop controls muted></video>
+      </div>
     </div>
   </section>
 
