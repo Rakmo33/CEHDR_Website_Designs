@@ -32,7 +32,7 @@
     }
     .hero-impact::before {
       content: ''; position: absolute; inset: 0;
-      background: url('your-hero-image.jpg') center/cover no-repeat;
+      /* background: url('your-hero-image.jpg') center/cover no-repeat; */
       opacity: 0.22;
     }
     .hero-impact::after {
@@ -105,22 +105,6 @@
     
     }
     .video-wrapper iframe { display: block; width: 100%; height: 320px; border: none; }
-    .video-placeholder {
-      width: 100%; height: 320px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 16px; padding: 40px;
-    }
-    .video-placeholder .play-icon {
-      width: 72px; height: 72px;
-      border-radius: 50%;
-      background: rgba(255,210,0,0.15);
-      border: 2px solid rgba(255,210,0,0.4);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem;
-    }
-    .video-placeholder h4 { font-family: 'Merriweather', serif; font-size: 1.1rem !important; color: var(--white); }
-    .video-placeholder p { font-size: 0.88rem; color: rgba(255,255,255,0.55); max-width: 420px; line-height: 1.6; }
     .video-caption { margin-top: 18px; font-size: 0.85rem; color: rgba(255,255,255,0.5); font-style: italic; }
 
     .donate-wrapper { display: grid; grid-template-columns: 3fr 2fr; gap: 28px; align-items: start; }
@@ -136,7 +120,7 @@
     .tag-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; font-weight: 700; padding: 5px 12px; border-radius: 20px; white-space: nowrap; }
     .tag-pill.blue   { background: #E8F4FD; color: #0064A4; }
     .tag-pill.green  { background: #E8F8F1; color: #2E7D5E; }
-    .tag-pill.teal   { background: #E6F4F2; color: #1A8A7A; }
+    .tag-pill.teal   { background: #E6F4F2; color: #12786a; }
     .tag-pill.purple { background: #F3EEF9; color: #7B5EA7; }
 
     .check-box { background: linear-gradient(135deg, #0B2545 0%, #0064A4 100%); border-radius: 14px; padding: 22px; color: white; }
@@ -147,7 +131,9 @@
     .check-box strong { color: var(--uci-gold); }
     .check-box address { margin-top: 4px; border-left: 3px solid var(--uci-gold); padding-left: 14px; }
 
-    .cta-strip { background: linear-gradient(135deg, #2E7D5E 0%, #0064A4 100%); padding: 48px 24px; text-align: center; }
+    /* .cta-strip { background: linear-gradient(135deg, #2E7D5E 0%, #0064A4 100%); padding: 48px 24px; text-align: center; } */
+    .cta-strip { background: var(--uci-dark); padding: 48px 24px; text-align: center; }
+    
     .cta-strip h2 { font-family: 'Merriweather', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem) !important; color: white; margin-bottom: 12px; }
     .cta-strip p { color: rgba(255,255,255,0.85); font-size: 0.9rem; max-width: 580px; margin: 0 auto 24px; }
     .btn-secondary { display: inline-block; background: transparent; border: 2px solid var(--uci-gold); color: var(--uci-gold); font-weight: 700; font-size: 0.85rem; padding: 10px 28px; border-radius: 40px; text-decoration: none; margin: 5px 6px; transition: background 0.2s, color 0.2s; }
@@ -156,7 +142,7 @@
     .contacts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
     .contact-card { background: var(--white); border-radius: 14px; padding: 20px; border: 1px solid var(--border-light); box-shadow: 0 2px 12px rgba(0,60,120,0.07); display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
     .contact-avatar { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--uci-blue), var(--accent-teal)); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem; flex-shrink: 0; }
-    .contact-info h4 { font-family: 'Merriweather', serif; font-size: 0.88rem !important; color: var(--uci-dark); margin-bottom: 3px !important;  }
+    .contact-info h3 { font-family: 'Merriweather', serif; color: var(--uci-dark); margin-bottom: 3px !important;  }
     .contact-info .role { font-size: 0.78rem; color: var(--accent-green); font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px; }
     .contact-info p { font-size: 0.78rem; color: var(--text-mid); line-height: 1.5; }
     .contact-info a { color: var(--uci-blue); text-decoration: none; font-weight: 600; }
@@ -356,7 +342,7 @@
         <div class="contact-card">
           <div class="contact-avatar">🔬</div>
           <div class="contact-info">
-            <h4>Dr. Bryan Gaines</h4>
+            <h3>Dr. Bryan Gaines</h3>
             <div class="role">Center Coordinator</div>
             <p>For information about research, programs, projects, and community partnership opportunities.</p>
             <br/>
@@ -366,7 +352,7 @@
         <div class="contact-card">
           <div class="contact-avatar">🤲</div>
           <div class="contact-info">
-            <h4>Nikki Gaitan</h4>
+            <h3>Nikki Gaitan</h3>
             <div class="role">Senior Executive Director of Development</div>
             <p>For information on making a donation or partnering with CEHDR.</p>
             <br/>
