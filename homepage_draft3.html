@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UCI CEHDR – Redesign Concept</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:   #003764;
+      --gold:   #FFD200;
+      --teal:   #1B7A6E;
+      --light:  #F4F7FB;
+      --white:  #FFFFFF;
+      --text:   #1A1A2E;
+      --muted:  #5A6A7A;
+      --accent: #E8F4F1;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      background: rgba(0,55,100,0.96); backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 68px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.18);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-badge {
+      background: var(--gold); color: var(--blue); font-weight: 800;
+      font-size: 13px; padding: 5px 10px; border-radius: 6px; letter-spacing: 0.5px;
+    }
+    .nav-logo-text { color: var(--white); font-size: 15px; font-weight: 600; line-height: 1.2; }
+    .nav-logo-text span { display: block; font-weight: 300; font-size: 11px; color: #aac8e4; letter-spacing: 0.8px; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { color: #cde0f5; text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold); color: var(--blue); padding: 9px 22px;
+      border-radius: 50px; font-weight: 700; font-size: 13px; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(255,210,0,.4); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #001f3f 0%, #003764 50%, #1B7A6E 100%);
+      display: flex; align-items: center; justify-content: center;
+      padding: 100px 48px 60px; position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.4;
+    }
+    /* floating blobs */
+    .blob {
+      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15;
+      animation: drift 8s ease-in-out infinite alternate;
+    }
+    .blob1 { width: 500px; height: 500px; background: var(--gold); top: -100px; right: -100px; animation-delay: 0s; }
+    .blob2 { width: 400px; height: 400px; background: #1dd3b0; bottom: -80px; left: -80px; animation-delay: 2s; }
+    @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(30px,30px) scale(1.05); } }
+
+    .hero-inner { max-width: 1100px; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,210,0,.15); border: 1px solid rgba(255,210,0,.35);
+      color: var(--gold); padding: 6px 16px; border-radius: 50px; font-size: 12px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px;
+    }
+    .hero-tag::before { content: '●'; font-size: 8px; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 52px; color: var(--white); line-height: 1.15; margin-bottom: 22px; }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero p { color: #aac8e4; font-size: 17px; line-height: 1.7; margin-bottom: 36px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: var(--blue); padding: 14px 32px;
+      border-radius: 50px; font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: all .25s; box-shadow: 0 4px 20px rgba(255,210,0,.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,210,0,.45); }
+    .btn-outline {
+      border: 2px solid rgba(255,255,255,.35); color: var(--white); padding: 14px 32px;
+      border-radius: 50px; font-weight: 600; font-size: 15px; text-decoration: none;
+      transition: all .25s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+    /* hero stats card */
+    .hero-card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(20px); border-radius: 24px; padding: 36px;
+    }
+    .hero-card h3 { color: var(--gold); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 28px; }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .stat-item { text-align: center; padding: 20px 12px; background: rgba(255,255,255,.05); border-radius: 16px; border: 1px solid rgba(255,255,255,.08); transition: background .2s; }
+    .stat-item:hover { background: rgba(255,255,255,.1); }
+    .stat-num { font-size: 36px; font-weight: 800; color: var(--white); line-height: 1; }
+    .stat-num span { color: var(--gold); }
+    .stat-label { color: #aac8e4; font-size: 12px; margin-top: 6px; line-height: 1.4; }
+    .hero-mission {
+      margin-top: 20px; padding: 16px 20px;
+      background: rgba(27,122,110,.3); border-left: 3px solid var(--teal);
+      border-radius: 0 12px 12px 0; color: #cde8e4; font-size: 14px; font-style: italic; line-height: 1.6;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-bar { background: var(--gold); padding: 12px 0; overflow: hidden; white-space: nowrap; }
+    .marquee-track { display: inline-flex; gap: 0; animation: scroll 25s linear infinite; }
+    .marquee-item { color: var(--blue); font-weight: 600; font-size: 13px; padding: 0 32px; }
+    .marquee-item::before { content: '◆'; margin-right: 12px; font-size: 8px; }
+    @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* ── SECTION STYLES ── */
+    section { padding: 90px 48px; }
+    .section-tag { color: var(--teal); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 40px; color: var(--blue); margin-bottom: 16px; line-height: 1.2; }
+    .section-sub { color: var(--muted); font-size: 17px; line-height: 1.7; max-width: 560px; }
+    .section-header { margin-bottom: 52px; }
+    .max-w { max-width: 1100px; margin: 0 auto; }
+
+    /* ── MISSION ── */
+    .mission { background: var(--light); }
+    .mission-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .mission-card {
+      background: var(--white); border-radius: 20px; padding: 36px 28px;
+      box-shadow: 0 4px 24px rgba(0,55,100,.07); border: 1px solid #e8eef5;
+      transition: transform .3s, box-shadow .3s; cursor: default;
+    }
+    .mission-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,55,100,.12); }
+    .mission-icon {
+      width: 56px; height: 56px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; margin-bottom: 20px;
+    }
+    .ic-blue { background: #e8f0f8; }
+    .ic-teal { background: var(--accent); }
+    .ic-gold { background: #fff8d6; }
+    .mission-card h3 { font-size: 18px; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
+    .mission-card p { color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+    /* ── RESEARCH AREAS ── */
+    .research { background: var(--white); }
+    .research-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+    .research-card {
+      border-radius: 20px; padding: 32px; position: relative; overflow: hidden;
+      cursor: default; transition: transform .3s;
+    }
+    .research-card:hover { transform: translateY(-4px); }
+    .rc1 { background: linear-gradient(135deg, #003764, #005b99); }
+    .rc2 { background: linear-gradient(135deg, #1B7A6E, #24a896); }
+    .rc3 { background: linear-gradient(135deg, #5c3d8f, #7b52b9); }
+    .rc4 { background: linear-gradient(135deg, #c05621, #e67e22); }
+    .research-card::before {
+      content: ''; position: absolute; top: -40px; right: -40px;
+      width: 140px; height: 140px; border-radius: 50%;
+      background: rgba(255,255,255,.07);
+    }
+    .research-card .rc-icon { font-size: 36px; margin-bottom: 16px; }
+    .research-card h3 { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .research-card p { color: rgba(255,255,255,.75); font-size: 14px; line-height: 1.6; }
+    .rc-tag {
+      display: inline-block; margin-top: 16px; padding: 5px 14px;
+      background: rgba(255,255,255,.15); border-radius: 50px;
+      color: var(--white); font-size: 12px; font-weight: 600;
+    }
+
+    /* ── NEWS ── */
+    .news { background: var(--light); }
+    .news-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    .news-card {
+      background: var(--white); border-radius: 20px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,55,100,.06); border: 1px solid #e8eef5;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .news-card:hover { transform: translateY(-5px); box-shadow: 0 14px 40px rgba(0,55,100,.12); }
+    .news-thumb {
+      height: 160px; display: flex; align-items: center; justify-content: center;
+      font-size: 52px;
+    }
+    .nt1 { background: linear-gradient(135deg, #e8f0f8, #cde0f5); }
+    .nt2 { background: linear-gradient(135deg, var(--accent), #b2ddd6); }
+    .nt3 { background: linear-gradient(135deg, #fff8d6, #fdeea0); }
+    .news-body { padding: 24px; }
+    .news-date { color: var(--muted); font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .news-card h3 { font-size: 16px; font-weight: 700; color: var(--blue); margin-bottom: 10px; line-height: 1.4; }
+    .news-card p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+    .news-link { color: var(--teal); font-size: 13px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-top: 14px; transition: gap .2s; }
+    .news-link:hover { gap: 8px; }
+
+    /* ── PARTNERS ── */
+    .partners { background: var(--white); text-align: center; }
+    .partners .section-sub { margin: 0 auto 48px; }
+    .partner-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+    .partner-badge {
+      background: var(--light); border: 1px solid #dde6f0; border-radius: 14px;
+      padding: 16px 28px; font-weight: 700; font-size: 13px; color: var(--blue);
+      letter-spacing: 0.5px; transition: all .2s;
+    }
+    .partner-badge:hover { background: var(--blue); color: var(--white); transform: translateY(-2px); }
+
+    /* ── CTA BANNER ── */
+    .cta-banner {
+      background: linear-gradient(135deg, #003764 0%, #1B7A6E 100%);
+      text-align: center; padding: 80px 48px;
+      position: relative; overflow: hidden;
+    }
+    .cta-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(255,210,0,.08) 0%, transparent 70%);
+    }
+    .cta-banner h2 { font-family: 'Playfair Display', serif; font-size: 42px; color: var(--white); margin-bottom: 16px; position: relative; }
+    .cta-banner p { color: #aac8e4; font-size: 17px; margin-bottom: 36px; max-width: 560px; margin-left: auto; margin-right: auto; position: relative; }
+    .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #001828; color: #7a9bb5;
+      padding: 52px 48px 28px;
+    }
+    .footer-inner { max-width: 1100px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-brand p { font-size: 13px; line-height: 1.7; margin-top: 12px; max-width: 260px; }
+    .footer-col h4 { color: var(--white); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: #7a9bb5; text-decoration: none; font-size: 13px; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom { border-top: 1px solid #1e3347; padding-top: 24px; display: flex; align-items: center; justify-content: space-between; }
+    .footer-bottom p { font-size: 12px; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: #1e3347; display: flex; align-items: center; justify-content: center;
+      color: #7a9bb5; font-size: 14px; text-decoration: none; transition: all .2s;
+    }
+    .social-btn:hover { background: var(--gold); color: var(--blue); }
+
+    /* ── INTERACTIVE TABS ── */
+    .tabs-section { background: var(--white); }
+    .tabs { display: flex; gap: 8px; margin-bottom: 36px; flex-wrap: wrap; }
+    .tab-btn {
+      padding: 10px 24px; border-radius: 50px; border: 2px solid #dde6f0;
+      background: var(--white); color: var(--muted); font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: all .2s;
+    }
+    .tab-btn.active { background: var(--blue); color: var(--white); border-color: var(--blue); }
+    .tab-btn:hover:not(.active) { border-color: var(--blue); color: var(--blue); }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .pub-card {
+      background: var(--light); border-radius: 16px; padding: 24px;
+      border: 1px solid #e8eef5; transition: box-shadow .2s;
+    }
+    .pub-card:hover { box-shadow: 0 6px 24px rgba(0,55,100,.1); }
+    .pub-year { background: var(--blue); color: var(--white); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 50px; display: inline-block; margin-bottom: 10px; }
+    .pub-card h4 { font-size: 14px; font-weight: 700; color: var(--blue); margin-bottom: 8px; line-height: 1.4; }
+    .pub-card p { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .pub-tag { margin-top: 12px; display: inline-block; background: var(--accent); color: var(--teal); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 50px; }
+
+    /* scroll reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .mission-grid, .news-grid { grid-template-columns: 1fr; }
+      .research-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 60px 24px; }
+      .hero { padding: 100px 24px 60px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-badge">UCI</div>
+    <div class="nav-logo-text">CEHDR <span>Center for Environmental Health Disparities Research</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#mission">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#partners">Partners</a></li>
+  </ul>
+  <a class="nav-cta" href="#">Get Involved</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">UC Irvine · Public Health</div>
+      <h1>Advancing <em>Health Equity</em> Through Environmental Research</h1>
+      <p>CEHDR investigates how environmental exposures drive health disparities in vulnerable communities — driving science-backed solutions for a healthier, fairer world.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#research">Explore Our Research</a>
+        <a class="btn-outline" href="#news">Latest News</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>🔬 Center at a Glance</h3>
+      <div class="stat-grid">
+        <div class="stat-item"><div class="stat-num">20<span>+</span></div><div class="stat-label">Faculty Researchers</div></div>
+        <div class="stat-item"><div class="stat-num">$<span>15M</span></div><div class="stat-label">in Research Funding</div></div>
+        <div class="stat-item"><div class="stat-num">150<span>+</span></div><div class="stat-label">Publications</div></div>
+        <div class="stat-item"><div class="stat-num">12<span>+</span></div><div class="stat-label">Community Partners</div></div>
+      </div>
+      <div class="hero-mission">"We are committed to understanding and eliminating environmental health disparities in vulnerable populations across California and beyond."</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span class="marquee-item">Air Quality & Respiratory Health</span>
+    <span class="marquee-item">Community Engaged Research</span>
+    <span class="marquee-item">Toxic Exposure Studies</span>
+    <span class="marquee-item">Health Equity Advocacy</span>
+    <span class="marquee-item">Environmental Justice</span>
+    <span class="marquee-item">Pediatric Health Outcomes</span>
+    <span class="marquee-item">Climate Change & Health</span>
+    <span class="marquee-item">Cumulative Impacts</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">Air Quality & Respiratory Health</span>
+    <span class="marquee-item">Community Engaged Research</span>
+    <span class="marquee-item">Toxic Exposure Studies</span>
+    <span class="marquee-item">Health Equity Advocacy</span>
+    <span class="marquee-item">Environmental Justice</span>
+    <span class="marquee-item">Pediatric Health Outcomes</span>
+    <span class="marquee-item">Climate Change & Health</span>
+    <span class="marquee-item">Cumulative Impacts</span>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="max-w">
+    <div class="section-header reveal">
+      <div class="section-tag">Our Mission</div>
+      <h2 class="section-title">Why CEHDR Exists</h2>
+      <p class="section-sub">We bridge rigorous science and community action to understand and reduce environmental health disparities facing low-income and minority populations.</p>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card reveal">
+        <div class="mission-icon ic-blue">🔭</div>
+        <h3>Cutting-Edge Research</h3>
+        <p>We conduct rigorous, interdisciplinary research examining the links between environmental exposures and health outcomes in underserved communities across Southern California.</p>
+      </div>
+      <div class="mission-card reveal">
+        <div class="mission-icon ic-teal">🤝</div>
+        <h3>Community Partnership</h3>
+        <p>We work alongside community members and advocacy groups to ensure research questions reflect real needs — and that findings translate into meaningful policy change.</p>
+      </div>
+      <div class="mission-card reveal">
+        <div class="mission-icon ic-gold">🎓</div>
+        <h3>Training the Next Generation</h3>
+        <p>CEHDR mentors graduate students, postdoctoral researchers, and early-career scientists passionate about environmental justice and public health equity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH AREAS -->
+<section class="research" id="research">
+  <div class="max-w">
+    <div class="section-header reveal">
+      <div class="section-tag">Research Focus</div>
+      <h2 class="section-title">Our Key Research Areas</h2>
+      <p class="section-sub">From air pollution to climate change, our interdisciplinary teams tackle the environmental drivers of health inequity.</p>
+    </div>
+    <div class="research-grid">
+      <div class="research-card rc1 reveal">
+        <div class="rc-icon">🌬️</div>
+        <h3>Air Quality & Respiratory Health</h3>
+        <p>Investigating particulate matter, ozone, and traffic-related air pollution and their disproportionate impact on communities of color and children with asthma.</p>
+        <span class="rc-tag">20+ Active Studies</span>
+      </div>
+      <div class="research-card rc2 reveal">
+        <div class="rc-icon">☠️</div>
+        <h3>Toxic Exposures & Cumulative Risk</h3>
+        <p>Evaluating combined environmental and socioeconomic burdens through CalEnviroScreen-informed methodologies and biomonitoring programs.</p>
+        <span class="rc-tag">Statewide Impact</span>
+      </div>
+      <div class="research-card rc3 reveal">
+        <div class="rc-icon">🌡️</div>
+        <h3>Climate Change & Health Equity</h3>
+        <p>Examining how extreme heat, wildfires, and flooding exacerbate health disparities in already-vulnerable communities, with focus on adaptive solutions.</p>
+        <span class="rc-tag">NIH Funded</span>
+      </div>
+      <div class="research-card rc4 reveal">
+        <div class="rc-icon">👶</div>
+        <h3>Children's Environmental Health</h3>
+        <p>Longitudinal cohort studies on prenatal and early-life exposures and their influence on neurodevelopmental, respiratory, and metabolic outcomes.</p>
+        <span class="rc-tag">Cohort Studies</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS TABS -->
+<section class="tabs-section" id="publications">
+  <div class="max-w">
+    <div class="section-header reveal">
+      <div class="section-tag">Recent Work</div>
+      <h2 class="section-title">Selected Publications</h2>
+      <p class="section-sub">Browse our latest peer-reviewed research across focus areas.</p>
+    </div>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('all', this)">All</button>
+      <button class="tab-btn" onclick="switchTab('air', this)">Air Quality</button>
+      <button class="tab-btn" onclick="switchTab('climate', this)">Climate & Health</button>
+      <button class="tab-btn" onclick="switchTab('children', this)">Children's Health</button>
+    </div>
+    <div id="tab-all" class="tab-pane active">
+      <div class="pub-card"><span class="pub-year">2024</span><h4>Cumulative Environmental Burden and Cardiovascular Outcomes in Latino Communities in Southern California</h4><p>Journal of Environmental Health Perspectives · Smith J, Chen L, Patel R et al.</p><span class="pub-tag">Air Quality</span></div>
+      <div class="pub-card"><span class="pub-year">2024</span><h4>Wildfire Smoke Exposure and Preterm Birth Risk: A Statewide Analysis</h4><p>Environmental Research · Johnson A, Torres M et al.</p><span class="pub-tag">Climate</span></div>
+      <div class="pub-card"><span class="pub-year">2023</span><h4>Early Life Traffic-Related Air Pollution and Neurodevelopment at Age 7</h4><p>JAMA Pediatrics · Williams K, Nguyen T, Kim S et al.</p><span class="pub-tag">Children's Health</span></div>
+    </div>
+    <div id="tab-air" class="tab-pane">
+      <div class="pub-card"><span class="pub-year">2024</span><h4>Cumulative Environmental Burden and Cardiovascular Outcomes in Latino Communities</h4><p>Journal of Environmental Health Perspectives · Smith J et al.</p><span class="pub-tag">Air Quality</span></div>
+      <div class="pub-card"><span class="pub-year">2023</span><h4>PM2.5 Exposure Disparities Across California Zip Codes: 2010–2022</h4><p>Environmental Science & Technology · Lee H et al.</p><span class="pub-tag">Air Quality</span></div>
+    </div>
+    <div id="tab-climate" class="tab-pane">
+      <div class="pub-card"><span class="pub-year">2024</span><h4>Wildfire Smoke Exposure and Preterm Birth Risk: A Statewide Analysis</h4><p>Environmental Research · Johnson A et al.</p><span class="pub-tag">Climate</span></div>
+      <div class="pub-card"><span class="pub-year">2023</span><h4>Extreme Heat Events and Emergency Department Visits in Underserved Urban Communities</h4><p>American Journal of Public Health · Brown D et al.</p><span class="pub-tag">Climate</span></div>
+    </div>
+    <div id="tab-children" class="tab-pane">
+      <div class="pub-card"><span class="pub-year">2023</span><h4>Early Life Traffic-Related Air Pollution and Neurodevelopment at Age 7</h4><p>JAMA Pediatrics · Williams K et al.</p><span class="pub-tag">Children's Health</span></div>
+      <div class="pub-card"><span class="pub-year">2022</span><h4>Prenatal Pesticide Exposure and Childhood Asthma Risk: A Prospective Cohort Study</h4><p>Pediatrics · Davis M, Garcia C et al.</p><span class="pub-tag">Children's Health</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news" id="news">
+  <div class="max-w">
+    <div class="section-header reveal">
+      <div class="section-tag">Latest Updates</div>
+      <h2 class="section-title">News & Events</h2>
+      <p class="section-sub">Stay up to date with CEHDR's research milestones, community events, and media coverage.</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card reveal">
+        <div class="news-thumb nt1">🏆</div>
+        <div class="news-body">
+          <div class="news-date">May 2025</div>
+          <h3>CEHDR Receives $4.2M NIH Grant for Wildfire Health Study</h3>
+          <p>A landmark five-year award to investigate wildfire smoke's impact on maternal and child health across California's most impacted counties.</p>
+          <a class="news-link" href="#">Read More →</a>
+        </div>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-thumb nt2">🌎</div>
+        <div class="news-body">
+          <div class="news-date">April 2025</div>
+          <h3>Community Forum: Air Quality & Your Health in Orange County</h3>
+          <p>Join CEHDR researchers and local advocates for a free public forum exploring air quality data, health impacts, and what residents can do.</p>
+          <a class="news-link" href="#">Learn More →</a>
+        </div>
+      </div>
+      <div class="news-card reveal">
+        <div class="news-thumb nt3">📰</div>
+        <div class="news-body">
+          <div class="news-date">March 2025</div>
+          <h3>CEHDR Research Featured in Los Angeles Times</h3>
+          <p>Our team's findings on cumulative pollution burden in low-income communities garnered statewide media attention and legislative interest.</p>
+          <a class="news-link" href="#">Read Coverage →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners" id="partners">
+  <div class="max-w">
+    <div class="section-tag" style="text-align:center;">Collaborators & Funders</div>
+    <h2 class="section-title" style="text-align:center;">Our Partners</h2>
+    <p class="section-sub reveal">We collaborate with leading institutions, agencies, and community organizations to amplify our impact.</p>
+    <div class="partner-logos reveal">
+      <div class="partner-badge">NIH / NIEHS</div>
+      <div class="partner-badge">EPA</div>
+      <div class="partner-badge">CalEPA</div>
+      <div class="partner-badge">CARB</div>
+      <div class="partner-badge">CDPH</div>
+      <div class="partner-badge">UCLA Fielding SPH</div>
+      <div class="partner-badge">CHEAR Network</div>
+      <div class="partner-badge">Community Health OC</div>
+      <div class="partner-badge">Earthjustice</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <h2>Ready to Make an Impact?</h2>
+  <p>Whether you're a researcher, student, community advocate, or policymaker — there's a place for you at CEHDR.</p>
+  <div class="cta-btns">
+    <a class="btn-primary" href="#">Join Our Team</a>
+    <a class="btn-outline" href="#">Contact Us</a>
+    <a class="btn-outline" href="#">Support Our Research</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="background:var(--gold);color:var(--blue);font-weight:800;font-size:13px;padding:5px 10px;border-radius:6px;">UCI</div>
+          <div style="color:var(--white);font-weight:600;font-size:14px;">CEHDR</div>
+        </div>
+        <p>Center for Environmental Health Disparities Research · Department of Public Health · University of California, Irvine</p>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="#">Air Quality</a></li>
+          <li><a href="#">Toxic Exposures</a></li>
+          <li><a href="#">Climate & Health</a></li>
+          <li><a href="#">Children's Health</a></li>
+          <li><a href="#">Publications</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Mission & Vision</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Community Work</a></li>
+          <li><a href="#">Funding & Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Join / Apply</a></li>
+          <li><a href="#">News & Media</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 University of California, Irvine · CEHDR · All rights reserved.</p>
+      <div class="footer-social">
+        <a class="social-btn" href="#" title="Twitter">𝕏</a>
+        <a class="social-btn" href="#" title="LinkedIn">in</a>
+        <a class="social-btn" href="#" title="Email">✉</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Tab switching
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

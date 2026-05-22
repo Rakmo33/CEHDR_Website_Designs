@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Roboto+Slab:wght@300;400;700;900&display=swap" rel="stylesheet">
+<title>CEHDR – Design 3: Community & Story</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--blue:#0064A4;--navy:#003A63;--teal:#7EBEC5;--teal-m:#5BA3AB;--teal-l:#e0f2f5;--gold:#FFD92E;--gold-d:#e6b800;--green:#4CAF50;--gray:#F7F9FB;--white:#fff;--text:#1a2332;--muted:#5a6a7a}
+html{scroll-behavior:smooth}
+body{font-family:'Arimo',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+/* NAVBAR */
+.navbar{background:var(--white);position:sticky;top:0;z-index:1000;box-shadow:0 1px 0 #e0e8f0,0 4px 24px rgba(0,100,164,.06)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nav-logo img{height:42px;display:block}
+.nav-links{display:flex;list-style:none;align-items:center;gap:2px}
+.nav-links li a{font-size:.83rem;font-weight:700;color:var(--muted);text-decoration:none;padding:9px 14px;border-radius:6px;transition:all .2s}
+.nav-links li a:hover{color:var(--navy);background:#f0f5fa}
+.nav-impact{position:relative}
+.nav-impact a{background:linear-gradient(135deg,var(--navy),var(--blue))!important;color:#fff!important;border-radius:8px!important;padding:10px 20px!important;box-shadow:0 4px 16px rgba(0,100,164,.3)}
+.nav-impact a:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,100,164,.4)!important;background:linear-gradient(135deg,#002a50,var(--navy))!important}
+.nav-impact::after{content:'⭐ Highlighted';position:absolute;top:-22px;left:50%;transform:translateX(-50%);font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-d);white-space:nowrap;background:rgba(255,217,46,.15);border-radius:10px;padding:2px 8px}
+
+/* HERO — FULL-SCREEN WITH WAVE */
+.hero{position:relative;background:linear-gradient(155deg,#001e38 0%,var(--navy) 35%,#0060a0 70%,var(--teal-m) 100%);overflow:hidden;min-height:95vh;display:flex;flex-direction:column;justify-content:center}
+.hero-particles{position:absolute;inset:0;pointer-events:none}
+.p-dot{position:absolute;border-radius:50%;background:rgba(255,255,255,.06);animation:float-dot linear infinite}
+@keyframes float-dot{0%{transform:translateY(0) scale(1);opacity:.06}50%{opacity:.12;transform:translateY(-30px) scale(1.1)}100%{transform:translateY(0) scale(1);opacity:.06}}
+.hero-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:55% 45%;gap:40px;align-items:center;width:100%;position:relative;z-index:2}
+.hero-text{}
+.hero-badge-row{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.hbadge{display:inline-flex;align-items:center;gap:6px;font-size:.71rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:6px 14px;border-radius:30px}
+.hbadge-1{background:rgba(126,190,197,.15);border:1px solid rgba(126,190,197,.35);color:var(--teal)}
+.hbadge-2{background:rgba(255,217,46,.12);border:1px solid rgba(255,217,46,.3);color:var(--gold)}
+.hero-h1{font-family:'Roboto Slab',serif;font-size:clamp(2.4rem,4.5vw,4rem);font-weight:900;color:#fff;line-height:1.07;margin-bottom:24px}
+.hero-h1 .line-teal{color:var(--teal)}
+.hero-h1 .line-gold{color:var(--gold)}
+.hero-p{font-size:1.05rem;color:rgba(255,255,255,.74);line-height:1.78;margin-bottom:38px;max-width:500px}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.btn-hero-main{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;background:var(--gold);color:var(--navy);font-family:'Arimo',sans-serif;font-weight:700;font-size:.95rem;text-decoration:none;border-radius:50px;box-shadow:0 8px 28px rgba(255,217,46,.45);transition:all .3s;position:relative;overflow:hidden}
+.btn-hero-main::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,.2);border-radius:50%;transform:translate(-50%,-50%);transition:width .5s,height .5s}
+.btn-hero-main:hover::before{width:300px;height:300px}
+.btn-hero-main:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(255,217,46,.65)}
+.btn-hero-sec{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border:2px solid rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:.9rem;text-decoration:none;border-radius:50px;transition:all .25s}
+.btn-hero-sec:hover{border-color:var(--teal);background:rgba(126,190,197,.1)}
+.hero-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:420px}
+.mosaic-img{border-radius:12px;overflow:hidden}
+.mosaic-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.mosaic-img:hover img{transform:scale(1.06)}
+.mosaic-img:first-child{grid-row:span 2;border-radius:16px}
+.hero-wave{position:absolute;bottom:-2px;left:0;right:0;z-index:1}
+
+/* IMPACT SPOTLIGHT STRIP */
+.impact-strip{background:var(--navy);padding:0;position:relative;z-index:3}
+.impact-strip-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:flex;align-items:stretch;min-height:100px}
+.is-left{background:var(--gold);padding:22px 32px;display:flex;align-items:center;gap:16px;flex-shrink:0}
+.is-left .is-icon{font-size:2.4rem}
+.is-left-text h3{font-family:'Roboto Slab',serif;font-size:1.05rem;font-weight:900;color:var(--navy)}
+.is-left-text p{font-size:.78rem;color:rgba(0,58,99,.75)}
+.is-tabs{display:flex;align-items:center;flex:1;padding:0 12px;gap:0;overflow-x:auto}
+.is-tab{padding:10px 20px;font-size:.82rem;font-weight:700;color:rgba(255,255,255,.6);cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;text-decoration:none;display:flex;align-items:center;gap:8px}
+.is-tab:hover,.is-tab.active{color:#fff;border-bottom-color:var(--teal)}
+.is-cta{padding:0 32px;display:flex;align-items:center;flex-shrink:0}
+.btn-give{background:var(--gold);color:var(--navy);font-weight:700;font-size:.88rem;padding:12px 26px;border-radius:8px;text-decoration:none;white-space:nowrap;transition:all .25s;box-shadow:0 4px 16px rgba(255,217,46,.35)}
+.btn-give:hover{transform:scale(1.04)}
+
+/* STATS MOSAIC */
+.stats-section{background:var(--gray);padding:72px 0}
+.stats-inner{max-width:1240px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:24px;align-items:stretch}
+.stat-feature{background:linear-gradient(135deg,var(--navy),var(--blue));border-radius:20px;padding:40px 36px;display:flex;flex-direction:column;justify-content:space-between}
+.sf-label{font-size:.73rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.sf-quote{font-family:'Roboto Slab',serif;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,.82);line-height:1.65;flex:1;margin-bottom:20px}
+.sf-attr{display:flex;align-items:center;gap:12px}
+.sf-attr-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--teal)}
+.sf-attr-name{font-size:.82rem;font-weight:700;color:#fff;margin-bottom:2px}
+.sf-attr-title{font-size:.72rem;color:rgba(255,255,255,.6)}
+.stat-mini{background:var(--white);border-radius:16px;padding:28px 20px;text-align:center;box-shadow:0 2px 14px rgba(0,0,0,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all .25s}
+.stat-mini:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.1)}
+.sm-icon{font-size:2rem;margin-bottom:10px}
+.sm-num{font-family:'Roboto Slab',serif;font-size:2.8rem;font-weight:900;color:var(--navy);line-height:1;margin-bottom:8px}
+.sm-lbl{font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);line-height:1.5;max-width:120px}
+
+/* CONTAINER */
+.container{max-width:1240px;margin:0 auto;padding:0 32px}
+.section{padding:90px 0}
+.sec-eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-m);margin-bottom:10px}
+.sec-title{font-family:'Roboto Slab',serif;font-size:clamp(1.9rem,3vw,2.6rem);font-weight:900;color:var(--navy);line-height:1.18;margin-bottom:14px}
+.sec-sub{font-size:1rem;color:var(--muted);line-height:1.72}
+
+/* ABOUT */
+.about-section{background:var(--white);padding:90px 0}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.about-img-stack{position:relative;height:480px}
+.ais-main{position:absolute;top:0;right:0;width:85%;height:380px;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.ais-main img{width:100%;height:100%;object-fit:cover}
+.ais-accent{position:absolute;bottom:0;left:0;width:60%;height:220px;border-radius:16px;overflow:hidden;border:4px solid var(--white);box-shadow:0 12px 40px rgba(0,0,0,.15)}
+.ais-accent img{width:100%;height:100%;object-fit:cover}
+.ais-badge{position:absolute;top:24px;left:24px;background:var(--gold);color:var(--navy);font-family:'Roboto Slab',serif;font-size:1.1rem;font-weight:900;padding:14px 20px;border-radius:12px;box-shadow:0 6px 20px rgba(255,217,46,.4);line-height:1.2;text-align:center}
+.ais-badge small{display:block;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:2px;color:rgba(0,58,99,.7)}
+.about-text p{font-size:.97rem;color:var(--muted);line-height:1.82;margin-bottom:16px}
+blockquote.pull{background:var(--teal-l);border-left:5px solid var(--teal);border-radius:0 12px 12px 0;padding:18px 24px;margin:24px 0;font-style:italic;color:var(--navy);font-size:.95rem;line-height:1.65}
+.btn-teal{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--teal-m);color:#fff;font-weight:700;font-size:.9rem;text-decoration:none;border-radius:8px;transition:all .25s;margin-top:8px}
+.btn-teal:hover{background:var(--blue);transform:translateY(-2px)}
+
+/* INITIATIVES — TABS */
+.section-initiatives{background:var(--gray);padding:90px 0}
+.init-tabs-row{display:flex;gap:10px;margin-bottom:36px;flex-wrap:wrap}
+.init-tab-btn{font-family:'Arimo',sans-serif;font-size:.85rem;font-weight:700;padding:10px 22px;border-radius:50px;cursor:pointer;border:2px solid #dce6ef;background:var(--white);color:var(--muted);transition:all .22s}
+.init-tab-btn:hover{border-color:var(--teal);color:var(--teal-m)}
+.init-tab-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.init-panels{}
+.init-panel{display:none;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.init-panel.active{display:grid}
+.init-panel-img{border-radius:16px;overflow:hidden;height:340px}
+.init-panel-img img{width:100%;height:100%;object-fit:cover;display:block}
+.init-panel-text{}
+.ipt-emoji{font-size:3rem;margin-bottom:16px}
+.ipt-acro{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-m);margin-bottom:6px}
+.ipt-title{font-family:'Roboto Slab',serif;font-size:1.5rem;font-weight:900;color:var(--navy);margin-bottom:14px;line-height:1.25}
+.ipt-desc{font-size:.97rem;color:var(--muted);line-height:1.78;margin-bottom:24px}
+.btn-navy{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--navy);color:#fff;font-weight:700;font-size:.9rem;text-decoration:none;border-radius:8px;transition:all .25s}
+.btn-navy:hover{background:var(--blue);transform:translateY(-2px)}
+
+/* NEWS */
+.section-news{background:var(--white);padding:90px 0}
+.news-layout{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px}
+.news-card{border-radius:14px;overflow:hidden;border:1px solid #e0eaf2;transition:all .28s}
+.news-card:hover{box-shadow:0 14px 42px rgba(0,100,164,.12);transform:translateY(-5px)}
+.nc-img{width:100%;height:190px;object-fit:cover;display:block}
+.nc-body{padding:22px}
+.nc-source{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
+.nc-date{font-size:.72rem;color:var(--muted);margin-bottom:10px}
+.nc-tag{display:inline-block;font-size:.68rem;font-weight:700;background:var(--teal-l);color:var(--teal-m);border-radius:20px;padding:3px 10px;margin-bottom:10px}
+.nc-title{font-family:'Roboto Slab',serif;font-size:.95rem;font-weight:700;color:var(--navy);line-height:1.45;text-decoration:none;display:block;margin-bottom:10px}
+.nc-title:hover{color:var(--blue)}
+.nc-quote{font-size:.83rem;font-style:italic;color:var(--muted);line-height:1.62;margin-bottom:14px;padding-left:12px;border-left:3px solid var(--teal)}
+.nc-link{font-size:.82rem;font-weight:700;color:var(--blue);text-decoration:none}
+.news-cta{text-align:center;margin-top:48px}
+
+/* CTA SECTION */
+.section-cta{background:linear-gradient(135deg,#001428 0%,var(--navy) 50%,#004880 100%);padding:90px 0;position:relative;overflow:hidden}
+.cta-ring{position:absolute;border-radius:50%;border:1px solid rgba(126,190,197,.1);pointer-events:none}
+.cta-inner{text-align:center;position:relative;z-index:1}
+.cta-inner .sec-eyebrow{color:var(--teal)}
+.cta-inner h2{font-family:'Roboto Slab',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:#fff;line-height:1.12;margin-bottom:18px}
+.cta-inner h2 span{color:var(--gold)}
+.cta-inner p{font-size:1.05rem;color:rgba(255,255,255,.7);max-width:560px;margin:0 auto 44px;line-height:1.72}
+.cta-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn-gold-lg{display:inline-flex;align-items:center;gap:10px;padding:18px 44px;background:var(--gold);color:var(--navy);font-family:'Arimo',sans-serif;font-weight:700;font-size:1rem;text-decoration:none;border-radius:50px;box-shadow:0 10px 36px rgba(255,217,46,.45);transition:all .3s}
+.btn-gold-lg:hover{transform:translateY(-3px);box-shadow:0 18px 50px rgba(255,217,46,.65)}
+.cta-how{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:32px;max-width:700px;margin:48px auto 0;text-align:left}
+.cta-how h4{font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:var(--teal);margin-bottom:16px}
+.cta-how-steps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cta-step{display:flex;gap:12px;align-items:flex-start}
+.step-num{width:28px;height:28px;background:var(--teal-m);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:#fff;flex-shrink:0}
+.step-txt{font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.55}
+.step-txt strong{color:#fff;display:block;margin-bottom:2px}
+
+/* FOOTER */
+footer{background:#050e18;border-top:3px solid var(--teal);padding:56px 0 0}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:48px}
+.footer-logo img{height:44px;margin-bottom:18px}
+.footer-addr{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.8}
+.footer-addr a{color:rgba(255,255,255,.68);text-decoration:none}
+.footer-h{font-family:'Roboto Slab',serif;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.footer-nav{list-style:none}
+.footer-nav li{margin-bottom:10px}
+.footer-nav a{font-size:.84rem;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.footer-nav a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:18px 0;text-align:center;font-size:.78rem;color:rgba(255,255,255,.35)}
+.footer-bottom a{color:rgba(255,255,255,.52);text-decoration:underline}
+
+/* SCROLL ANIM */
+.fade-up{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.fade-left{opacity:0;transform:translateX(-36px);transition:opacity .7s ease,transform .7s ease}
+.fade-right{opacity:0;transform:translateX(36px);transition:opacity .7s ease,transform .7s ease}
+.fade-in{opacity:0;transition:opacity .8s ease}
+.delay-1{transition-delay:.12s}.delay-2{transition-delay:.24s}.delay-3{transition-delay:.36s}.delay-4{transition-delay:.48s}
+.animated{opacity:1!important;transform:none!important}
+
+@media(max-width:960px){
+  .hero-inner{grid-template-columns:1fr}.hero-mosaic{display:none}
+  .about-layout{grid-template-columns:1fr}.about-img-stack{display:none}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat-feature{grid-column:span 2}
+  .init-panel{grid-template-columns:1fr}
+  .init-panel-img{display:none}
+  .news-layout{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .cta-how-steps{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .stat-feature{grid-column:span 2}
+  .news-layout{grid-template-columns:1fr}
+  .impact-strip-inner{flex-direction:column;padding:16px}
+  .is-left{width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#"><img src="https://sites.uci.edu/cehdr/files/2024/12/Desktop_Cntr_EnviroHealth_Disparities_Research-3L-White-525x156.png" alt="CEHDR" style="height:42px;filter:brightness(0) saturate(100%) invert(16%) sepia(56%) saturate(1300%) hue-rotate(190deg)"></a>
+    <ul class="nav-links">
+      <li><a href="#">About</a></li>
+      <li><a href="#">Community Engagement</a></li>
+      <li><a href="#">Research</a></li>
+      <li><a href="#">Graduate Courses</a></li>
+      <li><a href="#">News &amp; Features</a></li>
+      <li class="nav-impact"><a href="#">🎁 Make an Impact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-particles" id="particles"></div>
+  <div class="hero-inner">
+    <div class="hero-text fade-left">
+      <div class="hero-badge-row">
+        <span class="hbadge hbadge-1">🌿 UC Irvine · CEHDR</span>
+        <span class="hbadge hbadge-2">Est. 2021</span>
+      </div>
+      <h1 class="hero-h1">
+        <span class="line-teal">Community.</span><br>
+        <span>Research.</span><br>
+        <span class="line-gold">Equity.</span>
+      </h1>
+      <p class="hero-p">We are the Center for Environmental Health Disparities Research — an interdisciplinary community dedicated to building a healthier, more just world for Black and historically marginalized communities.</p>
+      <div class="hero-cta-row">
+        <a class="btn-hero-main" href="#">🎁 Make an Impact</a>
+        <a class="btn-hero-sec" href="#">Explore Our Work →</a>
+      </div>
+    </div>
+    <div class="hero-mosaic fade-right delay-2">
+      <div class="mosaic-img"><img src="https://picsum.photos/340/420?random=80" alt="Community"></div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div class="mosaic-img" style="flex:1"><img src="https://picsum.photos/300/200?random=81" alt="Research"></div>
+        <div class="mosaic-img" style="flex:1"><img src="https://picsum.photos/300/200?random=82" alt="Education"></div>
+      </div>
+    </div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" style="display:block;height:80px">
+    <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#F7F9FB"/>
+  </svg>
+</header>
+
+<!-- IMPACT STRIP -->
+<div class="impact-strip">
+  <div class="impact-strip-inner">
+    <div class="is-left">
+      <div class="is-icon">🎁</div>
+      <div class="is-left-text">
+        <h3>Make an Impact</h3>
+        <p>Support CEHDR's 4 initiatives</p>
+      </div>
+    </div>
+    <div class="is-tabs">
+      <a class="is-tab active" href="#">🌱 THRIVE</a>
+      <a class="is-tab" href="#">🎓 RISE</a>
+      <a class="is-tab" href="#">🤝 CIRCLE</a>
+      <a class="is-tab" href="#">💡 IMPACT</a>
+    </div>
+    <div class="is-cta">
+      <a class="btn-give" href="#">Give Today →</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-inner">
+    <div class="stat-feature fade-up">
+      <div class="sf-label">✦ CEHDR Director</div>
+      <div class="sf-quote">"To move forward, we must listen and address the issues African American communities have identified as problems and priorities. We must all acknowledge the past, raise awareness, and work together toward health equity."</div>
+      <div class="sf-attr">
+        <img class="sf-attr-avatar" src="https://picsum.photos/44/44?random=90" alt="Dr. Karen D. Lincoln">
+        <div>
+          <div class="sf-attr-name">Dr. Karen D. Lincoln</div>
+          <div class="sf-attr-title">Director, CEHDR · Professor, UCI</div>
+        </div>
+      </div>
+    </div>
+    <div class="stat-mini fade-up delay-1"><div class="sm-icon">🏛️</div><div class="sm-num">2021</div><div class="sm-lbl">Founded at UCI</div></div>
+    <div class="stat-mini fade-up delay-2"><div class="sm-icon">👥</div><div class="sm-num">24+</div><div class="sm-lbl">Affiliated Faculty · 8 Disciplines</div></div>
+    <div class="stat-mini fade-up delay-3"><div class="sm-icon">📰</div><div class="sm-num">20+</div><div class="sm-lbl">National Media Features</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-img-stack fade-left">
+        <div class="ais-main"><img src="https://picsum.photos/640/380?random=91" alt="Research team"></div>
+        <div class="ais-accent"><img src="https://picsum.photos/400/220?random=92" alt="Community work"></div>
+        <div class="ais-badge">Founded<br><small>via Black Thriving Initiative</small></div>
+      </div>
+      <div class="fade-right delay-1">
+        <span class="sec-eyebrow">Who We Are</span>
+        <h2 class="sec-title">An Interdisciplinary Center for Justice &amp; Health Equity</h2>
+        <div class="about-text">
+          <p>CEHDR was founded in 2021 as a result of the UCI Black Thriving Initiative Faculty Cluster Hiring Program to expand scholarship focused on the experiences of Black American communities and environmental justice.</p>
+          <p>Our 24+ affiliated faculty span 8 disciplines — Public Health, Medicine, Civil &amp; Environmental Engineering, Urban Planning, Nursing, Anthropology, and Pharmacy — all committed to creating a healthier, more equitable world.</p>
+          <blockquote class="pull">"Through CEHDR CIRCLE, we are building sustainable, community-centered approaches to resilience that not only improve disaster response capacity, but train the next generation of public health leaders." — Dr. Karen D. Lincoln</blockquote>
+        </div>
+        <a class="btn-teal" href="#">Meet the Team →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INITIATIVES — INTERACTIVE TABS -->
+<section class="section-initiatives">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px">
+      <span class="sec-eyebrow">Support CEHDR</span>
+      <h2 class="sec-title fade-up">Our Four Signature Initiatives</h2>
+      <p class="sec-sub fade-up delay-1" style="margin:0 auto">Every gift powers groundbreaking work — or direct your support to the initiative that resonates most.</p>
+    </div>
+    <div class="init-tabs-row">
+      <button class="init-tab-btn active" onclick="showInit('thrive',this)">🌱 THRIVE</button>
+      <button class="init-tab-btn" onclick="showInit('rise',this)">🎓 RISE</button>
+      <button class="init-tab-btn" onclick="showInit('circle',this)">🤝 CIRCLE</button>
+      <button class="init-tab-btn" onclick="showInit('impact',this)">💡 IMPACT</button>
+    </div>
+    <div>
+      <div class="init-panel active" id="init-thrive">
+        <div class="init-panel-img"><img src="https://picsum.photos/560/340?random=95" alt="THRIVE"></div>
+        <div class="init-panel-text fade-right">
+          <div class="ipt-emoji">🌱</div>
+          <div class="ipt-acro">THRIVE</div>
+          <h3 class="ipt-title">Transforming Health Research through Inclusion, Voices &amp; Equity</h3>
+          <p class="ipt-desc">CEHDR THRIVE ensures that every voice matters in shaping environmental health research, especially from communities historically underrepresented in science. Donor support funds community engagement, inclusive educational programming, and equity-centered training.</p>
+          <a class="btn-navy" href="#">🎁 Support THRIVE</a>
+        </div>
+      </div>
+      <div class="init-panel" id="init-rise">
+        <div class="init-panel-img"><img src="https://picsum.photos/560/340?random=96" alt="RISE"></div>
+        <div class="init-panel-text fade-right">
+          <div class="ipt-emoji">🎓</div>
+          <div class="ipt-acro">RISE</div>
+          <h3 class="ipt-title">Research Internships for Social &amp; Environmental Health Equity</h3>
+          <p class="ipt-desc">CEHDR RISE cultivates the next generation of leaders in environmental health equity by providing students with hands-on, community-engaged research experiences. Donations support student stipends, mentorship, and collaborative projects with local communities.</p>
+          <a class="btn-navy" href="#">🎁 Support RISE</a>
+        </div>
+      </div>
+      <div class="init-panel" id="init-circle">
+        <div class="init-panel-img"><img src="https://picsum.photos/560/340?random=97" alt="CIRCLE"></div>
+        <div class="init-panel-text fade-right">
+          <div class="ipt-emoji">🤝</div>
+          <div class="ipt-acro">CIRCLE</div>
+          <h3 class="ipt-title">Community Initiatives for Research, Collaboration, Learning &amp; Engagement</h3>
+          <p class="ipt-desc">CEHDR CIRCLE strengthens partnerships between the Center and communities to co-create research, share knowledge, and drive solutions to environmental health challenges through collaborative workshops and interventions.</p>
+          <a class="btn-navy" href="#">🎁 Support CIRCLE</a>
+        </div>
+      </div>
+      <div class="init-panel" id="init-impact">
+        <div class="init-panel-img"><img src="https://picsum.photos/560/340?random=98" alt="IMPACT"></div>
+        <div class="init-panel-text fade-right">
+          <div class="ipt-emoji">💡</div>
+          <div class="ipt-acro">IMPACT</div>
+          <h3 class="ipt-title">Innovative Minds Promoting Action, Collaboration &amp; Transformation</h3>
+          <p class="ipt-desc">The CEHDR IMPACT Distinguished Speaker Series spotlights transformative thinkers whose research and leadership drive meaningful change. Your gift creates a vibrant academic environment where knowledge sparks action.</p>
+          <a class="btn-navy" href="#">🎁 Support IMPACT</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section-news">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px">
+      <div>
+        <span class="sec-eyebrow">Latest from CEHDR</span>
+        <h2 class="sec-title fade-up">News &amp; In the Media</h2>
+      </div>
+      <a class="btn-teal" href="#">View All News →</a>
+    </div>
+    <div class="news-layout">
+      <article class="news-card fade-up delay-1">
+        <img class="nc-img" src="https://picsum.photos/392/190?random=100" alt="PacLife" loading="lazy">
+        <div class="nc-body">
+          <div class="nc-source">UCI Public Health</div>
+          <div class="nc-date">April 1, 2026</div>
+          <span class="nc-tag">⚖️ Aging &amp; Equity</span>
+          <a class="nc-title" href="#">PacLife Foundation invests in healthy aging &amp; environmental equity at Wen Public Health</a>
+          <p class="nc-quote">"Through CEHDR CIRCLE, we are building sustainable, community-centered approaches to resilience."</p>
+          <a class="nc-link" href="#">Read More →</a>
+        </div>
+      </article>
+      <article class="news-card fade-up delay-2">
+        <img class="nc-img" src="https://picsum.photos/392/190?random=101" alt="Environmental Justice" loading="lazy">
+        <div class="nc-body">
+          <div class="nc-source">Voice of OC</div>
+          <div class="nc-date">August 4, 2025</div>
+          <span class="nc-tag">🌍 Environmental Justice</span>
+          <a class="nc-title" href="#">Concrete Divide: North Orange County Falls Short on Parks</a>
+          <p class="nc-quote">"A stark 'concrete divide' has left many North and Central OC communities falling below state health standards."</p>
+          <a class="nc-link" href="#">Read More →</a>
+        </div>
+      </article>
+      <article class="news-card fade-up delay-3">
+        <img class="nc-img" src="https://picsum.photos/392/190?random=102" alt="Research" loading="lazy">
+        <div class="nc-body">
+          <div class="nc-source">UCI News</div>
+          <div class="nc-date">March 5, 2025</div>
+          <span class="nc-tag">🔬 Research</span>
+          <a class="nc-title" href="#">Dr. Karen Lincoln Ranked Among Top 2% of Cited Scientists Worldwide</a>
+          <p class="nc-quote">"Highlighting the need for studies focused on African Americans and wider social determinants of health."</p>
+          <a class="nc-link" href="#">Read More →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-cta">
+  <div class="cta-ring" style="width:600px;height:600px;top:-200px;right:-200px"></div>
+  <div class="cta-ring" style="width:300px;height:300px;bottom:-100px;left:5%"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <span class="sec-eyebrow">Make a Difference Today</span>
+      <h2 class="fade-up">Support <span>Environmental<br>Health Equity</span> at UCI</h2>
+      <p class="fade-up delay-1">Every contribution — no matter the size — makes a meaningful difference. Your gift directly supports CEHDR's four signature initiatives and advances health equity for all communities.</p>
+      <div class="cta-btns fade-up delay-2">
+        <a class="btn-gold-lg" href="#">🎁 Give Today</a>
+      </div>
+      <div class="cta-how fade-up delay-3">
+        <h4>How to Give Online</h4>
+        <div class="cta-how-steps">
+          <div class="cta-step"><div class="step-num">1</div><div class="step-txt"><strong>Click "Give Today"</strong>Access the UCI donation portal</div></div>
+          <div class="cta-step"><div class="step-num">2</div><div class="step-txt"><strong>Select Giving Area</strong>Joe C. Wen School – Public Health Centers Fund</div></div>
+          <div class="cta-step"><div class="step-num">3</div><div class="step-txt"><strong>Direct Your Gift</strong>Enter THRIVE, RISE, CIRCLE, or IMPACT in the Comment field</div></div>
+          <div class="cta-step"><div class="step-num">4</div><div class="step-txt"><strong>Complete Your Gift</strong>Thank you for your generosity! 100% goes to CEHDR.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="https://sites.uci.edu/cehdr/files/2024/12/Desktop_Cntr_EnviroHealth_Disparities_Research-3L-White-525x156.png" alt="CEHDR"></div>
+        <div class="footer-addr"><p>UC Irvine Health Sciences Complex<br>856 Health Sciences Quad, Suite 3200<br>Irvine, CA 92617</p><p style="margin-top:10px"><a href="mailto:bfgaines@hs.uci.edu">bfgaines@hs.uci.edu</a></p></div>
+      </div>
+      <div>
+        <div class="footer-h">Related Sites</div>
+        <ul class="footer-nav">
+          <li><a href="#">UCI Joe C. Wen School of Public Health</a></li>
+          <li><a href="#">UCI School of Social Ecology</a></li>
+          <li><a href="#">UCI Samueli College of Health Sciences</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-h">Stay Connected</div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:18px">Get news, stories &amp; events from UCI Public Health.</p>
+        <a class="btn-give" href="#" style="display:inline-block">Subscribe to Newsletter ↗</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <a href="#">Privacy Notice</a> &nbsp;|&nbsp; <a href="#">© 2026 UC Regents</a> &nbsp;|&nbsp; <a href="#">UC Irvine</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('animated'); });
+}, {threshold: 0.1});
+document.querySelectorAll('.fade-up,.fade-left,.fade-right,.fade-in').forEach(el => obs.observe(el));
+setTimeout(() => {
+  document.querySelectorAll('.hero .fade-left,.hero .fade-right').forEach(el => el.classList.add('animated'));
+}, 120);
+
+// Initiative tabs
+function showInit(id, btn) {
+  document.querySelectorAll('.init-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.init-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('init-'+id).classList.add('active');
+  btn.classList.add('active');
+  // Re-trigger animation
+  const panel = document.getElementById('init-'+id);
+  const txt = panel.querySelector('.fade-right');
+  if(txt){ txt.classList.remove('animated'); setTimeout(()=>txt.classList.add('animated'),50); }
+}
+
+// Particle dots
+const pc = document.getElementById('particles');
+for(let i=0;i<18;i++){
+  const d = document.createElement('div');
+  const sz = Math.random()*60+20;
+  d.style.cssText=`position:absolute;border-radius:50%;background:rgba(255,255,255,.05);
+    width:${sz}px;height:${sz}px;
+    left:${Math.random()*100}%;top:${Math.random()*100}%;
+    animation:float-dot ${6+Math.random()*8}s ease-in-out infinite;
+    animation-delay:${Math.random()*5}s`;
+  pc.appendChild(d);
+}
+
+// Impact strip tab hover
+document.querySelectorAll('.is-tab').forEach(t => {
+  t.addEventListener('click', function(e){ e.preventDefault(); document.querySelectorAll('.is-tab').forEach(x=>x.classList.remove('active')); this.classList.add('active'); });
+});
+</script>
+</body>
+</html>
