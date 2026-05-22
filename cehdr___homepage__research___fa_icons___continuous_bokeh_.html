@@ -25,25 +25,41 @@ html{scroll-behavior:smooth}body{font-family:'Arimo',sans-serif;color:var(--text
 .nav-links li.nav-impact a{background:linear-gradient(135deg,var(--gold) 0%,#ffc700 100%);color:var(--navy);border-radius:8px;padding:8px 16px;font-weight:700;box-shadow:0 4px 14px rgba(255,217,46,.45);display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:all .25s}
 .nav-links li.nav-impact a:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,217,46,.65)}
 
-/* HERO — STRICT 100vh - navbar - banner, includes Give Today stripe */
+/* HERO */
 .hero{height:calc(100vh - var(--nav-h) - var(--banner-h));min-height:520px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
 .hero-left{background:linear-gradient(135deg,#001428 0%,#002d55 35%,var(--navy) 65%,#005b9a 100%);display:flex;flex-direction:column;justify-content:center;padding:0 48px 0 60px;position:relative;overflow:hidden;z-index:1}
+
+/* BOKEH — continuous glow + drift */
 .bokeh-wrap{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.bokeh{position:absolute;border-radius:50%;filter:blur(48px);animation:bokeh-move linear infinite;will-change:transform,opacity}
+.bokeh{position:absolute;border-radius:50%;filter:blur(48px);will-change:transform,opacity,box-shadow;animation:bokeh-move linear infinite,bokeh-glow ease-in-out infinite}
 @keyframes bokeh-move{
-  0%{transform:translate(0,0) scale(1);opacity:.22}
-  20%{transform:translate(15px,-18px) scale(1.08);opacity:.32}
-  40%{transform:translate(-8px,-32px) scale(1.14);opacity:.4}
-  60%{transform:translate(-18px,-22px) scale(1.1);opacity:.34}
-  80%{transform:translate(8px,-10px) scale(1.04);opacity:.26}
-  100%{transform:translate(0,0) scale(1);opacity:.22}
+  0%{transform:translate(0,0) scale(1)}
+  20%{transform:translate(15px,-18px) scale(1.08)}
+  40%{transform:translate(-8px,-32px) scale(1.14)}
+  60%{transform:translate(-18px,-22px) scale(1.1)}
+  80%{transform:translate(8px,-10px) scale(1.04)}
+  100%{transform:translate(0,0) scale(1)}
 }
-.b1{width:200px;height:200px;background:radial-gradient(circle,rgba(126,190,197,.55),rgba(126,190,197,.1));top:-40px;right:-30px;animation-duration:9s}
-.b2{width:160px;height:160px;background:radial-gradient(circle,rgba(255,217,46,.32),rgba(255,217,46,.05));bottom:40px;left:-30px;animation-duration:11s;animation-delay:-4s}
-.b3{width:110px;height:110px;background:radial-gradient(circle,rgba(0,100,164,.55),rgba(0,100,164,.1));top:42%;left:38%;animation-duration:8s;animation-delay:-2s}
-.b4{width:75px;height:75px;background:radial-gradient(circle,rgba(126,190,197,.5),rgba(126,190,197,.1));bottom:25%;right:18%;animation-duration:10s;animation-delay:-6s}
-.b5{width:55px;height:55px;background:radial-gradient(circle,rgba(255,217,46,.28),rgba(255,217,46,.05));top:18%;left:22%;animation-duration:12s;animation-delay:-3s}
-.b6{width:90px;height:90px;background:radial-gradient(circle,rgba(91,163,171,.4),rgba(91,163,171,.05));bottom:55%;right:35%;animation-duration:13s;animation-delay:-7s}
+@keyframes bokeh-glow{
+  0%,100%{opacity:.22;box-shadow:0 0 0 rgba(126,190,197,0)}
+  50%{opacity:.45;box-shadow:0 0 60px rgba(126,190,197,.25)}
+}
+.b1{width:200px;height:200px;background:radial-gradient(circle,rgba(126,190,197,.55),rgba(126,190,197,.1));top:-40px;right:-30px;animation-duration:9s,5s}
+.b2{width:160px;height:160px;background:radial-gradient(circle,rgba(255,217,46,.32),rgba(255,217,46,.05));bottom:40px;left:-30px;animation-duration:11s,6s;animation-delay:-4s,-2s}
+.b3{width:110px;height:110px;background:radial-gradient(circle,rgba(0,100,164,.55),rgba(0,100,164,.1));top:42%;left:38%;animation-duration:8s,4.5s;animation-delay:-2s,-1s}
+.b4{width:75px;height:75px;background:radial-gradient(circle,rgba(126,190,197,.5),rgba(126,190,197,.1));bottom:25%;right:18%;animation-duration:10s,5.5s;animation-delay:-6s,-3s}
+.b5{width:55px;height:55px;background:radial-gradient(circle,rgba(255,217,46,.28),rgba(255,217,46,.05));top:18%;left:22%;animation-duration:12s,7s;animation-delay:-3s,-2s}
+.b6{width:90px;height:90px;background:radial-gradient(circle,rgba(91,163,171,.4),rgba(91,163,171,.05));bottom:55%;right:35%;animation-duration:13s,6.5s;animation-delay:-7s,-4s}
+.b7{width:130px;height:130px;background:radial-gradient(circle,rgba(0,100,164,.4),rgba(0,100,164,.05));top:65%;left:8%;animation-duration:14s,8s;animation-delay:-5s,-3s}
+.b8{width:60px;height:60px;background:radial-gradient(circle,rgba(255,217,46,.35),rgba(255,217,46,.05));top:8%;right:45%;animation-duration:11s,5s;animation-delay:-8s,-1s}
+
+/* HERO TEXT — hover parallax */
+.hero-eyebrow,.hero-title,.hero-desc,.hero-btns{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.hero-left:hover .hero-eyebrow{transform:translateY(-2px)}
+.hero-left:hover .hero-title{transform:translateY(-4px)}
+.hero-left:hover .hero-desc{transform:translateY(-3px)}
+.hero-left:hover .hero-btns{transform:translateY(-5px)}
+
 .hero-eyebrow{display:inline-flex;align-items:center;gap:7px;font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;background:rgba(126,190,197,.12);border:1px solid rgba(126,190,197,.3);padding:5px 13px;border-radius:30px;width:fit-content;position:relative;z-index:2}
 .hero-title{font-family:'Roboto Slab',serif;font-size:clamp(1.7rem,2.8vw,2.8rem);font-weight:900;color:#fff;line-height:1.08;margin-bottom:14px;position:relative;z-index:2}
 .hero-title em{font-style:normal;background:linear-gradient(135deg,var(--gold),#ffb700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -53,18 +69,38 @@ html{scroll-behavior:smooth}body{font-family:'Arimo',sans-serif;color:var(--text
 .btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(255,217,46,.65)}
 .btn-ghost-white{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:2px solid rgba(255,255,255,.4);color:#fff;font-weight:700;font-size:.85rem;text-decoration:none;border-radius:8px;transition:all .25s}
 .btn-ghost-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
-.hero-right{position:relative;overflow:hidden}
-.hero-right img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
-.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,30,60,.5),rgba(0,30,60,.05))}
-.hero-pill{position:absolute;background:var(--white);border-radius:12px;box-shadow:0 8px 26px rgba(0,0,0,.18);padding:11px 14px;display:flex;align-items:center;gap:10px;animation:pill-float 5s ease-in-out infinite}
+
+/* HERO RIGHT — slideshow + Ken Burns */
+.hero-right{position:relative;overflow:hidden;background:#001428}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease-in-out;overflow:hidden}
+.hero-slide.active{opacity:1;z-index:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;will-change:transform;animation:kenburns 20s ease-in-out infinite alternate}
+.hero-slide:nth-child(1) img{animation-name:kenburns1}
+.hero-slide:nth-child(2) img{animation-name:kenburns2}
+.hero-slide:nth-child(3) img{animation-name:kenburns3}
+.hero-slide:nth-child(4) img{animation-name:kenburns4}
+.hero-slide:nth-child(5) img{animation-name:kenburns5}
+@keyframes kenburns1{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.15) translate(-2%,-3%)}}
+@keyframes kenburns2{0%{transform:scale(1.1) translate(2%,-2%)}100%{transform:scale(1.0) translate(0,0)}}
+@keyframes kenburns3{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.18) translate(-3%,2%)}}
+@keyframes kenburns4{0%{transform:scale(1.12) translate(-1%,-1%)}100%{transform:scale(1) translate(2%,2%)}}
+@keyframes kenburns5{0%{transform:scale(1) translate(0,0)}100%{transform:scale(1.15) translate(2%,-2%)}}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,30,60,.45),rgba(0,30,60,.05));z-index:2;pointer-events:none}
+
+/* SLIDE DOTS */
+.slide-dots{position:absolute;bottom:20px;left:30px;display:flex;gap:8px;z-index:5}
+.slide-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .3s;border:none;padding:0}
+.slide-dot.active{background:var(--gold);width:24px;border-radius:4px;box-shadow:0 0 10px rgba(255,217,46,.6)}
+
+.hero-pill{position:absolute;background:var(--white);border-radius:12px;box-shadow:0 8px 26px rgba(0,0,0,.18);padding:11px 14px;display:flex;align-items:center;gap:10px;animation:pill-float 5s ease-in-out infinite;z-index:4}
 @keyframes pill-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.hp-top{top:30px;right:30px}.hp-bot{bottom:30px;left:30px;animation-delay:2s;background:var(--navy)}
+.hp-top{top:30px;right:30px}.hp-bot{bottom:30px;right:30px;animation-delay:2s;background:var(--navy)}
 .hp-icon{width:34px;height:34px;border-radius:9px;background:var(--teal-l);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;color:var(--blue)}
 .hp-num{font-family:'Roboto Slab',serif;font-size:1.2rem;font-weight:900;color:var(--navy);line-height:1}
 .hp-bot .hp-num{color:var(--gold)}.hp-lbl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:2px}
 .hp-bot .hp-lbl{color:rgba(255,255,255,.6)}
 
-/* IMPACT BANNER (part of hero) */
+/* IMPACT BANNER */
 .impact-banner{background:linear-gradient(90deg,#002d55 0%,var(--navy) 30%,var(--blue) 65%,var(--teal-m) 100%);height:var(--banner-h);display:flex;align-items:center}
 .impact-banner-inner{max-width:1140px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;width:100%;gap:20px}
 .ib-left{display:flex;align-items:center;gap:12px}.ib-icon{font-size:1.4rem;color:var(--gold)}
@@ -170,7 +206,7 @@ blockquote.pull{background:linear-gradient(135deg,var(--teal-l),#f0f9fb);border-
 .carousel-dot{width:9px;height:9px;border-radius:50%;background:#ccd8e5;cursor:pointer;transition:all .2s;border:none;padding:0}
 .carousel-dot.active{background:linear-gradient(135deg,var(--blue),var(--teal-m));width:24px;border-radius:5px}
 
-/* MAKE AN IMPACT — MINIMAL */
+/* IMPACT */
 .impact-section{background:linear-gradient(135deg,#000814 0%,#001428 25%,#001e38 50%,var(--navy) 80%,#005080 100%);padding:90px 0;position:relative;overflow:hidden;text-align:center}
 .impact-bg-word{position:absolute;font-family:'Roboto Slab',serif;font-size:18vw;font-weight:900;color:rgba(255,255,255,.025);white-space:nowrap;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;letter-spacing:-.02em}
 .impact-ring{position:absolute;border-radius:50%;border:1px solid rgba(126,190,197,.1);pointer-events:none}
@@ -191,7 +227,6 @@ blockquote.pull{background:linear-gradient(135deg,var(--teal-l),#f0f9fb);border-
 .btn-outline-light{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border:2px solid rgba(255,255,255,.32);color:#fff;font-weight:700;font-size:.88rem;text-decoration:none;border-radius:50px;transition:all .25s}
 .btn-outline-light:hover{border-color:var(--teal);background:rgba(126,190,197,.12)}
 
-/* FOOTER */
 footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px solid var(--teal);padding:46px 0 0}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:42px;padding-bottom:38px}
 .footer-logo img{height:38px;margin-bottom:14px;display:block}
@@ -204,7 +239,6 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
 .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:14px 0;text-align:center;font-size:.72rem;color:rgba(255,255,255,.35)}
 .footer-bottom a{color:rgba(255,255,255,.5);text-decoration:underline}
 
-/* SCROLL ANIMS */
 .fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
 .fade-left{opacity:0;transform:translateX(-28px);transition:opacity .6s ease,transform .6s ease}
 .fade-right{opacity:0;transform:translateX(28px);transition:opacity .6s ease,transform .6s ease}
@@ -213,7 +247,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
 .animated{opacity:1!important;transform:none!important}
 
 @media(max-width:960px){
-  .hero{grid-template-columns:1fr;height:auto;min-height:auto}.hero-right{height:260px}.hero-left{padding:46px 28px}
+  .hero{grid-template-columns:1fr;height:auto;min-height:auto}.hero-right{height:280px}.hero-left{padding:46px 28px}
   .who-grid{grid-template-columns:1fr;gap:36px}.who-imgs{display:none}
   .init-row,.init-row.reverse{grid-template-columns:1fr}.init-row.reverse .init-img,.init-row.reverse .init-body{order:unset}.init-img{min-height:200px}
   .stats-grid{grid-template-columns:1fr 1fr}
@@ -250,6 +284,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     <div class="bokeh-wrap">
       <div class="bokeh b1"></div><div class="bokeh b2"></div><div class="bokeh b3"></div>
       <div class="bokeh b4"></div><div class="bokeh b5"></div><div class="bokeh b6"></div>
+      <div class="bokeh b7"></div><div class="bokeh b8"></div>
     </div>
     <div class="hero-eyebrow fade-in"><i class="fa-solid fa-leaf"></i> UC Irvine &middot; Joe C. Wen School of Public Health</div>
     <h1 class="hero-title fade-up delay-1">Environmental<br>Health Equity<br><em>Starts Here</em></h1>
@@ -259,8 +294,13 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <a class="btn-ghost-white" href="#">Explore Our Work <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
-  <div class="hero-right fade-in">
-    <img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Website-Images10-816x499.jpg" alt="Community health research">
+  <div class="hero-right fade-in" id="heroSlideshow">
+    <div class="hero-slide active"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Website-Images10-816x499.jpg" alt="Community health"></div>
+    <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png" alt="Environmental justice"></div>
+    <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Advancing-Environmental-Health-Equity-392x240.png" alt="Health equity"></div>
+    <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/homepage_banner_CEHDR2.jpg" alt="CEHDR"></div>
+    <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Karen-Lincoln-Brain-Works-Event-Speaking-816x499.png" alt="Brain Works Event"></div>
+    <div class="slide-dots" id="slideDots"></div>
     <div class="hero-pill hp-top">
       <div class="hp-icon"><i class="fa-solid fa-users"></i></div>
       <div><div class="hp-num">24+</div><div class="hp-lbl">Affiliated Faculty</div></div>
@@ -401,19 +441,18 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     </div>
     <div class="carousel-wrap">
       <div class="carousel-track" id="carousel">
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2024/11/Dr.-Gaines-H.S.-students-scaled-1.jpg" alt="PacLife" loading="lazy"><div class="nc-body"><div class="nc-source">UCI Public Health</div><div class="nc-date">March 30, 2026</div><span class="nc-tag"><i class="fa-solid fa-scale-balanced"></i> Aging &amp; Equity</span><a class="nc-title" href="#">PacLife Foundation invests in healthy aging &amp; environmental equity at Wen Public Health</a><p class="nc-quote">"Through CEHDR CIRCLE, we are building sustainable, community-centered approaches to resilience."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2024/11/BTI-Group-1-scaled-1.jpg" alt="Aging" loading="lazy"><div class="nc-body"><div class="nc-source">The Healthy</div><div class="nc-date">March 14, 2026</div><span class="nc-tag"><i class="fa-solid fa-person-cane"></i> Healthy Aging</span><a class="nc-title" href="#">These Are the 4 Most Overlooked Signs of Declining Health, According to Aging Experts</a><p class="nc-quote">"Early detection of health changes in older adults is vital for maintaining independence."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2019/10/Cortex-activity-e3faf6935a2044f7.png" alt="Parks" loading="lazy"><div class="nc-body"><div class="nc-source">Voice of OC</div><div class="nc-date">August 4, 2025</div><span class="nc-tag"><i class="fa-solid fa-earth-americas"></i> Environmental Justice</span><a class="nc-title" href="#">Concrete Divide: North Orange County Falls Short on Parks</a><p class="nc-quote">"A stark 'concrete divide' has left many North and Central OC communities falling below state health standards."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/EHDF-Postcard_bfg.jpg" alt="Caregiver" loading="lazy"><div class="nc-body"><div class="nc-source">U.S. News &amp; World Report</div><div class="nc-date">February 13, 2025</div><span class="nc-tag"><i class="fa-solid fa-hands-holding-heart"></i> Caregiving</span><a class="nc-title" href="#">Best Caregiver Support Groups</a><p class="nc-quote">"Caregiver support groups provide a vital 'village' of emotional relief and practical advice."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/ddls-april-25.png" alt="Brain" loading="lazy"><div class="nc-body"><div class="nc-source">Precinct Reporter News</div><div class="nc-date">November 13, 2024</div><span class="nc-tag"><i class="fa-solid fa-brain"></i> Brain Health</span><a class="nc-title" href="#">OC Racism: Bad for Brain Health</a><p class="nc-quote">"A 60-year-old Black person may biologically be 67 years old — just because of exposure to social stressors."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/Exploring-Brain-Health-Disparities.png" alt="Sleep" loading="lazy"><div class="nc-body"><div class="nc-source">USA Today</div><div class="nc-date">November 13, 2024</div><span class="nc-tag"><i class="fa-solid fa-moon"></i> Sleep Health</span><a class="nc-title" href="#">Americans don't sleep enough. The long-term effects are dire, especially for Black people</a><p class="nc-quote">"The overwhelming majority of Black Americans in my study had no idea that they had poor sleep."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2024/11/Dr.-Gaines-H.S.-students-scaled-1.jpg" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">UCI Public Health</div><div class="nc-date">March 30, 2026</div><span class="nc-tag"><i class="fa-solid fa-scale-balanced"></i> Aging &amp; Equity</span><a class="nc-title" href="#">PacLife Foundation invests in healthy aging &amp; environmental equity at Wen Public Health</a><p class="nc-quote">"Through CEHDR CIRCLE, we are building sustainable, community-centered approaches to resilience."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2024/11/BTI-Group-1-scaled-1.jpg" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">The Healthy</div><div class="nc-date">March 14, 2026</div><span class="nc-tag"><i class="fa-solid fa-person-cane"></i> Healthy Aging</span><a class="nc-title" href="#">These Are the 4 Most Overlooked Signs of Declining Health, According to Aging Experts</a><p class="nc-quote">"Early detection of health changes in older adults is vital for maintaining independence."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2019/10/Cortex-activity-e3faf6935a2044f7.png" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">Voice of OC</div><div class="nc-date">August 4, 2025</div><span class="nc-tag"><i class="fa-solid fa-earth-americas"></i> Environmental Justice</span><a class="nc-title" href="#">Concrete Divide: North Orange County Falls Short on Parks</a><p class="nc-quote">"A stark 'concrete divide' has left many North and Central OC communities falling below state health standards."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/EHDF-Postcard_bfg.jpg" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">U.S. News &amp; World Report</div><div class="nc-date">February 13, 2025</div><span class="nc-tag"><i class="fa-solid fa-hands-holding-heart"></i> Caregiving</span><a class="nc-title" href="#">Best Caregiver Support Groups</a><p class="nc-quote">"Caregiver support groups provide a vital 'village' of emotional relief and practical advice."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/ddls-april-25.png" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">Precinct Reporter News</div><div class="nc-date">November 13, 2024</div><span class="nc-tag"><i class="fa-solid fa-brain"></i> Brain Health</span><a class="nc-title" href="#">OC Racism: Bad for Brain Health</a><p class="nc-quote">"A 60-year-old Black person may biologically be 67 years old — just because of exposure to social stressors."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/Exploring-Brain-Health-Disparities.png" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">USA Today</div><div class="nc-date">November 13, 2024</div><span class="nc-tag"><i class="fa-solid fa-moon"></i> Sleep Health</span><a class="nc-title" href="#">Americans don't sleep enough. The long-term effects are dire, especially for Black people</a><p class="nc-quote">"The overwhelming majority of Black Americans in my study had no idea that they had poor sleep."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
       </div>
     </div>
     <div class="carousel-controls" id="carousel-controls"></div>
   </div>
 </section>
 
-<!-- MAKE AN IMPACT — MINIMAL -->
 <section class="impact-section" id="impact">
   <div class="impact-bg-word">IMPACT</div>
   <div class="impact-glow ig-1"></div>
@@ -463,10 +502,22 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
 </footer>
 
 <script>
+// HERO SLIDESHOW
+const slides=document.querySelectorAll('.hero-slide');
+const dotsEl=document.getElementById('slideDots');
+let curSlide=0;
+slides.forEach((_,i)=>{const d=document.createElement('button');d.className='slide-dot'+(i===0?' active':'');d.addEventListener('click',()=>showSlide(i));dotsEl.appendChild(d);});
+function showSlide(idx){slides[curSlide].classList.remove('active');document.querySelectorAll('.slide-dot')[curSlide].classList.remove('active');curSlide=idx;slides[curSlide].classList.add('active');document.querySelectorAll('.slide-dot')[curSlide].classList.add('active');}
+let slideTimer=setInterval(()=>showSlide((curSlide+1)%slides.length),5000);
+document.getElementById('heroSlideshow').addEventListener('mouseenter',()=>clearInterval(slideTimer));
+document.getElementById('heroSlideshow').addEventListener('mouseleave',()=>{slideTimer=setInterval(()=>showSlide((curSlide+1)%slides.length),5000);});
+
+// SCROLL ANIMS
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('animated');else e.target.classList.remove('animated');});},{threshold:0.1});
 document.querySelectorAll('.fade-up,.fade-left,.fade-right,.fade-in').forEach(el=>obs.observe(el));
 setTimeout(()=>{document.querySelectorAll('.hero .fade-up,.hero .fade-in,.hero .fade-left,.hero .fade-right').forEach(el=>el.classList.add('animated'));},80);
 
+// NEWS CAROUSEL
 const track=document.getElementById('carousel'),cards=track.querySelectorAll('.news-card'),ctrlEl=document.getElementById('carousel-controls');
 let current=0,perView=3,total,autoTimer;
 function getPerView(){return window.innerWidth<600?1:window.innerWidth<960?2:3}
@@ -480,6 +531,7 @@ track.parentElement.addEventListener('mouseenter',()=>clearInterval(autoTimer));
 track.parentElement.addEventListener('mouseleave',()=>{autoTimer=setInterval(next,5000);});
 window.addEventListener('resize',()=>{clearInterval(autoTimer);init();autoTimer=setInterval(next,5000);});
 
+// CHARTS
 Chart.defaults.color='rgba(255,255,255,.7)';Chart.defaults.font={family:"'Arimo',sans-serif",size:11};
 new Chart(document.getElementById('barChart'),{type:'bar',data:{labels:['Sleep Health','Environ. Justice','Brain Health','Aging & Dementia','Climate & Health',"Alzheimer's",'Caregiving','Community'],datasets:[{data:[7,4,4,4,3,3,2,2],backgroundColor:['rgba(126,190,197,.85)','rgba(0,100,164,.85)','rgba(91,163,171,.85)','rgba(255,217,46,.85)','rgba(0,100,164,.7)','rgba(126,190,197,.6)','rgba(255,217,46,.6)','rgba(91,163,171,.6)'],borderRadius:6}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,.06)'},ticks:{color:'rgba(255,255,255,.65)',font:{size:9}}},y:{grid:{color:'rgba(255,255,255,.06)'},ticks:{color:'rgba(255,255,255,.65)',stepSize:1},beginAtZero:true}}}});
 new Chart(document.getElementById('donutChart'),{type:'doughnut',data:{labels:['Sleep & Brain','Environ. Justice','Aging','Climate','Community','Caregiving'],datasets:[{data:[28,18,18,13,13,10],backgroundColor:['rgba(126,190,197,.9)','rgba(0,100,164,.9)','rgba(255,217,46,.85)','rgba(91,163,171,.85)','rgba(0,80,130,.8)','rgba(200,170,50,.8)'],borderColor:'rgba(0,30,60,.5)',borderWidth:2,hoverOffset:8}]},options:{responsive:true,cutout:'62%',plugins:{legend:{position:'bottom',labels:{padding:10,boxWidth:10,font:{size:9},color:'rgba(255,255,255,.7)'}}}}});
