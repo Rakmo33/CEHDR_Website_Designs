@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Say It Loud — Power Mapping Facilitator Training Guide</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f0; color: #222; font-size: 15px; line-height: 1.7; }
+
+  /* HEADER */
+  .header { background: #1a1a2e; color: #fff; padding: 40px 40px 30px; }
+  .header .badge { background: #e8a838; color: #1a1a2e; font-weight: 800; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 14px; }
+  .header h1 { font-size: 28px; font-weight: 800; line-height: 1.3; margin-bottom: 8px; }
+  .header p { font-size: 15px; color: #ccc; max-width: 700px; }
+
+  /* NAV TABS */
+  .tabs { display: flex; background: #16213e; border-bottom: 3px solid #e8a838; overflow-x: auto; }
+  .tab { padding: 14px 24px; color: #aaa; font-weight: 600; font-size: 13px; cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; margin-bottom: -3px; transition: all 0.2s; }
+  .tab:hover { color: #fff; }
+  .tab.active { color: #e8a838; border-bottom-color: #e8a838; background: #1a1a2e; }
+
+  /* PANELS */
+  .panel { display: none; padding: 36px 40px; max-width: 960px; margin: 0 auto; }
+  .panel.active { display: block; }
+
+  /* SECTION STYLES */
+  .section { margin-bottom: 36px; }
+  h2 { font-size: 22px; font-weight: 800; color: #1a1a2e; margin-bottom: 6px; border-left: 5px solid #e8a838; padding-left: 14px; }
+  h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; margin: 20px 0 8px; }
+  h4 { font-size: 14px; font-weight: 700; color: #444; margin: 16px 0 6px; text-transform: uppercase; letter-spacing: 1px; }
+  p { margin-bottom: 12px; }
+  ul, ol { padding-left: 22px; margin-bottom: 12px; }
+  li { margin-bottom: 6px; }
+
+  /* CALLOUT BOXES */
+  .callout { border-radius: 8px; padding: 18px 20px; margin: 20px 0; }
+  .callout.blue { background: #e8f0fb; border-left: 5px solid #2563eb; }
+  .callout.gold { background: #fef9ec; border-left: 5px solid #e8a838; }
+  .callout.green { background: #ecfdf5; border-left: 5px solid #10b981; }
+  .callout.red { background: #fef2f2; border-left: 5px solid #ef4444; }
+  .callout.purple { background: #f5f3ff; border-left: 5px solid #7c3aed; }
+  .callout strong { display: block; margin-bottom: 6px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* TIMING BADGE */
+  .time-badge { display: inline-block; background: #1a1a2e; color: #e8a838; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px; margin-bottom: 10px; }
+
+  /* STEP CARDS */
+  .steps { display: flex; flex-direction: column; gap: 14px; margin: 16px 0; }
+  .step { display: flex; gap: 16px; align-items: flex-start; background: #fff; border-radius: 8px; padding: 16px 18px; border: 1px solid #e5e7eb; }
+  .step-num { background: #1a1a2e; color: #e8a838; font-weight: 800; font-size: 16px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .step-content h4 { margin: 0 0 6px; font-size: 14px; color: #1a1a2e; text-transform: none; letter-spacing: 0; }
+  .step-content p { margin: 0; font-size: 14px; color: #444; }
+
+  /* POWER TYPES GRID */
+  .power-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+  .power-card { background: #fff; border-radius: 8px; padding: 16px; border: 1px solid #e5e7eb; }
+  .power-card .label { font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .power-card.over .label { color: #ef4444; }
+  .power-card.to .label { color: #2563eb; }
+  .power-card.with .label { color: #10b981; }
+  .power-card.within .label { color: #7c3aed; }
+  .power-card p { margin: 0; font-size: 13px; color: #555; }
+
+  /* POWER MAP VISUAL */
+  .map-container { background: #fff; border-radius: 12px; border: 2px solid #e5e7eb; padding: 24px; margin: 20px 0; }
+  .map-title { text-align: center; font-weight: 800; font-size: 14px; color: #1a1a2e; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+  .map-grid { position: relative; width: 100%; max-width: 560px; margin: 0 auto; }
+  .map-canvas { width: 100%; aspect-ratio: 1; background: #f8f8f8; border: 2px solid #ccc; border-radius: 4px; position: relative; overflow: hidden; }
+  .quadrant { position: absolute; width: 50%; height: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; text-align: center; padding: 10px; }
+  .q1 { top: 0; left: 0; background: rgba(239,68,68,0.1); color: #b91c1c; border-right: 1px dashed #ccc; border-bottom: 1px dashed #ccc; }
+  .q2 { top: 0; right: 0; background: rgba(16,185,129,0.1); color: #065f46; border-left: 1px dashed #ccc; border-bottom: 1px dashed #ccc; }
+  .q3 { bottom: 0; left: 0; background: rgba(156,163,175,0.1); color: #6b7280; border-right: 1px dashed #ccc; border-top: 1px dashed #ccc; }
+  .q4 { bottom: 0; right: 0; background: rgba(37,99,235,0.1); color: #1e40af; border-left: 1px dashed #ccc; border-top: 1px dashed #ccc; }
+  .axis-label-x { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: #666; font-weight: 600; }
+  .axis-label-y { position: absolute; left: -60px; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 12px; color: #666; font-weight: 600; white-space: nowrap; }
+  .map-wrapper { position: relative; padding-left: 70px; }
+  .axis-arrow-x { text-align: center; font-size: 12px; color: #999; margin-top: 4px; }
+  .axis-arrow-y { position: absolute; left: 14px; top: 0; bottom: 0; display: flex; align-items: center; flex-direction: column; justify-content: space-between; font-size: 11px; color: #999; }
+
+  /* QUADRANT GUIDE */
+  .quad-guide { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
+  .quad-item { background: #fff; border-radius: 6px; padding: 12px; border: 1px solid #e5e7eb; }
+  .quad-item .ql { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .quad-item p { font-size: 13px; margin: 0; color: #555; }
+  .quad-item.q1i .ql { color: #b91c1c; }
+  .quad-item.q2i .ql { color: #065f46; }
+  .quad-item.q3i .ql { color: #6b7280; }
+  .quad-item.q4i .ql { color: #1e40af; }
+
+  /* WORKSHEET */
+  .worksheet { background: #fff; border: 2px dashed #d1d5db; border-radius: 10px; padding: 24px; margin: 16px 0; }
+  .worksheet-title { font-weight: 800; font-size: 15px; color: #1a1a2e; margin-bottom: 16px; border-bottom: 2px solid #e8a838; padding-bottom: 8px; }
+  .ws-row { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 8px; margin-bottom: 8px; align-items: center; }
+  .ws-header { display: grid; grid-template-columns: 2fr 1fr 1fr 2fr; gap: 8px; margin-bottom: 6px; }
+  .ws-header div { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #666; }
+  .ws-field { border: 1px solid #d1d5db; border-radius: 4px; padding: 8px 10px; font-size: 13px; color: #888; background: #f9fafb; min-height: 36px; }
+  .ws-field.filled { background: #fff; color: #222; }
+
+  /* CEB SELECTION */
+  .ceb-card { background: #fff; border-radius: 8px; border: 2px solid #1a1a2e; padding: 18px; margin: 10px 0; }
+  .ceb-card h4 { color: #1a1a2e; font-size: 15px; margin-bottom: 10px; }
+  .criteria-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .criterion { background: #f8f8f8; border-radius: 6px; padding: 10px 12px; font-size: 13px; display: flex; gap: 8px; align-items: flex-start; }
+  .criterion .icon { font-size: 16px; flex-shrink: 0; }
+
+  /* FACILITATOR TIPS */
+  .tip-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 14px 16px; margin: 10px 0; font-size: 14px; }
+  .tip-box::before { content: "💡 Facilitator Tip: "; font-weight: 700; }
+
+  /* SCRIPT BOX */
+  .script { background: #f0f4ff; border-left: 4px solid #2563eb; border-radius: 4px; padding: 14px 16px; margin: 12px 0; font-style: italic; font-size: 14px; color: #1e3a8a; }
+  .script::before { content: "Say: "; font-weight: 800; font-style: normal; }
+
+  /* MATERIALS LIST */
+  .materials { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+  .material-tag { background: #1a1a2e; color: #e8a838; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 20px; }
+
+  /* TIMING TABLE */
+  .time-table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 14px; }
+  .time-table th { background: #1a1a2e; color: #e8a838; padding: 10px 14px; text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
+  .time-table td { padding: 10px 14px; border-bottom: 1px solid #e5e7eb; vertical-align: top; }
+  .time-table tr:nth-child(even) td { background: #f9fafb; }
+
+  /* PRINT BUTTON */
+  .print-btn { background: #e8a838; color: #1a1a2e; font-weight: 800; border: none; padding: 12px 28px; border-radius: 6px; cursor: pointer; font-size: 14px; margin-bottom: 20px; display: inline-block; }
+  .print-btn:hover { background: #d4952e; }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 2px solid #e5e7eb; margin: 28px 0; }
+
+  /* FOOTER BANNER */
+  .footer-banner { background: #1a1a2e; color: #ccc; text-align: center; padding: 16px; font-size: 13px; margin-top: 40px; }
+
+  @media (max-width: 640px) {
+    .panel { padding: 20px 16px; }
+    .power-grid { grid-template-columns: 1fr; }
+    .quad-guide { grid-template-columns: 1fr; }
+    .ws-row, .ws-header { grid-template-columns: 1fr 1fr; }
+    .ws-row div:nth-child(3), .ws-row div:nth-child(4), .ws-header div:nth-child(3), .ws-header div:nth-child(4) { display: none; }
+    .criteria-list { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    .tabs, .print-btn { display: none; }
+    .panel { display: block !important; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">Say It Loud — Citizen Panels</div>
+  <h1>Power Mapping: Facilitator Training Guide</h1>
+  <p>A Train-the-Trainer resource for identifying Community Equity Board members through community-led power analysis. Developed for the Say It Loud study by Dr. Lincoln and AAAE.</p>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('overview')">Overview & Purpose</div>
+  <div class="tab" onclick="showTab('trainer')">Trainer Guide (Dr. Lincoln → Co-Facilitators)</div>
+  <div class="tab" onclick="showTab('facilitator')">Co-Facilitator Guide (Citizen Panels)</div>
+  <div class="tab" onclick="showTab('exercise')">Power Mapping Exercise</div>
+  <div class="tab" onclick="showTab('ceb')">CEB Selection Process</div>
+  <div class="tab" onclick="showTab('worksheet')">Worksheets & Templates</div>
+</div>
+
+<!-- ======================== TAB 1: OVERVIEW ======================== -->
+<div id="overview" class="panel active">
+
+  <button class="print-btn" onclick="window.print()">🖨 Print Full Guide</button>
+
+  <div class="section">
+    <h2>What Is This Guide For?</h2>
+    <p>This guide supports the <strong>Say It Loud</strong> citizen panel process in identifying the most trusted and central community voices to serve on the <strong>Community Equity Board (CEB)</strong>. Rather than selecting CEB members through top-down researcher decisions, Say It Loud uses <strong>power mapping</strong> — a community-driven tool — to ensure the people who govern this research truly represent the communities most affected by Alzheimer's Disease and Related Dementias (ADRD).</p>
+
+    <div class="callout gold">
+      <strong>Say It Loud Goal</strong>
+      Through the power mapping process, citizen panelists identify the most central, trusted, and influential community members to invite to join the CEB (no more than 8 members total). This keeps community governance authentic and prevents the CEB from becoming just another advisory committee selected by researchers.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>How This Guide Is Organized</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Trainer Guide — Dr. Lincoln to Community Co-Facilitators</h4>
+          <p>A step-by-step session plan for Dr. Lincoln and AAAE members to train community co-facilitators in how to lead a power mapping activity. Includes key concepts, facilitation tips, and how to handle difficult moments.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Co-Facilitator Guide — Community Co-Facilitators to Citizen Panels</h4>
+          <p>A simple, plain-language guide that community co-facilitators use to lead citizen panelists through the power mapping exercise. No research background required.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Power Mapping Exercise</h4>
+          <p>The actual activity — a two-axis visual map where panelists place community stakeholders based on their power and their alignment with the goals of the study.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>CEB Selection Process</h4>
+          <p>How to use the completed power map to identify and invite the right people to serve on the CEB, guided by panelist knowledge and community values — not researcher preferences.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Four Types of Power</h2>
+    <p>Before beginning power mapping, it is important for everyone to share the same understanding of what power means. Power is not only negative — it can be a force for healing, justice, and community strength.</p>
+    <div class="power-grid">
+      <div class="power-card over">
+        <div class="label">Power Over</div>
+        <p>Authority, control, or domination. Institutions or people who control others' behavior, access, resources, or opportunities — often through systems that have been in place so long they feel invisible.</p>
+      </div>
+      <div class="power-card to">
+        <div class="label">Power To</div>
+        <p>The ability to act and make change. Starts with believing change is possible and grows as people take action, build skills, and see results. This is the power we are trying to activate in communities.</p>
+      </div>
+      <div class="power-card with">
+        <div class="label">Power With</div>
+        <p>Collective action and solidarity. The strength that comes from people joining together, building shared understanding, and acting as one. This is community organizing power.</p>
+      </div>
+      <div class="power-card within">
+        <div class="label">Power Within</div>
+        <p>Self-worth, dignity, and confidence. The internal sense that your voice matters and that you can affect the world around you. This is foundational to authentic community engagement.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout blue">
+    <strong>Connection to Say It Loud</strong>
+    Say It Loud is built on the belief that authentic ADRD research with Black Americans requires all four types of power to be present in the research process. The CEB is designed to hold <strong>Power Over</strong> the study design through its veto authority. Power mapping is designed to build <strong>Power With</strong> and <strong>Power Within</strong> the citizen panels by making the governance process visible and community-driven.
+  </div>
+
+</div>
+
+<!-- ======================== TAB 2: TRAINER GUIDE ======================== -->
+<div id="trainer" class="panel">
+
+  <div class="callout gold">
+    <strong>Who This Is For</strong>
+    This section is for Dr. Lincoln and AAAE members who are training community co-facilitators in how to lead a power mapping activity with citizen panelists. The goal of this training is not just to teach the exercise — it is to build co-facilitators' confidence so they can lead this activity independently, without researcher presence.
+  </div>
+
+  <div class="section">
+    <h2>Train-the-Trainer Session Overview</h2>
+    <table class="time-table">
+      <tr><th>Phase</th><th>Time</th><th>What Happens</th></tr>
+      <tr><td>Welcome and framing</td><td>10 min</td><td>Dr. Lincoln opens with the purpose and connection to Say It Loud's community governance values</td></tr>
+      <tr><td>What is power? Discussion</td><td>15 min</td><td>Co-facilitators discuss the four types of power; share examples from their own community experience</td></tr>
+      <tr><td>Introduce the power map</td><td>15 min</td><td>Dr. Lincoln demonstrates the two-axis map with a practice example using a fictional community</td></tr>
+      <tr><td>Practice facilitation round</td><td>25 min</td><td>Co-facilitators pair up and practice leading each other through the exercise; Dr. Lincoln circulates and coaches</td></tr>
+      <tr><td>Debrief and Q&A</td><td>15 min</td><td>Group discussion: What felt easy? What felt hard? What questions do panelists ask that you might not know how to answer?</td></tr>
+      <tr><td>Closing: connecting to CEB</td><td>10 min</td><td>Dr. Lincoln explains how the completed power map will be used to identify CEB candidates</td></tr>
+      <tr><td><strong>Total</strong></td><td><strong>90 min</strong></td><td></td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Learning Objectives for Co-Facilitators</h2>
+    <p>By the end of this training, community co-facilitators will be able to:</p>
+    <ol>
+      <li>Explain in plain language what power mapping is and why Say It Loud uses it</li>
+      <li>Lead a group of citizen panelists through the four types of power discussion</li>
+      <li>Introduce and explain the two-axis power map without relying on research language</li>
+      <li>Guide panelists through the stakeholder brainstorm and placement process</li>
+      <li>Keep the activity grounded in panelists' own community knowledge — not researcher assumptions</li>
+      <li>Identify which completed map quadrant points toward CEB candidates</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>Key Concepts to Teach</h2>
+    <h3>1. The Two-Axis Map</h3>
+    <p>The power map uses two lines to place every community stakeholder in one of four positions:</p>
+    <ul>
+      <li><strong>X-axis (left to right):</strong> From strongly opposed to the community's goals → to strongly supportive</li>
+      <li><strong>Y-axis (bottom to top):</strong> From little influence in the community → to a lot of influence</li>
+    </ul>
+    <p>The upper right quadrant — high power, strongly supportive — is where your best CEB candidates live. The upper left — high power, opposed or uncertain — are people to engage and potentially move.</p>
+
+    <h3>2. Naming Names</h3>
+    <p>Power maps are strongest when they name specific individuals and organizations, not just types. Teach co-facilitators to gently push panelists to be specific: not "church leaders" but "Pastor Jones at First Baptist" or "Deacon Williams from New Life Church." This makes the map actionable.</p>
+
+    <div class="tip-box">If a panelist is hesitant to name someone, reassure them that the power map stays within the group. It is a community planning tool, not a public document. Names on the map are held in confidence by the citizen panel.</div>
+
+    <h3>3. Co-Creating the Map</h3>
+    <p>The map belongs to the panelists, not the researcher or co-facilitator. The co-facilitator's job is to ask questions and hold space — not to tell panelists where someone belongs on the map. If panelists disagree about placement, that is a healthy sign of a living community. Let them discuss it.</p>
+
+    <h3>4. The Map Is Never Finished</h3>
+    <p>Power shifts over time. The power map done in Session 1 is a starting point, not a final answer. The CEB may revisit and update the map as the study progresses and new community relationships develop.</p>
+  </div>
+
+  <div class="section">
+    <h2>Facilitation Scripts for Co-Facilitators</h2>
+    <p>These are suggested ways to introduce and explain key concepts. Co-facilitators should use their own voice and not read these word-for-word.</p>
+
+    <h3>Opening Power Conversation</h3>
+    <div class="script">When we talk about power, a lot of us think about someone having power over us — a boss, a landlord, a doctor who doesn't listen. But there are other kinds of power too. The power we have inside ourselves. The power we build when we come together. And the power to make something happen. Today we're going to look at all of those kinds of power — who has them in our community and how we can use that to make sure the right people are guiding this research.</div>
+
+    <h3>Introducing the Map</h3>
+    <div class="script">We're going to make a map together — not of streets, but of people and organizations in our community. This map has two directions. Left and right tells us how much someone supports what we're trying to do here — making sure Black Americans have a real voice in brain health research. Up and down tells us how much influence they have in the community. Someone who is high up on this map and all the way to the right is someone we want involved in leading this work. Those are the people we're looking for.</div>
+
+    <h3>Naming Names</h3>
+    <div class="script">I want us to get specific. Instead of just saying "community leaders" or "doctors," let's name the actual people we know. Who is that pastor? Who is that nurse at the health center? Who is the person everyone calls when something needs to get done? This map is just for us — it's not going anywhere. The more specific we are, the more useful it is.</div>
+  </div>
+
+  <div class="section">
+    <h2>Handling Common Challenges</h2>
+    <div class="callout red">
+      <strong>Challenge 1 — Panelists disagree about where to place someone</strong>
+      Disagreement is valuable, not a problem. Say: "It sounds like you all have different experiences with this person. Let's hear both sides." Allow the discussion. Then ask the group to come to a placement together or note both perspectives. Different views reveal the complexity of community power.
+    </div>
+    <div class="callout red">
+      <strong>Challenge 2 — Panelists are reluctant to name people who have harmed the community</strong>
+      Some panelists may hesitate to name people in the upper-left quadrant (high power, opposing). Acknowledge this: "We don't have to name anyone who makes anyone uncomfortable. If there's someone we all know is not on our side, we can just describe the role without the name for now." The map can still be useful even with some anonymous entries.
+    </div>
+    <div class="callout red">
+      <strong>Challenge 3 — Panelists name the same few people and get stuck</strong>
+      Use prompting questions: "Who do people call when something goes wrong in this neighborhood? Who shows up at community meetings? Who do young people trust? Who do elders trust? Who at the hospital actually listens?" Different entry points unlock different networks.
+    </div>
+    <div class="callout red">
+      <strong>Challenge 4 — Panelists ask if researchers will see the map</strong>
+      Be clear and honest: "Dr. Lincoln will see the final list of people we identify as potential CEB members so those invitations can be sent. But the map itself — who we placed where and why — stays in our group. We are in control of this process." This reinforces the community governance principle at the heart of Say It Loud.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What Dr. Lincoln Does During the Panel Session</h2>
+    <div class="callout purple">
+      <strong>Zero Researcher Presence for Condition A Panels</strong>
+      For Condition A citizen panels (Empower), Dr. Lincoln does not attend the power mapping session. Community co-facilitators lead the full activity independently. Dr. Lincoln reviews the completed CEB candidate list — not the map itself — after the session. This is a deliberate application of the Say It Loud community autonomy principle.
+    </div>
+    <p>For Condition B panels (Collaborate), Dr. Lincoln may attend as a resource but should not direct the conversation or place stakeholders on the map. The co-facilitator leads. Dr. Lincoln speaks only when directly asked, and defers to panelist knowledge above research expertise on all questions about community relationships.</p>
+  </div>
+
+</div>
+
+<!-- ======================== TAB 3: CO-FACILITATOR GUIDE ======================== -->
+<div id="facilitator" class="panel">
+
+  <div class="callout green">
+    <strong>Who This Is For</strong>
+    This section is your step-by-step guide for leading citizen panelists through the power mapping activity. You were trained by Dr. Lincoln and AAAE to lead this session. You do not need to be a researcher to do this well — you need to be a trusted community member who asks good questions and listens deeply. That is exactly who you are.
+  </div>
+
+  <div class="section">
+    <h2>What You Need</h2>
+    <div class="materials">
+      <div class="material-tag">🗒 Large paper or butcher paper (1 sheet per table)</div>
+      <div class="material-tag">🖊 Thick markers (multiple colors)</div>
+      <div class="material-tag">📌 Sticky notes (two colors — one for individuals, one for organizations)</div>
+      <div class="material-tag">✂ Tape</div>
+      <div class="material-tag">📋 Stakeholder brainstorm worksheet (one per person)</div>
+      <div class="material-tag">📋 CEB candidate summary sheet (one per table)</div>
+      <div class="material-tag">⏱ Timer or phone</div>
+    </div>
+
+    <div class="tip-box">Set up the room before panelists arrive. Draw the power map axes on the large paper ahead of time. Place sticky notes and markers at each table. A relaxed, ready room signals to panelists that their time is valued.</div>
+  </div>
+
+  <div class="section">
+    <h2>Session Agenda at a Glance</h2>
+    <table class="time-table">
+      <tr><th>What You Do</th><th>Time</th></tr>
+      <tr><td>Welcome and check-in</td><td>5 min</td></tr>
+      <tr><td>What is power? Group conversation</td><td>15 min</td></tr>
+      <tr><td>Introduce the power map</td><td>10 min</td></tr>
+      <tr><td>Stakeholder brainstorm — individual</td><td>10 min</td></tr>
+      <tr><td>Group discussion and map placement</td><td>25 min</td></tr>
+      <tr><td>Identify CEB candidates together</td><td>10 min</td></tr>
+      <tr><td>Closing reflection</td><td>5 min</td></tr>
+      <tr><td><strong>Total</strong></td><td><strong>80 min</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Step-by-Step Instructions</h2>
+
+    <div class="time-badge">⏱ 5 min</div>
+    <h3>Step 1 — Welcome and Check-In</h3>
+    <p>Welcome everyone back and remind them why this session matters.</p>
+    <div class="script">Welcome everyone. Today we're doing something a little different. We're going to make a map together — not of neighborhoods, but of people. We want to figure out who in our community should be at the table helping guide this research. Nobody knows that better than you do. So today, your knowledge is the most important thing in this room.</div>
+    <div class="tip-box">Start with a brief check-in question that grounds everyone in the community. Try: "What is one word that describes your neighborhood right now?" Go around the room quickly.</div>
+
+    <hr class="divider">
+    <div class="time-badge">⏱ 15 min</div>
+    <h3>Step 2 — What Is Power? Group Conversation</h3>
+    <p>Before mapping power, the group needs to talk about what power means. This is not a lecture — it is a conversation.</p>
+    <div class="script">Before we start the map, I want to ask you something: when you hear the word "power," what comes to mind? What does power look like in your neighborhood?</div>
+    <p>Let the group respond freely. Listen for examples of each type of power and name them when you hear them:</p>
+    <ul>
+      <li>If someone mentions a landlord, city official, or hospital — that is <strong>power over.</strong></li>
+      <li>If someone mentions organizing, a community meeting, or a coalition — that is <strong>power with.</strong></li>
+      <li>If someone mentions a neighbor who gets things done — that is <strong>power to.</strong></li>
+      <li>If someone mentions feeling heard, respected, or like their voice matters — that is <strong>power within.</strong></li>
+    </ul>
+    <div class="script">All of those are real kinds of power. Today we're going to look at the people in our community who have power — and figure out who we want to bring into this research to make sure it serves us.</div>
+
+    <hr class="divider">
+    <div class="time-badge">⏱ 10 min</div>
+    <h3>Step 3 — Introduce the Power Map</h3>
+    <p>Point to the large paper with the axes already drawn. Walk the group through what the map means.</p>
+    <div class="script">This is our power map. It has two directions. This line going left and right — that's about whether someone supports what we're doing. All the way to the right means they're all in, they want to help. All the way to the left means they're not on our side, at least not yet. The line going up and down is about how much influence they have. High up means they have a lot of pull in the community. Low down means they're less connected to how things work. We're going to put people and organizations on this map. We want to find the ones who are up high AND on the right side — those are our people.</div>
+
+    <hr class="divider">
+    <div class="time-badge">⏱ 10 min</div>
+    <h3>Step 4 — Individual Stakeholder Brainstorm</h3>
+    <p>Give each person the stakeholder brainstorm worksheet and ask them to work quietly for 10 minutes before sharing with the group.</p>
+    <div class="script">Before we start putting names on the map together, I want everyone to take a few minutes to write down names on your own. Think about who has power in your community. Who do people trust? Who gets things done? Who shows up? Write down as many as you can — individuals and organizations. Use the worksheet in front of you. Don't filter yourself. We'll share in a few minutes.</div>
+    <div class="tip-box">Circulate quietly while people write. If someone looks stuck, gently offer: "Think about who you would call if something went wrong in your neighborhood. Or who you would trust to speak up for your family."</div>
+
+    <hr class="divider">
+    <div class="time-badge">⏱ 25 min</div>
+    <h3>Step 5 — Group Discussion and Map Placement</h3>
+    <p>Now bring the group together to share and place stakeholders on the map.</p>
+    <div class="script">Let's share what we came up with. Who wants to start? Tell us the name — or describe the person or organization — and where you think they belong on the map. Does everyone agree? Let's talk about it.</div>
+
+    <p>Use these questions to guide the discussion and keep it moving:</p>
+    <ul>
+      <li>Who are the types of individuals or organizations that have a voice in brain health and health research in our community?</li>
+      <li>Who is directly affected by ADRD in our community? Who do they turn to?</li>
+      <li>Who supports the idea that Black communities should lead their own health research?</li>
+      <li>Who might push back on that — or who hasn't been convinced yet?</li>
+      <li>Who is missing from this map that should be on it?</li>
+    </ul>
+
+    <p>As names are shared, write them on sticky notes and place them on the map. Use one color for individuals and another for organizations. If two panelists disagree on placement, discuss it and find a shared position — or note both views.</p>
+
+    <div class="tip-box">Be specific. If someone says "church leaders," ask: Which church? Which leader? The more specific the map, the more useful it is. Name names.</div>
+
+    <hr class="divider">
+    <div class="time-badge">⏱ 10 min</div>
+    <h3>Step 6 — Identify CEB Candidates Together</h3>
+    <p>Look at the completed map together and guide the group toward identifying candidates for the Community Equity Board.</p>
+    <div class="script">Now let's look at what we made. See this area up here and to the right? These are the people who have real influence in our community AND who are on our side — who believe that our community deserves to lead this research. These are the people we want to invite to the Community Equity Board. This is a small group — no more than 8 people. So we need to choose wisely. Who stands out to you? Who would bring something to this table that no one else could?</div>
+    <p>Guide the group through the CEB candidate criteria on the worksheet. Aim to identify 8–12 names as potential candidates, knowing that some may decline the invitation.</p>
+
+    <hr class="divider">
+    <div class="time-badge">⏱ 5 min</div>
+    <h3>Step 7 — Closing Reflection</h3>
+    <div class="script">You just did something powerful. You mapped the power in your own community using your own knowledge — no researcher needed to tell you who matters here. The names you came up with today are going to shape who governs this entire research study. That is real influence. Thank you for bringing your full selves to this.</div>
+  </div>
+
+</div>
+
+<!-- ======================== TAB 4: EXERCISE ======================== -->
+<div id="exercise" class="panel">
+
+  <div class="section">
+    <h2>The Power Map — Visual Guide</h2>
+    <p>The power map places each stakeholder at the intersection of two questions: <strong>How much power do they have?</strong> and <strong>How aligned are they with our goals?</strong></p>
+
+    <div class="map-container">
+      <div class="map-title">Say It Loud Community Power Map</div>
+      <div class="map-wrapper">
+        <div class="axis-label-y">
+          <span>↑ HIGH POWER</span>
+          <span>LOW POWER ↓</span>
+        </div>
+        <div class="map-canvas">
+          <div class="quadrant q1">⚠️ High Power<br>Opposing or<br>Uncertain</div>
+          <div class="quadrant q2">⭐ High Power<br>Supportive<br>→ CEB Candidates</div>
+          <div class="quadrant q3">Low Power<br>Opposing or<br>Uncertain</div>
+          <div class="quadrant q4">Low Power<br>Supportive<br>→ Potential Allies</div>
+        </div>
+        <div class="axis-label-x">
+          <span>← OPPOSING / UNCERTAIN</span>
+          <span>SUPPORTIVE →</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="quad-guide">
+      <div class="quad-item q2i">
+        <div class="ql">⭐ Upper Right — Priority: CEB Candidates</div>
+        <p>High influence, strongly supportive of community-led research. These are your strongest CEB candidates. They can advance the work AND they are on the community's side.</p>
+      </div>
+      <div class="quad-item q1i">
+        <div class="ql">⚠️ Upper Left — Priority: Engage and Educate</div>
+        <p>High influence but not yet aligned. These people matter too much to ignore. Build relationships and seek to understand their concerns. Some may move to the right over time.</p>
+      </div>
+      <div class="quad-item q4i">
+        <div class="ql">🤝 Lower Right — Priority: Build and Involve</div>
+        <p>Supportive but less influential right now. These are potential allies and future leaders. Involve them in outreach, recruitment, and community events. Support their growth.</p>
+      </div>
+      <div class="quad-item q3i">
+        <div class="ql">📋 Lower Left — Priority: Monitor</div>
+        <p>Limited influence and not aligned. These individuals or groups are not a current priority for engagement. Monitor but do not spend significant energy here.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Stakeholder Brainstorm Prompts</h2>
+    <p>Use these questions to help panelists generate names for the map. Ask them one at a time and give the group time to respond to each before moving on.</p>
+
+    <h3>Community Influence and Trust</h3>
+    <ul>
+      <li>Who do people call when something goes wrong in this neighborhood?</li>
+      <li>Who speaks and people actually listen?</li>
+      <li>Who do elders in this community trust?</li>
+      <li>Who do young people trust?</li>
+      <li>Who shows up consistently — at funerals, at graduations, at community meetings?</li>
+    </ul>
+
+    <h3>Health and Caregiving</h3>
+    <ul>
+      <li>Who helps families navigate health care in this community?</li>
+      <li>Who do you see at church health fairs, at the senior center, at the barbershop or beauty shop?</li>
+      <li>Who talks openly about memory loss, dementia, or caring for aging parents?</li>
+      <li>Who do families call when they don't know what to do about a family member's brain health?</li>
+    </ul>
+
+    <h3>Organizations and Institutions</h3>
+    <ul>
+      <li>Which organizations serve Black seniors or Black families in this area?</li>
+      <li>Which churches, mosques, or faith communities are active in community health?</li>
+      <li>Which community organizations have real relationships with Black residents — not just service delivery?</li>
+      <li>Which hospitals, health centers, or clinics have earned community trust?</li>
+    </ul>
+
+    <h3>Decision-Makers and Systems</h3>
+    <ul>
+      <li>Who on the city council, school board, or in county government actually hears from this community?</li>
+      <li>Who at the health department, housing authority, or social services has made decisions that helped or hurt this neighborhood?</li>
+    </ul>
+
+    <h3>Research and Knowledge</h3>
+    <ul>
+      <li>Who has been part of a health study or clinical trial? Who encouraged others to participate or discouraged them?</li>
+      <li>Who in this community knows the most about brain health, caregiving, or medical research?</li>
+      <li>Who has a personal or family experience with Alzheimer's Disease or a related condition?</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Clusters and Networks</h2>
+    <p>After placing individuals and organizations on the map, look for patterns. Are there clusters of people grouped together? These clusters often represent networks of influence that move together.</p>
+    <ul>
+      <li>Draw a circle around clusters that appear to be connected to each other.</li>
+      <li>Use thread or a drawn line to show connections between individuals and organizations you know have a relationship.</li>
+      <li>Ask: <em>What organizations are already well-placed to affect this issue? How can this research support them — and how can they support this research?</em></li>
+    </ul>
+
+    <div class="callout blue">
+      <strong>From the Power Mapping Framework</strong>
+      "In some cases, you might see a cluster of individuals and organizations. We want to focus on connecting the dots between these clusters to understand the power relationships among the networks." Networks matter as much as individuals in community governance.
+    </div>
+  </div>
+
+</div>
+
+<!-- ======================== TAB 5: CEB SELECTION ======================== -->
+<div id="ceb" class="panel">
+
+  <div class="callout gold">
+    <strong>The Goal</strong>
+    The CEB will include no more than 8 community members who hold veto authority over the Say It Loud study design, recruitment, and the use of research findings. These are not advisors — they are decision-makers. The power mapping process exists to ensure the right people are in that role: those with community trust, community knowledge, and alignment with the goal of community-led ADRD research.
+  </div>
+
+  <div class="section">
+    <h2>CEB Candidate Criteria</h2>
+    <p>After completing the power map, use these criteria to evaluate potential CEB candidates from the upper-right quadrant. Not everyone in that quadrant will be the right fit. Panelists should discuss each name using these dimensions.</p>
+
+    <div class="ceb-card">
+      <h4>What Makes a Strong CEB Member?</h4>
+      <div class="criteria-list">
+        <div class="criterion">
+          <span class="icon">🤝</span>
+          <div><strong>Community Trust:</strong> People in this community know and trust this person. They would accept a call or an invitation from them.</div>
+        </div>
+        <div class="criterion">
+          <span class="icon">🧠</span>
+          <div><strong>Lived or Professional Knowledge of ADRD:</strong> They have personal caregiving experience, professional health background, or deep community knowledge about brain health and aging in Black communities.</div>
+        </div>
+        <div class="criterion">
+          <span class="icon">📣</span>
+          <div><strong>Voice and Presence:</strong> They speak up when it matters. They will not be silent in a room with researchers and health professionals.</div>
+        </div>
+        <div class="criterion">
+          <span class="icon">🌍</span>
+          <div><strong>Community Connection:</strong> They are actively present in the community — not just known by name but engaged in its day-to-day life.</div>
+        </div>
+        <div class="criterion">
+          <span class="icon">⚖️</span>
+          <div><strong>Commitment to Equity:</strong> They believe Black communities deserve power over research that affects them. This is non-negotiable for CEB governance.</div>
+        </div>
+        <div class="criterion">
+          <span class="icon">🗓</span>
+          <div><strong>Availability:</strong> They have capacity to participate. The CEB meets regularly. Someone who cannot attend cannot govern effectively.</div>
+        </div>
+        <div class="criterion">
+          <span class="icon">🌈</span>
+          <div><strong>Diversity of Perspective:</strong> The CEB should not all come from the same network, age group, faith community, or part of the county. Different perspectives make better decisions.</div>
+        </div>
+        <div class="criterion">
+          <span class="icon">🏅</span>
+          <div><strong>Independence:</strong> Ideally, CEB members are not direct employees of AAAE or the research team. They represent the community, not the study.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>CEB Selection Process — Step by Step</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Review the Upper-Right Quadrant Together</h4>
+          <p>Ask the group: "Looking at everyone in this corner — high power, supportive — who stands out as the strongest candidates for the CEB? Who would you trust to make decisions about this research on behalf of this community?"</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Apply the Criteria</h4>
+          <p>For each top candidate, discuss the eight criteria above as a group. No formal scoring is needed — the conversation itself will reveal who rises to the top through consensus.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Check for Diversity</h4>
+          <p>Before finalizing the list, ask: "Are we missing someone? Are all of our candidates from the same church, the same neighborhood, the same age group? Who else should be at this table?" Aim for 2 members per county (RC, LAC SPA 6, LAC SPA 4, OC) with representation of elders, caregivers, and community organizers.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Generate a Final List of 8–12 Names</h4>
+          <p>Aim for more names than seats — some people will decline the invitation. Record names, contact information if available, and a brief note on why this person was identified by the panel. This list goes to Dr. Lincoln for outreach.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h4>The Invitation Belongs to the Community</h4>
+          <p>Wherever possible, the invitation to join the CEB should come from a citizen panelist, not from Dr. Lincoln or the research team. A call from a trusted community member is more likely to result in a yes than an email from a researcher. Panelists who know the candidates personally should be the ones to make the initial ask.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What Happens After the Map</h2>
+    <div class="callout green">
+      <strong>The Map Stays With the Community</strong>
+      The completed power map is a community document. A summary of CEB candidates — names and brief rationale — is shared with Dr. Lincoln to coordinate invitations. The full map, including all stakeholder placements and discussion notes, remains confidential to the citizen panel. This is a deliberate governance decision that reflects the Say It Loud principle of community ownership of the research process.
+    </div>
+
+    <p>After the power mapping session, the co-facilitator should:</p>
+    <ol>
+      <li>Complete the CEB Candidate Summary Sheet with names and brief notes from the session</li>
+      <li>Photograph or scan the completed power map for the panel's own records</li>
+      <li>Deliver the CEB Candidate Summary Sheet to Dr. Lincoln or the Project Manager</li>
+      <li>Follow up at the next session to report back to panelists on which candidates have been contacted and who has agreed to serve</li>
+    </ol>
+
+    <div class="tip-box">Keep the loop closed. Panelists invested their knowledge and trust in this process. Reporting back on who joined the CEB — and giving credit to the panel for identifying them — reinforces the community governance principle and builds continued trust in the research process.</div>
+  </div>
+
+</div>
+
+<!-- ======================== TAB 6: WORKSHEETS ======================== -->
+<div id="worksheet" class="panel">
+
+  <button class="print-btn" onclick="window.print()">🖨 Print Worksheets</button>
+
+  <!-- WORKSHEET 1 -->
+  <div class="section">
+    <h2>Worksheet 1 — Individual Stakeholder Brainstorm</h2>
+    <p><em>Complete this on your own before the group discussion. Think about people and organizations in your community. Name as many as you can. There are no wrong answers.</em></p>
+
+    <div class="worksheet">
+      <div class="worksheet-title">Who Has Power in Your Community?</div>
+      <p style="font-size:13px; color:#666; margin-bottom:16px;">For each person or organization you identify, note their role and whether you think they support community-led research (✓ yes / ? unsure / ✗ no).</p>
+
+      <div class="ws-header">
+        <div>Name or Organization</div>
+        <div>Role / Connection</div>
+        <div>Support? ✓ ? ✗</div>
+        <div>Why They Matter</div>
+      </div>
+
+      <!-- Example row -->
+      <div class="ws-row">
+        <div class="ws-field filled">e.g. Pastor Williams, First Baptist</div>
+        <div class="ws-field filled">Faith leader, senior advocate</div>
+        <div class="ws-field filled">✓</div>
+        <div class="ws-field filled">Known and trusted by seniors in community</div>
+      </div>
+
+      <!-- Blank rows -->
+      <div class="ws-row"><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div></div>
+      <div class="ws-row"><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div></div>
+      <div class="ws-row"><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div></div>
+      <div class="ws-row"><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div></div>
+      <div class="ws-row"><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div></div>
+      <div class="ws-row"><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div></div>
+      <div class="ws-row"><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div></div>
+      <div class="ws-row"><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div><div class="ws-field"></div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- WORKSHEET 2 -->
+  <div class="section">
+    <h2>Worksheet 2 — Power Map Placement Guide</h2>
+    <p><em>Use this guide during the group map activity to help decide where to place each person or organization.</em></p>
+
+    <div class="worksheet">
+      <div class="worksheet-title">Where Does This Person or Organization Belong on the Map?</div>
+
+      <h3 style="margin: 14px 0 8px;">Step 1 — How Much Power Do They Have? (Y-axis)</h3>
+      <p style="font-size:13px; color:#555; margin-bottom:10px;">Circle where this person or organization falls:</p>
+      <table class="time-table">
+        <tr><th>Power Level</th><th>What It Looks Like</th></tr>
+        <tr><td><strong>Very High</strong></td><td>Controls or strongly influences major decisions — funding, policy, institutional access, public opinion</td></tr>
+        <tr><td><strong>High</strong></td><td>Has significant influence in community networks, institutions, or organizations</td></tr>
+        <tr><td><strong>Moderate</strong></td><td>Has some influence in specific circles but not broadly recognized</td></tr>
+        <tr><td><strong>Low</strong></td><td>Limited reach or influence; not widely connected to decision-making</td></tr>
+      </table>
+
+      <h3 style="margin: 20px 0 8px;">Step 2 — How Aligned Are They with Our Goals? (X-axis)</h3>
+      <p style="font-size:13px; color:#555; margin-bottom:10px;">Circle where this person or organization falls:</p>
+      <table class="time-table">
+        <tr><th>Alignment</th><th>What It Looks Like</th></tr>
+        <tr><td><strong>Strongly Supportive</strong></td><td>Actively advocates for Black community ownership of health research; has shown up for the community before</td></tr>
+        <tr><td><strong>Supportive</strong></td><td>Generally supportive but may not be deeply committed or active yet</td></tr>
+        <tr><td><strong>Uncertain / Neutral</strong></td><td>No clear position; may be open to engagement with the right approach</td></tr>
+        <tr><td><strong>Opposing</strong></td><td>Has interests, perspectives, or affiliations that conflict with community-led research goals</td></tr>
+      </table>
+
+      <h3 style="margin: 20px 0 8px;">Step 3 — What Quadrant Does That Put Them In?</h3>
+      <div class="quad-guide">
+        <div class="quad-item q2i">
+          <div class="ql">⭐ High Power + Supportive</div>
+          <p>Upper Right → Strong CEB candidate. Prioritize for outreach and invitation.</p>
+        </div>
+        <div class="quad-item q1i">
+          <div class="ql">⚠️ High Power + Opposing/Uncertain</div>
+          <p>Upper Left → Engage and educate. Build relationship. May shift over time.</p>
+        </div>
+        <div class="quad-item q4i">
+          <div class="ql">🤝 Low Power + Supportive</div>
+          <p>Lower Right → Involve in outreach and community events. Future leaders.</p>
+        </div>
+        <div class="quad-item q3i">
+          <div class="ql">📋 Low Power + Opposing</div>
+          <p>Lower Left → Monitor only. Not a current priority for engagement.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- WORKSHEET 3 -->
+  <div class="section">
+    <h2>Worksheet 3 — CEB Candidate Summary Sheet</h2>
+    <p><em>Complete this at the end of the power mapping session. This sheet goes to Dr. Lincoln and the Project Manager for CEB outreach. The full power map stays with the citizen panel.</em></p>
+
+    <div class="worksheet">
+      <div class="worksheet-title">Say It Loud — CEB Candidate List</div>
+      <p style="font-size:13px; margin-bottom:6px;"><strong>Panel County/SPA:</strong> _____________________________ &nbsp;&nbsp; <strong>Session Date:</strong> _____________________</p>
+      <p style="font-size:13px; margin-bottom:16px;"><strong>Co-Facilitator Name:</strong> _____________________________________________________</p>
+
+      <table class="time-table">
+        <tr>
+          <th>#</th>
+          <th>Full Name</th>
+          <th>Role / Organization</th>
+          <th>Contact Info (if known)</th>
+          <th>Why Nominated by Panel</th>
+          <th>Who Will Make Initial Ask?</th>
+        </tr>
+        <tr><td>1</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>2</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>3</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>4</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>5</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>6</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>7</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>8</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>9</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>10</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>11</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>12</td><td>&nbsp;<br><br></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+
+      <div style="margin-top:20px; font-size:13px;">
+        <p><strong>Additional Notes from Session:</strong></p>
+        <div class="ws-field" style="min-height:80px; margin-top:6px;"></div>
+        <p style="margin-top:14px;"><strong>Any concerns or follow-up needed:</strong></p>
+        <div class="ws-field" style="min-height:60px; margin-top:6px;"></div>
+      </div>
+
+      <div class="callout gold" style="margin-top:20px;">
+        <strong>Reminder</strong>
+        This sheet contains names and contact information. Handle with care. Do not leave it unattended. Deliver directly to Dr. Lincoln or the Project Manager or send via encrypted email only.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-banner">
+  Say It Loud — Power Mapping Facilitator Training Guide &nbsp;|&nbsp; Developed by Dr. Karen D. Lincoln and AAAE &nbsp;|&nbsp; For internal use by Say It Loud citizen panels only
+</div>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
