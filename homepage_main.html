@@ -158,27 +158,80 @@ blockquote.pull{background:linear-gradient(135deg,var(--teal-l),#f0f9fb);border-
 .research-header .sec-h2{font-size:clamp(2.3rem,3.8vw,3.1rem);color:#fff;margin-bottom:14px}
 .research-header p{font-size:.98rem;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto;line-height:1.72}
 
-/* === 5 RESEARCH BUBBLES — symmetric pentagon, UCI palette === */
-.bubbles-wrap{position:relative;height:560px;max-width:600px;margin:0 auto;z-index:2}
-.bubble{position:absolute;width:190px;height:190px;transform:translate(-50%,-50%);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;cursor:pointer;text-decoration:none;color:#fff;padding:14px;border:1.5px solid rgba(255,255,255,.18);overflow:hidden;animation:float-b 8s ease-in-out infinite;transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .3s,filter .3s ease}
-.bubble::before{content:'';position:absolute;inset:0;border-radius:50%;background:inherit;opacity:.92;z-index:0}
-.bubble>*{position:relative;z-index:1}
-.bubble:hover{transform:translate(-50%,-50%) scale(1.06);filter:brightness(1.05) saturate(1.08);box-shadow:0 18px 44px rgba(0,0,0,.35),0 0 0 2px rgba(255,210,0,.5)}
-.bubble i{font-size:1.7rem;margin-bottom:8px;opacity:.95}
-.bubble .b-title{font-family:'Roboto Slab',serif;font-weight:900;font-size:1rem;line-height:1.2;letter-spacing:-.005em}
-.bubble .b-sub{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-top:4px}
-@keyframes float-b{0%,100%{transform:translate(-50%,-50%)}50%{transform:translate(-50%,calc(-50% - 10px))}}
+/* === HEXAGONAL HONEYCOMB — 5 research areas === */
+/* === HEXAGONAL HONEYCOMB — Image Reveal on Hover === */
+/* === HEXAGONAL HONEYCOMB — Full Image with Overlay === */
+.hex-wrap{position:relative;max-width:880px;margin:0 auto;z-index:2;padding:20px 0}
+.hex-row{display:flex;justify-content:center;gap:18px}
+.hex-row.row-2{margin-top:-46px}
 
-/* Pentagon — UCI palette */
-.bb1{top:14%; left:50%; background:linear-gradient(135deg,var(--uci-navy),var(--uci-blue));     box-shadow:0 14px 34px rgba(0,58,99,.4);    animation-delay:0s}     /* TOP — UCI Navy→Blue (Sleep) */
-.bb2{top:38%; left:84%; background:linear-gradient(135deg,var(--uci-eucalyptus),var(--uci-sage));box-shadow:0 14px 34px rgba(79,111,82,.36); animation-delay:-1.6s}  /* UR — Eucalyptus→Sage (Env Justice) */
-.bb3{top:80%; left:70%; background:linear-gradient(135deg,var(--uci-amber),#E5B947);            box-shadow:0 14px 34px rgba(201,154,46,.4); animation-delay:-3.2s;color:#1a2332} /* LR — UCI Gold (Aging) */
-.bb3 .b-sub{color:rgba(0,40,70,.65)}
-.bb4{top:80%; left:30%; background:linear-gradient(135deg,var(--uci-mesa),var(--uci-persimmon));box-shadow:0 14px 34px rgba(178,86,24,.36); animation-delay:-4.8s}  /* LL — Mesa→Persimmon (Climate) */
-.bb5{top:38%; left:16%; background:linear-gradient(135deg,var(--uci-pacific),var(--uci-teal));  box-shadow:0 14px 34px rgba(74,155,168,.36);animation-delay:-6.4s}  /* UL — Pacific→Teal (Brain) */
+.hex{
+  position:relative;width:230px;height:265px;
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  -webkit-clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  cursor:pointer;text-decoration:none;color:#fff;
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1),filter .3s;
+  animation:hex-float 7s ease-in-out infinite;overflow:hidden
+}
+.hex:hover{transform:scale(1.05);filter:drop-shadow(0 0 16px rgba(255,210,0,.5))}
+@keyframes hex-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-/* Decorative connecting ring */
-.bubbles-wrap::before{content:'';position:absolute;top:50%;left:50%;width:520px;height:520px;border-radius:50%;border:1px dashed rgba(255,255,255,.08);transform:translate(-50%,-50%);pointer-events:none}
+/* Always-visible photo */
+.hex-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .6s ease;z-index:1
+}
+.hex:hover .hex-bg{transform:scale(1.08)}
+
+/* UCI-tinted overlay — each hex gets its own gradient color stop */
+.hex-overlay{
+  position:absolute;inset:0;z-index:2;
+  transition:opacity .4s ease
+}
+.hex:hover .hex-overlay{opacity:.7}
+
+.hex-1 .hex-overlay{background:linear-gradient(180deg,rgba(0,58,99,.55) 0%,rgba(0,100,164,.92) 100%)}
+.hex-2 .hex-overlay{background:linear-gradient(180deg,rgba(79,111,82,.55) 0%,rgba(122,154,126,.92) 100%)}
+.hex-3 .hex-overlay{background:linear-gradient(180deg,rgba(201,154,46,.55) 0%,rgba(229,185,71,.92) 100%)}
+.hex-4 .hex-overlay{background:linear-gradient(180deg,rgba(178,86,24,.55) 0%,rgba(201,90,46,.92) 100%)}
+.hex-5 .hex-overlay{background:linear-gradient(180deg,rgba(74,155,168,.55) 0%,rgba(126,190,197,.92) 100%)}
+
+/* Bottom-anchored content for editorial feel */
+.hex-content{
+  position:relative;z-index:3;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:24px 18px 30px;
+  text-shadow:0 2px 8px rgba(0,0,0,.4)
+}
+.hex-content i{font-size:1.7rem;margin-bottom:8px;opacity:.95}
+.hex-content .h-title{font-family:'Roboto Slab',serif;font-weight:900;font-size:.98rem;line-height:1.2;margin-bottom:5px}
+.hex-content .h-stat{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+
+/* Hex 3 (gold) — darker text for readability */
+/* .hex-3 .hex-content{color:#1a2332;text-shadow:0 1px 4px rgba(255,255,255,.3)} */
+
+/* Subtle gold border on hover via outline ring */
+.hex::after{
+  content:'';position:absolute;inset:3px;clip-path:inherit;-webkit-clip-path:inherit;
+  border:2px solid transparent;transition:border-color .3s;z-index:4;pointer-events:none
+}
+.hex:hover::after{border-color:rgba(255,210,0,.5)}
+
+.hex-1{animation-delay:0s}.hex-2{animation-delay:-1.4s}.hex-3{animation-delay:-2.8s}
+.hex-4{animation-delay:-4.2s}.hex-5{animation-delay:-5.6s}
+
+@media(max-width:720px){
+  .hex{width:180px;height:208px}
+  .hex-content{padding:18px 12px 22px}
+  .hex-content i{font-size:1.4rem}
+  .hex-content .h-title{font-size:.85rem}
+  .hex-row.row-2{margin-top:-36px}
+}
+@media(max-width:520px){
+  .hex-wrap{padding:0}
+  .hex-row{flex-direction:column;gap:14px;align-items:center}
+  .hex-row.row-2{margin-top:14px}
+}
 
 /* INITIATIVES */
 .initiatives-section{background:linear-gradient(180deg,var(--light-blue) 0%,#e8f1f9 50%,#f0f7ff 100%);padding:80px 0}
@@ -395,13 +448,37 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <h2 class="sec-h2">Key Research Areas</h2>
       <p>CEHDR's interdisciplinary work spans five interconnected priorities — explore each area to learn how our research drives policy, practice, and well-being for Black and historically marginalized communities.</p>
     </div>
-    <div class="bubbles-wrap fade-up delay-1">
-      <a href="#" class="bubble bb1"><i class="fa-solid fa-moon"></i><div class="b-title">Sleep Health</div><div class="b-sub">Disparities</div></a>
-      <a href="#" class="bubble bb2"><i class="fa-solid fa-earth-americas"></i><div class="b-title">Environmental Justice</div></a>
-      <a href="#" class="bubble bb3"><i class="fa-solid fa-person-cane"></i><div class="b-title">Aging &amp;<br>Dementia</div></a>
-      <a href="#" class="bubble bb4"><i class="fa-solid fa-leaf"></i><div class="b-title">Climate &amp;<br>Health</div></a>
-      <a href="#" class="bubble bb5"><i class="fa-solid fa-brain"></i><div class="b-title">Brain Health &amp;<br>Alzheimer's</div></a>
-    </div>
+    <div class="hex-wrap fade-up delay-1">
+  <div class="hex-row row-1">
+    <a href="#" class="hex hex-1">
+      <div class="hex-bg" style="background-image:url('https://sites.uci.edu/cehdr/files/2025/03/Exploring-Brain-Health-Disparities.png')"></div>
+      <div class="hex-overlay"></div>
+      <div class="hex-content"><i class="fa-solid fa-moon"></i><div class="h-title">Sleep Health</div><div class="h-stat">Disparities</div></div>
+    </a>
+    <a href="#" class="hex hex-2">
+      <div class="hex-bg" style="background-image:url('https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png')"></div>
+      <div class="hex-overlay"></div>
+      <div class="hex-content"><i class="fa-solid fa-earth-americas"></i><div class="h-title">Environmental Justice</div><div class="h-stat">Communities</div></div>
+    </a>
+    <a href="#" class="hex hex-3">
+      <div class="hex-bg" style="background-image:url('https://cehdr.publichealth.uci.edu/files/2025/03/d5af7f20-ee51-41c6-996f-4b25e705d30b-e1742505259588-392x240.jpg')"></div>
+      <div class="hex-overlay"></div>
+      <div class="hex-content"><i class="fa-solid fa-person-cane"></i><div class="h-title">Aging &amp; Dementia</div><div class="h-stat">Equity</div></div>
+    </a>
+  </div>
+  <div class="hex-row row-2">
+    <a href="#" class="hex hex-4">
+      <div class="hex-bg" style="background-image:url('https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Advancing-Environmental-Health-Equity-392x240.png')"></div>
+      <div class="hex-overlay"></div>
+      <div class="hex-content"><i class="fa-solid fa-leaf"></i><div class="h-title">Climate &amp; Health</div><div class="h-stat">Disparities</div></div>
+    </a>
+    <a href="#" class="hex hex-5">
+      <div class="hex-bg" style="background-image:url('https://sites.uci.edu/cehdr/files/2019/10/Cortex-activity-e3faf6935a2044f7.png')"></div>
+      <div class="hex-overlay"></div>
+      <div class="hex-content"><i class="fa-solid fa-brain"></i><div class="h-title">Brain Health &amp; Alzheimer's</div><div class="h-stat">Research</div></div>
+    </a>
+  </div>
+</div>
   </div>
 </section>
 
