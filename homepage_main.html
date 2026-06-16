@@ -159,78 +159,149 @@ blockquote.pull{background:linear-gradient(135deg,var(--teal-l),#f0f9fb);border-
 .research-header p{font-size:.98rem;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto;line-height:1.72}
 
 /* === HEXAGONAL HONEYCOMB — 5 research areas === */
-/* === HEXAGONAL HONEYCOMB — Image Reveal on Hover === */
-/* === HEXAGONAL HONEYCOMB — Full Image with Overlay === */
-.hex-wrap{position:relative;max-width:880px;margin:0 auto;z-index:2;padding:20px 0}
-.hex-row{display:flex;justify-content:center;gap:18px}
-.hex-row.row-2{margin-top:-46px}
+/* === VERTICAL TIMELINE — alternating left/right === */
+.timeline{position:relative;max-width:920px;margin:0 auto;padding:20px 0 40px;z-index:2}
 
-.hex{
-  position:relative;width:230px;height:265px;
-  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
-  -webkit-clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
-  cursor:pointer;text-decoration:none;color:#fff;
-  transition:transform .4s cubic-bezier(.34,1.56,.64,1),filter .3s;
-  animation:hex-float 7s ease-in-out infinite;overflow:hidden
+/* Central spine */
+.timeline::before{
+  content:'';position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);
+  width:3px;background:linear-gradient(to bottom,
+    rgba(255,210,0,0) 0%,
+    rgba(255,210,0,.5) 8%,
+    rgba(255,210,0,.5) 92%,
+    rgba(255,210,0,0) 100%);
+  border-radius:2px;z-index:1
 }
-.hex:hover{transform:scale(1.05);filter:drop-shadow(0 0 16px rgba(255,210,0,.5))}
-@keyframes hex-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-
-/* Always-visible photo */
-.hex-bg{
-  position:absolute;inset:0;background-size:cover;background-position:center;
-  transition:transform .6s ease;z-index:1
+/* === Compressed card dimensions === */
+.tl-item{
+  position:relative;display:grid;grid-template-columns:1fr 80px 1fr;
+  align-items:center;
+  margin-bottom:28px;       /* was 50px — tighter rhythm */
+  min-height:auto           /* was 200px — let content drive height */
 }
-.hex:hover .hex-bg{transform:scale(1.08)}
 
-/* UCI-tinted overlay — each hex gets its own gradient color stop */
-.hex-overlay{
-  position:absolute;inset:0;z-index:2;
-  transition:opacity .4s ease
+/* Restore alternating sides — odd items on left, even on right */
+.tl-item:nth-child(odd) .tl-card{
+  grid-column:1;
+  grid-template-columns:160px 1fr;   /* image left, text right */
 }
-.hex:hover .hex-overlay{opacity:.7}
-
-.hex-1 .hex-overlay{background:linear-gradient(180deg,rgba(0,58,99,.55) 0%,rgba(0,100,164,.92) 100%)}
-.hex-2 .hex-overlay{background:linear-gradient(180deg,rgba(79,111,82,.55) 0%,rgba(122,154,126,.92) 100%)}
-.hex-3 .hex-overlay{background:linear-gradient(180deg,rgba(201,154,46,.55) 0%,rgba(229,185,71,.92) 100%)}
-.hex-4 .hex-overlay{background:linear-gradient(180deg,rgba(178,86,24,.55) 0%,rgba(201,90,46,.92) 100%)}
-.hex-5 .hex-overlay{background:linear-gradient(180deg,rgba(74,155,168,.55) 0%,rgba(126,190,197,.92) 100%)}
-
-/* Bottom-anchored content for editorial feel */
-.hex-content{
-  position:relative;z-index:3;height:100%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:24px 18px 30px;
-  text-shadow:0 2px 8px rgba(0,0,0,.4)
+.tl-item:nth-child(even) .tl-card{
+  grid-column:3;
+  grid-template-columns:1fr 160px;   /* text left, image right */
 }
-.hex-content i{font-size:1.7rem;margin-bottom:8px;opacity:.95}
-.hex-content .h-title{font-family:'Roboto Slab',serif;font-weight:900;font-size:.98rem;line-height:1.2;margin-bottom:5px}
-.hex-content .h-stat{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
 
-/* Hex 3 (gold) — darker text for readability */
-/* .hex-3 .hex-content{color:#1a2332;text-shadow:0 1px 4px rgba(255,255,255,.3)} */
+/* Flip the visual order for even rows so the image hugs the outer edge */
+.tl-item:nth-child(even) .tl-card .tl-img{order:2}
+.tl-item:nth-child(even) .tl-card .tl-body{order:1;text-align:right}
+.tl-item:nth-child(even) .tl-icon{margin-left:auto}
+.tl-item:nth-child(even) .tl-link{align-self:flex-end}
 
-/* Subtle gold border on hover via outline ring */
-.hex::after{
-  content:'';position:absolute;inset:3px;clip-path:inherit;-webkit-clip-path:inherit;
-  border:2px solid transparent;transition:border-color .3s;z-index:4;pointer-events:none
+/* Connector arrow pointing toward the central spine */
+.tl-card::after{
+  content:'';position:absolute;top:50%;transform:translateY(-50%);
+  border:10px solid transparent;
 }
-.hex:hover::after{border-color:rgba(255,210,0,.5)}
+.tl-item:nth-child(odd) .tl-card::after{
+  right:-20px;border-left-color:rgba(255,255,255,.12)
+}
+.tl-item:nth-child(even) .tl-card::after{
+  left:-20px;border-right-color:rgba(255,255,255,.12)
+}
 
-.hex-1{animation-delay:0s}.hex-2{animation-delay:-1.4s}.hex-3{animation-delay:-2.8s}
-.hex-4{animation-delay:-4.2s}.hex-5{animation-delay:-5.6s}
+/* Smaller, wider card — image strip + compact body */
+.tl-card{
+  position:relative;background:rgba(255,255,255,.06);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;
+  display:grid;
+  grid-template-columns:160px 1fr;   /* slightly wider image strip */
+  gap:0;
+  box-shadow:0 8px 24px rgba(0,0,0,.28);
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease
+}
+.tl-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,210,0,.45);
+  box-shadow:0 14px 36px rgba(0,0,0,.4),0 0 0 1px rgba(255,210,0,.3)
+}
+.tl-item:nth-child(even) .tl-card{grid-template-columns:1fr 160px}
 
-@media(max-width:720px){
-  .hex{width:180px;height:208px}
-  .hex-content{padding:18px 12px 22px}
-  .hex-content i{font-size:1.4rem}
-  .hex-content .h-title{font-size:.85rem}
-  .hex-row.row-2{margin-top:-36px}
+/* Image side — fills card height, no min-height pushing things tall */
+.tl-img{
+  position:relative;background-size:cover;background-position:center;
+  min-height:0;             /* was 200px — image now stretches to body height */
+  height:100%
+}
+
+/* Compact body padding & smaller type scale */
+.tl-body{
+  padding:16px 22px;         /* was 24px 28px */
+  display:flex;flex-direction:column;justify-content:center;color:#fff
+}
+.tl-icon{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;color:#fff;
+  margin-bottom:8px          /* was 12px */
+}
+.tl-acro{
+  font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--uci-gold);margin-bottom:4px
+}
+.tl-title{
+  font-family:'Roboto Slab',serif;font-weight:900;
+  font-size:1.05rem;          /* was 1.25rem */
+  line-height:1.2;color:#fff;
+  margin-bottom:6px;          /* was 8px */
+  letter-spacing:-.01em
+}
+.tl-desc{
+  font-size:.8rem;            /* was .85rem */
+  line-height:1.5;            /* was 1.6 */
+  color:rgba(255,255,255,.78);
+  margin-bottom:8px;          /* was 12px */
+}
+.tl-link{
+  font-size:.74rem;font-weight:700;color:var(--uci-gold);text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;letter-spacing:.04em
+}
+
+/* Smaller spine node */
+.tl-node{
+  grid-column:2;justify-self:center;position:relative;z-index:3;
+  width:44px;height:44px;border-radius:50%;     /* was 54px */
+  background:linear-gradient(135deg,var(--uci-gold),#ffc700);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--uci-navy);font-size:1.05rem;       /* was 1.25rem */
+  box-shadow:0 0 0 5px rgba(0,30,60,.6),0 0 0 7px rgba(255,210,0,.35),0 6px 18px rgba(255,210,0,.4);
+  animation:tl-pulse 3.5s ease-in-out infinite
+}
+@keyframes tl-pulse{
+  0%,100%{box-shadow:0 0 0 5px rgba(0,30,60,.6),0 0 0 7px rgba(255,210,0,.35),0 6px 18px rgba(255,210,0,.4)}
+  50%{box-shadow:0 0 0 5px rgba(0,30,60,.6),0 0 0 12px rgba(255,210,0,.15),0 10px 26px rgba(255,210,0,.6)}
+}
+
+/* Mobile — keep horizontal feel even on small screens */
+@media(max-width:768px){
+  .timeline::before{left:24px}
+  .tl-item{grid-template-columns:50px 1fr;gap:12px;margin-bottom:20px}
+  .tl-node{grid-column:1;width:36px;height:36px;font-size:.9rem}
+  .tl-item:nth-child(odd) .tl-card,
+  .tl-item:nth-child(even) .tl-card{grid-column:2;grid-template-columns:110px 1fr}
+  .tl-item:nth-child(even) .tl-card .tl-img{order:1}
+  .tl-item:nth-child(even) .tl-card .tl-body{order:2;text-align:left}
+  .tl-item:nth-child(even) .tl-icon{margin-left:0}
+  .tl-item:nth-child(even) .tl-link{align-self:flex-start}
+  .tl-card::after{display:none}
+  .tl-body{padding:12px 16px}
+  .tl-title{font-size:.95rem}
+  .tl-desc{font-size:.75rem;-webkit-line-clamp:2}
 }
 @media(max-width:520px){
-  .hex-wrap{padding:0}
-  .hex-row{flex-direction:column;gap:14px;align-items:center}
-  .hex-row.row-2{margin-top:14px}
+  .tl-card,
+  .tl-item:nth-child(odd) .tl-card,
+  .tl-item:nth-child(even) .tl-card{grid-template-columns:90px 1fr}
+  .tl-img{min-height:auto}
 }
 
 /* INITIATIVES */
@@ -368,14 +439,14 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/homepage_banner_CEHDR2.jpg" alt=""></div>
     <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Guests-at-Brain-Works-Event-Karen-Lincoln-816x499.png" alt=""></div>
     <div class="slide-dots" id="slideDots"></div>
-    <div class="hero-pill hp-top">
+    <!-- <div class="hero-pill hp-top">
       <div class="hp-icon"><i class="fa-solid fa-users"></i></div>
       <div><div class="hp-num">24+</div><div class="hp-lbl">Affiliated Faculty</div></div>
     </div>
     <div class="hero-pill hp-bot">
       <div class="hp-icon" style="background:rgba(126,190,197,.2);color:var(--teal)"><i class="fa-solid fa-book-open"></i></div>
       <div><div class="hp-num">50+</div><div class="hp-lbl">Publications</div></div>
-    </div>
+    </div> -->
   </div>
 
   <div class="hero-left">
@@ -410,9 +481,9 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
   <div class="container">
     <div class="stats-grid">
       <div class="stat-card sc-card-1 fade-up"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-landmark"></i></div><div class="sc-num">2021</div><div class="sc-lbl">Established at UCI</div></div><div class="sc-bar"></div></div>
-      <div class="stat-card sc-card-2 fade-up delay-1"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-users"></i></div><div class="sc-num">24+</div><div class="sc-lbl">Affiliated Faculty &middot; 8 Disciplines</div></div><div class="sc-bar"></div></div>
+      <div class="stat-card sc-card-2 fade-up delay-1"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-sitemap"></i></div><div class="sc-num">8</div><div class="sc-lbl">Interdisciplinary Research Domains</div></div><div class="sc-bar"></div></div>
       <div class="stat-card sc-card-3 fade-up delay-2"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-bullseye"></i></div><div class="sc-num">5</div><div class="sc-lbl">Research Priorities for Health Equity</div></div><div class="sc-bar"></div></div>
-      <div class="stat-card sc-card-4 fade-up delay-3"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-book-open"></i></div><div class="sc-num">50+</div><div class="sc-lbl">Peer-Reviewed Publications</div></div><div class="sc-bar"></div></div>
+      <div class="stat-card sc-card-4 fade-up delay-3"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-handshake"></i></div><div class="sc-num">4</div><div class="sc-lbl">Signature Initiatives</div></div><div class="sc-bar"></div></div>
     </div>
   </div>
 </section>
@@ -448,36 +519,68 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <h2 class="sec-h2">Key Research Areas</h2>
       <p>CEHDR's interdisciplinary work spans five interconnected priorities — explore each area to learn how our research drives policy, practice, and well-being for Black and historically marginalized communities.</p>
     </div>
-    <div class="hex-wrap fade-up delay-1">
-  <div class="hex-row row-1">
-    <a href="#" class="hex hex-1">
-      <div class="hex-bg" style="background-image:url('https://sites.uci.edu/cehdr/files/2025/03/Exploring-Brain-Health-Disparities.png')"></div>
-      <div class="hex-overlay"></div>
-      <div class="hex-content"><i class="fa-solid fa-moon"></i><div class="h-title">Sleep Health</div><div class="h-stat">Disparities</div></div>
-    </a>
-    <a href="#" class="hex hex-2">
-      <div class="hex-bg" style="background-image:url('https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png')"></div>
-      <div class="hex-overlay"></div>
-      <div class="hex-content"><i class="fa-solid fa-earth-americas"></i><div class="h-title">Environmental Justice</div><div class="h-stat">Communities</div></div>
-    </a>
-    <a href="#" class="hex hex-3">
-      <div class="hex-bg" style="background-image:url('https://cehdr.publichealth.uci.edu/files/2025/03/d5af7f20-ee51-41c6-996f-4b25e705d30b-e1742505259588-392x240.jpg')"></div>
-      <div class="hex-overlay"></div>
-      <div class="hex-content"><i class="fa-solid fa-person-cane"></i><div class="h-title">Aging &amp; Dementia</div><div class="h-stat">Equity</div></div>
-    </a>
+    <div class="timeline fade-up delay-1">
+
+  <div class="tl-item tl-1">
+    <div class="tl-card">
+      <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2025/03/Exploring-Brain-Health-Disparities.png')"></div>
+      <div class="tl-body">
+        <h3 class="tl-title">Sleep Health Disparities</h3>
+        <p class="tl-desc">How systemic racism shapes sleep quality and hypertension risk in Black communities.</p>
+        <a class="tl-link" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="tl-node"><i class="fa-solid fa-moon"></i></div>
   </div>
-  <div class="hex-row row-2">
-    <a href="#" class="hex hex-4">
-      <div class="hex-bg" style="background-image:url('https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Advancing-Environmental-Health-Equity-392x240.png')"></div>
-      <div class="hex-overlay"></div>
-      <div class="hex-content"><i class="fa-solid fa-leaf"></i><div class="h-title">Climate &amp; Health</div><div class="h-stat">Disparities</div></div>
-    </a>
-    <a href="#" class="hex hex-5">
-      <div class="hex-bg" style="background-image:url('https://sites.uci.edu/cehdr/files/2019/10/Cortex-activity-e3faf6935a2044f7.png')"></div>
-      <div class="hex-overlay"></div>
-      <div class="hex-content"><i class="fa-solid fa-brain"></i><div class="h-title">Brain Health &amp; Alzheimer's</div><div class="h-stat">Research</div></div>
-    </a>
+
+  <div class="tl-item tl-2">
+    <div class="tl-node"><i class="fa-solid fa-earth-americas"></i></div>
+    <div class="tl-card">
+      <div class="tl-img" style="background-image:url('https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png')"></div>
+      <div class="tl-body">
+        <h3 class="tl-title">Environmental Justice</h3>
+        <p class="tl-desc">Exposing the "concrete divide" — green-space and pollution inequities across OC.</p>
+        <a class="tl-link" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
   </div>
+
+  <div class="tl-item tl-3">
+    <div class="tl-card">
+      <div class="tl-img" style="background-image:url('https://cehdr.publichealth.uci.edu/files/2025/03/d5af7f20-ee51-41c6-996f-4b25e705d30b-e1742505259588-392x240.jpg')"></div>
+      <div class="tl-body">
+        <h3 class="tl-title">Aging &amp; Dementia Equity</h3>
+        <p class="tl-desc">Advancing healthy aging research and caregiver support for African American communities.</p>
+        <a class="tl-link" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="tl-node"><i class="fa-solid fa-person-cane"></i></div>
+  </div>
+
+  <div class="tl-item tl-4">
+    <div class="tl-node"><i class="fa-solid fa-leaf"></i></div>
+    <div class="tl-card">
+      <div class="tl-img" style="background-image:url('https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Advancing-Environmental-Health-Equity-392x240.png')"></div>
+      <div class="tl-body">
+        <h3 class="tl-title">Climate &amp; Health Disparities</h3>
+        <p class="tl-desc">How converging climate hazards disproportionately threaten communities of color.</p>
+        <a class="tl-link" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="tl-item tl-5">
+    <div class="tl-card">
+      <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2019/10/Cortex-activity-e3faf6935a2044f7.png')"></div>
+      <div class="tl-body">
+        <h3 class="tl-title">Brain Health &amp; Alzheimer's</h3>
+        <p class="tl-desc">Closing Alzheimer's literacy gaps and exposing how stress accelerates brain aging.</p>
+        <a class="tl-link" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+    <div class="tl-node"><i class="fa-solid fa-brain"></i></div>
+  </div>
+
 </div>
   </div>
 </section>
