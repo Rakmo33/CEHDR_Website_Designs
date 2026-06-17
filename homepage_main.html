@@ -105,7 +105,7 @@ html{scroll-behavior:smooth}body{font-family:'Arimo',sans-serif;color:var(--text
 
 /* STATS */
 .stats-section{background:linear-gradient(180deg,var(--light-blue) 0%,#fff 100%);padding:56px 0}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:60px}
 .stat-card{background:var(--white);border-radius:18px;overflow:hidden;box-shadow:0 4px 22px rgba(0,58,99,.08);transition:all .3s;display:flex;flex-direction:column}
 .stat-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 26px 52px rgba(0,100,164,.18)}
 .sc-top{padding:26px 20px 20px;display:flex;flex-direction:column;align-items:center;flex:1}
@@ -132,7 +132,7 @@ html{scroll-behavior:smooth}body{font-family:'Arimo',sans-serif;color:var(--text
 .sec-h2{font-family:'Roboto Slab',serif;font-weight:900;line-height:1.12;letter-spacing:-.015em;margin:0 auto}
 
 /* WHO WE ARE */
-.who-section{background:linear-gradient(160deg,#fff 0%,var(--light-blue) 60%,#dceff2 100%);padding:90px 0}
+.who-section{background:linear-gradient(160deg,#fff 0%,var(--light-blue) 60%,#dceff2 100%);padding:40px 0}
 .who-header{text-align:center;margin-bottom:54px}
 .who-header .sec-h2{font-size:clamp(2.4rem,4vw,3.2rem);color:var(--navy);max-width:880px}
 .who-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center}
@@ -150,7 +150,7 @@ blockquote.pull{background:linear-gradient(135deg,var(--teal-l),#f0f9fb);border-
 .btn-blue:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,100,164,.45)}
 
 /* RESEARCH AREAS */
-.research-section{background:linear-gradient(135deg,#001428 0%,#001e3a 25%,var(--navy) 55%,#005080 80%,#007a8c 100%);padding:90px 0;position:relative;overflow:hidden}
+.research-section{background:linear-gradient(135deg,#001428 0%,#001e3a 25%,var(--navy) 55%,#005080 80%,#007a8c 100%);padding:40px 0;position:relative;overflow:hidden}
 .research-section::before{content:'';position:absolute;top:-100px;right:-100px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(126,190,197,.1),transparent 70%)}
 .research-section::after{content:'';position:absolute;bottom:-80px;left:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(255,217,46,.08),transparent 70%)}
 .research-header{text-align:center;margin-bottom:50px;position:relative;z-index:2}
@@ -305,7 +305,7 @@ blockquote.pull{background:linear-gradient(135deg,var(--teal-l),#f0f9fb);border-
 }
 
 /* INITIATIVES */
-.initiatives-section{background:linear-gradient(180deg,var(--light-blue) 0%,#e8f1f9 50%,#f0f7ff 100%);padding:80px 0}
+.initiatives-section{background:linear-gradient(180deg,var(--light-blue) 0%,#e8f1f9 50%,#f0f7ff 100%);padding:40px 0}
 .section-header{text-align:center;margin-bottom:50px}
 .section-header .sec-h2{font-size:clamp(2.2rem,3.6vw,3rem);color:var(--navy);margin-bottom:12px}
 .section-header p{font-size:.95rem;color:var(--muted);max-width:600px;margin:0 auto;line-height:1.7}
@@ -332,7 +332,7 @@ blockquote.pull{background:linear-gradient(135deg,var(--teal-l),#f0f9fb);border-
 .btn-init:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,100,164,.4)}
 
 /* NEWS */
-.news-section{background:linear-gradient(180deg,#fff 0%,var(--light-blue) 100%);padding:90px 0}
+.news-section{background:linear-gradient(180deg,#fff 0%,var(--light-blue) 100%);padding:40px 0}
 .news-header{text-align:center;margin-bottom:42px}
 .news-header .sec-h2{font-size:clamp(2.2rem,3.6vw,3rem);color:var(--navy);margin-bottom:18px}
 .news-header .btn-blue{margin-top:10px}
@@ -353,7 +353,7 @@ blockquote.pull{background:linear-gradient(135deg,var(--teal-l),#f0f9fb);border-
 .carousel-dot.active{background:linear-gradient(135deg,var(--blue),var(--teal-m));width:24px;border-radius:5px}
 
 /* IMPACT */
-.impact-section{background:linear-gradient(135deg,#000814 0%,#001428 25%,#001e38 50%,var(--navy) 80%,#005080 100%);padding:100px 0;position:relative;overflow:hidden;text-align:center}
+.impact-section{background:linear-gradient(135deg,#000814 0%,#001428 25%,#001e38 50%,var(--navy) 80%,#005080 100%);padding:40px 0;position:relative;overflow:hidden;text-align:center}
 .impact-bg-word{position:absolute;font-family:'Roboto Slab',serif;font-size:18vw;font-weight:900;color:rgba(255,255,255,.025);white-space:nowrap;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .impact-glow{position:absolute;border-radius:50%;filter:blur(80px);animation:bokeh-move linear infinite}
 .ig-1{width:340px;height:340px;background:radial-gradient(circle,rgba(126,190,197,.25),transparent);top:-80px;right:-50px;animation-duration:14s}
@@ -426,7 +426,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <li><a href="#">Research</a></li>
       <li><a href="#">Graduate Courses</a></li>
       <li><a href="#">News &amp; Features</a></li>
-      <li class="nav-impact"><a href="#impact"><i class="fa-solid fa-gift"></i> Make an Impact</a></li>
+      <li class="nav-impact"><a href="https://cehdr.publichealth.uci.edu/supportcehdr/" target="_blank"><i class="fa-solid fa-gift"></i> Make an Impact</a></li>
     </ul>
   </div>
 </nav>
@@ -465,8 +465,8 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     </div>
     <p class="hero-desc">Advancing <em style="font-style:normal;font-weight:700">environmental health equity</em> through interdisciplinary research, community partnerships, and the next generation of leaders working for justice in Black and historically marginalized communities.</p>
     <div class="hero-btns">
-      <a class="btn-gold" href="#impact"><i class="fa-solid fa-gift"></i> Make an Impact</a>
-      <a class="btn-ghost-white" href="#research">Explore Our Research <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="btn-gold" target="_blank" href="https://cehdr.publichealth.uci.edu/supportcehdr/"><i class="fa-solid fa-gift"></i> Make an Impact</a>
+      <a class="btn-ghost-white" target="_blank" href="https://cehdr.publichealth.uci.edu/research/">Explore Our Research <i class="fa-solid fa-arrow-right"></i></a>
     </div>
   </div>
 
@@ -478,10 +478,9 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
 </header>
 
 <section class="stats-section">
-  <div class="container">
+  <div class="container-narrow">
     <div class="stats-grid">
       <div class="stat-card sc-card-1 fade-up"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-landmark"></i></div><div class="sc-num">2021</div><div class="sc-lbl">Established at UCI</div></div><div class="sc-bar"></div></div>
-      <div class="stat-card sc-card-2 fade-up delay-1"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-sitemap"></i></div><div class="sc-num">8</div><div class="sc-lbl">Interdisciplinary Research Domains</div></div><div class="sc-bar"></div></div>
       <div class="stat-card sc-card-3 fade-up delay-2"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-bullseye"></i></div><div class="sc-num">5</div><div class="sc-lbl">Research Priorities for Health Equity</div></div><div class="sc-bar"></div></div>
       <div class="stat-card sc-card-4 fade-up delay-3"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-handshake"></i></div><div class="sc-num">4</div><div class="sc-lbl">Signature Initiatives</div></div><div class="sc-bar"></div></div>
     </div>
@@ -506,7 +505,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
           <p>Our 24+ affiliated faculty span 8 disciplines — Public Health, Medicine, Civil &amp; Environmental Engineering, Urban Planning, Nursing, Anthropology, and Pharmacy — all united by a commitment to health equity.</p>
           <blockquote class="pull">"To move forward, we must listen and address the issues African American residents, communities, and organizations have identified as problems and priorities." — Dr. Karen D. Lincoln</blockquote>
         </div>
-        <a class="btn-blue" href="#"><i class="fa-solid fa-user-tie"></i> Meet the Director</a>
+        <a class="btn-blue" target="_blank" href="https://cehdr.publichealth.uci.edu/about/meet-the-director/"><i class="fa-solid fa-user-tie"></i> Meet the Director</a>
       </div>
     </div>
   </div>
@@ -527,7 +526,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <div class="tl-body">
         <h3 class="tl-title">Sleep Health Disparities</h3>
         <p class="tl-desc">How systemic racism shapes sleep quality and hypertension risk in Black communities.</p>
-        <a class="tl-link" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="tl-link" target="_blank" href="https://cehdr.publichealth.uci.edu/research/">Learn More <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
     <div class="tl-node"><i class="fa-solid fa-moon"></i></div>
@@ -540,7 +539,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <div class="tl-body">
         <h3 class="tl-title">Environmental Justice</h3>
         <p class="tl-desc">Exposing the "concrete divide" — green-space and pollution inequities across OC.</p>
-        <a class="tl-link" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="tl-link" target="_blank" href="https://cehdr.publichealth.uci.edu/research/">Learn More <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -551,7 +550,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <div class="tl-body">
         <h3 class="tl-title">Aging &amp; Dementia Equity</h3>
         <p class="tl-desc">Advancing healthy aging research and caregiver support for African American communities.</p>
-        <a class="tl-link" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="tl-link" target="_blank" href="https://cehdr.publichealth.uci.edu/research/">Learn More <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
     <div class="tl-node"><i class="fa-solid fa-person-cane"></i></div>
@@ -564,7 +563,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <div class="tl-body">
         <h3 class="tl-title">Climate &amp; Health Disparities</h3>
         <p class="tl-desc">How converging climate hazards disproportionately threaten communities of color.</p>
-        <a class="tl-link" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="tl-link" target="_blank" href="https://cehdr.publichealth.uci.edu/research/">Learn More <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -575,7 +574,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <div class="tl-body">
         <h3 class="tl-title">Brain Health &amp; Alzheimer's</h3>
         <p class="tl-desc">Closing Alzheimer's literacy gaps and exposing how stress accelerates brain aging.</p>
-        <a class="tl-link" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        <a class="tl-link" target="_blank" href="https://cehdr.publichealth.uci.edu/research/">Learn More <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
     <div class="tl-node"><i class="fa-solid fa-brain"></i></div>
@@ -591,6 +590,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <span class="sec-eyebrow">Support CEHDR</span>
       <h2 class="sec-h2">Four Initiatives. One Powerful Mission.</h2>
       <p>Every gift supports groundbreaking work across all four CEHDR pillars — or direct your support to a specific initiative.</p>
+      <a class="btn-gold" href="https://cehdr.publichealth.uci.edu/supportcehdr/" target="_blank" style="margin-top:22px"><i class="fa-solid fa-gift"></i> Support an Initiative</a>
     </div>
     <div class="init-row fade-up">
       <div class="init-img"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/homepage_banner_CEHDR2.jpg" alt="THRIVE"></div>
@@ -599,7 +599,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
         <div class="init-acro">THRIVE</div>
         <h3 class="init-title">Transforming Health Research through Inclusion, Voices &amp; Equity</h3>
         <p class="init-desc">CEHDR THRIVE ensures every voice matters in shaping environmental health research. Donor support funds community engagement, inclusive programming, and equity-centered training.</p>
-        <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support THRIVE</a>
+        <!-- <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support THRIVE</a> -->
       </div>
     </div>
     <div class="init-row reverse fade-up">
@@ -609,7 +609,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
         <div class="init-acro">RISE</div>
         <h3 class="init-title">Research Internships for Social &amp; Environmental Health Equity</h3>
         <p class="init-desc">CEHDR RISE cultivates the next generation of leaders through hands-on, community-engaged research experiences. Donations support student stipends and mentorship.</p>
-        <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support RISE</a>
+        <!-- <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support RISE</a> -->
       </div>
     </div>
     <div class="init-row fade-up">
@@ -619,17 +619,17 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
         <div class="init-acro">CIRCLE</div>
         <h3 class="init-title">Community Initiatives for Research, Collaboration, Learning &amp; Engagement</h3>
         <p class="init-desc">CEHDR CIRCLE strengthens partnerships between the Center and communities to co-create research and drive solutions through collaborative workshops.</p>
-        <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support CIRCLE</a>
+        <!-- <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support CIRCLE</a> -->
       </div>
     </div>
     <div class="init-row reverse fade-up">
-      <div class="init-img"><img src="https://sites.uci.edu/cehdr/files/2025/04/Karen-students-AAAE-partners-INCLUDE-IN-SLIDE-SHOW-scaled.jpg" alt="IMPACT"></div>
+      <div class="init-img"><img src="https://sites.uci.edu/cehdr/files/2026/06/Karen-students-AAAE-partners-INCLUDE-IN-SLIDE-SHOW-scaled-1-e1781709900371.jpg" alt="IMPACT"></div>
       <div class="init-body">
         <div class="init-icon init-icon-4"><i class="fa-solid fa-lightbulb"></i></div>
         <div class="init-acro">IMPACT</div>
         <h3 class="init-title">Innovative Minds Promoting Action, Collaboration &amp; Transformation</h3>
         <p class="init-desc">The CEHDR IMPACT Distinguished Speaker Series spotlights transformative thinkers whose research and leadership drive meaningful change in environmental health.</p>
-        <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support IMPACT</a>
+        <!-- <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support IMPACT</a> -->
       </div>
     </div>
   </div>
@@ -640,7 +640,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     <div class="news-header fade-up">
       <span class="sec-eyebrow"><i class="fa-solid fa-signal"></i> &nbsp;In the Media</span>
       <h2 class="sec-h2">News &amp; Features</h2>
-      <a class="btn-blue" href="#">View All <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="btn-blue" href="https://sites.uci.edu/cehdr/newsfeatures/" target="_blank">View All <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     <div class="carousel-wrap">
       <div class="carousel-track" id="carousel">
@@ -670,8 +670,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
       <div class="is-stat"><div class="is-num">100%</div><div class="is-lbl">Goes to CEHDR</div></div>
     </div>
     <div class="impact-cta fade-up delay-2">
-      <a class="btn-gold-lg" href="#"><i class="fa-solid fa-gift"></i> Give Today</a>
-      <a class="btn-outline-light" href="#">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="btn-gold-lg" href="https://sites.uci.edu/cehdr/supportcehdr/" target="_blank"><i class="fa-solid fa-gift"></i> Give Today</a>
     </div>
   </div>
 </section>

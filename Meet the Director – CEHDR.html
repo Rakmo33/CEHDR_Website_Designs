@@ -19,6 +19,7 @@ html{scroll-behavior:smooth}
 body{font-family:'Arimo',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden}
 .container{max-width:1140px;margin:0 auto;padding:0 28px}
 .container-narrow{max-width:1040px;margin:0 auto;padding:0 28px}
+.container-extra-narrow{max-width:768px;margin:0 auto;padding:0 28px}
 
 /* NAVBAR */
 .navbar{background:#fff;position:sticky;top:0;z-index:1000;box-shadow:0 1px 0 #dde8f0,0 4px 20px rgba(0,100,164,.07);height:var(--nav-h)}
@@ -50,14 +51,14 @@ body{font-family:'Arimo',sans-serif;color:var(--text);background:var(--white);ov
 .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}
 .hero-photo:hover img{transform:scale(1.04)}
 .hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,30,60,.35));pointer-events:none}
-.hero-photo-badge{position:absolute;bottom:18px;left:18px;right:18px;background:rgba(0,30,60,.78);backdrop-filter:blur(8px);border:1px solid rgba(255,210,0,.35);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;z-index:2}
+.hero-photo-badge{position:absolute;width:70%;bottom:18px;left:18px;right:18px;background:rgba(0,30,60,.78);backdrop-filter:blur(8px);border:1px solid rgba(255,210,0,.35);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;z-index:2}
 .hero-photo-badge i{color:var(--uci-gold);font-size:1.4rem}
 .hero-photo-badge .pb-name{font-family:'Roboto Slab',serif;font-weight:900;font-size:.95rem;color:#fff}
 .hero-photo-badge .pb-title{font-size:.7rem;color:rgba(255,255,255,.7);letter-spacing:.05em}
 
 /* STATS */
 .stats-section{background:linear-gradient(180deg,var(--light-blue) 0%,#fff 100%);padding:56px 0}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:60px}
 .stat-card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 22px rgba(0,58,99,.08);transition:all .3s;display:flex;flex-direction:column}
 .stat-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,100,164,.18)}
 .sc-top{padding:26px 20px 20px;display:flex;flex-direction:column;align-items:center;flex:1}
@@ -75,7 +76,7 @@ body{font-family:'Arimo',sans-serif;color:var(--text);background:var(--white);ov
 .sc-4 .sc-bar{background:linear-gradient(90deg,var(--uci-eucalyptus),var(--uci-sage))}
 
 /* SECTION COMMON */
-.section-pad{padding:90px 0}
+.section-pad{padding:50px 0}
 .sec-eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--uci-pacific);margin-bottom:10px}
 .sec-h2{font-family:'Roboto Slab',serif;font-weight:900;line-height:1.12;letter-spacing:-.015em;font-size:clamp(2rem,3.4vw,2.8rem);color:var(--uci-navy);margin-bottom:14px}
 .sec-h2 span{color:var(--uci-blue)}
@@ -162,7 +163,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
 }
 @media(max-width:600px){
   .stats-grid{grid-template-columns:1fr 1fr}
-  .section-pad{padding:60px 0}
+  .section-pad{padding:50px 0}
 }
 </style>
 </head>
@@ -192,8 +193,8 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
         <div class="credentials">PhD &middot; MSW &middot; MA &middot; FGSA &middot; FAASWSW</div>
         <p class="lead">A nationally recognized scholar, advocate, and leader in health equity and community-engaged research — championing justice for those who need it most.</p>
         <div class="hero-btns">
-          <a class="btn-gold" href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Faculty Profile</a>
-          <a class="btn-ghost" href="#research"><i class="fa-solid fa-flask"></i> Explore Her Work</a>
+          <a class="btn-gold" target="_blank" href="https://publichealth.uci.edu/faculty/lincoln-karen/"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Faculty Profile</a>
+          <a class="btn-ghost" target="_blank" href="https://cehdr.publichealth.uci.edu/newsfeatures/in-the-media/"><i class="fa-solid fa-newspaper"></i> In the Media</a>
         </div>
       </div>
       <div>
@@ -203,7 +204,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
             <i class="fa-solid fa-award"></i>
             <div>
               <div class="pb-name">Dr. Karen D. Lincoln</div>
-              <div class="pb-title">Director, CEHDR</div>
+              <div class="pb-title">Director, Center for Environmental Health Disparities Research (CEHDR)</div>
             </div>
           </div>
         </div>
@@ -214,12 +215,11 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
 
 <!-- STATS -->
 <section class="stats-section">
-  <div class="container">
+  <div class="container-narrow">
     <div class="stats-grid">
       <div class="stat-card sc-1"><div class="sc-top"><div class="sc-icon"><i class="fa-solid fa-trophy"></i></div><div class="sc-num">Top 2%</div><div class="sc-lbl">Scientists Worldwide</div></div><div class="sc-bar"></div></div>
       <div class="stat-card sc-2"><div class="sc-top"><div class="sc-icon"><i class="fa-solid fa-star"></i></div><div class="sc-num">Top 50</div><div class="sc-lbl">Influential Social Workers in the U.S.</div></div><div class="sc-bar"></div></div>
-      <div class="stat-card sc-3"><div class="sc-top"><div class="sc-icon"><i class="fa-solid fa-sack-dollar"></i></div><div class="sc-num">$M+</div><div class="sc-lbl">Research Funding Secured</div></div><div class="sc-bar"></div></div>
-      <div class="stat-card sc-4"><div class="sc-top"><div class="sc-icon"><i class="fa-solid fa-diagram-project"></i></div><div class="sc-num">4</div><div class="sc-lbl">Interdisciplinary Fields of Impact</div></div><div class="sc-bar"></div></div>
+      <div class="stat-card sc-3"><div class="sc-top"><div class="sc-icon"><i class="fa-solid fa-sack-dollar"></i></div><div class="sc-num">$1M+</div><div class="sc-lbl">Research Funding Secured</div></div><div class="sc-bar"></div></div>
     </div>
   </div>
 </section>
@@ -312,13 +312,13 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
 </section>
 
 <!-- CTA -->
-<section class="cta-section" id="cta">
+<!-- <section class="cta-section" id="cta">
   <div class="container-narrow">
     <h2>Learn More About <span>Dr. Lincoln's Work</span></h2>
     <p>Explore her full academic profile, publications, and ongoing research initiatives at UC Irvine.</p>
     <a class="btn-gold-lg" href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Dr. Lincoln's Faculty Profile</a>
   </div>
-</section>
+</section> -->
 
 <!-- FOOTER -->
 <footer>
