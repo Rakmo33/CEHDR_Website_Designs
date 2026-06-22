@@ -10,6 +10,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --uci-blue:#0064A4;--uci-navy:#003A63;--uci-gold:#FFD200;
+  --uci-purple:#7c109a;--uci-magenta:#d462ad;
   --uci-reflection:#00558C;--uci-pacific:#4A9BA8;--uci-teal:#7EBEC5;
   --uci-eucalyptus:#4F6F52;--uci-sage:#7A9A7E;--uci-persimmon:#C95A2E;
   --uci-mesa:#B25618;--uci-amber:#C99A2E;
@@ -48,7 +49,7 @@ body{font-family:'Arimo',sans-serif;color:var(--text);background:var(--white);ov
 .intro p{font-size:1.05rem;color:var(--muted);line-height:1.85}
 
 /* QUICK NAV PILLS */
-.theme-nav{background:var(--uci-navy);position:sticky;top:var(--nav-h);z-index:900;padding:16px 0;box-shadow:0 4px 20px rgba(0,0,0,.18)}
+.theme-nav{background:var(--uci-navy);position:sticky;top:0;z-index:900;padding:16px 0;box-shadow:0 4px 20px rgba(0,0,0,.18)}
 .theme-nav-inner{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
 .theme-pill{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.85);text-decoration:none;padding:9px 18px;border:1px solid rgba(255,255,255,.22);border-radius:30px;transition:all .25s}
 .theme-pill:hover{background:var(--uci-gold);color:var(--uci-navy);border-color:var(--uci-gold);transform:translateY(-2px)}
@@ -80,11 +81,11 @@ body{font-family:'Arimo',sans-serif;color:var(--text);background:var(--white);ov
 .focus-list li i{color:var(--uci-blue);font-size:.7rem;margin-top:5px;flex-shrink:0}
 
 /* Per-theme accent colors */
-#community .theme-icon,#community .theme-num{background:linear-gradient(135deg,var(--uci-navy),var(--uci-blue))}
+#community .theme-icon,#community .theme-num{background:linear-gradient(135deg,var(--uci-purple),var(--uci-magenta))}
 #place .theme-icon,#place .theme-num{background:linear-gradient(135deg,var(--uci-eucalyptus),var(--uci-sage))}
 #equity .theme-icon,#equity .theme-num{background:linear-gradient(135deg,var(--uci-pacific),var(--uci-teal))}
 #justice .theme-icon,#justice .theme-num{background:linear-gradient(135deg,var(--uci-mesa),var(--uci-persimmon))}
-#well-being .theme-icon,#well-being .theme-num{background:linear-gradient(135deg,var(--uci-amber),#E5B947)}
+#well-being .theme-icon,#well-being .theme-num{background:linear-gradient(135deg,var(--uci-navy),var(--uci-blue))}
 #community .theme-kicker{color:var(--uci-blue)}
 #place .theme-kicker{color:var(--uci-eucalyptus)}
 #equity .theme-kicker{color:var(--uci-pacific)}
@@ -135,25 +136,10 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="nav-inner">
-    <a class="nav-logo" href="#">CEHDR<span> · UCI</span></a>
-    <ul class="nav-links">
-      <li><a href="#"><i class="fa-solid fa-circle-info"></i> About</a></li>
-      <li><a href="#"><i class="fa-solid fa-microscope"></i> Research</a></li>
-      <li><a href="#"><i class="fa-solid fa-people-group"></i> Initiatives</a></li>
-      <li><a href="#"><i class="fa-solid fa-graduation-cap"></i> Courses</a></li>
-      <li class="nav-give"><a href="#cta"><i class="fa-solid fa-gift"></i> Give</a></li>
-    </ul>
-  </div>
-</nav>
-
 <!-- HERO — title only over the image -->
 <header class="hero">
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-eyebrow"><i class="fa-solid fa-compass-drafting"></i> Our Research</div>
       <h1>Our Research <span>Framework</span></h1>
     </div>
   </div>
@@ -186,7 +172,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     <div class="theme-grid">
       <div class="theme-img fade-left">
         <div class="theme-num">01</div>
-        <img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png" alt="Community-engaged research">
+        <img src="https://sites.uci.edu/cehdr/files/2026/06/Research-Area-1.png" alt="Community-engaged research">
       </div>
       <div class="theme-body fade-right">
         <div class="theme-eyebrow">
@@ -215,7 +201,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     <div class="theme-grid">
       <div class="theme-img fade-right">
         <div class="theme-num">02</div>
-        <img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Advancing-Environmental-Health-Equity-392x240.png" alt="Neighborhood and environment">
+        <img src="https://sites.uci.edu/cehdr/files/2026/06/Research-Area-2.png" alt="Neighborhood and environment">
       </div>
       <div class="theme-body fade-left">
         <div class="theme-eyebrow">
@@ -244,7 +230,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     <div class="theme-grid">
       <div class="theme-img fade-left">
         <div class="theme-num">03</div>
-        <img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/homepage_banner_CEHDR2.jpg" alt="Health equity research">
+        <img src="https://sites.uci.edu/cehdr/files/2026/06/Research-Area-3.png" alt="Health equity research">
       </div>
       <div class="theme-body fade-right">
         <div class="theme-eyebrow">
@@ -273,7 +259,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     <div class="theme-grid">
       <div class="theme-img fade-right">
         <div class="theme-num">04</div>
-        <img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Karen-Lincoln-Brain-Works-Event-Speaking-816x499.png" alt="Environmental justice advocacy">
+        <img src="https://sites.uci.edu/cehdr/files/2026/06/Research-Area-4.png" alt="Environmental justice advocacy">
       </div>
       <div class="theme-body fade-left">
         <div class="theme-eyebrow">
@@ -302,7 +288,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     <div class="theme-grid">
       <div class="theme-img fade-left">
         <div class="theme-num">05</div>
-        <img src="https://sites.uci.edu/cehdr/files/2025/03/Exploring-Brain-Health-Disparities.png" alt="Well-being across the lifespan">
+        <img src="https://sites.uci.edu/cehdr/files/2026/06/Research-Area-5.png" alt="Well-being across the lifespan">
       </div>
       <div class="theme-body fade-right">
         <div class="theme-eyebrow">
@@ -333,44 +319,6 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
     <a class="btn-gold-lg" href="https://cehdr.publichealth.uci.edu/supportcehdr/" target="_blank"><i class="fa-solid fa-gift"></i> Make an Impact</a>
   </div>
 </section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-org">UC Irvine · CEHDR</div>
-        <div class="footer-h">Contact</div>
-        <div class="footer-addr">
-          UC Irvine Health Sciences Complex<br>
-          856 Health Sciences Quad, Suite 3200<br>
-          University of California, Irvine<br>
-          Irvine, CA 92617<br>
-          <a href="mailto:bfgaines@hs.uci.edu">bfgaines@hs.uci.edu</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-h">Related Sites</div>
-        <ul class="footer-nav">
-          <li><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i> Joe C. Wen School of Population &amp; Public Health</a></li>
-          <li><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i> UCI School of Social Ecology</a></li>
-          <li><a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i> UCI Samueli College of Health Sciences</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-h">Stay Connected</div>
-        <ul class="footer-nav">
-          <li><a href="#"><i class="fa-solid fa-envelope"></i> Subscribe to Our Newsletter</a></li>
-          <li><a href="#"><i class="fa-solid fa-share-nodes"></i> Follow Us on Social</a></li>
-          <li><a href="#"><i class="fa-solid fa-gift"></i> Make a Gift to CEHDR</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="container">© 2026 UC Regents. All Rights Reserved. &nbsp;|&nbsp; <a href="#">Privacy Notice</a> &nbsp;|&nbsp; <a href="#">UC Irvine</a></div>
-  </div>
-</footer>
 
 <script>
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('animated');});},{threshold:0.12});
