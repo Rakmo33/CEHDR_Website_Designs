@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meet the Director – CEHDR | UC Irvine</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Georgia', serif; color: #1a1a1a; background: #fff; }
+    a { color: #0064a4; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0064a4 0%, #00274c 100%);
+      color: #fff;
+      padding: 64px 40px 56px;
+      text-align: center;
+    }
+    .hero .eyebrow {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .hero .credentials {
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      letter-spacing: 1.5px;
+      opacity: 0.85;
+      margin-bottom: 20px;
+    }
+    .hero .tagline {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      opacity: 0.92;
+      font-style: italic;
+    }
+    .btn {
+      display: inline-block;
+      background: #ffd200;
+      color: #00274c;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 12px 28px;
+      border-radius: 3px;
+      margin: 6px;
+    }
+
+    /* STATS BAR */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #f4f4f4;
+      border-bottom: 3px solid #0064a4;
+    }
+    .stat {
+      flex: 1 1 180px;
+      text-align: center;
+      padding: 28px 20px;
+      border-right: 1px solid #ddd;
+    }
+    .stat:last-child { border-right: none; }
+    .stat .num {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #0064a4;
+      display: block;
+    }
+    .stat .label {
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      color: #555;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* UPDATE BANNER */
+    .update-banner {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 10px 20px;
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      color: #555;
+      text-align: center;
+    }
+
+    /* SECTIONS */
+    .section { padding: 60px 40px; max-width: 900px; margin: 0 auto; }
+    .section-alt { background: #f9f9f9; padding: 60px 40px; }
+    .section-alt .inner { max-width: 900px; margin: 0 auto; }
+
+    .section-label {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #0064a4;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 1.8rem;
+      color: #00274c;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      color: #777;
+      margin-bottom: 28px;
+    }
+    p { line-height: 1.8; margin-bottom: 16px; font-size: 1rem; }
+
+    /* AWARDS */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .award-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-top: 3px solid #0064a4;
+      padding: 20px;
+      border-radius: 2px;
+    }
+    .award-card .year {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: #0064a4;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .award-card .title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+    .award-card .org {
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 4px;
+    }
+    .new-badge {
+      display: inline-block;
+      background: #e8f4e8;
+      color: #2d7a2d;
+      font-size: 10px;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* PILLARS */
+    .pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .pillar {
+      flex: 1 1 200px;
+      text-align: center;
+      padding: 32px 20px;
+      background: #0064a4;
+      color: #fff;
+      border-radius: 3px;
+    }
+    .pillar .icon { font-size: 2rem; margin-bottom: 10px; }
+    .pillar h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .pillar p { font-size: 0.88rem; opacity: 0.9; margin: 0; }
+
+    /* METRICS */
+    .metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .metric-box {
+      flex: 1 1 160px;
+      background: #00274c;
+      color: #fff;
+      text-align: center;
+      padding: 24px 16px;
+      border-radius: 3px;
+    }
+    .metric-box .mnum { font-size: 1.7rem; font-weight: 700; color: #ffd200; }
+    .metric-box .mlabel { font-family: Arial, sans-serif; font-size: 0.75rem; margin-top: 6px; opacity: 0.8; line-height: 1.4; }
+
+    /* ROLES */
+    .roles-list { list-style: none; margin-top: 16px; }
+    .roles-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .roles-list li:last-child { border-bottom: none; }
+    .roles-list .role-year {
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      color: #0064a4;
+      font-weight: 700;
+      display: inline-block;
+      min-width: 90px;
+    }
+
+    /* FOOTER NOTE */
+    .footer-note {
+      background: #00274c;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+    }
+    .footer-note span { color: #ffd200; }
+
+    hr.divider { border: none; border-top: 2px solid #eee; margin: 0; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .section, .section-alt { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- UPDATE BANNER -->
+<div class="update-banner">
+  ⚠️ <strong>Page Updated:</strong> Content reflects Dr. Lincoln's most recent CV (as of June 2026). Changes include updated awards, scholarly metrics, research funding, and new leadership roles.
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">Center for Environmental Health Disparities Research · UC Irvine</div>
+  <h1>Meet the Director</h1>
+  <div style="font-size:2rem; font-weight:700; margin-bottom:6px;">Karen D. Lincoln</div>
+  <div class="credentials">PhD &nbsp;·&nbsp; MSW &nbsp;·&nbsp; MA &nbsp;·&nbsp; FGSA &nbsp;·&nbsp; FAASWSW</div>
+  <p class="tagline">A nationally recognized scholar, advocate, and leader in health equity and community-engaged research — championing justice for those who need it most.</p>
+  <a class="btn" href="https://publichealth.uci.edu/departments/environmental-occupational-health/" target="_blank">View Faculty Profile</a>
+  <a class="btn" style="background:#fff; color:#0064a4;" href="mailto:kdlincol@hs.uci.edu">Contact Dr. Lincoln</a>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats">
+  <div class="stat">
+    <span class="num">Top 2%</span>
+    <div class="label">Scientists Worldwide<br><em>(Elsevier/Stanford, 2022–2024)</em></div>
+  </div>
+  <div class="stat">
+    <span class="num">79</span>
+    <div class="label">Peer-Reviewed<br>Publications</div>
+  </div>
+  <div class="stat">
+    <span class="num">7,511+</span>
+    <div class="label">Times Cited<br><em>(as of June 2026)</em></div>
+  </div>
+  <div class="stat">
+    <span class="num">h-index 44</span>
+    <div class="label">Scholarly Impact<br><em>(i10-index: 64)</em></div>
+  </div>
+  <div class="stat">
+    <span class="num">$60M+</span>
+    <div class="label">Research Funding<br>Secured (Career Total)</div>
+  </div>
+</div>
+
+<!-- WHO SHE IS -->
+<div class="section">
+  <div class="section-label">Who She Is</div>
+  <h2>Driven by Equity. Grounded in Community.</h2>
+  <div class="subtitle">Professor &amp; Director, CEHDR · Joe C. Wen School of Population &amp; Public Health · UC Irvine</div>
+
+  <p>Dr. Karen D. Lincoln is a Professor in the Department of Environmental and Occupational Health and Director of the Center for Environmental Health Disparities Research (CEHDR) at the Joe C. Wen School of Population &amp; Public Health, University of California, Irvine. She is deeply committed to eliminating environmental racism and advancing policies that promote health, equity, and justice for historically marginalized communities.</p>
+
+  <p>Dr. Lincoln holds a BA (Honors) in Sociology from the University of California, Berkeley; an MSW and MA from the University of Michigan; and a PhD in Social Work and Sociology, also from the University of Michigan. She is a Fellow of the Gerontological Society of America (FGSA) and a Fellow of the American Academy of Social Work and Social Welfare (FAASWSW, 2026).</p>
+</div>
+
+<hr class="divider">
+
+<!-- HER RESEARCH -->
+<div class="section-alt">
+  <div class="inner">
+    <div class="section-label">Her Research</div>
+    <h2>Where Science Meets Social Justice</h2>
+    <div class="subtitle">Social &amp; Environmental Determinants of Health · Aging · Health Disparities</div>
+
+    <p>With a distinguished career spanning sociology, social work, gerontology, and public health, Dr. Lincoln's research examines the social and environmental determinants of health — with a focus on the disproportionate burden of exposures on Black and other underserved communities. She champions community-driven solutions to ensure those most impacted have a voice in shaping policy.</p>
+
+    <p>Her recent and ongoing work extends into <strong>environmental health equity</strong>, examining how historical redlining, air pollution, and neighborhood-level exposures affect the mental and physical health of Black Americans. She leads studies on <strong>sleep health and brain aging</strong>, <strong>Alzheimer's disease disparities</strong>, <strong>racial discrimination and accelerated biological aging</strong>, and <strong>climate resilience</strong> for dementia-affected households. Dr. Lincoln is the Principal Investigator on an NIH/NINDS-funded project to develop a Black aging cohort in Southern California using social determinants of health data.</p>
+
+    <p>Her multidisciplinary approach has produced interventions addressing disparities in healthcare access, environmental exposures, and aging-related inequities — working with local organizations, policymakers, and public health officials to drive lasting systemic change across California and beyond.</p>
+
+    <!-- SCHOLARLY METRICS -->
+    <div class="metrics">
+      <div class="metric-box">
+        <div class="mnum">79</div>
+        <div class="mlabel">Peer-Reviewed Journal Publications</div>
+      </div>
+      <div class="metric-box">
+        <div class="mnum">8</div>
+        <div class="mlabel">Book Chapters</div>
+      </div>
+      <div class="metric-box">
+        <div class="mnum">h-44</div>
+        <div class="mlabel">h-index<br>(i10: 64)</div>
+      </div>
+      <div class="metric-box">
+        <div class="mnum">7,511+</div>
+        <div class="mlabel">Total Citations<br>(as of 6/2026)</div>
+      </div>
+      <div class="metric-box">
+        <div class="mnum">$60M+</div>
+        <div class="mlabel">Career Research Funding Secured</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CEHDR LEADERSHIP -->
+<div class="section">
+  <div class="section-label">CEHDR Leadership</div>
+  <h2>Leading Multidisciplinary Research for Systemic Change</h2>
+  <div class="subtitle">Director since 2023 · Joe C. Wen School of Population &amp; Public Health</div>
+
+  <p>Dr. Lincoln leads a multidisciplinary team of researchers, community partners, and policymakers to develop sustainable interventions that improve health outcomes and drive systemic change across California and beyond. At CEHDR, Dr. Lincoln's work is rooted in a simple but powerful belief: that healthier, more just communities are possible when research, policy, and lived experience come together.</p>
+
+  <p>In addition to directing CEHDR, Dr. Lincoln serves as <strong>Co-Chair of the Environmental Justice Advisory Council (EJAC)</strong> at the California Department of Toxic Substances Control (DTSC), State of California (2024–2026), and as a <strong>Standing Member of the Healthcare and Health Disparities Study Section (HHD)</strong> at the National Institutes of Health (2024–2028).</p>
+</div>
+
+<hr class="divider">
+
+<!-- FOUNDER, AAAE -->
+<div class="section-alt">
+  <div class="inner">
+    <div class="section-label">Founder, AAAE</div>
+    <h2>Advocates for African American Elders</h2>
+    <div class="subtitle">Founded 2012 · Center for Environmental Health Disparities Research, UC Irvine</div>
+
+    <p>Dr. Lincoln founded <strong>Advocates for African American Elders (AAAE)</strong> — now housed at CEHDR, UC Irvine — a Los Angeles, Riverside, and Orange County organization dedicated to improving health, well-being, and quality of life for Black older adults through education, advocacy, and policy reform. AAAE engages community members directly in health education and research, ensuring that lived experience informs scientific and policy work.</p>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- HER PURPOSE -->
+<div class="section">
+  <div class="section-label">Her Purpose</div>
+  <h2>Education. Empowerment. Action.</h2>
+  <div class="subtitle">The three pillars of Dr. Lincoln's life's work.</div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="icon">📚</div>
+      <h3>Education</h3>
+      <p>Building knowledge across communities, classrooms, and policy spaces.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">🌍</div>
+      <h3>Empowerment</h3>
+      <p>Centering lived experience and amplifying community voice in research.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon">⚖️</div>
+      <h3>Action</h3>
+      <p>Turning evidence into policies and interventions that drive lasting change.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- AWARDS -->
+<div class="section-alt">
+  <div class="inner">
+    <div class="section-label">Recognition &amp; Honors</div>
+    <h2>Nationally Recognized. Globally Impactful.</h2>
+    <div class="subtitle">Selected awards and distinctions — updated from CV (as of June 2026)</div>
+
+    <div class="awards-grid">
+
+      <div class="award-card">
+        <div class="year">2026 <span class="new-badge">New</span></div>
+        <div class="title">Fellow, American Academy of Social Work and Social Welfare (FAASWSW)</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2025 <span class="new-badge">New</span></div>
+        <div class="title">Top 2% of Scientists Worldwide (2024 data)</div>
+        <div class="org">Elsevier and Stanford University</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2025 <span class="new-badge">New</span></div>
+        <div class="title">Ina Bolton Brown Humanitarian Award</div>
+        <div class="org">Top Ladies of Distinction, Inc., Area VI</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2024 <span class="new-badge">New</span></div>
+        <div class="title">Delta Rho Chapter, Delta Omega Honorary Society in Public Health</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2024 <span class="new-badge">New</span></div>
+        <div class="title">CA Black Women's Trailblazer Hall of Fame Legacy Award</div>
+        <div class="org">CA Black Women's Collective Empowerment Institute</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2023</div>
+        <div class="title">Top 2% of Scientists Worldwide (2023 data)</div>
+        <div class="org">Elsevier and Stanford University</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2023</div>
+        <div class="title">Honored Presenter, NIMH 75th Anniversary Celebration</div>
+        <div class="org">National Institute of Mental Health</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2022</div>
+        <div class="title">NIMH James Jackson Memorial Award</div>
+        <div class="org">National Institute of Mental Health</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2022</div>
+        <div class="title">Top 2% of Scientists Worldwide (2022 data)</div>
+        <div class="org">Elsevier and Stanford University</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2019</div>
+        <div class="title">Maxwell A. Pollack Award for Productive Aging</div>
+        <div class="org">Gerontological Society of America</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2014</div>
+        <div class="title">Fellow, The Gerontological Society of America (FGSA)</div>
+        <div class="org">Washington, DC</div>
+      </div>
+
+      <div class="award-card">
+        <div class="year">2014</div>
+        <div class="title">Ranked 3rd, Most Influential African American Social Work Scholars in the U.S.</div>
+        <div class="org">Research on Social Work Practice</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- MENTOR & EDUCATOR -->
+<div class="section">
+  <div class="section-label">Mentor &amp; Educator</div>
+  <h2>Cultivating the Next Generation</h2>
+  <div class="subtitle">Teaching · Mentorship · Doctoral Training</div>
+  <p>A celebrated teacher and trainer, Dr. Lincoln has guided countless students and early-career researchers, cultivating a diverse, interdisciplinary workforce committed to advancing social and environmental justice. She currently teaches graduate courses on Environmental Health Disparities and Health Status and Care Disparities at UC Irvine, and mentors CEHDR Rise Fellows, doctoral students, and postdoctoral scholars.</p>
+  <p>She has served as a mentor through the NIH-funded Program to Increase Diversity in Behavior Medicine and Sleep Research (PRIDE) and has chaired and served on numerous dissertation committees at UCI, USC, and other institutions nationwide.</p>
+</div>
+
+<!-- FOOTER NOTE -->
+<div class="footer-note">
+  Page content updated based on Dr. Lincoln's most recent CV (June 2026). &nbsp;|&nbsp;
+  <span>Center for Environmental Health Disparities Research · Joe C. Wen School of Population &amp; Public Health · University of California, Irvine</span>
+  &nbsp;|&nbsp; Contact: <a href="mailto:kdlincol@hs.uci.edu" style="color:#ffd200;">kdlincol@hs.uci.edu</a>
+</div>
+
+</body>
+</html>
