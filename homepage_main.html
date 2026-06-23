@@ -1,690 +1,621 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Roboto+Slab:wght@300;400;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<title>CEHDR – Center for Environmental Health Disparities Research</title>
+
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  /* UCI Core */
-  --uci-blue:#0064A4;
-  --uci-navy:#003A63;
-  --uci-gold:#FFD200;
-  /* UCI Accents */
-  --uci-reflection:#00558C;
-  --uci-pacific:#4A9BA8;
-  --uci-sky:#6CB4EE;
-  --uci-teal:#7EBEC5;
-  --uci-eucalyptus:#4F6F52;
-  --uci-sage:#7A9A7E;
-  --uci-persimmon:#C95A2E;
-  --uci-mesa:#B25618;
-  --uci-sandstone:#C6B783;
-  --uci-amber:#C99A2E;
-  /* Aliases */
-  --blue:#0064A4;--navy:#003A63;--teal:#7EBEC5;--teal-l:#e0f2f5;--teal-m:#5BA3AB;--gold:#FFD92E;--white:#fff;--light-blue:#EEF5FB;--text:#1a2332;--muted:#5a6a7a;--nav-h:64px
+
+.wp-block-columns, .wp-block-column, .wp-block-column>div { 
+  margin: 0 !important;
 }
-html{scroll-behavior:smooth}body{font-family:'Arimo',sans-serif;color:var(--text);overflow-x:hidden;background:var(--white)}
-.container{max-width:1140px;margin:0 auto;padding:0 28px}
-.container-narrow{max-width:1040px;margin:0 auto;padding:0 28px}
+
+.cehdr-home h1,
+.cehdr-home h2,
+.cehdr-home h3 {
+  font-family: 'Roboto Slab', serif !important;
+  font-weight: 900 !important;
+  color: var(--navy, #003A63) !important;
+  letter-spacing: -0.015em !important;
+  text-transform: none !important;
+  padding: 0 !important;
+}
+
+/* H1 — hero title (CEHDR) */
+.cehdr-home h1,
+.cehdr-home .hero-title {
+  font-size: clamp(2.6rem, 4.6vw, 4rem) !important;
+  line-height: 1 !important;
+  letter-spacing: 0.05em !important;
+  color: #ffffff !important;            /* hero sits on dark bg */
+  margin: 0 !important;
+}
+
+/* H2 — section titles */
+.cehdr-home h2,
+.cehdr-home .sec-h2 {
+  font-size: clamp(2.2rem, 3.8vw, 3.1rem) !important;
+  line-height: 1.12 !important;
+  margin: 0 auto !important;
+}
+
+/* H3 — card / initiative / timeline titles */
+.cehdr-home h3,
+.cehdr-home .init-title,
+.cehdr-home .tl-title,
+.cehdr-home .nc-title {
+  font-size: 1.25rem !important;
+  line-height: 1.3 !important;
+  margin: 0 0 12px 0 !important;
+}
+
+h3:not(.h):not([class*=is-style-h-])+p {
+    margin-top: 0px !important;
+}
+
+/* Keep the lighter/white headings that sit on dark sections readable */
+.cehdr-home .research-header h2,
+.cehdr-home .impact-title,
+.cehdr-home .tl-title {
+  color: #ffffff !important;
+}
+
+/* Preserve your gradient-text accents (don't let a flat color win) */
+.cehdr-home .impact-title span,
+.cehdr-home .hero-acronym .full-line-2 {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+
+/* ===== SCOPED RESET + TOKENS ===== */
+.cehdr-home,.cehdr-home *,.cehdr-home *::before,.cehdr-home *::after{box-sizing:border-box;margin:0;padding:0}
+.cehdr-home{
+  /* UCI Core */
+  --uci-blue:#0064A4;--uci-navy:#003A63;--uci-gold:#FFD200;
+  /* UCI Accents */
+  --uci-reflection:#00558C;--uci-pacific:#4A9BA8;--uci-sky:#6CB4EE;--uci-teal:#7EBEC5;
+  --uci-eucalyptus:#4F6F52;--uci-sage:#7A9A7E;--uci-persimmon:#C95A2E;--uci-mesa:#B25618;
+  --uci-sandstone:#C6B783;--uci-amber:#C99A2E;
+  /* Aliases */
+  --blue:#0064A4;--navy:#003A63;--teal:#7EBEC5;--teal-l:#e0f2f5;--teal-m:#5BA3AB;--gold:#FFD92E;
+  --white:#fff;--light-blue:#EEF5FB;--text:#1a2332;--muted:#5a6a7a;--nav-h:64px;
+  font-family:'Arimo',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;scroll-behavior:smooth
+}
+.cehdr-home .container{max-width:1140px;margin:0 auto;padding:0 28px}
+.cehdr-home .container-narrow{max-width:1040px;margin:0 auto;padding:0 28px}
 
 /* NAVBAR */
-.navbar{background:var(--white);position:sticky;top:0;z-index:1000;box-shadow:0 1px 0 #dde8f0,0 4px 20px rgba(0,100,164,.07);height:var(--nav-h)}
-.nav-inner{max-width:1140px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);gap:12px}
-.nav-logo-wrap{flex-shrink:0;display:flex;align-items:center;max-width:175px}
-.nav-logo-wrap img{height:34px;width:auto;display:block;filter:brightness(0) saturate(100%) invert(16%) sepia(56%) saturate(1300%) hue-rotate(190deg)}
-.nav-links{display:flex;list-style:none;align-items:center}
-.nav-links li a{font-size:.78rem;font-weight:700;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:6px;transition:all .2s;white-space:nowrap}
-.nav-links li a:hover{color:var(--navy);background:#f0f5fa}
-.nav-links li.nav-impact a{background:linear-gradient(135deg,var(--gold),#ffc700);color:var(--navy);border-radius:8px;padding:8px 16px;margin-left:8px;display:inline-flex;gap:6px;align-items:center;box-shadow:0 4px 14px rgba(255,217,46,.45)}
+.cehdr-home .navbar{background:var(--white);position:sticky;top:0;z-index:1000;box-shadow:0 1px 0 #dde8f0,0 4px 20px rgba(0,100,164,.07);height:var(--nav-h)}
+.cehdr-home .nav-inner{max-width:1140px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);gap:12px}
+.cehdr-home .nav-logo-wrap{flex-shrink:0;display:flex;align-items:center;max-width:175px}
+.cehdr-home .nav-logo-wrap img{height:34px;width:auto;display:block;filter:brightness(0) saturate(100%) invert(16%) sepia(56%) saturate(1300%) hue-rotate(190deg)}
+.cehdr-home .nav-links{display:flex;list-style:none;align-items:center}
+.cehdr-home .nav-links li a{font-size:.78rem;font-weight:700;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.cehdr-home .nav-links li a:hover{color:var(--navy);background:#f0f5fa}
+.cehdr-home .nav-links li.nav-impact a{background:linear-gradient(135deg,var(--gold),#ffc700);color:var(--navy);border-radius:8px;padding:8px 16px;margin-left:8px;display:inline-flex;gap:6px;align-items:center;box-shadow:0 4px 14px rgba(255,217,46,.45)}
 
 /* HERO */
-.hero{height:calc(100vh - var(--nav-h));min-height:580px;position:relative;overflow:hidden;background:#001428}
-.hero-right{position:absolute;inset:0;z-index:1}
-.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease-in-out}
-.hero-slide.active{opacity:1}
-.hero-slide img{width:100%;height:100%;object-fit:cover;display:block;animation:kb1 20s ease-in-out infinite alternate}
-.hero-slide:nth-child(2) img{animation-name:kb2}.hero-slide:nth-child(3) img{animation-name:kb3}
-.hero-slide:nth-child(4) img{animation-name:kb4}.hero-slide:nth-child(5) img{animation-name:kb5}
+.cehdr-home .hero{height:calc(100vh - var(--nav-h));min-height:580px;position:relative;overflow:hidden;background:#001428}
+.cehdr-home .hero-right{position:absolute;inset:0;z-index:1}
+.cehdr-home .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease-in-out}
+.cehdr-home .hero-slide.active{opacity:1}
+.cehdr-home .hero-slide img{width:100%;height:100%;object-fit:cover;display:block;animation:kb1 20s ease-in-out infinite alternate}
+.cehdr-home .hero-slide:nth-child(2) img{animation-name:kb2}.cehdr-home .hero-slide:nth-child(3) img{animation-name:kb3}
+.cehdr-home .hero-slide:nth-child(4) img{animation-name:kb4}.cehdr-home .hero-slide:nth-child(5) img{animation-name:kb5}
 @keyframes kb1{0%{transform:scale(1)}100%{transform:scale(1.15) translate(-2%,-3%)}}
 @keyframes kb2{0%{transform:scale(1.1) translate(2%,-2%)}100%{transform:scale(1)}}
 @keyframes kb3{0%{transform:scale(1)}100%{transform:scale(1.18) translate(-3%,2%)}}
 @keyframes kb4{0%{transform:scale(1.12) translate(-1%,-1%)}100%{transform:scale(1) translate(2%,2%)}}
 @keyframes kb5{0%{transform:scale(1)}100%{transform:scale(1.15) translate(2%,-2%)}}
-.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,30,60,.15),rgba(0,30,60,.05))}
-
-.hero-left{position:absolute;top:0;left:0;bottom:0;width:55%;
-  background:linear-gradient(135deg,#001428 0%,#002d55 35%,var(--navy) 65%,#005b9a 100%);
-  display:flex;flex-direction:column;justify-content:center;padding:0 160px 0 60px;z-index:2;overflow:hidden;
-  clip-path:ellipse(95% 110% at 0% 50%);-webkit-clip-path:ellipse(95% 110% at 0% 50%)}
-.arc-stroke{position:absolute;top:0;left:0;bottom:0;width:55%;z-index:3;pointer-events:none}
-.arc-stroke svg{width:100%;height:100%;display:block;overflow:visible}
-.arc-stroke ellipse{fill:none;stroke:rgba(255,217,46,.5);stroke-width:2;animation:arc-pulse 6s ease-in-out infinite}
+.cehdr-home .hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,30,60,.15),rgba(0,30,60,.05))}
+.cehdr-home .hero-left{position:absolute;top:0;left:0;bottom:0;width:55%;background:linear-gradient(135deg,#001428 0%,#002d55 35%,var(--navy) 65%,#005b9a 100%);display:flex;flex-direction:column;justify-content:center;padding:0 160px 0 60px;z-index:2;overflow:hidden;clip-path:ellipse(95% 110% at 0% 50%);-webkit-clip-path:ellipse(95% 110% at 0% 50%)}
+.cehdr-home .arc-stroke{position:absolute;top:0;left:0;bottom:0;width:55%;z-index:3;pointer-events:none}
+.cehdr-home .arc-stroke svg{width:100%;height:100%;display:block;overflow:visible}
+.cehdr-home .arc-stroke ellipse{fill:none;stroke:rgba(255,217,46,.5);stroke-width:2;animation:arc-pulse 6s ease-in-out infinite}
 @keyframes arc-pulse{0%,100%{stroke:rgba(255,217,46,.4)}50%{stroke:rgba(255,217,46,.85);filter:drop-shadow(0 0 12px rgba(255,217,46,.4))}}
 
 /* BOKEH */
-.bokeh-wrap{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.bokeh{position:absolute;border-radius:50%;filter:blur(48px);animation:bokeh-move linear infinite}
+.cehdr-home .bokeh-wrap{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.cehdr-home .bokeh{position:absolute;border-radius:50%;filter:blur(48px);animation:bokeh-move linear infinite}
 @keyframes bokeh-move{0%,100%{transform:translate(0,0) scale(1);opacity:.22}50%{transform:translate(-10px,-30px) scale(1.14);opacity:.42}}
-.bokeh-yellow{position:absolute;border-radius:50%;mix-blend-mode:screen}
-.by1{width:280px;height:280px;background:radial-gradient(circle,rgba(255,232,120,.85),rgba(255,217,46,.4) 35%,transparent 70%);top:-60px;left:8%;filter:blur(20px);animation:y1 12s ease-in-out infinite,yglow 4s ease-in-out infinite}
-.by2{width:230px;height:230px;background:radial-gradient(circle,rgba(255,240,150,.8),rgba(255,217,46,.4) 35%,transparent 70%);bottom:-40px;left:30%;filter:blur(22px);animation:y2 14s ease-in-out infinite,yglow 5s ease-in-out infinite -2s}
+.cehdr-home .bokeh-yellow{position:absolute;border-radius:50%;mix-blend-mode:screen}
+.cehdr-home .by1{width:280px;height:280px;background:radial-gradient(circle,rgba(255,232,120,.85),rgba(255,217,46,.4) 35%,transparent 70%);top:-60px;left:8%;filter:blur(20px);animation:y1 12s ease-in-out infinite,yglow 4s ease-in-out infinite}
+.cehdr-home .by2{width:230px;height:230px;background:radial-gradient(circle,rgba(255,240,150,.8),rgba(255,217,46,.4) 35%,transparent 70%);bottom:-40px;left:30%;filter:blur(22px);animation:y2 14s ease-in-out infinite,yglow 5s ease-in-out infinite -2s}
 @keyframes y1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(14px,42px) scale(1.14)}}
 @keyframes y2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-32px,-36px) scale(1.16)}}
 @keyframes yglow{0%,100%{opacity:.55;filter:blur(22px) brightness(1)}50%{opacity:.9;filter:blur(16px) brightness(1.3)}}
-.b1{width:180px;height:180px;background:radial-gradient(circle,rgba(126,190,197,.55),transparent);top:-40px;right:10%;animation-duration:9s}
-.b3{width:110px;height:110px;background:radial-gradient(circle,rgba(0,100,164,.55),transparent);top:42%;left:25%;animation-duration:8s;animation-delay:-2s}
+.cehdr-home .b1{width:180px;height:180px;background:radial-gradient(circle,rgba(126,190,197,.55),transparent);top:-40px;right:10%;animation-duration:9s}
+.cehdr-home .b3{width:110px;height:110px;background:radial-gradient(circle,rgba(0,100,164,.55),transparent);top:42%;left:25%;animation-duration:8s;animation-delay:-2s}
 
 /* HERO TEXT */
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;background:rgba(126,190,197,.14);border:1px solid rgba(126,190,197,.35);padding:7px 16px;border-radius:30px;width:fit-content;position:relative;z-index:6}
-.hero-masthead{align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px;position:relative;z-index:6;line-height:1}
-.hero-welcome-inline{font-family:'Roboto Slab',serif;font-size:clamp(1.4rem,2vw,1.9rem);font-weight:300;color:rgba(255,255,255,.85);letter-spacing:.01em}
-.hero-title{font-family:'Roboto Slab',serif;font-size:clamp(2.6rem,4.6vw,4rem);font-weight:900;color:#fff;line-height:1;letter-spacing:0.05em;margin:0}
-.hero-acronym{font-family:'Roboto Slab',serif;font-size:.88rem;font-weight:700;letter-spacing:.14em;color:var(--gold);margin-bottom:22px;position:relative;z-index:6;text-transform:uppercase;line-height:1.5;text-shadow:0 1px 12px rgba(126,190,197,.3)}
-.hero-acronym .full-line-2{display:block;background:linear-gradient(135deg,#fff,var(--gold));-webkit-background-clip:text;background-clip:text;font-weight:900}
-.hero-desc{font-size:.92rem;color:rgba(255,255,255,.78);line-height:1.7;margin-bottom:26px;max-width:420px;position:relative;z-index:6}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:6}
-.btn-gold{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:linear-gradient(135deg,var(--gold),#ffc700);color:var(--navy);font-weight:700;font-size:.88rem;text-decoration:none;border-radius:8px;box-shadow:0 6px 22px rgba(255,217,46,.45);transition:all .25s}
-.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(255,217,46,.65)}
-.btn-ghost-white{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border:2px solid rgba(255,255,255,.4);color:#fff;font-weight:700;font-size:.88rem;text-decoration:none;border-radius:8px;transition:all .25s}
-.btn-ghost-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
-
-.slide-dots{position:absolute;bottom:20px;right:30px;display:flex;gap:8px;z-index:6}
-.slide-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;border:none;transition:all .3s}
-.slide-dot.active{background:var(--gold);width:24px;border-radius:4px;box-shadow:0 0 10px rgba(255,217,46,.6)}
-
-.hero-pill{position:absolute;background:var(--white);border-radius:12px;box-shadow:0 8px 26px rgba(0,0,0,.18);padding:11px 14px;display:flex;align-items:center;gap:10px;animation:pill-float 5s ease-in-out infinite;z-index:5}
+.cehdr-home .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:18px;background:rgba(126,190,197,.14);border:1px solid rgba(126,190,197,.35);padding:7px 16px;border-radius:30px;width:fit-content;position:relative;z-index:6}
+.cehdr-home .hero-masthead{align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px;position:relative;z-index:6;line-height:1}
+.cehdr-home .hero-welcome-inline{font-family:'Roboto Slab',serif;font-size:clamp(1.4rem,2vw,1.9rem);font-weight:300;color:rgba(255,255,255,.85);letter-spacing:.01em}
+.cehdr-home .hero-title{font-family:'Roboto Slab',serif;font-size:clamp(2.6rem,4.6vw,4rem);font-weight:900;color:#fff;line-height:1;letter-spacing:0.05em;margin:0}
+.cehdr-home .hero-acronym{font-family:'Roboto Slab',serif;font-size:.88rem;font-weight:700;letter-spacing:.14em;color:var(--gold);margin-bottom:22px;position:relative;z-index:6;text-transform:uppercase;line-height:1.5;text-shadow:0 1px 12px rgba(126,190,197,.3)}
+.cehdr-home .hero-acronym .full-line-2{display:block;background:linear-gradient(135deg,#fff,var(--gold));-webkit-background-clip:text;background-clip:text;font-weight:900}
+.cehdr-home .hero-desc{font-size:.92rem;color:rgba(255,255,255,.78);line-height:1.7;margin-bottom:26px;max-width:420px;position:relative;z-index:6}
+.cehdr-home .hero-btns{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:6}
+.cehdr-home .btn-gold{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:linear-gradient(135deg,var(--gold),#ffc700);color:var(--navy);font-weight:700;font-size:.88rem;text-decoration:none;border-radius:8px;box-shadow:0 6px 22px rgba(255,217,46,.45);transition:all .25s}
+.cehdr-home .btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(255,217,46,.65)}
+.cehdr-home .btn-ghost-white{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border:2px solid rgba(255,255,255,.4);color:#fff;font-weight:700;font-size:.88rem;text-decoration:none;border-radius:8px;transition:all .25s}
+.cehdr-home .btn-ghost-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.cehdr-home .slide-dots{position:absolute;bottom:20px;right:30px;display:flex;gap:8px;z-index:6}
+.cehdr-home .slide-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;border:none;transition:all .3s}
+.cehdr-home .slide-dot.active{background:var(--gold);width:24px;border-radius:4px;box-shadow:0 0 10px rgba(255,217,46,.6)}
+.cehdr-home .hero-pill{position:absolute;background:var(--white);border-radius:12px;box-shadow:0 8px 26px rgba(0,0,0,.18);padding:11px 14px;display:flex;align-items:center;gap:10px;animation:pill-float 5s ease-in-out infinite;z-index:5}
 @keyframes pill-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.hp-top{top:30px;right:30px}.hp-bot{bottom:80px;right:30px;animation-delay:2s;background:var(--navy)}
-.hp-icon{width:34px;height:34px;border-radius:9px;background:var(--teal-l);display:flex;align-items:center;justify-content:center;color:var(--blue)}
-.hp-num{font-family:'Roboto Slab',serif;font-size:1.2rem;font-weight:900;color:var(--navy);line-height:1}
-.hp-bot .hp-num{color:var(--gold)}.hp-lbl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:2px}
-.hp-bot .hp-lbl{color:rgba(255,255,255,.6)}
+.cehdr-home .hp-top{top:30px;right:30px}.cehdr-home .hp-bot{bottom:80px;right:30px;animation-delay:2s;background:var(--navy)}
+.cehdr-home .hp-icon{width:34px;height:34px;border-radius:9px;background:var(--teal-l);display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.cehdr-home .hp-num{font-family:'Roboto Slab',serif;font-size:1.2rem;font-weight:900;color:var(--navy);line-height:1}
+.cehdr-home .hp-bot .hp-num{color:var(--gold)}.cehdr-home .hp-lbl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:2px}
+.cehdr-home .hp-bot .hp-lbl{color:rgba(255,255,255,.6)}
 
 /* STATS */
-.stats-section{background:linear-gradient(180deg,var(--light-blue) 0%,#fff 100%);padding:56px 0}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:60px}
-.stat-card{background:var(--white);border-radius:18px;overflow:hidden;box-shadow:0 4px 22px rgba(0,58,99,.08);transition:all .3s;display:flex;flex-direction:column}
-.stat-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 26px 52px rgba(0,100,164,.18)}
-.sc-top{padding:26px 20px 20px;display:flex;flex-direction:column;align-items:center;flex:1}
-.sc-num{font-family:'Roboto Slab',serif;font-size:2.4rem;font-weight:900;line-height:1;margin-bottom:6px;text-align:center}
-.sc-card-1 .sc-num{background:linear-gradient(135deg,var(--navy),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sc-card-2 .sc-num{background:linear-gradient(135deg,var(--teal-m),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sc-card-3 .sc-num{background:linear-gradient(135deg,#9a7000,#e0b800);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sc-card-4 .sc-num{background:linear-gradient(135deg,var(--blue),var(--teal-m));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sc-lbl{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);line-height:1.5;text-align:center;padding:0 8px}
-.sc-bar{height:5px}.sc-card-1 .sc-bar{background:linear-gradient(90deg,var(--navy),var(--blue))}.sc-card-2 .sc-bar{background:linear-gradient(90deg,var(--teal-m),var(--teal))}
-.sc-card-3 .sc-bar{background:linear-gradient(90deg,#9a7000,var(--gold))}.sc-card-4 .sc-bar{background:linear-gradient(90deg,var(--blue),var(--teal-m))}
-
-/* === UCI-ALIGNED ICON SYSTEM === */
-/* Stat-card squircle icons — UCI core blues + gold + teal */
-.sc-icon-wrap{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:14px;color:#fff;box-shadow:none;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease,filter .3s ease}
-.sc-card-1 .sc-icon-wrap{background:linear-gradient(135deg,var(--uci-navy),var(--uci-blue));box-shadow:0 8px 22px rgba(0,58,99,.32)}        /* UCI Navy → Blue */
-.sc-card-2 .sc-icon-wrap{background:linear-gradient(135deg,var(--uci-pacific),var(--uci-teal));box-shadow:0 8px 22px rgba(74,155,168,.32)} /* Pacific → Teal */
-.sc-card-3 .sc-icon-wrap{background:linear-gradient(135deg,var(--uci-amber),#E5B947);box-shadow:0 8px 22px rgba(201,154,46,.34)}            /* UCI Gold (deepened) */
-.sc-card-4 .sc-icon-wrap{background:linear-gradient(135deg,var(--uci-reflection),var(--uci-blue));box-shadow:0 8px 22px rgba(0,85,140,.32)} /* Reflection → UCI Blue */
-.stat-card:hover .sc-icon-wrap{transform:scale(1.1) rotate(-4deg);filter:brightness(1.06) saturate(1.1)}
+.cehdr-home .stats-section{background:linear-gradient(180deg,var(--light-blue) 0%,#fff 100%);padding:56px 0}
+.cehdr-home .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:60px}
+.cehdr-home .stat-card{background:var(--white);border-radius:18px;overflow:hidden;box-shadow:0 4px 22px rgba(0,58,99,.08);transition:all .3s;display:flex;flex-direction:column}
+.cehdr-home .stat-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 26px 52px rgba(0,100,164,.18)}
+.cehdr-home .sc-top{padding:26px 20px 20px;display:flex;flex-direction:column;align-items:center;flex:1}
+.cehdr-home .sc-num{font-family:'Roboto Slab',serif;font-size:2.4rem;font-weight:900;line-height:1;margin-bottom:6px;text-align:center}
+.cehdr-home .sc-card-1 .sc-num{background:linear-gradient(135deg,var(--navy),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cehdr-home .sc-card-2 .sc-num{background:linear-gradient(135deg,var(--teal-m),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cehdr-home .sc-card-3 .sc-num{background:linear-gradient(135deg,#9a7000,#e0b800);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cehdr-home .sc-card-4 .sc-num{background:linear-gradient(135deg,var(--blue),var(--teal-m));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cehdr-home .sc-lbl{font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);line-height:1.5;text-align:center;padding:0 8px}
+.cehdr-home .sc-bar{height:5px}.cehdr-home .sc-card-1 .sc-bar{background:linear-gradient(90deg,var(--navy),var(--blue))}.cehdr-home .sc-card-2 .sc-bar{background:linear-gradient(90deg,var(--teal-m),var(--teal))}
+.cehdr-home .sc-card-3 .sc-bar{background:linear-gradient(90deg,#9a7000,var(--gold))}.cehdr-home .sc-card-4 .sc-bar{background:linear-gradient(90deg,var(--blue),var(--teal-m))}
+.cehdr-home .sc-icon-wrap{width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:14px;color:#fff;box-shadow:none;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease,filter .3s ease}
+.cehdr-home .sc-card-1 .sc-icon-wrap{background:linear-gradient(135deg,var(--uci-navy),var(--uci-blue));box-shadow:0 8px 22px rgba(0,58,99,.32)}
+.cehdr-home .sc-card-2 .sc-icon-wrap{background:linear-gradient(135deg,var(--uci-pacific),var(--uci-teal));box-shadow:0 8px 22px rgba(74,155,168,.32)}
+.cehdr-home .sc-card-3 .sc-icon-wrap{background:linear-gradient(135deg,var(--uci-amber),#E5B947);box-shadow:0 8px 22px rgba(201,154,46,.34)}
+.cehdr-home .sc-card-4 .sc-icon-wrap{background:linear-gradient(135deg,var(--uci-reflection),var(--uci-blue));box-shadow:0 8px 22px rgba(0,85,140,.32)}
+.cehdr-home .stat-card:hover .sc-icon-wrap{transform:scale(1.1) rotate(-4deg);filter:brightness(1.06) saturate(1.1)}
 
 /* SECTION TITLES */
-.sec-eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-m);margin-bottom:10px}
-.sec-h2{font-family:'Roboto Slab',serif;font-weight:900;line-height:1.12;letter-spacing:-.015em;margin:0 auto}
+.cehdr-home .sec-eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-m);margin-bottom:10px}
+.cehdr-home .sec-h2{font-family:'Roboto Slab',serif;font-weight:900;line-height:1.12;letter-spacing:-.015em;margin:0 auto}
 
 /* WHO WE ARE */
-.who-section{background:linear-gradient(160deg,#fff 0%,var(--light-blue) 60%,#dceff2 100%);padding:40px 0}
-.who-header{text-align:center;margin-bottom:54px}
-.who-header .sec-h2{font-size:clamp(2.4rem,4vw,3.2rem);color:var(--navy);max-width:880px}
-.who-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center}
-.who-imgs{position:relative;height:520px}
-.wi-main{position:absolute;top:0;right:0;width:85%;height:380px;border-radius:20px;overflow:hidden;box-shadow:0 22px 60px rgba(0,0,0,.22)}
-.wi-main img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .6s}.wi-main:hover img{transform:scale(1.04)}
-.wi-s1{position:absolute;bottom:0;left:0;width:58%;height:230px;border-radius:16px;overflow:hidden;border:5px solid var(--white);box-shadow:0 12px 36px rgba(0,0,0,.18)}
-.wi-s1 img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .6s}.wi-s1:hover img{transform:scale(1.06)}
-.wi-badge{position:absolute;top:22px;left:18px;background:linear-gradient(135deg,var(--gold),#ffb700);color:var(--navy);font-family:'Roboto Slab',serif;font-size:.95rem;font-weight:900;padding:13px 17px;border-radius:13px;box-shadow:0 8px 22px rgba(255,217,46,.55);text-align:center;animation:badge-pulse 4s ease-in-out infinite;z-index:2}
+.cehdr-home .who-section{background:linear-gradient(160deg,#fff 0%,var(--light-blue) 60%,#dceff2 100%);padding:40px 0}
+.cehdr-home .who-header{text-align:center;margin-bottom:54px}
+.cehdr-home .who-header .sec-h2{font-size:clamp(2.4rem,4vw,3.2rem);color:var(--navy);max-width:880px}
+.cehdr-home .who-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:70px;align-items:center}
+.cehdr-home .who-imgs{position:relative;height:520px}
+.cehdr-home .wi-main{position:absolute;top:0;right:0;width:85%;height:380px;border-radius:20px;overflow:hidden;box-shadow:0 22px 60px rgba(0,0,0,.22)}
+.cehdr-home .wi-main img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .6s}.cehdr-home .wi-main:hover img{transform:scale(1.04)}
+.cehdr-home .wi-s1{position:absolute;bottom:0;left:0;width:58%;height:230px;border-radius:16px;overflow:hidden;border:5px solid var(--white);box-shadow:0 12px 36px rgba(0,0,0,.18)}
+.cehdr-home .wi-s1 img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .6s}.cehdr-home .wi-s1:hover img{transform:scale(1.06)}
+.cehdr-home .wi-badge{position:absolute;top:22px;left:18px;background:linear-gradient(135deg,var(--gold),#ffb700);color:var(--navy);font-family:'Roboto Slab',serif;font-size:.95rem;font-weight:900;padding:13px 17px;border-radius:13px;box-shadow:0 8px 22px rgba(255,217,46,.55);text-align:center;animation:badge-pulse 4s ease-in-out infinite;z-index:2}
 @keyframes badge-pulse{0%,100%{box-shadow:0 6px 18px rgba(255,217,46,.4)}50%{box-shadow:0 6px 32px rgba(255,217,46,.75)}}
-.wi-badge small{display:block;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:3px;color:rgba(0,58,99,.72)}
-.who-text p{font-size:.95rem;color:var(--muted);line-height:1.85;margin-bottom:14px}
-blockquote.pull{background:linear-gradient(135deg,var(--teal-l),#f0f9fb);border-left:5px solid var(--teal);border-radius:0 12px 12px 0;padding:15px 20px;margin:20px 0;font-style:italic;color:var(--navy);font-size:.92rem;line-height:1.65}
-.btn-blue{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;font-weight:700;font-size:.88rem;text-decoration:none;border-radius:8px;transition:all .25s;margin-top:8px;box-shadow:0 4px 14px rgba(0,100,164,.3)}
-.btn-blue:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,100,164,.45)}
+.cehdr-home .wi-badge small{display:block;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:3px;color:rgba(0,58,99,.72)}
+.cehdr-home .who-text p{font-size:.95rem;color:var(--muted);line-height:1.85;margin-bottom:14px}
+.cehdr-home blockquote.pull{background:linear-gradient(135deg,var(--teal-l),#f0f9fb);border-left:5px solid var(--teal);border-radius:0 12px 12px 0;padding:15px 20px;margin:20px 0;font-style:italic;color:var(--navy);font-size:.92rem;line-height:1.65}
+.cehdr-home .btn-blue{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;font-weight:700;font-size:.88rem;text-decoration:none;border-radius:8px;transition:all .25s;margin-top:8px;box-shadow:0 4px 14px rgba(0,100,164,.3)}
+.cehdr-home .btn-blue:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,100,164,.45)}
 
 /* RESEARCH AREAS */
-.research-section{background:linear-gradient(135deg,#001428 0%,#001e3a 25%,var(--navy) 55%,#005080 80%,#007a8c 100%);padding:40px 0;position:relative;overflow:hidden}
-.research-section::before{content:'';position:absolute;top:-100px;right:-100px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(126,190,197,.1),transparent 70%)}
-.research-section::after{content:'';position:absolute;bottom:-80px;left:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(255,217,46,.08),transparent 70%)}
-.research-header{text-align:center;margin-bottom:50px;position:relative;z-index:2}
-.research-header .sec-eyebrow{color:var(--teal)}
-.research-header .sec-h2{font-size:clamp(2.3rem,3.8vw,3.1rem);color:#fff;margin-bottom:14px}
-.research-header p{font-size:.98rem;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto;line-height:1.72}
+.cehdr-home .research-section{background:linear-gradient(135deg,#001428 0%,#001e3a 25%,var(--navy) 55%,#005080 80%,#007a8c 100%);padding:40px 0;position:relative;overflow:hidden}
+.cehdr-home .research-section::before{content:'';position:absolute;top:-100px;right:-100px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(126,190,197,.1),transparent 70%)}
+.cehdr-home .research-section::after{content:'';position:absolute;bottom:-80px;left:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(255,217,46,.08),transparent 70%)}
+.cehdr-home .research-header{text-align:center;margin-bottom:50px;position:relative;z-index:2}
+.cehdr-home .research-header .sec-eyebrow{color:var(--teal)}
+.cehdr-home .research-header .sec-h2{font-size:clamp(2.3rem,3.8vw,3.1rem);color:#fff;margin-bottom:14px}
+.cehdr-home .research-header p{font-size:.98rem;color:rgba(255,255,255,.72);max-width:640px;margin:0 auto;line-height:1.72}
 
-/* === HEXAGONAL HONEYCOMB — 5 research areas === */
-/* === VERTICAL TIMELINE — alternating left/right === */
-.timeline{position:relative;max-width:920px;margin:0 auto;padding:20px 0 40px;z-index:2}
-
-/* Central spine */
-.timeline::before{
-  content:'';position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);
-  width:3px;background:linear-gradient(to bottom,
-    rgba(255,210,0,0) 0%,
-    rgba(255,210,0,.5) 8%,
-    rgba(255,210,0,.5) 92%,
-    rgba(255,210,0,0) 100%);
-  border-radius:2px;z-index:1
-}
-/* === Compressed card dimensions === */
-.tl-item{
-  position:relative;display:grid;grid-template-columns:1fr 80px 1fr;
-  align-items:center;
-  margin-bottom:28px;       /* was 50px — tighter rhythm */
-  min-height:auto           /* was 200px — let content drive height */
-}
-
-/* Restore alternating sides — odd items on left, even on right */
-.tl-item:nth-child(odd) .tl-card{
-  grid-column:1;
-  grid-template-columns:160px 1fr;   /* image left, text right */
-}
-.tl-item:nth-child(even) .tl-card{
-  grid-column:3;
-  grid-template-columns:1fr 160px;   /* text left, image right */
-}
-
-/* Flip the visual order for even rows so the image hugs the outer edge */
-.tl-item:nth-child(even) .tl-card .tl-img{order:2}
-.tl-item:nth-child(even) .tl-card .tl-body{order:1;text-align:right}
-.tl-item:nth-child(even) .tl-icon{margin-left:auto}
-.tl-item:nth-child(even) .tl-link{align-self:flex-end}
-
-/* Connector arrow pointing toward the central spine */
-.tl-card::after{
-  content:'';position:absolute;top:50%;transform:translateY(-50%);
-  border:10px solid transparent;
-}
-.tl-item:nth-child(odd) .tl-card::after{
-  right:-20px;border-left-color:rgba(255,255,255,.12)
-}
-.tl-item:nth-child(even) .tl-card::after{
-  left:-20px;border-right-color:rgba(255,255,255,.12)
-}
-
-/* Smaller, wider card — image strip + compact body */
-.tl-card{
-  position:relative;background:rgba(255,255,255,.06);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;
-  display:grid;
-  grid-template-columns:160px 1fr;   /* slightly wider image strip */
-  gap:0;
-  box-shadow:0 8px 24px rgba(0,0,0,.28);
-  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease
-}
-.tl-card:hover{
-  transform:translateY(-3px);
-  border-color:rgba(255,210,0,.45);
-  box-shadow:0 14px 36px rgba(0,0,0,.4),0 0 0 1px rgba(255,210,0,.3)
-}
-.tl-item:nth-child(even) .tl-card{grid-template-columns:1fr 160px}
-
-/* Image side — fills card height, no min-height pushing things tall */
-.tl-img{
-  position:relative;background-size:cover;background-position:center;
-  min-height:0;             /* was 200px — image now stretches to body height */
-  height:100%
-}
-
-/* Compact body padding & smaller type scale */
-.tl-body{
-  padding:16px 22px;         /* was 24px 28px */
-  display:flex;flex-direction:column;justify-content:center;color:#fff
-}
-.tl-icon{
-  width:38px;height:38px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.95rem;color:#fff;
-  margin-bottom:8px          /* was 12px */
-}
-.tl-acro{
-  font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--uci-gold);margin-bottom:4px
-}
-.tl-title{
-  font-family:'Roboto Slab',serif;font-weight:900;
-  font-size:1.05rem;          /* was 1.25rem */
-  line-height:1.2;color:#fff;
-  margin-bottom:6px;          /* was 8px */
-  letter-spacing:-.01em
-}
-.tl-desc{
-  font-size:.8rem;            /* was .85rem */
-  line-height:1.5;            /* was 1.6 */
-  color:rgba(255,255,255,.78);
-  margin-bottom:8px;          /* was 12px */
-}
-.tl-link{
-  font-size:.74rem;font-weight:700;color:var(--uci-gold);text-decoration:none;
-  display:inline-flex;align-items:center;gap:6px;letter-spacing:.04em
-}
-
-/* Smaller spine node */
-.tl-node{
-  grid-column:2;justify-self:center;position:relative;z-index:3;
-  width:44px;height:44px;border-radius:50%;     /* was 54px */
-  background:linear-gradient(135deg,var(--uci-gold),#ffc700);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--uci-navy);font-size:1.05rem;       /* was 1.25rem */
-  box-shadow:0 0 0 5px rgba(0,30,60,.6),0 0 0 7px rgba(255,210,0,.35),0 6px 18px rgba(255,210,0,.4);
-  animation:tl-pulse 3.5s ease-in-out infinite
-}
-@keyframes tl-pulse{
-  0%,100%{box-shadow:0 0 0 5px rgba(0,30,60,.6),0 0 0 7px rgba(255,210,0,.35),0 6px 18px rgba(255,210,0,.4)}
-  50%{box-shadow:0 0 0 5px rgba(0,30,60,.6),0 0 0 12px rgba(255,210,0,.15),0 10px 26px rgba(255,210,0,.6)}
-}
-
-/* Mobile — keep horizontal feel even on small screens */
+/* VERTICAL TIMELINE */
+.cehdr-home .timeline{position:relative;max-width:920px;margin:0 auto;padding:20px 0 40px;z-index:2}
+.cehdr-home .timeline::before{content:'';position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);width:3px;background:linear-gradient(to bottom,rgba(255,210,0,0) 0%,rgba(255,210,0,.5) 8%,rgba(255,210,0,.5) 92%,rgba(255,210,0,0) 100%);border-radius:2px;z-index:1}
+.cehdr-home .tl-item{position:relative;display:grid;grid-template-columns:1fr 80px 1fr;align-items:center;margin-bottom:28px;min-height:auto}
+.cehdr-home .tl-item:nth-child(odd) .tl-card{grid-column:1;grid-template-columns:160px 1fr}
+.cehdr-home .tl-item:nth-child(even) .tl-card{grid-column:3;grid-template-columns:1fr 160px}
+.cehdr-home .tl-item:nth-child(even) .tl-card .tl-img{order:2}
+.cehdr-home .tl-item:nth-child(even) .tl-card .tl-body{order:1;text-align:right}
+.cehdr-home .tl-item:nth-child(even) .tl-icon{margin-left:auto}
+.cehdr-home .tl-item:nth-child(even) .tl-link{align-self:flex-end}
+.cehdr-home .tl-card::after{content:'';position:absolute;top:50%;transform:translateY(-50%);border:10px solid transparent}
+.cehdr-home .tl-item:nth-child(odd) .tl-card::after{right:-20px;border-left-color:rgba(255,255,255,.12)}
+.cehdr-home .tl-item:nth-child(even) .tl-card::after{left:-20px;border-right-color:rgba(255,255,255,.12)}
+.cehdr-home .tl-card{position:relative;background:rgba(255,255,255,.06);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow:hidden;display:grid;grid-template-columns:160px 1fr;gap:0;box-shadow:0 8px 24px rgba(0,0,0,.28);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+.cehdr-home .tl-card:hover{transform:translateY(-3px);border-color:rgba(255,210,0,.45);box-shadow:0 14px 36px rgba(0,0,0,.4),0 0 0 1px rgba(255,210,0,.3)}
+.cehdr-home .tl-item:nth-child(even) .tl-card{grid-template-columns:1fr 160px}
+.cehdr-home .tl-img{position:relative;background-size:cover;background-position:center;min-height:0;height:100%}
+.cehdr-home .tl-body{padding:16px 22px;display:flex;flex-direction:column;justify-content:center;color:#fff}
+.cehdr-home .tl-icon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.95rem;color:#fff;margin-bottom:8px}
+.cehdr-home .tl-acro{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--uci-gold);margin-bottom:4px}
+.cehdr-home .tl-title{font-family:'Roboto Slab',serif;font-weight:900;font-size:1.05rem;line-height:1.2;color:#fff;margin-bottom:6px;letter-spacing:-.01em}
+.cehdr-home .tl-desc{font-size:.8rem;line-height:1.5;color:rgba(255,255,255,.78);margin-bottom:8px}
+.cehdr-home .tl-link{font-size:.74rem;font-weight:700;color:var(--uci-gold);text-decoration:none;display:inline-flex;align-items:center;gap:6px;letter-spacing:.04em}
+.cehdr-home .tl-node{grid-column:2;justify-self:center;position:relative;z-index:3;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--uci-gold),#ffc700);display:flex;align-items:center;justify-content:center;color:var(--uci-navy);font-size:1.05rem;box-shadow:0 0 0 5px rgba(0,30,60,.6),0 0 0 7px rgba(255,210,0,.35),0 6px 18px rgba(255,210,0,.4);animation:tl-pulse 3.5s ease-in-out infinite}
+@keyframes tl-pulse{0%,100%{box-shadow:0 0 0 5px rgba(0,30,60,.6),0 0 0 7px rgba(255,210,0,.35),0 6px 18px rgba(255,210,0,.4)}50%{box-shadow:0 0 0 5px rgba(0,30,60,.6),0 0 0 12px rgba(255,210,0,.15),0 10px 26px rgba(255,210,0,.6)}}
 @media(max-width:768px){
-  .timeline::before{left:24px}
-  .tl-item{grid-template-columns:50px 1fr;gap:12px;margin-bottom:20px}
-  .tl-node{grid-column:1;width:36px;height:36px;font-size:.9rem}
-  .tl-item:nth-child(odd) .tl-card,
-  .tl-item:nth-child(even) .tl-card{grid-column:2;grid-template-columns:110px 1fr}
-  .tl-item:nth-child(even) .tl-card .tl-img{order:1}
-  .tl-item:nth-child(even) .tl-card .tl-body{order:2;text-align:left}
-  .tl-item:nth-child(even) .tl-icon{margin-left:0}
-  .tl-item:nth-child(even) .tl-link{align-self:flex-start}
-  .tl-card::after{display:none}
-  .tl-body{padding:12px 16px}
-  .tl-title{font-size:.95rem}
-  .tl-desc{font-size:.75rem;-webkit-line-clamp:2}
+  .cehdr-home .timeline::before{left:24px}
+  .cehdr-home .tl-item{grid-template-columns:50px 1fr;gap:12px;margin-bottom:20px}
+  .cehdr-home .tl-node{grid-column:1;width:36px;height:36px;font-size:.9rem}
+  .cehdr-home .tl-item:nth-child(odd) .tl-card,.cehdr-home .tl-item:nth-child(even) .tl-card{grid-column:2;grid-row: 1;grid-template-columns:110px 1fr}
+  .cehdr-home .tl-item:nth-child(even) .tl-card .tl-img{order:1}
+  .cehdr-home .tl-item:nth-child(even) .tl-card .tl-body{order:2;text-align:left}
+  .cehdr-home .tl-item:nth-child(even) .tl-icon{margin-left:0}
+  .cehdr-home .tl-item:nth-child(even) .tl-link{align-self:flex-start}
+  .cehdr-home .tl-card::after{display:none}
+  .cehdr-home .tl-body{padding:12px 16px}
+  .cehdr-home .tl-title{font-size:.95rem}
+  .cehdr-home .tl-desc{font-size:.75rem;-webkit-line-clamp:2}
 }
 @media(max-width:520px){
-  .tl-card,
-  .tl-item:nth-child(odd) .tl-card,
-  .tl-item:nth-child(even) .tl-card{grid-template-columns:90px 1fr}
-  .tl-img{min-height:auto}
+  .cehdr-home .tl-card,.cehdr-home .tl-item:nth-child(odd) .tl-card,.cehdr-home .tl-item:nth-child(even) .tl-card{grid-template-columns:90px 1fr}
+  .cehdr-home .tl-img{min-height:auto}
 }
 
 /* INITIATIVES */
-.initiatives-section{background:linear-gradient(180deg,var(--light-blue) 0%,#e8f1f9 50%,#f0f7ff 100%);padding:40px 0}
-.section-header{text-align:center;margin-bottom:50px}
-.section-header .sec-h2{font-size:clamp(2.2rem,3.6vw,3rem);color:var(--navy);margin-bottom:12px}
-.section-header p{font-size:.95rem;color:var(--muted);max-width:600px;margin:0 auto;line-height:1.7}
-.init-row{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border-radius:18px;overflow:hidden;box-shadow:0 6px 26px rgba(0,0,0,.1);margin-bottom:24px;transition:all .3s}
-.init-row:hover{box-shadow:0 18px 48px rgba(0,100,164,.18);transform:translateY(-4px)}
-.init-row.reverse .init-img{order:2}.init-row.reverse .init-body{order:1}
-.init-img{overflow:hidden;min-height:280px;background:linear-gradient(135deg,var(--navy),var(--teal-m))}
-.init-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.init-row:hover .init-img img{transform:scale(1.04)}
-.init-body{padding:38px 42px;display:flex;flex-direction:column;justify-content:center}
-
-/* THRIVE/RISE/CIRCLE/IMPACT — UCI palette */
-.init-icon{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;color:#fff;transition:transform .35s cubic-bezier(.34,1.56,.64,1),filter .3s ease}
-.init-icon-1{background:linear-gradient(135deg,var(--uci-eucalyptus),var(--uci-sage));   box-shadow:0 6px 18px rgba(79,111,82,.32)}    /* THRIVE — Eucalyptus */
-.init-icon-2{background:linear-gradient(135deg,var(--uci-amber),#E5B947);                box-shadow:0 6px 18px rgba(201,154,46,.34)}   /* RISE — UCI Gold */
-.init-icon-3{background:linear-gradient(135deg,var(--uci-pacific),var(--uci-teal));      box-shadow:0 6px 18px rgba(74,155,168,.32)}   /* CIRCLE — Pacific/Teal */
-.init-icon-4{background:linear-gradient(135deg,var(--uci-mesa),var(--uci-persimmon));    box-shadow:0 6px 18px rgba(178,86,24,.32)}    /* IMPACT — Mesa/Persimmon */
-.init-row:hover .init-icon{transform:scale(1.1) rotate(-4deg);filter:brightness(1.06) saturate(1.1)}
-
-.init-acro{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-m);margin-bottom:4px}
-.init-title{font-family:'Roboto Slab',serif;font-size:1.25rem;font-weight:900;color:var(--navy);margin-bottom:12px;line-height:1.3}
-.init-desc{font-size:.9rem;color:var(--muted);line-height:1.74;margin-bottom:20px}
-.btn-init{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;font-weight:700;font-size:.82rem;text-decoration:none;border-radius:8px;transition:all .25s;width:fit-content;box-shadow:0 4px 12px rgba(0,58,99,.25)}
-.btn-init:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,100,164,.4)}
+.cehdr-home .initiatives-section{background:linear-gradient(180deg,var(--light-blue) 0%,#e8f1f9 50%,#f0f7ff 100%);padding:40px 0}
+.cehdr-home .section-header{text-align:center;margin-bottom:50px}
+.cehdr-home .section-header .sec-h2{font-size:clamp(2.2rem,3.6vw,3rem);color:var(--navy);margin-bottom:12px}
+.cehdr-home .section-header p{font-size:.95rem;color:var(--muted);max-width:600px;margin:0 auto;line-height:1.7}
+.cehdr-home .init-row{display:grid;grid-template-columns:1fr 1fr;background:var(--white);border-radius:18px;overflow:hidden;box-shadow:0 6px 26px rgba(0,0,0,.1);margin-bottom:24px;transition:all .3s}
+.cehdr-home .init-row:hover{box-shadow:0 18px 48px rgba(0,100,164,.18);transform:translateY(-4px)}
+.cehdr-home .init-row.reverse .init-img{order:2}.cehdr-home .init-row.reverse .init-body{order:1}
+.cehdr-home .init-img{overflow:hidden;min-height:280px;background:linear-gradient(135deg,var(--navy),var(--teal-m))}
+.cehdr-home .init-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cehdr-home .init-row:hover .init-img img{transform:scale(1.04)}
+.cehdr-home .init-body{padding:38px 42px;display:flex;flex-direction:column;justify-content:center}
+.cehdr-home .init-icon{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px;color:#fff;transition:transform .35s cubic-bezier(.34,1.56,.64,1),filter .3s ease}
+.cehdr-home .init-icon-1{background:linear-gradient(135deg,var(--uci-eucalyptus),var(--uci-sage));box-shadow:0 6px 18px rgba(79,111,82,.32)}
+.cehdr-home .init-icon-2{background:linear-gradient(135deg,var(--uci-amber),#E5B947);box-shadow:0 6px 18px rgba(201,154,46,.34)}
+.cehdr-home .init-icon-3{background:linear-gradient(135deg,var(--uci-pacific),var(--uci-teal));box-shadow:0 6px 18px rgba(74,155,168,.32)}
+.cehdr-home .init-icon-4{background:linear-gradient(135deg,var(--uci-mesa),var(--uci-persimmon));box-shadow:0 6px 18px rgba(178,86,24,.32)}
+.cehdr-home .init-row:hover .init-icon{transform:scale(1.1) rotate(-4deg);filter:brightness(1.06) saturate(1.1)}
+.cehdr-home .init-acro{font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal-m);margin-bottom:4px}
+.cehdr-home .init-title{font-family:'Roboto Slab',serif;font-size:1.25rem;font-weight:900;color:var(--navy);margin-bottom:12px;line-height:1.3}
+.cehdr-home .init-desc{font-size:.9rem;color:var(--muted);line-height:1.74;margin-bottom:20px}
+.cehdr-home .btn-init{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;font-weight:700;font-size:.82rem;text-decoration:none;border-radius:8px;transition:all .25s;width:fit-content;box-shadow:0 4px 12px rgba(0,58,99,.25)}
+.cehdr-home .btn-init:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,100,164,.4)}
 
 /* NEWS */
-.news-section{background:linear-gradient(180deg,#fff 0%,var(--light-blue) 100%);padding:40px 0}
-.news-header{text-align:center;margin-bottom:42px}
-.news-header .sec-h2{font-size:clamp(2.2rem,3.6vw,3rem);color:var(--navy);margin-bottom:18px}
-.news-header .btn-blue{margin-top:10px}
-.carousel-wrap{overflow:hidden;position:relative;padding:8px 4px 16px}
-.carousel-track{display:flex;gap:26px;transition:transform .7s cubic-bezier(.4,0,.2,1)}
-.news-card{flex:0 0 calc(33.333% - 18px);border-radius:18px;overflow:hidden;background:var(--white);box-shadow:0 10px 30px rgba(0,58,99,.12),0 2px 6px rgba(0,58,99,.06);transition:all .35s}
-.news-card:hover{box-shadow:0 24px 60px rgba(0,100,164,.22),0 4px 12px rgba(0,58,99,.1);transform:translateY(-8px)}
-.nc-img{width:100%;height:210px;object-fit:cover;object-position:top center;display:block;background:linear-gradient(135deg,var(--navy),var(--teal-m))}
-.nc-body{padding:22px}.nc-source{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
-.nc-date{font-size:.7rem;color:var(--muted);margin-bottom:10px}
-.nc-tag{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:700;background:linear-gradient(135deg,var(--teal-l),#d4ecf0);color:var(--teal-m);border-radius:20px;padding:4px 12px;margin-bottom:10px}
-.nc-title{font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:var(--navy);line-height:1.4;text-decoration:none;display:block;margin-bottom:10px}
-.nc-title:hover{color:var(--blue)}
-.nc-quote{font-size:.82rem;font-style:italic;color:var(--muted);line-height:1.65;margin-bottom:14px;padding-left:11px;border-left:3px solid var(--teal)}
-.nc-link{font-size:.82rem;font-weight:700;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
-.carousel-controls{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:32px}
-.carousel-dot{width:9px;height:9px;border-radius:50%;background:#ccd8e5;cursor:pointer;transition:all .2s;border:none}
-.carousel-dot.active{background:linear-gradient(135deg,var(--blue),var(--teal-m));width:24px;border-radius:5px}
+.cehdr-home .news-section{background:linear-gradient(180deg,#fff 0%,var(--light-blue) 100%);padding:40px 0}
+.cehdr-home .news-header{text-align:center;margin-bottom:42px}
+.cehdr-home .news-header .sec-h2{font-size:clamp(2.2rem,3.6vw,3rem);color:var(--navy);margin-bottom:18px}
+.cehdr-home .news-header .btn-blue{margin-top:10px}
+.cehdr-home .carousel-wrap{overflow:hidden;position:relative;padding:8px 4px 16px}
+.cehdr-home .carousel-track{display:flex;gap:26px;transition:transform .7s cubic-bezier(.4,0,.2,1)}
+.cehdr-home .news-card{flex:0 0 calc(33.333% - 18px);border-radius:18px;overflow:hidden;background:var(--white);box-shadow:0 10px 30px rgba(0,58,99,.12),0 2px 6px rgba(0,58,99,.06);transition:all .35s}
+.cehdr-home .news-card:hover{box-shadow:0 24px 60px rgba(0,100,164,.22),0 4px 12px rgba(0,58,99,.1);transform:translateY(-8px)}
+.cehdr-home .nc-img{width:100%;height:210px;object-fit:cover;object-position:top center;display:block;background:linear-gradient(135deg,var(--navy),var(--teal-m))}
+.cehdr-home .nc-body{padding:22px}.cehdr-home .nc-source{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
+.cehdr-home .nc-date{font-size:.7rem;color:var(--muted);margin-bottom:10px}
+.cehdr-home .nc-tag{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:700;background:linear-gradient(135deg,var(--teal-l),#d4ecf0);color:var(--teal-m);border-radius:20px;padding:4px 12px;margin-bottom:10px}
+.cehdr-home .nc-title{font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:var(--navy);line-height:1.4;text-decoration:none;display:block;margin-bottom:10px}
+.cehdr-home .nc-title:hover{color:var(--blue)}
+.cehdr-home .nc-quote{font-size:.82rem;font-style:italic;color:var(--muted);line-height:1.65;margin-bottom:14px;padding-left:11px;border-left:3px solid var(--teal)}
+.cehdr-home .nc-link{font-size:.82rem;font-weight:700;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.cehdr-home .carousel-controls{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:32px}
+.cehdr-home .carousel-dot{width:9px;height:9px;border-radius:50%;background:#ccd8e5;cursor:pointer;transition:all .2s;border:none}
+.cehdr-home .carousel-dot.active{background:linear-gradient(135deg,var(--blue),var(--teal-m));width:24px;border-radius:5px}
 
 /* IMPACT */
-.impact-section{background:linear-gradient(135deg,#000814 0%,#001428 25%,#001e38 50%,var(--navy) 80%,#005080 100%);padding:40px 0;position:relative;overflow:hidden;text-align:center}
-.impact-bg-word{position:absolute;font-family:'Roboto Slab',serif;font-size:18vw;font-weight:900;color:rgba(255,255,255,.025);white-space:nowrap;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-.impact-glow{position:absolute;border-radius:50%;filter:blur(80px);animation:bokeh-move linear infinite}
-.ig-1{width:340px;height:340px;background:radial-gradient(circle,rgba(126,190,197,.25),transparent);top:-80px;right:-50px;animation-duration:14s}
-.ig-2{width:280px;height:280px;background:radial-gradient(circle,rgba(255,217,46,.18),transparent);bottom:-60px;left:-40px;animation-duration:16s;animation-delay:-5s}
-.impact-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 28px}
-.impact-eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;background:rgba(126,190,197,.12);border:1px solid rgba(126,190,197,.28);padding:6px 16px;border-radius:30px}
-.impact-title{font-family:'Roboto Slab',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;letter-spacing:-.015em}
-.impact-title span{background:linear-gradient(135deg,var(--gold),#ffc700);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.impact-sub{font-size:.98rem;color:rgba(255,255,255,.75);max-width:580px;margin:0 auto 38px;line-height:1.78}
-.impact-stats{display:flex;justify-content:center;gap:48px;margin-bottom:44px;flex-wrap:wrap}
-.is-stat{text-align:center}.is-num{font-family:'Roboto Slab',serif;font-size:2.7rem;font-weight:900;background:linear-gradient(135deg,var(--gold),#ffb700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:5px}
-.is-lbl{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62)}
-.impact-cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.btn-gold-lg{display:inline-flex;align-items:center;gap:9px;padding:16px 40px;background:linear-gradient(135deg,var(--gold),#ffc700);color:var(--navy);font-weight:700;font-size:.96rem;text-decoration:none;border-radius:50px;box-shadow:0 8px 28px rgba(255,217,46,.5);transition:all .3s}
-.btn-gold-lg:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 18px 46px rgba(255,217,46,.7)}
-.btn-outline-light{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;border:2px solid rgba(255,255,255,.32);color:#fff;font-weight:700;font-size:.92rem;text-decoration:none;border-radius:50px;transition:all .25s}
-.btn-outline-light:hover{border-color:var(--teal);background:rgba(126,190,197,.12)}
+.cehdr-home .impact-section{background:linear-gradient(135deg,#000814 0%,#001428 25%,#001e38 50%,var(--navy) 80%,#005080 100%);padding:40px 0;position:relative;overflow:hidden;text-align:center}
+.cehdr-home .impact-bg-word{position:absolute;font-family:'Roboto Slab',serif;font-size:18vw;font-weight:900;color:rgba(255,255,255,.025);white-space:nowrap;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.cehdr-home .impact-glow{position:absolute;border-radius:50%;filter:blur(80px);animation:bokeh-move linear infinite}
+.cehdr-home .ig-1{width:340px;height:340px;background:radial-gradient(circle,rgba(126,190,197,.25),transparent);top:-80px;right:-50px;animation-duration:14s}
+.cehdr-home .ig-2{width:280px;height:280px;background:radial-gradient(circle,rgba(255,217,46,.18),transparent);bottom:-60px;left:-40px;animation-duration:16s;animation-delay:-5s}
+.cehdr-home .impact-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 28px}
+.cehdr-home .impact-eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;background:rgba(126,190,197,.12);border:1px solid rgba(126,190,197,.28);padding:6px 16px;border-radius:30px}
+.cehdr-home .impact-title{font-family:'Roboto Slab',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;letter-spacing:-.015em}
+.cehdr-home .impact-title span{background:linear-gradient(135deg,var(--gold),#ffc700);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.cehdr-home .impact-sub{font-size:.98rem;color:rgba(255,255,255,.75);max-width:580px;margin:0 auto 38px;line-height:1.78}
+.cehdr-home .impact-stats{display:flex;justify-content:center;gap:48px;margin-bottom:44px;flex-wrap:wrap}
+.cehdr-home .is-stat{text-align:center}.cehdr-home .is-num{font-family:'Roboto Slab',serif;font-size:2.7rem;font-weight:900;background:linear-gradient(135deg,var(--gold),#ffb700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:5px}
+.cehdr-home .is-lbl{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.cehdr-home .impact-cta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.cehdr-home .btn-gold-lg{display:inline-flex;align-items:center;gap:9px;padding:16px 40px;background:linear-gradient(135deg,var(--gold),#ffc700);color:var(--navy);font-weight:700;font-size:.96rem;text-decoration:none;border-radius:50px;box-shadow:0 8px 28px rgba(255,217,46,.5);transition:all .3s}
+.cehdr-home .btn-gold-lg:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 18px 46px rgba(255,217,46,.7)}
+.cehdr-home .btn-outline-light{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;border:2px solid rgba(255,255,255,.32);color:#fff;font-weight:700;font-size:.92rem;text-decoration:none;border-radius:50px;transition:all .25s}
+.cehdr-home .btn-outline-light:hover{border-color:var(--teal);background:rgba(126,190,197,.12)}
 
 /* FOOTER */
-footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px solid var(--teal);padding:48px 0 0}
-.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:42px;padding-bottom:38px}
-.footer-logo img{height:38px;margin-bottom:14px;display:block}
-.footer-addr{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.78}
-.footer-addr a{color:rgba(255,255,255,.65);text-decoration:none}
-.footer-h{font-family:'Roboto Slab',serif;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
-.footer-nav{list-style:none}.footer-nav li{margin-bottom:8px}
-.footer-nav a{font-size:.8rem;color:rgba(255,255,255,.52);text-decoration:none;transition:color .2s}
-.footer-nav a:hover{color:#fff}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:14px 0;text-align:center;font-size:.74rem;color:rgba(255,255,255,.35)}
-.footer-bottom a{color:rgba(255,255,255,.5);text-decoration:underline}
+.cehdr-home footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px solid var(--teal);padding:48px 0 0}
+.cehdr-home .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:42px;padding-bottom:38px}
+.cehdr-home .footer-logo img{height:38px;margin-bottom:14px;display:block}
+.cehdr-home .footer-addr{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.78}
+.cehdr-home .footer-addr a{color:rgba(255,255,255,.65);text-decoration:none}
+.cehdr-home .footer-h{font-family:'Roboto Slab',serif;font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.cehdr-home .footer-nav{list-style:none}.cehdr-home .footer-nav li{margin-bottom:8px}
+.cehdr-home .footer-nav a{font-size:.8rem;color:rgba(255,255,255,.52);text-decoration:none;transition:color .2s}
+.cehdr-home .footer-nav a:hover{color:#fff}
+.cehdr-home .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:14px 0;text-align:center;font-size:.74rem;color:rgba(255,255,255,.35)}
+.cehdr-home .footer-bottom a{color:rgba(255,255,255,.5);text-decoration:underline}
 
-.fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
-.fade-left{opacity:0;transform:translateX(-28px);transition:opacity .6s ease,transform .6s ease}
-.fade-right{opacity:0;transform:translateX(28px);transition:opacity .6s ease,transform .6s ease}
-.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}
-.animated{opacity:1!important;transform:none!important}
+/* ANIMATION HELPERS */
+.cehdr-home .fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.cehdr-home .fade-left{opacity:0;transform:translateX(-28px);transition:opacity .6s ease,transform .6s ease}
+.cehdr-home .fade-right{opacity:0;transform:translateX(28px);transition:opacity .6s ease,transform .6s ease}
+.cehdr-home .delay-1{transition-delay:.1s}.cehdr-home .delay-2{transition-delay:.2s}.cehdr-home .delay-3{transition-delay:.3s}
+.cehdr-home .animated{opacity:1!important;transform:none!important}
 
 @media(max-width:960px){
-  .hero{height:auto;display:block}
-  .hero-right{position:relative;height:280px}
-  .hero-left{position:relative;width:100%;padding:46px 28px;clip-path:none;-webkit-clip-path:none}
-  .arc-stroke{display:none}
-  .who-grid{grid-template-columns:1fr;gap:40px}.who-imgs{height:380px}
-  .init-row,.init-row.reverse{grid-template-columns:1fr}.init-row.reverse .init-img,.init-row.reverse .init-body{order:unset}.init-img{min-height:220px}
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .footer-grid{grid-template-columns:1fr}
-  .news-card{flex:0 0 calc(50% - 13px)}
-  .bubbles-wrap{height:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:18px;justify-items:center;max-width:520px}
-  .bubble{position:relative!important;top:auto!important;left:auto!important;transform:none!important;animation:none}
-  .bubble:hover{transform:scale(1.06)!important}
-  .bubbles-wrap::before{display:none}
+  .cehdr-home .hero{height:auto;display:block}
+  .cehdr-home .hero-right{position:relative;height:280px}
+  .cehdr-home .hero-left{position:relative;width:100%;padding:46px 28px;clip-path:none;-webkit-clip-path:none}
+  .cehdr-home .arc-stroke{display:none}
+  .cehdr-home .who-grid{grid-template-columns:1fr;gap:40px}.cehdr-home .who-imgs{height:380px}
+  .cehdr-home .init-row,.cehdr-home .init-row.reverse{grid-template-columns:1fr}.cehdr-home .init-row.reverse .init-img,.cehdr-home .init-row.reverse .init-body{order:unset}.cehdr-home .init-img{min-height:220px}
+  .cehdr-home .stats-grid{grid-template-columns:1fr 1fr 1fr}
+  .cehdr-home .footer-grid{grid-template-columns:1fr}
+  .cehdr-home .news-card{flex:0 0 calc(50% - 13px)}
 }
 @media(max-width:600px){
-  .nav-links{display:none}
-  .stats-grid{grid-template-columns:1fr 1fr}.news-card{flex:0 0 100%}
-  .impact-stats{gap:24px}
-  .bubbles-wrap{grid-template-columns:1fr}
-  .hero-masthead{gap:8px}
+  .cehdr-home .nav-links{display:none}
+  .cehdr-home .stats-grid{grid-template-columns:auto}.cehdr-home .news-card{flex:0 0 100%}
+  .cehdr-home .impact-stats{gap:24px}
+  .cehdr-home .hero-masthead{gap:8px}
 }
 </style>
-</head>
-<body>
 
-<header class="hero">
-  <div class="hero-right" id="heroSlideshow">
-    <div class="hero-slide active"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Website-Images10-816x499.jpg" alt=""></div>
-    <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png" alt=""></div>
-    <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Advancing-Environmental-Health-Equity-392x240.png" alt=""></div>
-    <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/homepage_banner_CEHDR2.jpg" alt=""></div>
-    <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Guests-at-Brain-Works-Event-Karen-Lincoln-816x499.png" alt=""></div>
-    <div class="slide-dots" id="slideDots"></div>
-    <!-- <div class="hero-pill hp-top">
-      <div class="hp-icon"><i class="fa-solid fa-users"></i></div>
-      <div><div class="hp-num">24+</div><div class="hp-lbl">Affiliated Faculty</div></div>
-    </div>
-    <div class="hero-pill hp-bot">
-      <div class="hp-icon" style="background:rgba(126,190,197,.2);color:var(--teal)"><i class="fa-solid fa-book-open"></i></div>
-      <div><div class="hp-num">50+</div><div class="hp-lbl">Publications</div></div>
-    </div> -->
-  </div>
+<div class="cehdr-home">
 
-  <div class="hero-left">
-    <div class="bokeh-wrap">
-      <div class="bokeh-yellow by1"></div><div class="bokeh-yellow by2"></div>
-      <div class="bokeh b1"></div><div class="bokeh b3"></div>
+  <header class="hero">
+    <div class="hero-right" id="heroSlideshow">
+      <div class="hero-slide active"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Website-Images10-816x499.jpg" alt=""></div>
+      <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png" alt=""></div>
+      <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Advancing-Environmental-Health-Equity-392x240.png" alt=""></div>
+      <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/homepage_banner_CEHDR2.jpg" alt=""></div>
+      <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Guests-at-Brain-Works-Event-Karen-Lincoln-816x499.png" alt=""></div>
+      <div class="slide-dots" id="slideDots"></div>
     </div>
-    <div class="hero-eyebrow"><i class="fa-solid fa-leaf"></i> UC Irvine &middot; Joe C. Wen School of Public Health</div>
-    <div class="hero-masthead">
-      <span class="hero-welcome-inline">Welcome to</span>
-      <h1 class="hero-title">CEHDR</h1>
-    </div>
-    <div class="hero-acronym">
-      Center for Environmental
-      <span class="full-line-2">Health Disparities Research</span>
-    </div>
-    <p class="hero-desc">Advancing <em style="font-style:normal;font-weight:700">environmental health equity</em> through interdisciplinary research, community partnerships, and the next generation of leaders working for justice in Black and historically marginalized communities.</p>
-    <div class="hero-btns">
-      <a class="btn-gold" target="_blank" href="https://cehdr.publichealth.uci.edu/supportcehdr/"><i class="fa-solid fa-gift"></i> Make an Impact</a>
-      <a class="btn-ghost-white" target="_blank" href="https://cehdr.publichealth.uci.edu/research/">Explore Our Research <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-  </div>
 
-  <div class="arc-stroke" aria-hidden="true">
-    <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-      <ellipse cx="0" cy="50" rx="95" ry="110" vector-effect="non-scaling-stroke"/>
-    </svg>
-  </div>
-</header>
-
-<section class="stats-section">
-  <div class="container-narrow">
-    <div class="stats-grid">
-      <div class="stat-card sc-card-1 fade-up"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-landmark"></i></div><div class="sc-num">2021</div><div class="sc-lbl">Established at UCI</div></div><div class="sc-bar"></div></div>
-      <div class="stat-card sc-card-3 fade-up delay-2"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-bullseye"></i></div><div class="sc-num">5</div><div class="sc-lbl">Research Priorities for Health Equity</div></div><div class="sc-bar"></div></div>
-      <div class="stat-card sc-card-4 fade-up delay-3"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-handshake"></i></div><div class="sc-num">4</div><div class="sc-lbl">Signature Initiatives</div></div><div class="sc-bar"></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="who-section">
-  <div class="container-narrow">
-    <div class="who-header fade-up">
-      <span class="sec-eyebrow">Who We Are</span>
-      <h2 class="sec-h2">An Interdisciplinary Center for Justice &amp; Health Equity</h2>
-    </div>
-    <div class="who-grid">
-      <div class="who-imgs fade-left">
-        <div class="wi-main"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png" alt="Research team"></div>
-        <div class="wi-s1"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Advancing-Environmental-Health-Equity-392x240.png" alt="Community work"></div>
-        <div class="wi-badge">Est. 2021<small>Black Thriving Initiative</small></div>
+    <div class="hero-left">
+      <div class="bokeh-wrap">
+        <div class="bokeh-yellow by1"></div><div class="bokeh-yellow by2"></div>
+        <div class="bokeh b1"></div><div class="bokeh b3"></div>
       </div>
-      <div class="fade-right delay-1">
-        <div class="who-text">
-          <p>The Center for Environmental Health Disparities Research (CEHDR) is based in the UC Irvine Joe C. Wen School of Population and Public Health, founded in 2021 through the UCI Black Thriving Initiative to advance environmental justice scholarship.</p>
-          <p>Our 24+ affiliated faculty span 8 disciplines — Public Health, Medicine, Civil &amp; Environmental Engineering, Urban Planning, Nursing, Anthropology, and Pharmacy — all united by a commitment to health equity.</p>
-          <blockquote class="pull">"To move forward, we must listen and address the issues African American residents, communities, and organizations have identified as problems and priorities." — Dr. Karen D. Lincoln</blockquote>
+      <div class="hero-eyebrow"><i class="fa-solid fa-leaf"></i> UC Irvine &middot; Joe C. Wen School of Public Health</div>
+      <div class="hero-masthead">
+        <span class="hero-welcome-inline">Welcome to</span>
+        <h1 class="hero-title">CEHDR</h1>
+      </div>
+      <div class="hero-acronym">
+        Center for Environmental
+        <span class="full-line-2">Health Disparities Research</span>
+      </div>
+      <p class="hero-desc">Advancing <em style="font-style:normal;font-weight:700">environmental health equity</em> through interdisciplinary research, community partnerships, and the next generation of leaders working for justice in Black and historically marginalized communities.</p>
+      <div class="hero-btns">
+        <a class="btn-gold" target="_blank" href="https://cehdr.publichealth.uci.edu/supportcehdr/"><i class="fa-solid fa-gift"></i> Make an Impact</a>
+        <a class="btn-ghost-white" target="_blank" href="https://cehdr.publichealth.uci.edu/research/">Explore Our Research <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="arc-stroke" aria-hidden="true">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+        <ellipse cx="0" cy="50" rx="95" ry="110" vector-effect="non-scaling-stroke"/>
+      </svg>
+    </div>
+  </header>
+
+  <section class="stats-section">
+    <div class="container-narrow">
+      <div class="stats-grid">
+        <div class="stat-card sc-card-1 fade-up"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-landmark"></i></div><div class="sc-num">2021</div><div class="sc-lbl">Established at UCI</div></div><div class="sc-bar"></div></div>
+        <div class="stat-card sc-card-3 fade-up delay-2"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-bullseye"></i></div><div class="sc-num">5</div><div class="sc-lbl">Research Priorities for Health Equity</div></div><div class="sc-bar"></div></div>
+        <div class="stat-card sc-card-4 fade-up delay-3"><div class="sc-top"><div class="sc-icon-wrap"><i class="fa-solid fa-handshake"></i></div><div class="sc-num">4</div><div class="sc-lbl">Signature Initiatives</div></div><div class="sc-bar"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="who-section">
+    <div class="container-narrow">
+      <div class="who-header fade-up">
+        <span class="sec-eyebrow">Who We Are</span>
+        <h2 class="sec-h2">An Interdisciplinary Center for Justice &amp; Health Equity</h2>
+      </div>
+      <div class="who-grid">
+        <div class="who-imgs fade-left">
+          <div class="wi-main"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png" alt="Research team"></div>
+          <div class="wi-s1"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Advancing-Environmental-Health-Equity-392x240.png" alt="Community work"></div>
+          <div class="wi-badge">Est. 2021<small>Black Thriving Initiative</small></div>
         </div>
-        <a class="btn-blue" target="_blank" href="https://cehdr.publichealth.uci.edu/about/meet-the-director/"><i class="fa-solid fa-user-tie"></i> Meet the Director</a>
+        <div class="fade-right delay-1">
+          <div class="who-text">
+            <p>The Center for Environmental Health Disparities Research (CEHDR) is based in the UC Irvine Joe C. Wen School of Population and Public Health, founded in 2021 through the UCI Black Thriving Initiative to advance environmental justice scholarship.</p>
+            <p>Our 24+ affiliated faculty span 8 disciplines — Public Health, Medicine, Civil &amp; Environmental Engineering, Urban Planning, Nursing, Anthropology, and Pharmacy — all united by a commitment to health equity.</p>
+            <blockquote class="pull">"To move forward, we must listen and address the issues African American residents, communities, and organizations have identified as problems and priorities." — Dr. Karen D. Lincoln</blockquote>
+          </div>
+          <a class="btn-blue" target="_blank" href="https://cehdr.publichealth.uci.edu/about/meet-the-director/"><i class="fa-solid fa-user-tie"></i> Meet the Director</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="research-section" id="research">
-  <div class="container-narrow">
-    <div class="research-header fade-up">
-      <span class="sec-eyebrow"><i class="fa-solid fa-compass-drafting"></i> &nbsp;Our Research Framework</span>
-      <h2 class="sec-h2">Five Themes. One Mission.</h2>
-      <p>Our research advances environmental justice by addressing health inequities rooted in environmental racism and harmful exposures. Explore the five interconnected themes that guide our community-driven work toward healthier, more equitable environments for all.</p>
-    </div>
-    <div class="timeline fade-up delay-1">
+  <section class="research-section" id="research">
+    <div class="container-narrow">
+      <div class="research-header fade-up">
+        <span class="sec-eyebrow"><i class="fa-solid fa-compass-drafting"></i> &nbsp;Our Research Framework</span>
+        <h2 class="sec-h2">Five Themes. One Mission.</h2>
+        <p>Our research advances environmental justice by addressing health inequities rooted in environmental racism and harmful exposures. Explore the five interconnected themes that guide our community-driven work toward healthier, more equitable environments for all.</p>
+      </div>
+      <div class="timeline fade-up delay-1">
 
-  <div class="tl-item tl-1">
-    <div class="tl-card">
-      <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2026/06/Research-Area-1.png')"></div>
-      <div class="tl-body">
-        <h3 class="tl-title">Community</h3>
-        <p class="tl-desc">Partnering with residents, organizations, and leaders so community voices shape every stage of the research process.</p>
-        <a class="tl-link" href="https://cehdr.publichealth.uci.edu/research/#community">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        <div class="tl-item tl-1">
+          <div class="tl-card">
+            <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2026/06/Research-Area-1.png')"></div>
+            <div class="tl-body">
+              <h3 class="tl-title">Community</h3>
+              <p class="tl-desc">Partnering with residents, organizations, and leaders so community voices shape every stage of the research process.</p>
+              <a class="tl-link" href="https://cehdr.publichealth.uci.edu/research/#community">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="tl-node"><i class="fa-solid fa-people-group"></i></div>
+        </div>
+
+        <div class="tl-item tl-2">
+          <div class="tl-node"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="tl-card">
+            <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2026/06/Research-Area-2.png')"></div>
+            <div class="tl-body">
+              <h3 class="tl-title">Place</h3>
+              <p class="tl-desc">Studying how neighborhoods, environmental exposures, and climate risks shape health across the lifespan.</p>
+              <a class="tl-link" href="https://cehdr.publichealth.uci.edu/research/#place">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item tl-3">
+          <div class="tl-card">
+            <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2026/06/Research-Area-3.png')"></div>
+            <div class="tl-body">
+              <h3 class="tl-title">Equity</h3>
+              <p class="tl-desc">Examining the social, economic, and structural conditions that drive health disparities — and the evidence to address them.</p>
+              <a class="tl-link" href="https://cehdr.publichealth.uci.edu/research/#equity">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="tl-node"><i class="fa-solid fa-scale-balanced"></i></div>
+        </div>
+
+        <div class="tl-item tl-4">
+          <div class="tl-node"><i class="fa-solid fa-gavel"></i></div>
+          <div class="tl-card">
+            <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2026/06/Research-Area-4.png')"></div>
+            <div class="tl-body">
+              <h3 class="tl-title">Justice</h3>
+              <p class="tl-desc">Working alongside affected communities to advance environmental justice through research, advocacy, and action.</p>
+              <a class="tl-link" href="https://cehdr.publichealth.uci.edu/research/#justice">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item tl-5">
+          <div class="tl-card">
+            <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2026/06/Research-Area-5.png')"></div>
+            <div class="tl-body">
+              <h3 class="tl-title">Well-Being</h3>
+              <p class="tl-desc">Investigating brain health, healthy aging, sleep, and stress — the conditions that help communities thrive.</p>
+              <a class="tl-link" href="https://cehdr.publichealth.uci.edu/research/#well-being">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+          <div class="tl-node"><i class="fa-solid fa-heart-pulse"></i></div>
+        </div>
+
       </div>
     </div>
-    <div class="tl-node"><i class="fa-solid fa-people-group"></i></div>
-  </div>
+  </section>
 
-  <div class="tl-item tl-2">
-    <div class="tl-node"><i class="fa-solid fa-location-dot"></i></div>
-    <div class="tl-card">
-      <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2026/06/Research-Area-2.png')"></div>
-      <div class="tl-body">
-        <h3 class="tl-title">Place</h3>
-        <p class="tl-desc">Studying how neighborhoods, environmental exposures, and climate risks shape health across the lifespan.</p>
-        <a class="tl-link" href="https://cehdr.publichealth.uci.edu/research/#place">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+  <section class="initiatives-section">
+    <div class="container-narrow">
+      <div class="section-header fade-up">
+        <span class="sec-eyebrow">Support CEHDR</span>
+        <h2 class="sec-h2">Four Initiatives. One Powerful Mission.</h2>
+        <p>Every gift supports groundbreaking work across all four CEHDR pillars — or direct your support to a specific initiative.</p>
+        <a class="btn-gold" href="https://cehdr.publichealth.uci.edu/supportcehdr/" target="_blank" style="margin-top:22px"><i class="fa-solid fa-gift"></i> Support an Initiative</a>
+      </div>
+      <div class="init-row fade-up">
+        <div class="init-img"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/homepage_banner_CEHDR2.jpg" alt="THRIVE"></div>
+        <div class="init-body">
+          <div class="init-icon init-icon-1"><i class="fa-solid fa-seedling"></i></div>
+          <div class="init-acro">THRIVE</div>
+          <h3 class="init-title">Transforming Health Research through Inclusion, Voices &amp; Equity</h3>
+          <p class="init-desc">CEHDR THRIVE ensures every voice matters in shaping environmental health research. Donor support funds community engagement, inclusive programming, and equity-centered training.</p>
+        </div>
+      </div>
+      <div class="init-row reverse fade-up">
+        <div class="init-img"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Guests-at-Brain-Works-Event-Karen-Lincoln-816x499.png" alt="RISE"></div>
+        <div class="init-body">
+          <div class="init-icon init-icon-2"><i class="fa-solid fa-graduation-cap"></i></div>
+          <div class="init-acro">RISE</div>
+          <h3 class="init-title">Research Internships for Social &amp; Environmental Health Equity</h3>
+          <p class="init-desc">CEHDR RISE cultivates the next generation of leaders through hands-on, community-engaged research experiences. Donations support student stipends and mentorship.</p>
+        </div>
+      </div>
+      <div class="init-row fade-up">
+        <div class="init-img"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Karen-Lincoln-Brain-Works-Event-Speaking-816x499.png" alt="CIRCLE"></div>
+        <div class="init-body">
+          <div class="init-icon init-icon-3"><i class="fa-solid fa-handshake"></i></div>
+          <div class="init-acro">CIRCLE</div>
+          <h3 class="init-title">Community Initiatives for Research, Collaboration, Learning &amp; Engagement</h3>
+          <p class="init-desc">CEHDR CIRCLE strengthens partnerships between the Center and communities to co-create research and drive solutions through collaborative workshops.</p>
+        </div>
+      </div>
+      <div class="init-row reverse fade-up">
+        <div class="init-img"><img src="https://sites.uci.edu/cehdr/files/2026/06/Karen-students-AAAE-partners-INCLUDE-IN-SLIDE-SHOW-scaled-1-e1781709900371.png" alt="IMPACT"></div>
+        <div class="init-body">
+          <div class="init-icon init-icon-4"><i class="fa-solid fa-lightbulb"></i></div>
+          <div class="init-acro">IMPACT</div>
+          <h3 class="init-title">Innovative Minds Promoting Action, Collaboration &amp; Transformation</h3>
+          <p class="init-desc">The CEHDR IMPACT Distinguished Speaker Series spotlights transformative thinkers whose research and leadership drive meaningful change in environmental health.</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="tl-item tl-3">
-    <div class="tl-card">
-      <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2026/06/Research-Area-3.png')"></div>
-      <div class="tl-body">
-        <h3 class="tl-title">Equity</h3>
-        <p class="tl-desc">Examining the social, economic, and structural conditions that drive health disparities — and the evidence to address them.</p>
-        <a class="tl-link" href="https://cehdr.publichealth.uci.edu/research/#equity">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+  <section class="news-section">
+    <div class="container-narrow">
+      <div class="news-header fade-up">
+        <span class="sec-eyebrow"><i class="fa-solid fa-signal"></i> &nbsp;In the Media</span>
+        <h2 class="sec-h2">News &amp; Features</h2>
+        <a class="btn-blue" href="https://sites.uci.edu/cehdr/newsfeatures/" target="_blank">View All <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="carousel">
+          <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2024/11/Dr.-Gaines-H.S.-students-scaled-1.jpg" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">UCI Public Health</div><div class="nc-date">March 30, 2026</div><span class="nc-tag"><i class="fa-solid fa-scale-balanced"></i> Aging &amp; Equity</span><a class="nc-title" href="#">PacLife Foundation invests in healthy aging &amp; environmental equity at Wen Public Health</a><p class="nc-quote">"Through CEHDR CIRCLE, we are building sustainable, community-centered approaches to resilience."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+          <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2024/11/BTI-Group-1-scaled-1.jpg" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">The Healthy</div><div class="nc-date">March 14, 2026</div><span class="nc-tag"><i class="fa-solid fa-person-cane"></i> Healthy Aging</span><a class="nc-title" href="#">These Are the 4 Most Overlooked Signs of Declining Health, According to Aging Experts</a><p class="nc-quote">"Early detection of health changes in older adults is vital for maintaining independence."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+          <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2019/10/Cortex-activity-e3faf6935a2044f7.png" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">Voice of OC</div><div class="nc-date">August 4, 2025</div><span class="nc-tag"><i class="fa-solid fa-earth-americas"></i> Environmental Justice</span><a class="nc-title" href="#">Concrete Divide: North Orange County Falls Short on Parks</a><p class="nc-quote">"A stark 'concrete divide' has left many North and Central OC communities falling below state health standards."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+          <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/EHDF-Postcard_bfg.jpg" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">U.S. News &amp; World Report</div><div class="nc-date">February 13, 2025</div><span class="nc-tag"><i class="fa-solid fa-hands-holding-heart"></i> Caregiving</span><a class="nc-title" href="#">Best Caregiver Support Groups</a><p class="nc-quote">"Caregiver support groups provide a vital 'village' of emotional relief and practical advice."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+          <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/ddls-april-25.png" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">Precinct Reporter News</div><div class="nc-date">November 13, 2024</div><span class="nc-tag"><i class="fa-solid fa-brain"></i> Brain Health</span><a class="nc-title" href="#">OC Racism: Bad for Brain Health</a><p class="nc-quote">"A 60-year-old Black person may biologically be 67 years old — just because of exposure to social stressors."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+          <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/Exploring-Brain-Health-Disparities.png" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">USA Today</div><div class="nc-date">November 13, 2024</div><span class="nc-tag"><i class="fa-solid fa-moon"></i> Sleep Health</span><a class="nc-title" href="#">Americans don't sleep enough. The long-term effects are dire, especially for Black people</a><p class="nc-quote">"The overwhelming majority of Black Americans in my study had no idea that they had poor sleep."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
+        </div>
+      </div>
+      <div class="carousel-controls" id="carousel-controls"></div>
+    </div>
+  </section>
+
+  <section class="impact-section" id="impact">
+    <div class="impact-bg-word">IMPACT</div>
+    <div class="impact-glow ig-1"></div><div class="impact-glow ig-2"></div>
+    <div class="impact-inner">
+      <div class="impact-eyebrow fade-up">Support CEHDR</div>
+      <h2 class="impact-title fade-up delay-1">Make a Difference for<br><span>Environmental Health Equity</span></h2>
+      <p class="impact-sub fade-up delay-2">Every contribution — no matter the size — makes a meaningful difference. Your gift directly supports CEHDR's four signature initiatives and advances health equity for all communities.</p>
+      <div class="impact-stats fade-up delay-1">
+        <div class="is-stat"><div class="is-num">4</div><div class="is-lbl">Initiatives</div></div>
+        <div class="is-stat"><div class="is-num">1</div><div class="is-lbl">Mission</div></div>
+        <div class="is-stat"><div class="is-num">&infin;</div><div class="is-lbl">Impact</div></div>
+        <div class="is-stat"><div class="is-num">100%</div><div class="is-lbl">Goes to CEHDR</div></div>
+      </div>
+      <div class="impact-cta fade-up delay-2">
+        <a class="btn-gold-lg" href="https://sites.uci.edu/cehdr/supportcehdr/" target="_blank"><i class="fa-solid fa-gift"></i> Give Today</a>
       </div>
     </div>
-    <div class="tl-node"><i class="fa-solid fa-scale-balanced"></i></div>
-  </div>
-
-  <div class="tl-item tl-4">
-    <div class="tl-node"><i class="fa-solid fa-gavel"></i></div>
-    <div class="tl-card">
-      <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2026/06/Research-Area-4.png')"></div>
-      <div class="tl-body">
-        <h3 class="tl-title">Justice</h3>
-        <p class="tl-desc">Working alongside affected communities to advance environmental justice through research, advocacy, and action.</p>
-        <a class="tl-link" href="https://cehdr.publichealth.uci.edu/research/#justice">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
-  </div>
-
-  <div class="tl-item tl-5">
-    <div class="tl-card">
-      <div class="tl-img" style="background-image:url('https://sites.uci.edu/cehdr/files/2026/06/Research-Area-5.png')"></div>
-      <div class="tl-body">
-        <h3 class="tl-title">Well-Being</h3>
-        <p class="tl-desc">Investigating brain health, healthy aging, sleep, and stress — the conditions that help communities thrive.</p>
-        <a class="tl-link" href="https://cehdr.publichealth.uci.edu/research/#well-being">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-      </div>
-    </div>
-    <div class="tl-node"><i class="fa-solid fa-heart-pulse"></i></div>
-  </div>
+  </section>
 
 </div>
-  </div>
-</section>
-
-<section class="initiatives-section">
-  <div class="container-narrow">
-    <div class="section-header fade-up">
-      <span class="sec-eyebrow">Support CEHDR</span>
-      <h2 class="sec-h2">Four Initiatives. One Powerful Mission.</h2>
-      <p>Every gift supports groundbreaking work across all four CEHDR pillars — or direct your support to a specific initiative.</p>
-      <a class="btn-gold" href="https://cehdr.publichealth.uci.edu/supportcehdr/" target="_blank" style="margin-top:22px"><i class="fa-solid fa-gift"></i> Support an Initiative</a>
-    </div>
-    <div class="init-row fade-up">
-      <div class="init-img"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/homepage_banner_CEHDR2.jpg" alt="THRIVE"></div>
-      <div class="init-body">
-        <div class="init-icon init-icon-1"><i class="fa-solid fa-seedling"></i></div>
-        <div class="init-acro">THRIVE</div>
-        <h3 class="init-title">Transforming Health Research through Inclusion, Voices &amp; Equity</h3>
-        <p class="init-desc">CEHDR THRIVE ensures every voice matters in shaping environmental health research. Donor support funds community engagement, inclusive programming, and equity-centered training.</p>
-        <!-- <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support THRIVE</a> -->
-      </div>
-    </div>
-    <div class="init-row reverse fade-up">
-      <div class="init-img"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Guests-at-Brain-Works-Event-Karen-Lincoln-816x499.png" alt="RISE"></div>
-      <div class="init-body">
-        <div class="init-icon init-icon-2"><i class="fa-solid fa-graduation-cap"></i></div>
-        <div class="init-acro">RISE</div>
-        <h3 class="init-title">Research Internships for Social &amp; Environmental Health Equity</h3>
-        <p class="init-desc">CEHDR RISE cultivates the next generation of leaders through hands-on, community-engaged research experiences. Donations support student stipends and mentorship.</p>
-        <!-- <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support RISE</a> -->
-      </div>
-    </div>
-    <div class="init-row fade-up">
-      <div class="init-img"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Karen-Lincoln-Brain-Works-Event-Speaking-816x499.png" alt="CIRCLE"></div>
-      <div class="init-body">
-        <div class="init-icon init-icon-3"><i class="fa-solid fa-handshake"></i></div>
-        <div class="init-acro">CIRCLE</div>
-        <h3 class="init-title">Community Initiatives for Research, Collaboration, Learning &amp; Engagement</h3>
-        <p class="init-desc">CEHDR CIRCLE strengthens partnerships between the Center and communities to co-create research and drive solutions through collaborative workshops.</p>
-        <!-- <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support CIRCLE</a> -->
-      </div>
-    </div>
-    <div class="init-row reverse fade-up">
-      <div class="init-img"><img src="https://sites.uci.edu/cehdr/files/2026/06/Karen-students-AAAE-partners-INCLUDE-IN-SLIDE-SHOW-scaled-1-e1781709900371.png" alt="IMPACT"></div>
-      <div class="init-body">
-        <div class="init-icon init-icon-4"><i class="fa-solid fa-lightbulb"></i></div>
-        <div class="init-acro">IMPACT</div>
-        <h3 class="init-title">Innovative Minds Promoting Action, Collaboration &amp; Transformation</h3>
-        <p class="init-desc">The CEHDR IMPACT Distinguished Speaker Series spotlights transformative thinkers whose research and leadership drive meaningful change in environmental health.</p>
-        <!-- <a class="btn-init" href="#impact"><i class="fa-solid fa-gift"></i> Support IMPACT</a> -->
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="news-section">
-  <div class="container-narrow">
-    <div class="news-header fade-up">
-      <span class="sec-eyebrow"><i class="fa-solid fa-signal"></i> &nbsp;In the Media</span>
-      <h2 class="sec-h2">News &amp; Features</h2>
-      <a class="btn-blue" href="https://sites.uci.edu/cehdr/newsfeatures/" target="_blank">View All <i class="fa-solid fa-arrow-right"></i></a>
-    </div>
-    <div class="carousel-wrap">
-      <div class="carousel-track" id="carousel">
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2024/11/Dr.-Gaines-H.S.-students-scaled-1.jpg" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">UCI Public Health</div><div class="nc-date">March 30, 2026</div><span class="nc-tag"><i class="fa-solid fa-scale-balanced"></i> Aging &amp; Equity</span><a class="nc-title" href="#">PacLife Foundation invests in healthy aging &amp; environmental equity at Wen Public Health</a><p class="nc-quote">"Through CEHDR CIRCLE, we are building sustainable, community-centered approaches to resilience."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2024/11/BTI-Group-1-scaled-1.jpg" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">The Healthy</div><div class="nc-date">March 14, 2026</div><span class="nc-tag"><i class="fa-solid fa-person-cane"></i> Healthy Aging</span><a class="nc-title" href="#">These Are the 4 Most Overlooked Signs of Declining Health, According to Aging Experts</a><p class="nc-quote">"Early detection of health changes in older adults is vital for maintaining independence."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2019/10/Cortex-activity-e3faf6935a2044f7.png" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">Voice of OC</div><div class="nc-date">August 4, 2025</div><span class="nc-tag"><i class="fa-solid fa-earth-americas"></i> Environmental Justice</span><a class="nc-title" href="#">Concrete Divide: North Orange County Falls Short on Parks</a><p class="nc-quote">"A stark 'concrete divide' has left many North and Central OC communities falling below state health standards."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/EHDF-Postcard_bfg.jpg" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">U.S. News &amp; World Report</div><div class="nc-date">February 13, 2025</div><span class="nc-tag"><i class="fa-solid fa-hands-holding-heart"></i> Caregiving</span><a class="nc-title" href="#">Best Caregiver Support Groups</a><p class="nc-quote">"Caregiver support groups provide a vital 'village' of emotional relief and practical advice."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/ddls-april-25.png" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">Precinct Reporter News</div><div class="nc-date">November 13, 2024</div><span class="nc-tag"><i class="fa-solid fa-brain"></i> Brain Health</span><a class="nc-title" href="#">OC Racism: Bad for Brain Health</a><p class="nc-quote">"A 60-year-old Black person may biologically be 67 years old — just because of exposure to social stressors."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-        <div class="news-card"><img class="nc-img" src="https://sites.uci.edu/cehdr/files/2025/03/Exploring-Brain-Health-Disparities.png" alt="" loading="lazy"><div class="nc-body"><div class="nc-source">USA Today</div><div class="nc-date">November 13, 2024</div><span class="nc-tag"><i class="fa-solid fa-moon"></i> Sleep Health</span><a class="nc-title" href="#">Americans don't sleep enough. The long-term effects are dire, especially for Black people</a><p class="nc-quote">"The overwhelming majority of Black Americans in my study had no idea that they had poor sleep."</p><a class="nc-link" href="#">Read More <i class="fa-solid fa-arrow-right"></i></a></div></div>
-      </div>
-    </div>
-    <div class="carousel-controls" id="carousel-controls"></div>
-  </div>
-</section>
-
-<section class="impact-section" id="impact">
-  <div class="impact-bg-word">IMPACT</div>
-  <div class="impact-glow ig-1"></div><div class="impact-glow ig-2"></div>
-  <div class="impact-inner">
-    <div class="impact-eyebrow fade-up">Support CEHDR</div>
-    <h2 class="impact-title fade-up delay-1">Make a Difference for<br><span>Environmental Health Equity</span></h2>
-    <p class="impact-sub fade-up delay-2">Every contribution — no matter the size — makes a meaningful difference. Your gift directly supports CEHDR's four signature initiatives and advances health equity for all communities.</p>
-    <div class="impact-stats fade-up delay-1">
-      <div class="is-stat"><div class="is-num">4</div><div class="is-lbl">Initiatives</div></div>
-      <div class="is-stat"><div class="is-num">1</div><div class="is-lbl">Mission</div></div>
-      <div class="is-stat"><div class="is-num">&infin;</div><div class="is-lbl">Impact</div></div>
-      <div class="is-stat"><div class="is-num">100%</div><div class="is-lbl">Goes to CEHDR</div></div>
-    </div>
-    <div class="impact-cta fade-up delay-2">
-      <a class="btn-gold-lg" href="https://sites.uci.edu/cehdr/supportcehdr/" target="_blank"><i class="fa-solid fa-gift"></i> Give Today</a>
-    </div>
-  </div>
-</section>
 
 <script>
-const slides=document.querySelectorAll('.hero-slide'),dotsEl=document.getElementById('slideDots');
-let curSlide=0;
-slides.forEach((_,i)=>{const d=document.createElement('button');d.className='slide-dot'+(i===0?' active':'');d.addEventListener('click',()=>showSlide(i));dotsEl.appendChild(d);});
-function showSlide(idx){slides[curSlide].classList.remove('active');dotsEl.children[curSlide].classList.remove('active');curSlide=idx;slides[curSlide].classList.add('active');dotsEl.children[curSlide].classList.add('active');}
-let slideTimer=setInterval(()=>showSlide((curSlide+1)%slides.length),5000);
-document.getElementById('heroSlideshow').addEventListener('mouseenter',()=>clearInterval(slideTimer));
-document.getElementById('heroSlideshow').addEventListener('mouseleave',()=>{slideTimer=setInterval(()=>showSlide((curSlide+1)%slides.length),5000);});
+(function(){
+  var root=document.querySelector('.cehdr-home');
+  if(!root) return;
 
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('animated');});},{threshold:0.1});
-document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el=>obs.observe(el));
+  /* Hero slideshow */
+  var slides=root.querySelectorAll('.hero-slide'),dotsEl=root.querySelector('#slideDots');
+  var curSlide=0;
+  slides.forEach(function(_,i){var d=document.createElement('button');d.className='slide-dot'+(i===0?' active':'');d.addEventListener('click',function(){showSlide(i);});dotsEl.appendChild(d);});
+  function showSlide(idx){slides[curSlide].classList.remove('active');dotsEl.children[curSlide].classList.remove('active');curSlide=idx;slides[curSlide].classList.add('active');dotsEl.children[curSlide].classList.add('active');}
+  var slideTimer=setInterval(function(){showSlide((curSlide+1)%slides.length);},5000);
+  var heroSlideshow=root.querySelector('#heroSlideshow');
+  heroSlideshow.addEventListener('mouseenter',function(){clearInterval(slideTimer);});
+  heroSlideshow.addEventListener('mouseleave',function(){slideTimer=setInterval(function(){showSlide((curSlide+1)%slides.length);},5000);});
 
-const track=document.getElementById('carousel'),cards=track.querySelectorAll('.news-card'),ctrlEl=document.getElementById('carousel-controls');
-let current=0,perView=3,total,autoTimer;
-function getPerView(){return window.innerWidth<600?1:window.innerWidth<960?2:3}
-function buildDots(){ctrlEl.innerHTML='';total=Math.ceil(cards.length/perView);for(let i=0;i<total;i++){const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.addEventListener('click',()=>goTo(i));ctrlEl.appendChild(d);}}
-function setWidths(){const gap=26,w=track.parentElement.clientWidth,cw=(w-gap*(perView-1))/perView;cards.forEach(c=>{c.style.flex=`0 0 ${cw}px`;c.style.maxWidth=`${cw}px`;});}
-function goTo(idx){const gap=26,cw=cards[0].getBoundingClientRect().width;current=Math.max(0,Math.min(idx,total-1));track.style.transform=`translateX(-${current*(cw+gap)*perView}px)`;document.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
-function next(){goTo((current+1)%total)}
-function init(){perView=getPerView();setWidths();buildDots();current=0;track.style.transform='translateX(0)';}
-init();autoTimer=setInterval(next,5000);
-track.parentElement.addEventListener('mouseenter',()=>clearInterval(autoTimer));
-track.parentElement.addEventListener('mouseleave',()=>{autoTimer=setInterval(next,5000);});
-window.addEventListener('resize',()=>{clearInterval(autoTimer);init();autoTimer=setInterval(next,5000);});
+  /* Scroll reveal */
+  var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('animated');});},{threshold:0.1});
+  root.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(function(el){obs.observe(el);});
+
+  /* News carousel */
+  var track=root.querySelector('#carousel'),cards=track.querySelectorAll('.news-card'),ctrlEl=root.querySelector('#carousel-controls');
+  var current=0,perView=3,total,autoTimer;
+  function getPerView(){return window.innerWidth<600?1:window.innerWidth<960?2:3;}
+  function buildDots(){ctrlEl.innerHTML='';total=Math.ceil(cards.length/perView);for(var i=0;i<total;i++){(function(i){var d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.addEventListener('click',function(){goTo(i);});ctrlEl.appendChild(d);})(i);}}
+  function setWidths(){var gap=26,w=track.parentElement.clientWidth,cw=(w-gap*(perView-1))/perView;cards.forEach(function(c){c.style.flex='0 0 '+cw+'px';c.style.maxWidth=cw+'px';});}
+  function goTo(idx){var gap=26,cw=cards[0].getBoundingClientRect().width;current=Math.max(0,Math.min(idx,total-1));track.style.transform='translateX(-'+(current*(cw+gap)*perView)+'px)';ctrlEl.querySelectorAll('.carousel-dot').forEach(function(d,i){d.classList.toggle('active',i===current);});}
+  function next(){goTo((current+1)%total);}
+  function init(){perView=getPerView();setWidths();buildDots();current=0;track.style.transform='translateX(0)';}
+  init();autoTimer=setInterval(next,5000);
+  track.parentElement.addEventListener('mouseenter',function(){clearInterval(autoTimer);});
+  track.parentElement.addEventListener('mouseleave',function(){autoTimer=setInterval(next,5000);});
+  window.addEventListener('resize',function(){clearInterval(autoTimer);init();autoTimer=setInterval(next,5000);});
+})();
 </script>
-</body>
-</html>
