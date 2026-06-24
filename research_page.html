@@ -41,7 +41,7 @@ body{font-family:'Arimo',sans-serif;color:var(--text);background:var(--white);ov
   background-color:#001428;          /* fills the side space so it looks intentional */
   background-image:
     linear-gradient(135deg,rgba(0,20,40,.62) 0%,rgba(0,45,85,.48) 40%,rgba(0,58,99,.42) 70%,rgba(0,91,154,.38) 100%),
-    url('https://sites.uci.edu/cehdr/files/2026/06/Research-Page-Image-1_Image-Jun-17-2026-01_27_59-PM.png');
+    url('https://sites.uci.edu/cehdr/files/2026/06/Research-Page-Image-1_Image-Jun-17-2026-01_27_59-PM-1.png');
   background-size:cover, contain;    /* gradient covers; the PHOTO is "contain" so it's never cut */
   background-position:center, center;
   background-repeat:no-repeat, no-repeat;
@@ -56,7 +56,7 @@ body{font-family:'Arimo',sans-serif;color:var(--text);background:var(--white);ov
 /* INTRO — paragraph now below the image */
 .intro{background:#fff;padding:40px 0}
 .intro-inner{max-width:880px;margin:0 auto;text-align:center}
-.intro-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--uci-pacific);margin-bottom:14px}
+.intro-kicker{display:inline-flex;align-items:center;gap:8px;font-size:1.3rem;font-weight:700;letter-spacing:.16em;color:var(--uci-pacific);margin-bottom:14px}
 .intro p{font-size:1.05rem;color:var(--muted);line-height:1.85}
 
 /* QUICK NAV PILLS */
@@ -83,6 +83,7 @@ body{font-family:'Arimo',sans-serif;color:var(--text);background:var(--white);ov
 .theme-icon{width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;flex-shrink:0}
 .theme-kicker{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--uci-pacific)}
 .theme-title{font-family:'Roboto Slab',serif;font-weight:900;font-size:clamp(1.8rem,3vw,2.4rem);color:var(--uci-navy);line-height:1.1;letter-spacing:-.015em}
+.intro-kicker.theme-title{font-family:'Roboto Slab',serif;font-weight:900;font-size:clamp(2.4rem,3vw,2.8rem);color:var(--uci-navy);line-height:1.1;letter-spacing:-.015em; margin:34px 0; }
 .theme-desc{font-size:.98rem;color:var(--muted);line-height:1.82;margin:16px 0 24px}
 
 .focus-box{background:rgba(0,100,164,.04);border:1px solid #e0eaf2;border-left:5px solid var(--uci-gold);border-radius:0 14px 14px 0;padding:22px 26px}
@@ -170,7 +171,7 @@ footer{background:linear-gradient(180deg,#050e18 0%,#020810 100%);border-top:3px
 <!-- INTRO — paragraph moved below the image -->
 <section class="intro">
   <div class="container intro-inner fade-up">
-    <div class="intro-kicker"><i class="fa-solid fa-seedling"></i> Advancing Environmental Justice</div>
+    <h2 class="intro-kicker theme-title"><i class="fa-solid fa-seedling"></i> Advancing Environmental Justice</h2>
     <p>We conduct research to advance environmental justice by addressing environmental health inequities resulting from environmental racism and harmful environmental exposures. Our work focuses on educating the public, empowering communities, and developing sustainable interventions to reduce disparities in health impacts disproportionately affecting minoritized communities. Through community-driven research and advocacy, we aim to challenge systemic injustices, inform policy change, and create healthier, more equitable environments for all.</p>
   </div>
 </section>
