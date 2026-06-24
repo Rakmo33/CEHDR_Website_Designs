@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meet the Director – CEHDR | UC Irvine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Roboto+Slab:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+.wp-block-columns, .wp-block-column, .wp-block-column>div { 
+  margin: 0 !important;
+}
+
+/* =========================================================
+   CEHDR Meet the Director — Fully Scoped for WordPress
+========================================================= */
+
+.cehdr-director-page,
+.cehdr-director-page *,
+.cehdr-director-page *::before,
+.cehdr-director-page *::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+.cehdr-director-page{
+  --uci-blue:#0064A4;
+  --uci-navy:#003A63;
+  --uci-gold:#FFD200;
+  --uci-reflection:#00558C;
+  --uci-pacific:#4A9BA8;
+  --uci-teal:#7EBEC5;
+  --uci-eucalyptus:#4F6F52;
+  --uci-sage:#7A9A7E;
+  --uci-persimmon:#C95A2E;
+  --uci-mesa:#B25618;
+  --uci-amber:#C99A2E;
+  --light-blue:#EEF5FB;
+  --text:#1a2332;
+  --muted:#5a6a7a;
+  --white:#fff;
+  --nav-h:64px;
+
+  font-family:'Arimo',sans-serif;
+  color:var(--text);
+  background:var(--white);
+  overflow-x:hidden;
+  width:100%;
+}
+
+.cehdr-director-page .container{
+  max-width:1140px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+.cehdr-director-page .container-narrow{
+  max-width:1040px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+/* HERO */
+.cehdr-director-page .hero{
+  position:relative;
+  background:linear-gradient(135deg,#001428 0%,#002d55 35%,var(--uci-navy) 65%,#005b9a 100%);
+  padding:90px 0 80px;
+  overflow:hidden;
+  color:#fff;
+}
+
+.cehdr-director-page .hero::before{
+  content:'';
+  position:absolute;
+  top:-100px;
+  right:-80px;
+  width:480px;
+  height:480px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,210,0,.12),transparent 70%);
+  pointer-events:none;
+}
+
+.cehdr-director-page .hero::after{
+  content:'';
+  position:absolute;
+  bottom:-80px;
+  left:-60px;
+  width:340px;
+  height:340px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(126,190,197,.14),transparent 70%);
+  pointer-events:none;
+}
+
+.cehdr-director-page .hero-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:60px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
+
+.cehdr-director-page .hero h1{
+  font-family:'Roboto Slab',serif;
+  font-size:clamp(2.4rem,4.4vw,3.6rem);
+  font-weight:900;
+  line-height:1.05;
+  letter-spacing:-.015em;
+  margin-bottom:10px;
+  color:#fff;
+}
+
+.cehdr-director-page .credentials{
+  font-size:.95rem;
+  font-weight:700;
+  letter-spacing:.05em;
+  color:var(--uci-gold);
+  margin-bottom:18px;
+}
+
+.cehdr-director-page .lead{
+  font-size:1.02rem;
+  color:rgba(255,255,255,.82);
+  line-height:1.7;
+  max-width:540px;
+  margin-bottom:26px;
+}
+
+.cehdr-director-page .hero-btns{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.cehdr-director-page .btn-gold{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 24px;
+  background:linear-gradient(135deg,var(--uci-gold),#ffc700);
+  color:var(--uci-navy);
+  font-weight:700;
+  font-size:.86rem;
+  text-decoration:none;
+  border-radius:8px;
+  box-shadow:0 6px 22px rgba(255,210,0,.42);
+  transition:all .25s;
+}
+
+.cehdr-director-page .btn-gold:hover{
+  transform:translateY(-3px);
+  box-shadow:0 14px 32px rgba(255,210,0,.6);
+}
+
+.cehdr-director-page .btn-ghost{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 22px;
+  border:2px solid rgba(255,255,255,.4);
+  color:#fff;
+  font-weight:700;
+  font-size:.86rem;
+  text-decoration:none;
+  border-radius:8px;
+  transition:all .25s;
+}
+
+.cehdr-director-page .btn-ghost:hover{
+  border-color:#fff;
+  background:rgba(255,255,255,.1);
+}
+
+/* DIRECTOR PHOTO */
+.cehdr-director-page .hero-photo{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/5;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 0 6px rgba(255,210,0,.18);
+}
+
+.cehdr-director-page .hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .8s;
+}
+
+.cehdr-director-page .hero-photo:hover img{
+  transform:scale(1.04);
+}
+
+.cehdr-director-page .hero-photo::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(0,30,60,.35));
+  pointer-events:none;
+}
+
+.cehdr-director-page .hero-photo-badge{
+  position:absolute;
+  width:70%;
+  bottom:18px;
+  left:18px;
+  right:18px;
+  background:rgba(0,30,60,.78);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(255,210,0,.35);
+  border-radius:12px;
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  z-index:2;
+}
+
+.cehdr-director-page .hero-photo-badge i{
+  color:var(--uci-gold);
+  font-size:1.4rem;
+}
+
+.cehdr-director-page .pb-name{
+  font-family:'Roboto Slab',serif;
+  font-weight:900;
+  font-size:.95rem;
+  color:#fff;
+}
+
+.cehdr-director-page .pb-title{
+  font-size:.7rem;
+  color:rgba(255,255,255,.7);
+  letter-spacing:.05em;
+}
+
+/* SECTION COMMON */
+.cehdr-director-page .section-pad{
+  padding:50px 0;
+}
+
+.cehdr-director-page .sec-eyebrow{
+  display:inline-block;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--uci-pacific);
+  margin-bottom:10px;
+}
+
+.cehdr-director-page .sec-h2{
+  font-family:'Roboto Slab',serif;
+  font-weight:900;
+  line-height:1.12;
+  letter-spacing:-.015em;
+  font-size:clamp(2rem,3.4vw,2.8rem);
+  color:var(--uci-navy);
+  margin-bottom:14px;
+}
+
+.cehdr-director-page .sec-h2 span{
+  color:var(--uci-blue);
+}
+
+.cehdr-director-page .sec-sub{
+  font-size:.85rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  color:var(--uci-pacific);
+  margin-bottom:18px;
+}
+
+.cehdr-director-page .sec-lead{
+  font-size:.98rem;
+  color:var(--muted);
+  line-height:1.78;
+  max-width:760px;
+}
+
+/* WHO SHE IS */
+.cehdr-director-page .who{
+  background:linear-gradient(160deg,#fff 0%,var(--light-blue) 100%);
+}
+
+.cehdr-director-page .who-header{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.cehdr-director-page .who-body{
+  font-size:1rem;
+  color:var(--muted);
+  line-height:1.85;
+  max-width:880px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.cehdr-director-page .who-body p{
+  margin-bottom:18px;
+}
+
+.cehdr-director-page .who-body p:last-child{
+  margin-bottom:0;
+}
+
+/* RESEARCH */
+.cehdr-director-page .research-bg{
+  background:linear-gradient(135deg,#001428 0%,var(--uci-navy) 60%,#005080 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+
+.cehdr-director-page .research-bg::before{
+  content:'';
+  position:absolute;
+  top:-100px;
+  right:-80px;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(126,190,197,.12),transparent 70%);
+  pointer-events:none;
+}
+
+.cehdr-director-page .research-bg .sec-eyebrow{
+  color:var(--uci-teal);
+}
+
+.cehdr-director-page .research-bg .sec-h2{
+  color:#fff;
+}
+
+.cehdr-director-page .research-bg .sec-h2 span{
+  color:var(--uci-gold);
+}
+
+.cehdr-director-page .research-bg .sec-sub{
+  color:var(--uci-teal);
+}
+
+.cehdr-director-page .header-wrap{
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.cehdr-director-page .research-body{
+  max-width:880px;
+  margin:22px auto 0;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+.cehdr-director-page .research-body p{
+  color:rgba(255,255,255,.78);
+  line-height:1.8;
+  font-size:.96rem;
+  margin-bottom:16px;
+}
+
+.cehdr-director-page .research-body p:last-child{
+  margin-bottom:0;
+}
+
+/* LEADERSHIP */
+.cehdr-director-page .lead-section{
+  background:linear-gradient(160deg,#fff 0%,var(--light-blue) 100%);
+}
+
+.cehdr-director-page .lead-grid{
+  max-width:880px;
+  margin:24px auto 0;
+  text-align:center;
+}
+
+.cehdr-director-page .lead-grid p{
+  font-size:.98rem;
+  color:var(--muted);
+  line-height:1.82;
+  margin-bottom:16px;
+}
+
+.cehdr-director-page .lead-roles{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-top:34px;
+  text-align:left;
+}
+
+.cehdr-director-page .lead-role{
+  display:flex;
+  gap:16px;
+  background:#fff;
+  border:1px solid #e0eaf2;
+  border-radius:16px;
+  padding:22px 24px;
+  transition:all .35s;
+}
+
+.cehdr-director-page .lead-role:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(0,100,164,.14);
+  border-color:rgba(0,100,164,.2);
+}
+
+.cehdr-director-page .lr-icon{
+  flex-shrink:0;
+  width:50px;
+  height:50px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.25rem;
+  color:#fff;
+  background:linear-gradient(135deg,var(--uci-navy),var(--uci-blue));
+  box-shadow:0 6px 18px rgba(0,58,99,.35);
+}
+
+.cehdr-director-page .lead-role:nth-child(2) .lr-icon{
+  background:linear-gradient(135deg,var(--uci-pacific),var(--uci-teal));
+  box-shadow:0 6px 18px rgba(74,155,168,.4);
+}
+
+.cehdr-director-page .lr-body h4{
+  font-family:'Roboto Slab',serif;
+  font-weight:900;
+  color:var(--uci-navy);
+  font-size:.98rem;
+  margin-bottom:5px;
+  line-height:1.3;
+}
+
+.cehdr-director-page .lr-body p{
+  font-size:.82rem;
+  color:var(--muted);
+  line-height:1.6;
+  margin:0;
+}
+
+/* PUBLIC SCHOLARSHIP & POLICY IMPACT */
+.cehdr-director-page .public-impact{
+  background:#fff;
+  position:relative;
+  overflow:hidden;
+}
+
+.cehdr-director-page .public-impact::before{
+  content:'';
+  position:absolute;
+  top:-90px;
+  left:-70px;
+  width:360px;
+  height:360px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(126,190,197,.16),transparent 70%);
+  pointer-events:none;
+}
+
+.cehdr-director-page .public-impact::after{
+  content:'';
+  position:absolute;
+  bottom:-90px;
+  right:-70px;
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,210,0,.12),transparent 70%);
+  pointer-events:none;
+}
+
+.cehdr-director-page .public-impact-inner{
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
+
+.cehdr-director-page .public-impact-body{
+  max-width:880px;
+  margin:24px auto 0;
+}
+
+.cehdr-director-page .public-impact-body p{
+  font-size:.98rem;
+  color:var(--muted);
+  line-height:1.82;
+  margin-bottom:16px;
+}
+
+.cehdr-director-page .public-impact-body p:last-child{
+  margin-bottom:0;
+}
+
+.cehdr-director-page .public-impact-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:36px;
+  text-align:left;
+}
+
+.cehdr-director-page .public-impact-card{
+  background:linear-gradient(135deg,#fff 0%,var(--light-blue) 100%);
+  border:1px solid #e0eaf2;
+  border-radius:16px;
+  padding:24px;
+  transition:all .35s;
+  box-shadow:0 4px 18px rgba(0,58,99,.06);
+}
+
+.cehdr-director-page .public-impact-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(0,100,164,.14);
+  border-color:rgba(0,100,164,.2);
+}
+
+.cehdr-director-page .public-impact-icon{
+  width:52px;
+  height:52px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.3rem;
+  color:#fff;
+  margin-bottom:14px;
+}
+
+.cehdr-director-page .public-impact-card:nth-child(1) .public-impact-icon{
+  background:linear-gradient(135deg,var(--uci-navy),var(--uci-blue));
+  box-shadow:0 6px 18px rgba(0,58,99,.35);
+}
+
+.cehdr-director-page .public-impact-card:nth-child(2) .public-impact-icon{
+  background:linear-gradient(135deg,var(--uci-pacific),var(--uci-teal));
+  box-shadow:0 6px 18px rgba(74,155,168,.38);
+}
+
+.cehdr-director-page .public-impact-card:nth-child(3) .public-impact-icon{
+  background:linear-gradient(135deg,var(--uci-amber),#E5B947);
+  box-shadow:0 6px 18px rgba(201,154,46,.35);
+}
+
+.cehdr-director-page .public-impact-card h4{
+  font-family:'Roboto Slab',serif;
+  font-weight:900;
+  color:var(--uci-navy);
+  font-size:1rem;
+  line-height:1.3;
+  margin-bottom:8px;
+}
+
+.cehdr-director-page .public-impact-card p{
+  font-size:.84rem;
+  color:var(--muted);
+  line-height:1.65;
+  margin:0;
+}
+
+/* AAAE */
+.cehdr-director-page .aaae{
+  background:linear-gradient(135deg,#001428 0%,var(--uci-navy) 60%,#005080 100%);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  text-align:center;
+}
+
+.cehdr-director-page .aaae::after{
+  content:'';
+  position:absolute;
+  bottom:-80px;
+  right:-60px;
+  width:360px;
+  height:360px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,210,0,.1),transparent 70%);
+  pointer-events:none;
+}
+
+.cehdr-director-page .aaae .sec-eyebrow{
+  color:var(--uci-teal);
+}
+
+.cehdr-director-page .aaae .sec-h2{
+  color:#fff;
+}
+
+.cehdr-director-page .aaae .sec-h2 span{
+  color:var(--uci-gold);
+}
+
+.cehdr-director-page .aaae .sec-sub{
+  color:var(--uci-teal);
+}
+
+.cehdr-director-page .aaae-body{
+  max-width:820px;
+  margin:22px auto 0;
+  position:relative;
+  z-index:2;
+}
+
+.cehdr-director-page .aaae-body p{
+  color:rgba(255,255,255,.82);
+  line-height:1.82;
+  font-size:.98rem;
+  margin-bottom:16px;
+}
+
+.cehdr-director-page .aaae-body p:last-child{
+  margin-bottom:0;
+}
+
+.cehdr-director-page .aaae-icon{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--uci-gold),#ffc700);
+  color:var(--uci-navy);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.7rem;
+  margin:0 auto 22px;
+  box-shadow:0 10px 28px rgba(255,210,0,.45);
+  position:relative;
+  z-index:2;
+}
+
+/* PURPOSE */
+.cehdr-director-page .purpose{
+  background:linear-gradient(160deg,var(--light-blue) 0%,#dceff2 100%);
+}
+
+.cehdr-director-page .pillars{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:46px;
+}
+
+.cehdr-director-page .pillar{
+  text-align:center;
+  padding:22px;
+}
+
+.cehdr-director-page .pillar-icon{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--uci-gold),#ffc700);
+  color:var(--uci-navy);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.5rem;
+  margin:0 auto 14px;
+  box-shadow:0 8px 24px rgba(255,210,0,.4);
+}
+
+.cehdr-director-page .pillar h4{
+  font-family:'Roboto Slab',serif;
+  font-weight:900;
+  color:var(--uci-navy);
+  font-size:1.1rem;
+  margin-bottom:6px;
+}
+
+.cehdr-director-page .pillar p{
+  font-size:.86rem;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* HONORS TIMELINE */
+.cehdr-director-page .honors-bg{
+  background:#fff;
+}
+
+.cehdr-director-page .honors-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.cehdr-director-page .honors-header .sec-lead{
+  margin:0 auto;
+}
+
+.cehdr-director-page .honors-timeline{
+  max-width:880px;
+  margin:0 auto;
+  position:relative;
+}
+
+.cehdr-director-page .honors-timeline::before{
+  content:'';
+  position:absolute;
+  top:6px;
+  bottom:6px;
+  left:70px;
+  width:2px;
+  background:linear-gradient(to bottom,var(--uci-gold),var(--uci-pacific));
+  opacity:.4;
+}
+
+.cehdr-director-page .honor-item{
+  display:grid;
+  grid-template-columns:70px 1fr;
+  gap:24px;
+  align-items:flex-start;
+  padding:14px 0;
+  position:relative;
+}
+
+.cehdr-director-page .honor-year{
+  font-family:'Roboto Slab',serif;
+  font-weight:900;
+  font-size:1rem;
+  color:var(--uci-navy);
+  text-align:center;
+  padding-top:2px;
+  position:relative;
+}
+
+.cehdr-director-page .honor-content{
+  background:linear-gradient(135deg,#fff 0%,var(--light-blue) 100%);
+  border:1px solid #e0eaf2;
+  border-radius:14px;
+  padding:16px 20px;
+  transition:all .3s;
+  position:relative;
+}
+
+.cehdr-director-page .honor-content::before{
+  content:'';
+  position:absolute;
+  left:-30px;
+  top:20px;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:var(--uci-gold);
+  border:3px solid #fff;
+  box-shadow:0 0 0 2px rgba(255,210,0,.4);
+  animation:cehdrHonorDotPulse 1.8s ease-in-out infinite;
+  transform-origin:center;
+}
+
+.cehdr-director-page .honor-item:nth-child(2n) .honor-content::before{
+  animation-delay:.25s;
+}
+
+.cehdr-director-page .honor-item:nth-child(3n) .honor-content::before{
+  animation-delay:.45s;
+}
+
+.cehdr-director-page .honor-content:hover{
+  transform:translateY(4px);
+  box-shadow:0 12px 30px rgba(0,100,164,.12);
+  border-color:rgba(0,100,164,.2);
+}
+
+.cehdr-director-page .honor-content h4{
+  font-family:'Roboto Slab',serif;
+  font-weight:700;
+  color:var(--uci-navy);
+  font-size:.95rem;
+  line-height:1.4;
+  margin-bottom:4px;
+}
+
+.cehdr-director-page .honor-content p{
+  font-size:.8rem;
+  color:var(--muted);
+  line-height:1.5;
+  font-style:italic;
+}
+
+@keyframes cehdrHonorDotPulse{
+  0%,100%{
+    transform:scale(1);
+    opacity:.9;
+    box-shadow:
+      0 0 0 2px rgba(255,210,0,.4),
+      0 0 0 0 rgba(255,210,0,.45);
+  }
+  50%{
+    transform:scale(1.28);
+    opacity:1;
+    box-shadow:
+      0 0 0 2px rgba(255,210,0,.55),
+      0 0 0 10px rgba(255,210,0,0);
+  }
+}
+
+/* MENTOR */
+.cehdr-director-page .mentor{
+  background:linear-gradient(160deg,var(--light-blue) 0%,#dceff2 100%);
+}
+
+.cehdr-director-page .mentor-grid{
+  max-width:880px;
+  margin:24px auto 0;
+  text-align:center;
+}
+
+.cehdr-director-page .mentor-icon{
+  width:72px;
+  height:72px;
+  border-radius:18px;
+  background:linear-gradient(135deg,var(--uci-pacific),var(--uci-teal));
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.7rem;
+  margin:0 auto 22px;
+  box-shadow:0 10px 28px rgba(74,155,168,.4);
+}
+
+.cehdr-director-page .mentor-grid p{
+  font-size:.98rem;
+  color:var(--muted);
+  line-height:1.82;
+  margin-bottom:16px;
+}
+
+.cehdr-director-page .mentor-grid p:last-child{
+  margin-bottom:0;
+}
+
+/* WORDPRESS HEADING OVERRIDES */
+.cehdr-director-page h1,
+.cehdr-director-page h2,
+.cehdr-director-page h3,
+.cehdr-director-page h4{
+  font-family:'Roboto Slab',serif !important;
+  text-transform:none !important;
+  padding-top:0 !important;
+}
+
+.cehdr-director-page h1,
+.cehdr-director-page .hero h1{
+  font-size:clamp(2.4rem,4.4vw,3.6rem) !important;
+  font-weight:900 !important;
+  line-height:1.05 !important;
+  letter-spacing:-.015em !important;
+  color:#fff !important;
+  margin:0 0 10px 0 !important;
+  padding:0 !important;
+}
+
+.cehdr-director-page h2,
+.cehdr-director-page .sec-h2{
+  font-size:clamp(2rem,3.4vw,2.8rem) !important;
+  font-weight:900 !important;
+  line-height:1.12 !important;
+  letter-spacing:-.015em !important;
+  color:var(--uci-navy,#003A63) !important;
+  margin:0 0 14px 0 !important;
+  padding:0 !important;
+}
+
+.cehdr-director-page .research-bg h2,
+.cehdr-director-page .aaae h2,
+.cehdr-director-page .research-bg .sec-h2,
+.cehdr-director-page .aaae .sec-h2{
+  color:#fff !important;
+}
+
+.cehdr-director-page .sec-h2 span{
+  color:var(--uci-blue,#0064A4) !important;
+}
+
+.cehdr-director-page .research-bg .sec-h2 span,
+.cehdr-director-page .aaae .sec-h2 span{
+  color:var(--uci-gold,#FFD200) !important;
+}
+
+.cehdr-director-page h3{
+  font-size:1.15rem !important;
+  font-weight:900 !important;
+  line-height:1.3 !important;
+  letter-spacing:-.01em !important;
+  margin:0 0 10px 0 !important;
+  padding:0 !important;
+}
+
+.cehdr-director-page h4,
+.cehdr-director-page .lr-body h4,
+.cehdr-director-page .public-impact-card h4,
+.cehdr-director-page .pillar h4,
+.cehdr-director-page .honor-content h4{
+  font-family:'Roboto Slab',serif !important;
+  font-weight:900 !important;
+  line-height:1.3 !important;
+  color:var(--uci-navy,#003A63) !important;
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+
+.cehdr-director-page .honor-content h4{
+  font-weight:700 !important;
+  font-size:.95rem !important;
+  line-height:1.4 !important;
+  margin-bottom:4px !important;
+}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .cehdr-director-page .hero-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .cehdr-director-page .hero-photo{
+    max-width:380px;
+    margin:0 auto;
+  }
+
+  .cehdr-director-page .lead-roles,
+  .cehdr-director-page .public-impact-cards,
+  .cehdr-director-page .pillars{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+  .cehdr-director-page .section-pad{
+    padding:50px 0;
+  }
+
+  .cehdr-director-page .hero{
+    padding:64px 0 56px;
+  }
+
+  .cehdr-director-page .hero-photo-badge{
+    width:auto;
+    left:14px;
+    right:14px;
+  }
+
+  .cehdr-director-page .honors-timeline::before{
+    left:54px;
+  }
+
+  .cehdr-director-page .honor-item{
+    grid-template-columns:54px 1fr;
+    gap:18px;
+  }
+
+  .cehdr-director-page .honor-year{
+    font-size:.85rem;
+  }
+}
+
+/* @media (prefers-reduced-motion: reduce){
+  .cehdr-director-page .honor-content::before{
+    animation:none !important;
+  }
+} */
+</style>
+</head>
+
+<body>
+
+<div class="cehdr-director-page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <h1>Karen D. Lincoln</h1>
+          <div class="credentials">PhD &middot; MSW &middot; MA &middot; FGSA &middot; FAASWSW</div>
+          <p class="lead">A nationally and internationally recognized scholar, public health leader, social worker, sociologist, and social justice advocate, Dr. Karen D. Lincoln advances health equity through research, policy, mentorship, and community action. Her work centers Black Americans, older adults, women, and communities historically burdened by structural racism, environmental injustice, and inequitable access to care.</p>
+          <div class="hero-btns">
+            <a class="btn-gold" target="_blank" href="https://publichealth.uci.edu/faculty/lincoln-karen/"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Faculty Profile</a>
+            <a class="btn-ghost" href="mailto:kdlincol@hs.uci.edu"><i class="fa-solid fa-envelope"></i> Contact Dr. Lincoln</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="hero-photo">
+            <img src="https://cehdr.publichealth.uci.edu/files/2024/11/Karen-Lincoln-Headshot-2026-scaled.jpeg" alt="Dr. Karen D. Lincoln, Director of CEHDR">
+            <div class="hero-photo-badge">
+              <i class="fa-solid fa-award"></i>
+              <div>
+                <div class="pb-name">Dr. Karen D. Lincoln</div>
+                <div class="pb-title">Director, Center for Environmental Health Disparities Research (CEHDR)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- WHO SHE IS -->
+  <section class="section-pad who">
+    <div class="container-narrow">
+      <div class="who-header">
+        <span class="sec-eyebrow"><i class="fa-solid fa-user"></i> &nbsp;Who She Is</span>
+        <h2 class="sec-h2">Driven by Equity. <span>Grounded in Community.</span></h2>
+        <p class="sec-sub">Professor &amp; Director, CEHDR · Joe C. Wen School of Population &amp; Public Health · UC Irvine</p>
+      </div>
+
+      <div class="who-body">
+        <p>Dr. Karen D. Lincoln is Professor of Environmental and Occupational Health and Director of the Center for Environmental Health Disparities Research at the Joe C. Wen School of Population &amp; Public Health, University of California, Irvine. She is also Founder and Director of Advocates for African American Elders, a community-led health education, research, and advocacy program dedicated to improving the health, well-being, and quality of life of Black older adults.</p>
+
+        <p>A distinguished social worker and sociologist, Dr. Lincoln’s career is defined by a deep commitment to health equity, aging, social justice, and the elimination of disparities affecting Black Americans and underserved communities. Her work bridges rigorous scholarship and public advocacy, translating research into community education, policy change, and practical solutions for those most often excluded from health systems and scientific research.</p>
+
+        <p>Dr. Lincoln holds a BA with Honors in Sociology from the University of California, Berkeley, an MSW and MA from the University of Michigan, and a PhD in Social Work and Sociology from the University of Michigan. She is a Fellow of the Gerontological Society of America and a Fellow of the American Academy of Social Work and Social Welfare.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="section-pad research-bg" id="research">
+    <div class="container-narrow">
+      <div class="header-wrap">
+        <span class="sec-eyebrow"><i class="fa-solid fa-flask"></i> &nbsp;Her Research</span>
+        <h2 class="sec-h2">Where Science Meets <span>Social Justice</span></h2>
+        <p class="sec-sub">Social &amp; Environmental Determinants of Health · Aging · Health Disparities</p>
+      </div>
+
+      <div class="research-body">
+        <p>Dr. Lincoln’s research examines how race, racism, socioeconomic inequality, structural disadvantage, environmental exposures, and social determinants of health shape the well-being of Black Americans and other underserved populations. Her scholarship spans social stress, aging, Alzheimer’s disease and brain health disparities, sleep health, women’s health, family caregiving, environmental health equity, and access to care.</p>
+
+        <p>At CEHDR, Dr. Lincoln applies an anti-racist and community-engaged research framework to study how environmental exposures, structural racism, and neighborhood-level inequities converge to produce health disparities. Her work includes research on historical redlining, air pollution, climate resilience, racial discrimination, accelerated biological aging, dementia risk, and the physical and mental health consequences of environmental injustice.</p>
+
+        <p>She is leading a groundbreaking NIH-funded effort to develop the first Black aging cohort in Southern California, a landmark project designed to address critical gaps in what is known about Alzheimer’s disease, age-related conditions, and health inequities among Black Americans. This work responds to the longstanding underrepresentation of Black communities in clinical and population health research.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CEHDR LEADERSHIP -->
+  <section class="section-pad lead-section">
+    <div class="container-narrow" style="text-align:center">
+      <span class="sec-eyebrow"><i class="fa-solid fa-landmark"></i> &nbsp;CEHDR Leadership</span>
+      <h2 class="sec-h2">Leading Multidisciplinary Research for <span>Systemic Change</span></h2>
+      <p class="sec-sub">Director since 2023 · Joe C. Wen School of Population &amp; Public Health</p>
+
+      <div class="lead-grid">
+        <p>As Director of the Center for Environmental Health Disparities Research, Dr. Lincoln leads a multidisciplinary team of researchers, students, community partners, and policymakers committed to advancing environmental justice and health equity. Her leadership is grounded in the belief that the communities most impacted by health inequities must be central to the design, implementation, and translation of research.</p>
+
+        <p>Through CEHDR, Dr. Lincoln works to build sustainable interventions, strengthen community partnerships, inform policy, and develop the next generation of health equity scholars. Her leadership connects research, lived experience, and public policy to address the root causes of health disparities and promote healthier, more just communities.</p>
+
+        <div class="lead-roles">
+          <div class="lead-role">
+            <div class="lr-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div class="lr-body">
+              <h4>Co-Chair, Environmental Justice Advisory Council (EJAC)</h4>
+              <p>California Department of Toxic Substances Control (DTSC), State of California · 2024–2026</p>
+            </div>
+          </div>
+
+          <div class="lead-role">
+            <div class="lr-icon"><i class="fa-solid fa-flask-vial"></i></div>
+            <div class="lr-body">
+              <h4>Standing Member, Healthcare &amp; Health Disparities Study Section (HHD)</h4>
+              <p>National Institutes of Health · 2024–2028</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLIC SCHOLARSHIP & POLICY IMPACT -->
+  <section class="section-pad public-impact">
+    <div class="container-narrow public-impact-inner">
+      <span class="sec-eyebrow"><i class="fa-solid fa-bullhorn"></i> &nbsp;Public Scholarship &amp; Policy Impact</span>
+      <h2 class="sec-h2">A Trusted Voice in <span>Policy,<br> Media &amp; Public Health</span></h2>
+      <p class="sec-sub">Public scholarship · Policy leadership · National media engagement</p>
+
+      <div class="public-impact-body">
+        <p>Dr. Lincoln’s leadership extends beyond academia. She has served as a trusted public scholar and policy voice on aging, health disparities, caregiving, racism, and environmental justice. She currently co-chairs California’s Environmental Justice Advisory Council under the Department of Toxic Substances Control, served on California’s Master Plan for Aging Equity Work Group, and has testified before the California State Senate Select Committee on Aging and Long-Term Care.</p>
+
+        <p>Her public scholarship has reached audiences across the nation through op-eds in <em>The New York Times</em>, <em>The Wall Street Journal</em>, and <em>StatNews</em>, and through media engagement with outlets including NPR, CNN, ABC News, <em>USA Today</em>, the <em>Los Angeles Times</em>, <em>Forbes</em>, and <em>Black Enterprise</em>. Through this work, Dr. Lincoln consistently uses her platform to name structural racism, economic inequality, environmental injustice, and inadequate access to care as urgent public health issues.</p>
+      </div>
+
+      <div class="public-impact-cards">
+        <div class="public-impact-card">
+          <div class="public-impact-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+          <h4>Policy Leadership</h4>
+          <p>Co-chairing California’s Environmental Justice Advisory Council and contributing to statewide aging-equity and long-term-care policy conversations.</p>
+        </div>
+
+        <div class="public-impact-card">
+          <div class="public-impact-icon"><i class="fa-solid fa-newspaper"></i></div>
+          <h4>Public Scholarship</h4>
+          <p>Bringing research into public dialogue through op-eds, expert commentary, and accessible writing on aging, caregiving, racism, and health equity.</p>
+        </div>
+
+        <div class="public-impact-card">
+          <div class="public-impact-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+          <h4>National Media Voice</h4>
+          <p>Reaching broad audiences through national media engagement and consistently framing racism, inequality, and environmental injustice as public health issues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER, AAAE -->
+  <section class="section-pad aaae">
+    <div class="container-narrow">
+      <div class="aaae-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
+
+      <div class="header-wrap">
+        <span class="sec-eyebrow"><i class="fa-solid fa-people-roof"></i> &nbsp;Founder, AAAE</span>
+        <h2 class="sec-h2">Advocates for <span>African American Elders</span></h2>
+        <p class="sec-sub">Founded 2012 · Center for Environmental Health Disparities Research, UC Irvine</p>
+      </div>
+
+      <div class="aaae-body">
+        <p>In 2012, Dr. Lincoln founded Advocates for African American Elders, a community-based research, education, and advocacy program created to improve the health, well-being, and quality of life of Black older adults. Now housed at CEHDR, AAAE works across Los Angeles, Riverside, and Orange Counties to engage older adults, caregivers, families, community leaders, and service providers in health education, research participation, and policy advocacy.</p>
+
+        <p>AAAE reflects Dr. Lincoln’s long-standing commitment to meeting communities where they are, building trust, and ensuring that lived experience informs research and policy. The program is a powerful model of community-engaged scholarship, translating research into action for older adults and families who have too often been overlooked by health care, aging services, and public health systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PURPOSE -->
+  <section class="section-pad purpose">
+    <div class="container-narrow" style="text-align:center">
+      <span class="sec-eyebrow"><i class="fa-solid fa-bullseye"></i> &nbsp;Her Purpose</span>
+      <h2 class="sec-h2">Education. Empowerment. <span>Action.</span></h2>
+      <p class="sec-lead" style="margin:0 auto">The three pillars of Dr. Lincoln's life's work.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h4>Education</h4>
+          <p>Building knowledge across communities, classrooms, media, and policy spaces so that research is accessible, relevant, and actionable.</p>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+          <h4>Empowerment</h4>
+          <p>Centering lived experience, elevating community voice, and creating opportunities for underserved communities to shape the research and policies that affect their lives.</p>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-icon"><i class="fa-solid fa-chart-column"></i></div>
+          <h4>Action</h4>
+          <p>Turning evidence into advocacy, interventions, and policy solutions that address structural inequities and improve health outcomes across generations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HONORS -->
+  <section class="section-pad honors-bg">
+    <div class="container-narrow">
+      <div class="honors-header">
+        <span class="sec-eyebrow"><i class="fa-solid fa-medal"></i> &nbsp;Recognition &amp; Honors</span>
+        <h2 class="sec-h2">Nationally Recognized. <span>Globally Impactful.</span></h2>
+        <p class="sec-lead">Dr. Lincoln’s scholarship, advocacy, and leadership have earned national recognition across public health, gerontology, social work, and health equity. She has published more than 90 peer-reviewed articles and book chapters, has received over 20 awards and recognitions, and has been named among the Top 2% of Scientists Worldwide by Elsevier and Stanford University for three consecutive years. Her honors reflect both her scholarly impact and her lifelong commitment to advancing justice for communities historically excluded from research, health promoting resources, and quality care.</p>
+      </div>
+
+      <div class="honors-timeline">
+        <div class="honor-item">
+          <div class="honor-year">2026</div>
+          <div class="honor-content"><h4>Fellow, American Academy of Social Work and Social Welfare (FAASWSW)</h4></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2025</div>
+          <div class="honor-content"><h4>Top 2% of Scientists Worldwide (2024 data)</h4><p>Elsevier and Stanford University</p></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2025</div>
+          <div class="honor-content"><h4>Ina Bolton Brown Humanitarian Award</h4><p>Top Ladies of Distinction, Inc., Area VI</p></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2024</div>
+          <div class="honor-content"><h4>Delta Rho Chapter, Delta Omega Honorary Society in Public Health</h4></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2024</div>
+          <div class="honor-content"><h4>CA Black Women's Trailblazer Hall of Fame Legacy Award</h4><p>CA Black Women's Collective Empowerment Institute</p></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2023</div>
+          <div class="honor-content"><h4>Top 2% of Scientists Worldwide (2023 data)</h4><p>Elsevier and Stanford University</p></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2023</div>
+          <div class="honor-content"><h4>Honored Presenter, NIMH 75th Anniversary Celebration</h4><p>National Institute of Mental Health</p></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2022</div>
+          <div class="honor-content"><h4>NIMH James Jackson Memorial Award</h4><p>National Institute of Mental Health</p></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2022</div>
+          <div class="honor-content"><h4>Top 2% of Scientists Worldwide (2022 data)</h4><p>Elsevier and Stanford University</p></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2019</div>
+          <div class="honor-content"><h4>Maxwell A. Pollack Award for Productive Aging</h4><p>Gerontological Society of America</p></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2014</div>
+          <div class="honor-content"><h4>Fellow, The Gerontological Society of America (FGSA)</h4><p>Washington, DC</p></div>
+        </div>
+
+        <div class="honor-item">
+          <div class="honor-year">2014</div>
+          <div class="honor-content"><h4>Ranked 3rd, Most Influential African American Social Work Scholars in the U.S.</h4><p>Research on Social Work Practice</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTOR & EDUCATOR -->
+  <section class="section-pad mentor">
+    <div class="container-narrow" style="text-align:center">
+      <div class="mentor-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <span class="sec-eyebrow"><i class="fa-solid fa-chalkboard-user"></i> &nbsp;Mentor &amp; Educator</span>
+      <h2 class="sec-h2">Cultivating the <span>Next Generation</span></h2>
+      <p class="sec-sub">Teaching · Mentorship · Doctoral Training</p>
+
+      <div class="mentor-grid">
+        <p>A dedicated mentor and educator, Dr. Lincoln has helped prepare the next generation of health equity scholars, public health professionals, social workers, and community-engaged researchers. Her mentorship spans doctoral students, postdoctoral fellows, early-career faculty, community health professionals, undergraduate students, MPH students, and CEHDR RISE Fellows.</p>
+
+        <p>Her mentoring has taken place through national programs including the NIH Health Policy Research Scholars Program, NIH Research Centers for Minority Aging Research, the Program to Increase Diversity in Behavioral Medicine and Sleep Research, and her own Lincoln Lab at UC Irvine. Many of her former mentees now hold faculty and leadership positions in schools of public health, social work, and related fields, carrying forward research and advocacy that advances health equity in communities across the country.</p>
+
+        <p>Dr. Lincoln’s teaching and mentorship reflect the same values that guide her research: equity, rigor, accountability, and a commitment to dismantling the structural roots of health inequality.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+</body>
+</html>

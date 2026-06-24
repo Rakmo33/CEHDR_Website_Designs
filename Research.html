@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Our Research Framework – CEHDR | UC Irvine</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Roboto+Slab:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+.wp-block-columns, .wp-block-column, .wp-block-column>div { 
+  margin: 0 !important;
+}
+
+/* =========================================================
+   CEHDR Research Framework Page — Scoped for WordPress
+   Wrapper: .cehdr-research-page
+========================================================= */
+
+.cehdr-research-page,
+.cehdr-research-page *,
+.cehdr-research-page *::before,
+.cehdr-research-page *::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+.cehdr-research-page{
+  --uci-blue:#0064A4;
+  --uci-navy:#003A63;
+  --uci-gold:#FFD200;
+  --uci-purple:#7c109a;
+  --uci-magenta:#d462ad;
+  --uci-reflection:#00558C;
+  --uci-pacific:#4A9BA8;
+  --uci-teal:#7EBEC5;
+  --uci-eucalyptus:#4F6F52;
+  --uci-sage:#7A9A7E;
+  --uci-persimmon:#C95A2E;
+  --uci-mesa:#B25618;
+  --uci-amber:#C99A2E;
+  --light-blue:#EEF5FB;
+  --text:#1a2332;
+  --muted:#5a6a7a;
+  --white:#fff;
+  --nav-h:64px;
+
+  font-family:'Arimo',sans-serif;
+  color:var(--text);
+  background:var(--white);
+  overflow-x:hidden;
+  width:100%;
+}
+
+.cehdr-research-page .container{
+  max-width:1140px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+.cehdr-research-page .container-narrow{
+  max-width:1040px;
+  margin:0 auto;
+  padding:0 28px;
+}
+
+/* HERO */
+.cehdr-research-page .hero{
+  position:relative;
+  min-height:480px;
+  display:flex;
+  align-items:center;
+  padding:40px 0;
+  overflow:hidden;
+  color:#fff;
+  background-color:#001428;
+  background-image:
+    linear-gradient(135deg,rgba(0,20,40,.62) 0%,rgba(0,45,85,.48) 40%,rgba(0,58,99,.42) 70%,rgba(0,91,154,.38) 100%),
+    url('https://sites.uci.edu/cehdr/files/2026/06/Research-Page-Image-1_Image-Jun-17-2026-01_27_59-PM-1.png');
+  background-size:cover, contain;
+  background-position:center, center;
+  background-repeat:no-repeat, no-repeat;
+  background-attachment:scroll;
+}
+
+.cehdr-research-page .hero::before{
+  content:'';
+  position:absolute;
+  top:-100px;
+  right:-80px;
+  width:480px;
+  height:480px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,210,0,.12),transparent 70%);
+  pointer-events:none;
+}
+
+.cehdr-research-page .hero::after{
+  content:'';
+  position:absolute;
+  bottom:-80px;
+  left:-60px;
+  width:340px;
+  height:340px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(126,190,197,.16),transparent 70%);
+  pointer-events:none;
+}
+
+.cehdr-research-page .hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:840px;
+  margin: auto;
+  text-align: center;
+}
+
+.cehdr-research-page .hero h1{
+  font-family:'Roboto Slab',serif;
+  font-size:clamp(2.6rem,5vw,4rem);
+  font-weight:900;
+  line-height:1.05;
+  letter-spacing:-.015em;
+  text-shadow:0 2px 14px rgba(0,20,40,.5);
+  color:#fff;
+}
+
+/* INTRO */
+.cehdr-research-page .intro{
+  background:#fff;
+  padding:40px 0;
+}
+
+.cehdr-research-page .intro-inner{
+  max-width:880px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.cehdr-research-page .intro-kicker{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  font-size:1.3rem;
+  font-weight:700;
+  letter-spacing:.16em;
+  color:var(--uci-pacific);
+  margin-bottom:14px;
+}
+
+.cehdr-research-page .intro p{
+  font-size:1.05rem;
+  color:var(--muted);
+  line-height:1.85;
+}
+
+/* QUICK NAV PILLS */
+.cehdr-research-page .theme-nav{
+  background:var(--uci-navy);
+  position:sticky;
+  top:0;
+  z-index:900;
+  padding:16px 0;
+  box-shadow:0 4px 20px rgba(0,0,0,.18);
+}
+
+.cehdr-research-page .theme-nav-inner{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.cehdr-research-page .theme-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:.8rem;
+  font-weight:700;
+  color:rgba(255,255,255,.85);
+  text-decoration:none;
+  padding:9px 18px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:30px;
+  transition:all .25s;
+}
+
+.cehdr-research-page .theme-pill:hover{
+  background:var(--uci-gold);
+  color:var(--uci-navy);
+  border-color:var(--uci-gold);
+  transform:translateY(-2px);
+}
+
+.cehdr-research-page .theme-pill i{
+  font-size:.85rem;
+}
+
+/* THEME SECTIONS */
+.cehdr-research-page .theme{
+  padding:40px 0;
+  scroll-margin-top:120px;
+}
+
+.cehdr-research-page .theme:nth-of-type(even){
+  background:linear-gradient(160deg,#fff 0%,var(--light-blue) 100%);
+}
+
+.cehdr-research-page .theme:nth-of-type(odd){
+  background:#fff;
+}
+
+.cehdr-research-page .theme-grid{
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.cehdr-research-page .theme:nth-of-type(even) .theme-img{
+  order:2;
+}
+
+.cehdr-research-page .theme:nth-of-type(even) .theme-body{
+  order:1;
+}
+
+.cehdr-research-page .theme-img{
+  position:relative;
+  aspect-ratio:4/3;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 22px 60px rgba(0,58,99,.22);
+}
+
+.cehdr-research-page .theme-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .7s;
+}
+
+.cehdr-research-page .theme-img:hover img{
+  transform:scale(1.05);
+}
+
+.cehdr-research-page .theme-img::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 55%,rgba(0,30,60,.28));
+  pointer-events:none;
+}
+
+.cehdr-research-page .theme-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.cehdr-research-page .theme-icon{
+  width:54px;
+  height:54px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.4rem;
+  color:#fff;
+  flex-shrink:0;
+}
+
+.cehdr-research-page .theme-title{
+  font-family:'Roboto Slab',serif;
+  font-weight:900;
+  font-size:clamp(1.8rem,3vw,2.4rem);
+  color:var(--uci-navy);
+  line-height:1.1;
+  letter-spacing:-.015em;
+}
+
+.cehdr-research-page .intro-kicker.theme-title{
+  font-family:'Roboto Slab',serif;
+  font-weight:900;
+  font-size:clamp(2.4rem,3vw,2.8rem);
+  color:var(--uci-navy);
+  line-height:1.1;
+  letter-spacing:-.015em;
+  margin:34px 0;
+}
+
+.cehdr-research-page .theme-desc{
+  font-size:.98rem;
+  color:var(--muted);
+  line-height:1.82;
+  margin:16px 0 24px;
+}
+
+.cehdr-research-page .focus-box{
+  background:rgba(0,100,164,.04);
+  border:1px solid #e0eaf2;
+  border-left:5px solid var(--uci-gold);
+  border-radius:0 14px 14px 0;
+  padding:22px 26px;
+}
+
+.cehdr-research-page .focus-title{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-family:'Roboto Slab',serif;
+  font-weight:700;
+  font-size:.82rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--uci-navy);
+  margin-bottom:14px;
+}
+
+.cehdr-research-page .focus-list{
+  list-style:none;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px 22px;
+}
+
+.cehdr-research-page .focus-list li{
+  display:flex;
+  align-items:flex-start;
+  gap:9px;
+  font-size:.88rem;
+  color:var(--text);
+  line-height:1.5;
+}
+
+.cehdr-research-page .focus-list li i{
+  color:var(--uci-blue);
+  font-size:.7rem;
+  margin-top:5px;
+  flex-shrink:0;
+}
+
+/* Per-theme accent colors */
+.cehdr-research-page #community .theme-icon{
+  background:linear-gradient(135deg,var(--uci-purple),var(--uci-magenta));
+}
+
+.cehdr-research-page #place .theme-icon{
+  background:linear-gradient(135deg,var(--uci-eucalyptus),var(--uci-sage));
+}
+
+.cehdr-research-page #equity .theme-icon{
+  background:linear-gradient(135deg,var(--uci-pacific),var(--uci-teal));
+}
+
+.cehdr-research-page #justice .theme-icon{
+  background:linear-gradient(135deg,var(--uci-mesa),var(--uci-persimmon));
+}
+
+.cehdr-research-page #well-being .theme-icon{
+  background:linear-gradient(135deg,var(--uci-navy),var(--uci-blue));
+}
+
+/* CTA */
+.cehdr-research-page .cta-section{
+  background:linear-gradient(135deg,#000814 0%,var(--uci-navy) 60%,#005080 100%);
+  color:#fff;
+  text-align:center;
+  padding:40px 0;
+  position:relative;
+  overflow:hidden;
+}
+
+.cehdr-research-page .cta-section::after{
+  content:'';
+  position:absolute;
+  top:-60px;
+  right:-40px;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,210,0,.12),transparent 70%);
+}
+
+.cehdr-research-page .cta-inner{
+  position:relative;
+  z-index:2;
+}
+
+.cehdr-research-page .cta-section h2{
+  font-family:'Roboto Slab',serif;
+  font-size:clamp(1.8rem,3vw,2.4rem);
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+.cehdr-research-page .cta-section h2 span{
+  background:linear-gradient(135deg,var(--uci-gold),#ffc700);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  -webkit-text-fill-color:transparent;
+}
+
+.cehdr-research-page .cta-section p{
+  color:rgba(255,255,255,.78);
+  max-width:560px;
+  margin:0 auto 28px;
+  line-height:1.7;
+  font-size:.95rem;
+}
+
+.cehdr-research-page .btn-gold-lg{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:15px 38px;
+  background:linear-gradient(135deg,var(--uci-gold),#ffc700);
+  color:var(--uci-navy);
+  font-weight:700;
+  font-size:.95rem;
+  text-decoration:none;
+  border-radius:50px;
+  box-shadow:0 8px 28px rgba(255,210,0,.5);
+  transition:all .3s;
+}
+
+.cehdr-research-page .btn-gold-lg:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 18px 46px rgba(255,210,0,.7);
+}
+
+/* ANIMATIONS */
+.cehdr-research-page .fade-up{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+
+.cehdr-research-page .fade-left{
+  opacity:0;
+  transform:translateX(-28px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+
+.cehdr-research-page .fade-right{
+  opacity:0;
+  transform:translateX(28px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+
+.cehdr-research-page .animated{
+  opacity:1!important;
+  transform:none!important;
+}
+
+/* =========================================================
+   WordPress Heading Overrides — scoped to research page only
+========================================================= */
+
+.cehdr-research-page h1,
+.cehdr-research-page h2,
+.cehdr-research-page h3,
+.cehdr-research-page h4{
+  font-family:'Roboto Slab',serif !important;
+  text-transform:none !important;
+  letter-spacing:-0.015em !important;
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+
+.cehdr-research-page h1,
+.cehdr-research-page .hero h1{
+  font-family:'Roboto Slab',serif !important;
+  font-size:clamp(2.6rem,5vw,4rem) !important;
+  font-weight:900 !important;
+  line-height:1.05 !important;
+  letter-spacing:-0.015em !important;
+  color:#ffffff !important;
+  margin:0 !important;
+  padding:0 !important;
+  text-shadow:0 2px 14px rgba(0,20,40,.5) !important;
+}
+
+.cehdr-research-page .intro-kicker.theme-title,
+.cehdr-research-page .intro h2{
+  font-family:'Roboto Slab',serif !important;
+  font-size:clamp(2.4rem,3vw,2.8rem) !important;
+  font-weight:900 !important;
+  line-height:1.1 !important;
+  letter-spacing:-0.015em !important;
+  color:var(--uci-navy,#003A63) !important;
+  margin:34px 0 !important;
+  padding:0 !important;
+  text-transform:none !important;
+}
+
+.cehdr-research-page h2,
+.cehdr-research-page .theme-title{
+  font-family:'Roboto Slab',serif !important;
+  font-size:clamp(1.8rem,3vw,2.4rem) !important;
+  font-weight:900 !important;
+  line-height:1.1 !important;
+  letter-spacing:-0.015em !important;
+  color:var(--uci-navy,#003A63) !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+.cehdr-research-page .cta-section h2{
+  font-family:'Roboto Slab',serif !important;
+  font-size:clamp(1.8rem,3vw,2.4rem) !important;
+  font-weight:900 !important;
+  line-height:1.15 !important;
+  color:#ffffff !important;
+  margin:0 0 14px 0 !important;
+  padding:0 !important;
+}
+
+.cehdr-research-page .cta-section h2 span{
+  background:linear-gradient(135deg,var(--uci-gold,#FFD200),#ffc700) !important;
+  -webkit-background-clip:text !important;
+  background-clip:text !important;
+  color:transparent !important;
+  -webkit-text-fill-color:transparent !important;
+}
+
+.cehdr-research-page h3{
+  font-family:'Roboto Slab',serif !important;
+  font-size:1.25rem !important;
+  font-weight:900 !important;
+  line-height:1.3 !important;
+  color:var(--uci-navy,#003A63) !important;
+  margin:0 0 10px 0 !important;
+  padding:0 !important;
+}
+
+.cehdr-research-page .focus-title{
+  font-family:'Roboto Slab',serif !important;
+  font-weight:700 !important;
+  font-size:.82rem !important;
+  line-height:1.3 !important;
+  letter-spacing:.1em !important;
+  text-transform:uppercase !important;
+  color:var(--uci-navy,#003A63) !important;
+  margin:0 0 14px 0 !important;
+  padding:0 !important;
+}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .cehdr-research-page .hero{
+    min-height:340px;
+    background-attachment:scroll;
+  }
+
+  .cehdr-research-page .theme-grid{
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+
+  .cehdr-research-page .theme:nth-of-type(even) .theme-img,
+  .cehdr-research-page .theme:nth-of-type(even) .theme-body{
+    order:unset;
+  }
+}
+
+@media(max-width:600px){
+  .cehdr-research-page .container,
+  .cehdr-research-page .container-narrow{
+    padding:0 22px;
+  }
+
+  .cehdr-research-page .hero{
+    min-height:300px;
+  }
+
+  .cehdr-research-page .focus-list{
+    grid-template-columns:1fr;
+  }
+
+  .cehdr-research-page .theme{
+    padding:40px 0;
+  }
+
+  .cehdr-research-page .theme-nav{
+    position:relative;
+    top:auto;
+  }
+
+  .cehdr-research-page .theme-pill{
+    font-size:.74rem;
+    padding:8px 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cehdr-research-page .fade-up,
+  .cehdr-research-page .fade-left,
+  .cehdr-research-page .fade-right{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="cehdr-research-page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <h1>Our Research <span>Framework</span></h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- THEME QUICK NAV -->
+  <nav class="theme-nav">
+    <div class="container theme-nav-inner">
+      <a class="theme-pill" href="#community"><i class="fa-solid fa-people-group"></i> Community</a>
+      <a class="theme-pill" href="#place"><i class="fa-solid fa-location-dot"></i> Place</a>
+      <a class="theme-pill" href="#equity"><i class="fa-solid fa-scale-balanced"></i> Equity</a>
+      <a class="theme-pill" href="#justice"><i class="fa-solid fa-gavel"></i> Justice</a>
+      <a class="theme-pill" href="#well-being"><i class="fa-solid fa-heart-pulse"></i> Well-Being</a>
+    </div>
+  </nav>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="container intro-inner fade-up">
+      <h2 class="intro-kicker theme-title"><i class="fa-solid fa-seedling"></i> Advancing Environmental Justice</h2>
+      <p>We conduct research to advance environmental justice by addressing environmental health inequities resulting from environmental racism and harmful environmental exposures. Our work focuses on educating the public, empowering communities, and developing sustainable interventions to reduce disparities in health impacts disproportionately affecting minoritized communities. Through community-driven research and advocacy, we aim to challenge systemic injustices, inform policy change, and create healthier, more equitable environments for all.</p>
+    </div>
+  </section>
+
+  <!-- 1. COMMUNITY -->
+  <section class="theme" id="community">
+    <div class="container-narrow">
+      <div class="theme-grid">
+        <div class="theme-img fade-left">
+          <img src="https://sites.uci.edu/cehdr/files/2026/06/Research-Area-1.png" alt="Community-engaged research">
+        </div>
+
+        <div class="theme-body fade-right">
+          <div class="theme-eyebrow">
+            <div class="theme-icon"><i class="fa-solid fa-people-group"></i></div>
+            <div><h2 class="theme-title">Community</h2></div>
+          </div>
+
+          <p class="theme-desc">Research is strongest when it is shaped by the people it seeks to serve. We partner with residents, community organizations, health systems, and public leaders to ensure that community voices inform every stage of the research process. Through community-engaged research and collaborative partnerships, we work to develop solutions that are relevant, responsive, and rooted in lived experience.</p>
+
+          <div class="focus-box">
+            <div class="focus-title"><i class="fa-solid fa-bullseye"></i> Areas of Focus</div>
+            <ul class="focus-list">
+              <li><i class="fa-solid fa-circle"></i> Community-engaged research</li>
+              <li><i class="fa-solid fa-circle"></i> Citizen panels</li>
+              <li><i class="fa-solid fa-circle"></i> Community advisory boards</li>
+              <li><i class="fa-solid fa-circle"></i> Research translation &amp; dissemination</li>
+              <li><i class="fa-solid fa-circle"></i> Public engagement &amp; partnership development</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PLACE -->
+  <section class="theme" id="place">
+    <div class="container-narrow">
+      <div class="theme-grid">
+        <div class="theme-img fade-right">
+          <img src="https://sites.uci.edu/cehdr/files/2026/06/Research-Area-2.png" alt="Neighborhood and environment">
+        </div>
+
+        <div class="theme-body fade-left">
+          <div class="theme-eyebrow">
+            <div class="theme-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div><h2 class="theme-title">Place</h2></div>
+          </div>
+
+          <p class="theme-desc">Health is shaped by the environments where people live, work, learn, play, and age. We study how neighborhood conditions, environmental exposures, climate-related risks, and access to community resources influence health and contribute to inequities across populations. Our goal is to understand how place shapes opportunity and well-being throughout the lifespan.</p>
+
+          <div class="focus-box">
+            <div class="focus-title"><i class="fa-solid fa-bullseye"></i> Areas of Focus</div>
+            <ul class="focus-list">
+              <li><i class="fa-solid fa-circle"></i> Environmental exposures</li>
+              <li><i class="fa-solid fa-circle"></i> Neighborhood conditions</li>
+              <li><i class="fa-solid fa-circle"></i> Air quality and pollution</li>
+              <li><i class="fa-solid fa-circle"></i> Climate and health</li>
+              <li><i class="fa-solid fa-circle"></i> Housing &amp; the built environment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. EQUITY -->
+  <section class="theme" id="equity">
+    <div class="container-narrow">
+      <div class="theme-grid">
+        <div class="theme-img fade-left">
+          <img src="https://sites.uci.edu/cehdr/files/2026/06/Research-Area-3.png" alt="Health equity research">
+        </div>
+
+        <div class="theme-body fade-right">
+          <div class="theme-eyebrow">
+            <div class="theme-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+            <div><h2 class="theme-title">Equity</h2></div>
+          </div>
+
+          <p class="theme-desc">Achieving health equity requires understanding and addressing the systems and structures that shape health. Our research examines how social, economic, political, and environmental conditions influence health outcomes and contribute to disparities. By identifying the root causes of inequities, we generate evidence that supports more equitable policies, programs, and practices.</p>
+
+          <div class="focus-box">
+            <div class="focus-title"><i class="fa-solid fa-bullseye"></i> Areas of Focus</div>
+            <ul class="focus-list">
+              <li><i class="fa-solid fa-circle"></i> Social determinants of health</li>
+              <li><i class="fa-solid fa-circle"></i> Structural determinants of health</li>
+              <li><i class="fa-solid fa-circle"></i> Health disparities</li>
+              <li><i class="fa-solid fa-circle"></i> Racial and ethnic inequities</li>
+              <li><i class="fa-solid fa-circle"></i> Population health</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. JUSTICE -->
+  <section class="theme" id="justice">
+    <div class="container-narrow">
+      <div class="theme-grid">
+        <div class="theme-img fade-right">
+          <img src="https://sites.uci.edu/cehdr/files/2026/06/Research-Area-4.png" alt="Environmental justice advocacy">
+        </div>
+
+        <div class="theme-body fade-left">
+          <div class="theme-eyebrow">
+            <div class="theme-icon"><i class="fa-solid fa-gavel"></i></div>
+            <div><h2 class="theme-title">Justice</h2></div>
+          </div>
+
+          <p class="theme-desc">All communities deserve the opportunity to live in safe, healthy, and sustainable environments. We work alongside communities disproportionately affected by environmental hazards and social inequities to advance environmental justice through research, partnership, advocacy, and action. Our work seeks to transform evidence into meaningful change that improves health and quality of life.</p>
+
+          <div class="focus-box">
+            <div class="focus-title"><i class="fa-solid fa-bullseye"></i> Areas of Focus</div>
+            <ul class="focus-list">
+              <li><i class="fa-solid fa-circle"></i> Environmental justice</li>
+              <li><i class="fa-solid fa-circle"></i> Community advocacy</li>
+              <li><i class="fa-solid fa-circle"></i> Policy and systems change</li>
+              <li><i class="fa-solid fa-circle"></i> Environmental racism</li>
+              <li><i class="fa-solid fa-circle"></i> Community-driven solutions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WELL-BEING -->
+  <section class="theme" id="well-being">
+    <div class="container-narrow">
+      <div class="theme-grid">
+        <div class="theme-img fade-left">
+          <img src="https://sites.uci.edu/cehdr/files/2026/06/Research-Area-5.png" alt="Well-being across the lifespan">
+        </div>
+
+        <div class="theme-body fade-right">
+          <div class="theme-eyebrow">
+            <div class="theme-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div><h2 class="theme-title">Well-Being</h2></div>
+          </div>
+
+          <p class="theme-desc">Health is more than the absence of disease. We investigate the factors that influence physical, mental, cognitive, and emotional well-being across the lifespan. From brain health and healthy aging to sleep health, stress, and chronic disease, our research seeks to understand the conditions that help individuals and communities thrive.</p>
+
+          <div class="focus-box">
+            <div class="focus-title"><i class="fa-solid fa-bullseye"></i> Areas of Focus</div>
+            <ul class="focus-list">
+              <li><i class="fa-solid fa-circle"></i> Brain health</li>
+              <li><i class="fa-solid fa-circle"></i> Healthy aging and longevity</li>
+              <li><i class="fa-solid fa-circle"></i> Sleep health</li>
+              <li><i class="fa-solid fa-circle"></i> Stress and psychosocial factors</li>
+              <li><i class="fa-solid fa-circle"></i> Chronic disease prevention &amp; management</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="cta">
+    <div class="container-narrow cta-inner">
+      <h2>Partner With Us to <span>Advance Health Equity</span></h2>
+      <p>Explore our publications, connect with our researchers, or support community-driven research that creates healthier, more equitable environments for all.</p>
+      <a class="btn-gold-lg" href="https://cehdr.publichealth.uci.edu/supportcehdr/" target="_blank" rel="noopener">
+        <i class="fa-solid fa-gift"></i> Make an Impact
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const cehdrResearchPage = document.querySelector('.cehdr-research-page');
+
+if (cehdrResearchPage) {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('animated');
+    });
+  }, { threshold: 0.12 });
+
+  cehdrResearchPage
+    .querySelectorAll('.fade-up,.fade-left,.fade-right')
+    .forEach(el => obs.observe(el));
+}
+</script>
+
+</body>
+</html>
