@@ -153,6 +153,23 @@ h3:not(.h):not([class*=is-style-h-])+p {
 .cehdr-home .hp-num{font-family:'Roboto Slab',serif;font-size:1.2rem;font-weight:900;color:var(--navy);line-height:1}
 .cehdr-home .hp-bot .hp-num{color:var(--gold)}.cehdr-home .hp-lbl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:2px}
 .cehdr-home .hp-bot .hp-lbl{color:rgba(255,255,255,.6)}
+.cehdr-home .hero-newsletter{margin-top:14px;position:relative;z-index:6}
+.cehdr-home .btn-newsletter{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:9px 20px;font-size:.82rem;font-weight:700;
+  color:#fff;text-decoration:none;border-radius:8px;
+  background:rgba(126,190,197,.16);
+  border:1px solid rgba(126,190,197,.4);
+  transition:all .25s;
+}
+.cehdr-home .btn-newsletter:hover{
+  background:rgba(126,190,197,.28);
+  border-color:var(--teal);
+  transform:translateY(-2px);
+  box-shadow:0 8px 22px rgba(126,190,197,.25);
+}
+
+.cehdr-home .btn-newsletter i{color:var(--gold)}
 
 /* STATS */
 .cehdr-home .stats-section{background:linear-gradient(180deg,var(--light-blue) 0%,#fff 100%);padding:56px 0}
@@ -352,6 +369,62 @@ h3:not(.h):not([class*=is-style-h-])+p {
   .cehdr-home .impact-stats{gap:24px}
   .cehdr-home .hero-masthead{gap:8px}
 }
+
+/* NEWSLETTER SUBSCRIBE — vibrant gold band, navy text, vertical, no email field */
+.cehdr-home .newsletter-section{
+  position:relative;overflow:hidden;padding:60px 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255,255,255,.45), transparent 42%),
+    radial-gradient(circle at 82% 78%, rgba(0,58,99,.10), transparent 45%),
+    linear-gradient(135deg,#ffdf3b 0%,var(--gold) 40%,#ffc400 100%);
+}
+/* faint dot texture so it isn't a flat block */
+.cehdr-home .newsletter-section::before{
+  content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(0,58,99,.10) 1.5px, transparent 1.6px);
+  background-size:22px 22px;
+}
+/* crisp divider from the dark impact section above it */
+.cehdr-home .newsletter-section::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--navy),var(--blue),var(--navy))
+}
+
+.cehdr-home .nl-glow{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none}
+.cehdr-home .nl-glow-1{width:320px;height:320px;background:radial-gradient(circle,rgba(255,255,255,.5),transparent 70%);top:-90px;right:-50px}
+.cehdr-home .nl-glow-2{width:260px;height:260px;background:radial-gradient(circle,rgba(0,58,99,.14),transparent 70%);bottom:-80px;left:-40px}
+
+.cehdr-home .nl-inner{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px
+}
+/* white halo behind the navy icon = more polished, matches wireframe circle */
+.cehdr-home .nl-icon{
+  width:76px;height:76px;border-radius:50%;margin-bottom:10px;
+  background:var(--navy);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-size:1.75rem;
+  box-shadow:0 0 0 8px rgba(255,255,255,.55),0 12px 30px rgba(0,58,99,.32)
+}
+.cehdr-home .nl-inner .sec-eyebrow{color:var(--navy);position:relative;padding-bottom:8px}
+.cehdr-home .nl-inner .sec-eyebrow::after{
+  content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  width:46px;height:3px;border-radius:2px;background:var(--navy);opacity:.6
+}
+.cehdr-home .nl-title{
+  font-family:'Roboto Slab',serif;font-weight:900;color:var(--navy);
+  font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.15;letter-spacing:-.015em;margin:6px 0 8px
+}
+.cehdr-home .nl-title span{color:var(--navy)}
+.cehdr-home .nl-sub{font-size:.95rem;color:rgba(0,58,99,.82);line-height:1.65;max-width:560px;margin-bottom:14px}
+.cehdr-home .nl-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:15px 36px;background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff;font-weight:700;font-size:.92rem;border:none;border-radius:8px;
+  text-decoration:none;cursor:pointer;letter-spacing:.02em;
+  box-shadow:0 10px 26px rgba(0,58,99,.4);transition:all .25s
+}
+.cehdr-home .nl-btn:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(0,58,99,.55)}
+.cehdr-home .nl-btn i{font-size:.95rem;color:var(--gold)}
 </style>
 
 <div class="cehdr-home">
@@ -385,6 +458,14 @@ h3:not(.h):not([class*=is-style-h-])+p {
         <a class="btn-gold" target="_blank" href="https://cehdr.publichealth.uci.edu/supportcehdr/"><i class="fa-solid fa-gift"></i> Make an Impact</a>
         <a class="btn-ghost-white" target="_blank" href="https://cehdr.publichealth.uci.edu/research/">Explore Our Research <i class="fa-solid fa-arrow-right"></i></a>
       </div>
+      <!-- newsletter button below the two CTAs -->
+      <div class="hero-newsletter">
+        <a class="btn-newsletter" target="_blank" rel="noopener"
+          href="https://mailchi.mp/44bb8be086a9/test-cehdr-newsletter">
+          Summer 2026 Newsletter
+          <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.72rem"></i>
+        </a>
+      </div>    
     </div>
 
     <div class="arc-stroke" aria-hidden="true">
@@ -585,6 +666,21 @@ h3:not(.h):not([class*=is-style-h-])+p {
       <div class="impact-cta fade-up delay-2">
         <a class="btn-gold-lg" href="https://sites.uci.edu/cehdr/supportcehdr/" target="_blank"><i class="fa-solid fa-gift"></i> Give Today</a>
       </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER SUBSCRIBE BANNER -->
+  <section class="newsletter-section" id="newsletter">
+    <div class="nl-glow nl-glow-1"></div>
+    <div class="nl-glow nl-glow-2"></div>
+    <div class="container-narrow nl-inner fade-up">
+      <div class="nl-icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+      <h2 class="nl-title">Subscribe to CEHDR's <br><span>Quarterly Newsletter</span></h2>
+      <p class="nl-sub">Join our mailing list for research updates, community partnerships, events, and data-driven solutions advancing environmental health equity.</p>
+      <a class="nl-btn" target="_blank" rel="noopener"
+        href="https://uci.us15.list-manage.com/subscribe?u=540bb177504fcacd2e0c0fb1a&id=2b532b7609">
+        <i class="fa-solid fa-paper-plane"></i> Subscribe Now
+      </a>
     </div>
   </section>
 
