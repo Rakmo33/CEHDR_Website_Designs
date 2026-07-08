@@ -24,20 +24,15 @@
       flex-direction: column;
       align-items: center;
       margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f4f6f9;
+      color: #222;
 
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box
       }
-
-      body {
-        font-family: 'Segoe UI', Arial, sans-serif;
-        background: #f4f6f9;
-        color: #222
-      }
-
-
 
       nav {
         background: var(--blue);
@@ -115,7 +110,7 @@
         border: 5px solid var(--gold);
         background-image: url("https://sites.uci.edu/cehdr/files/2024/11/Karen-Lincoln-Headshot-2026-scaled.jpeg");
         background-position: center;
-        background-size: contain;
+        background-size: cover;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -211,6 +206,246 @@
         font-style: normal;
         font-weight: 600;
         font-size: .9rem
+      }
+
+      /* Enhanced Dynamic Featured Section Styles */
+      .featured-container {
+        width: 100%;
+        max-width: 1080px;
+        padding: 40px 32px 10px 32px;
+      }
+
+      .featured-title-wrap {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .featured-badge {
+        background: linear-gradient(135deg, var(--navy), var(--blue));
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        padding: 8px 20px;
+        border-radius: 30px;
+        box-shadow: 0 3px 10px rgba(0, 51, 102, 0.2);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .featured-badge::before {
+        content: "⭐";
+        animation: pulse 1.5s infinite;
+      }
+
+      .featured-line {
+        flex: 1;
+        height: 3px;
+        background: linear-gradient(to right, var(--navy), var(--gold), transparent);
+        border-radius: 2px;
+      }
+
+      .featured-card {
+        /* White card + gold-gradient border via double background */
+        background:
+          linear-gradient(#ffffff, #ffffff) padding-box,
+          linear-gradient(135deg, #FFE57A 0%, var(--gold) 40%, #E6B800 75%, #C99A2E 100%) border-box;
+        border: 12px solid transparent;          /* thickness of the gold frame */
+        border-radius: 18px;
+        box-shadow: 0 10px 30px rgba(0, 51, 102, 0.10);
+        overflow: hidden;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        padding: 32px;
+        position: relative;
+        transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+        animation: fadeInFeatured 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+
+      .featured-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(255, 210, 0, 0.28);   /* gold-tinted lift */
+      }
+
+      /* ---- Featured cover image (replaces dashed placeholder) ---- */
+      .featured-image-container {
+        flex: 0 0 300px;
+        min-height: 340px;
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+        box-shadow: 0 8px 22px rgba(0, 51, 102, 0.18);
+        background: linear-gradient(180deg, #fff9d6 0%, #ffeaa7 100%);
+      }
+
+      .featured-cover {
+        width: 100%;
+        height: 100%;
+        min-height: 340px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      .featured-card:hover .featured-cover {
+        transform: scale(1.06);
+      }
+
+      .featured-image-container::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0,51,102,0) 55%, rgba(0,51,102,0.55) 100%);
+        pointer-events: none;
+      }
+
+      .featured-img-caption {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        z-index: 2;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: var(--navy);
+        background: var(--gold);
+        padding: 4px 12px;
+        border-radius: 20px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      }
+
+      .featured-content {
+        flex: 1;
+        min-width: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .featured-meta {
+        font-size: 0.75rem;
+        color: var(--blue);
+        margin-bottom: 8px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .featured-chip {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--blue);
+        background: var(--light);
+        border: 1px solid rgba(0, 100, 164, 0.25);
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 12px;
+      }
+
+      .featured-headline {
+        font-size: 1.55rem;
+        font-weight: 800;
+        color: var(--navy);
+        line-height: 1.3;
+        margin-bottom: 16px;
+        background: linear-gradient(to right, var(--navy), #1a5a8a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .featured-summary {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        color: #333;
+        margin-bottom: 24px;
+      }
+
+      .featured-summary p {
+        margin-bottom: 12px;
+      }
+
+      .featured-summary ul {
+        list-style: none;
+        padding-left: 4px;
+      }
+
+      .featured-summary li {
+        margin-bottom: 10px;
+        position: relative;
+        padding-left: 24px;
+      }
+
+      .featured-summary li::before {
+        content: "★";                     /* solid star reads brighter than ✦ */
+        position: absolute;
+        left: 2px;
+        top: 1px;
+        color: var(--gold);               /* bright brand gold, was dull #d4af37 */
+        font-size: 1rem;
+        text-shadow: 0 0 6px rgba(255, 210, 0, 0.55);   /* subtle glow */
+        font-weight: bold;
+      }
+
+      .featured-action {
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .featured-btn {
+        font-size: .9rem;
+        font-weight: 700;
+        letter-spacing: .3px;
+        color: #fff;
+        background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+        text-decoration: none;
+        padding: 12px 28px;
+        border-radius: 25px;
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 12px rgba(0, 100, 164, 0.3);
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .featured-btn:hover {
+        background: linear-gradient(135deg, var(--navy) 0%, #001f40 100%);
+        transform: translateY(-2px) translateX(4px);
+        box-shadow: 0 6px 16px rgba(0, 51, 102, 0.4);
+      }
+
+      /* Subtle Animations */
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.15); opacity: 0.8; }
+      }
+
+      @keyframes fadeInFeatured {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @media (max-width: 768px) {
+        .featured-card {
+          padding: 24px;
+          gap: 20px;
+        }
+        .featured-image-container {
+          flex: 1 1 100%;
+          min-height: 220px;
+        }
       }
 
       .controls {
@@ -504,6 +739,41 @@
         color."
         <cite>— Dr. Karen D. Lincoln, CEHDR Director</cite>
       </blockquote>
+    </div>
+
+    <!-- Enhanced Highly Visual Featured Section Container -->
+    <div class="featured-container">
+      <div class="featured-title-wrap">
+        <span class="featured-badge">Featured Spotlight</span>
+        <div class="featured-line"></div>
+      </div>
+      <div class="featured-card">
+        <!-- Featured cover image -->
+        <div class="featured-image-container">
+          <img
+            class="featured-cover"
+            src="https://sites.uci.edu/cehdr/files/2026/07/caregiving-article-cove-rimage.png"
+            alt="Caregiving stress, social dynamics, and sleep health for Black Americans — CEHDR research cover">
+        </div>
+        <div class="featured-content">  
+          <div>
+            <div class="featured-meta">Latest Publication</div>
+            <span class="featured-chip">💤 Sleep Health &amp; Caregiving</span>
+            <h2 class="featured-headline">Caregiving Stress and Sleep Health: <br>Exploring the Influence of Religious Involvement and Negative Social Interactions</h2>
+            <div class="featured-summary">
+              <p>An essential new study unpacks how intense cultural expectations, home environments, and daily workload overload heavily challenge Black American family caregivers. Key insights show:</p>
+              <ul>
+                <li><strong>The Toll on Sleep:</strong> Deep home caregiving demands link directly to severe, disproportionate sleep deficiencies and insomnia.</li>
+                <li><strong>Complex Faith Dynamics:</strong> Traditional community structures like broad church attendance do not automatically shield individual physical or sleep health from acute chronic stress.</li>
+                <li><strong>Interpersonal Strains:</strong> Tense day-to-day encounters between caregivers and care recipients play a foundational role in overnight sleep degradation.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="featured-action">
+            <a href="https://www.tandfonline.com/doi/full/10.1080/00380237.2026.2688425" class="featured-btn">Read Full Article &rarr;</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="controls">
