@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<!-- saved from url=(0084)file:///C:/Users/kdlincol/Downloads/three_things_that_matter_most___part_3_of_3.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="./three_things_that_matter_most___part_3_of_3_files/css2" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: #0d1b3e;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  .poster {
+    width: 100%;
+    max-width: 780px;
+    background: #0d1b3e;
+    padding: 28px 28px 20px;
+  }
+
+  /* ── TOP BAND ── */
+  .top-band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .series-pill {
+    background: #c9a227;
+    color: #0d1b3e;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    padding: 4px 11px;
+    border-radius: 20px;
+  }
+  .ornament {
+    color: #c9a227;
+    font-size: 18px;
+    letter-spacing: 6px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .hero-text { flex: 1; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    color: #f0e8d5;
+    line-height: 1.05;
+    margin-top: 4px;
+  }
+  h1 span { color: #c9a227; }
+  .hero-sub {
+    font-size: 13.5px;
+    color: #c8bfa4;
+    line-height: 1.65;
+    margin-top: 10px;
+    max-width: 380px;
+  }
+  .hero-sub strong { color: #f0e8d5; font-weight: 600; }
+  .hero-quote {
+    margin-top: 12px;
+    border-left: 3px solid #c9a227;
+    padding-left: 12px;
+    font-size: 13px;
+    font-style: italic;
+    color: #c9a227;
+    line-height: 1.6;
+    max-width: 370px;
+  }
+
+  /* fake photo panel */
+  .hero-photo {
+    width: 200px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    height: 148px;
+    background: linear-gradient(135deg, #1e3060 0%, #2a1a3a 50%, #0d2a2a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-photo-inner {
+    text-align: center;
+    padding: 16px;
+  }
+  .hero-photo-icon { font-size: 42px; }
+  .hero-photo-label {
+    font-size: 10px;
+    color: rgba(240,232,213,0.6);
+    margin-top: 8px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  /* ── CARDS ── */
+  .cards { display: flex; flex-direction: column; gap: 9px; margin-bottom: 14px; }
+
+  .card {
+    display: flex;
+    align-items: stretch;
+    border-radius: 9px;
+    overflow: hidden;
+    min-height: 86px;
+  }
+  .card-icon-col {
+    width: 76px;
+    min-width: 76px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 8px;
+    gap: 7px;
+  }
+  .num-ring {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid #c9a227;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: #c9a227;
+    flex-shrink: 0;
+  }
+  .icon-glyph { font-size: 22px; line-height: 1; }
+  .card-body { flex: 1; padding: 14px 16px 14px 10px; }
+  .card-eyebrow {
+    display: inline-block;
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+  }
+  .card-title { font-size: 15.5px; font-weight: 700; margin-bottom: 5px; }
+  .card-rule { width: 36px; height: 2px; margin-bottom: 7px; border-radius: 1px; opacity: 0.55; }
+  .card-text { font-size: 12.5px; line-height: 1.65; }
+
+  /* Card 1 — cream */
+  .c1 { background: #f0e5cc; }
+  .c1 .card-icon-col { background: #e0d2b2; }
+  .c1 .num-ring { color: #1a3468; border-color: #1a3468; }
+  .c1 .card-eyebrow { background: #c9a227; color: #0d1b3e; }
+  .c1 .card-title { color: #1a3468; }
+  .c1 .card-rule { background: #1a3468; }
+  .c1 .card-text { color: #2a2a2a; }
+
+  /* Card 2 — maroon */
+  .c2 { background: #3a1628; }
+  .c2 .card-icon-col { background: #2a0e1c; }
+  .c2 .card-eyebrow { background: rgba(201,162,39,0.2); color: #c9a227; border: 1px solid rgba(201,162,39,0.4); }
+  .c2 .card-title { color: #c9a227; }
+  .c2 .card-rule { background: #c9a227; }
+  .c2 .card-text { color: #e8d5c0; }
+
+  /* Card 3 — teal */
+  .c3 { background: #0a3535; }
+  .c3 .card-icon-col { background: #062424; }
+  .c3 .card-eyebrow { background: rgba(94,206,206,0.15); color: #5ecece; border: 1px solid rgba(94,206,206,0.35); }
+  .c3 .card-title { color: #5ecece; }
+  .c3 .card-rule { background: #5ecece; }
+  .c3 .card-text { color: #cce8e8; }
+
+  /* ── CALLOUT ── */
+  .callout {
+    background: rgba(201,162,39,0.10);
+    border: 1px solid rgba(201,162,39,0.3);
+    border-left: 4px solid #c9a227;
+    border-radius: 0 8px 8px 0;
+    padding: 11px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    margin-bottom: 14px;
+  }
+  .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .callout-text { font-size: 12.5px; color: #c8bfa4; line-height: 1.65; }
+  .callout-text em { color: #c9a227; font-style: normal; font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .footer {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border-top: 1px solid rgba(201,162,39,0.25);
+    padding-top: 12px;
+  }
+  .footer-section { flex: 1; }
+  .f-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    color: #c9a227;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .f-body { font-size: 10.5px; color: #a09278; line-height: 1.55; }
+  .f-vline { width: 1px; background: rgba(201,162,39,0.25); align-self: stretch; flex-shrink: 0; }
+  .footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 0 6px;
+    text-align: center;
+  }
+  .logo-hex {
+    width: 38px;
+    height: 38px;
+    background: rgba(201,162,39,0.18);
+    border: 1.5px solid #c9a227;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .logo-name { font-size: 9px; color: #a09278; line-height: 1.3; max-width: 80px; }
+  .logo-uci { font-size: 8.5px; color: #7a8a9a; line-height: 1.3; max-width: 80px; }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- TOP BAND -->
+  <div class="top-band">
+    <div class="series-pill">Part 3 of 3 · Contributions &amp; Implications</div>
+    <div class="ornament">✦ ❧ ✦</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Three Things<br><span>That Matter Most</span></h1>
+      <p class="hero-sub">
+        This study doesn't just describe a problem — it gives us <strong>a new tool to measure it</strong> and a clear case for <strong>what communities must do differently.</strong>
+      </p>
+      <p class="hero-quote">
+        "A protective factor is only protective<br>when caregivers can actually reach it."
+      </p>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-photo-inner">
+        <div class="hero-photo-icon">🙏🏾</div>
+        <div class="hero-photo-label">Caregiving Stress<br>&amp; Sleep Health<br>Among Black<br>Caregivers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARDS -->
+  <div class="cards">
+
+    <!-- Card 1 -->
+    <div class="card c1">
+      <div class="card-icon-col">
+        <div class="num-ring">1</div>
+        <div class="icon-glyph">⛪</div>
+      </div>
+      <div class="card-body">
+        <div class="card-eyebrow">New Measure · First of Its Kind</div>
+        <div class="card-title">Functional Religious Attendance</div>
+        <div class="card-rule"></div>
+        <p class="card-text">This study introduced a brand-new measure — never used before in caregiving research. <em>Functional religious attendance</em> captures not just whether Black caregivers attend services, but whether caregiving responsibilities get in the way. It separates <strong>choosing not to go</strong> from <strong>being unable to go</strong> — a distinction that is especially critical for overburdened communities and for understanding how access to cultural coping resources shapes health outcomes.</p>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card c2">
+      <div class="card-icon-col">
+        <div class="num-ring">2</div>
+        <div class="icon-glyph">💡</div>
+      </div>
+      <div class="card-body">
+        <div class="card-eyebrow">Surprising Finding</div>
+        <div class="card-title">Wanting to Go Isn't the Same as Going</div>
+        <div class="card-rule"></div>
+        <p class="card-text">Caregiving didn't weaken Black caregivers' faith — it blocked their ability to act on it. Role overload reduced actual attendance at religious services, but not how much caregivers valued going. And only <em>actually being present</em> was linked to better sleep. Valuing religion alone offered no significant protection. This challenges a long-held assumption in both research and practice: that believing in the importance of faith is enough to buffer stress. Without access, the protection disappears.</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card c3">
+      <div class="card-icon-col">
+        <div class="num-ring">3</div>
+        <div class="icon-glyph">🤝</div>
+      </div>
+      <div class="card-body">
+        <div class="card-eyebrow">Call to Action</div>
+        <div class="card-title">Faith Communities Must Come to the Caregiver</div>
+        <div class="card-rule"></div>
+        <p class="card-text">When caregivers lose access to their faith community, they lose far more than worship — they lose fellowship, emotional support, and restoration. Some Black caregivers reported feeling abandoned by their church once they could no longer attend. Faith organizations, healthcare providers, and policymakers must close this gap: offer flexible and virtual services, actively reach out to absent congregants, and fund community-based caregiver support. Dementia-friendly churches are already showing the way. <em>The support must go to the caregiver.</em></p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CALLOUT -->
+  <div class="callout">
+    <div class="callout-icon">📌</div>
+    <div class="callout-text">
+      <em>The bottom line:</em> Caregiving stress reshapes daily life, relationships, and access to the very resources that protect health. Addressing sleep disparities among Black caregivers requires recognizing these layered burdens — and designing systems, communities, and research that meet caregivers where they actually are.
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-section">
+      <div class="f-label">📖 Publication</div>
+      <div class="f-body">Caregiving Stress and Sleep Health: Exploring the Influence of Religious Involvement and Negative Social Interactions<br><em>Sociological Focus, 2026</em></div>
+    </div>
+    <div class="f-vline"></div>
+    <div class="footer-section">
+      <div class="f-label">👤 Authors</div>
+      <div class="f-body">Karen D. Lincoln, PhD, MSW, MA, FGSA, FAASWSW<br>Fei Wang, PhD</div>
+    </div>
+    <div class="f-vline"></div>
+    <div class="footer-logo">
+      <div class="logo-hex">🌿</div>
+      <div class="logo-name">Lincoln Lab<br>for Health Equity</div>
+      <div class="logo-uci">UC Irvine · Joe C. Wen School of Population &amp; Public Health</div>
+    </div>
+  </div>
+
+</div>
+
+
+</body></html>
