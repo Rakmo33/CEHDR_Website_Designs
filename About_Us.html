@@ -61,18 +61,28 @@ section{padding:56px 0}
 .story-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px;align-items:center}
 .story-head{text-align:center;max-width:720px;margin:0 auto 40px}
 .story-head .eyebrow{justify-content:center}
+.story-media{min-width:0}
 .story-visual{position:relative;border-radius:24px;overflow:hidden;min-height:440px;box-shadow:0 30px 60px rgba(0,51,102,.18)}
-.story-visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.story-visual .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,34,74,.15),rgba(0,34,74,.72))}
-.story-badges{position:absolute;left:22px;bottom:22px;right:22px;z-index:2;display:flex;flex-wrap:wrap;gap:8px}
-.story-badges .b{background:rgba(255,255,255,.16);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:.72rem;font-weight:700;padding:6px 13px;border-radius:20px}
-.story-est{position:absolute;top:22px;left:22px;z-index:2;background:var(--gold);color:var(--navy);font-weight:800;font-size:.8rem;padding:8px 16px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.story-slide{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transform:scale(1.035);transition:opacity 1.15s ease,transform 6.2s linear}
+.story-slide.active{opacity:1;transform:scale(1);z-index:1}
+.story-est{position:absolute;top:22px;left:22px;z-index:3;background:var(--gold);color:var(--navy);font-weight:800;font-size:.8rem;padding:8px 16px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.story-progress{position:absolute;left:22px;right:92px;bottom:22px;z-index:4;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.story-progress span{height:3px;background:rgba(255,255,255,.38);border-radius:2px;transition:background .3s ease,transform .3s ease;transform-origin:left}
+.story-progress span.active{background:var(--gold);transform:scaleY(1.5)}
+.story-controls{position:absolute;right:18px;bottom:15px;z-index:4;display:flex;gap:5px}
+.story-control{width:30px;height:30px;display:flex;align-items:center;justify-content:center;background:rgba(0,34,74,.34);border:1px solid rgba(255,255,255,.22);border-radius:6px;color:rgba(255,255,255,.78);cursor:pointer;backdrop-filter:blur(5px);transition:background .25s ease,border-color .25s ease,color .25s ease}
+.story-control:hover{background:rgba(0,34,74,.58);border-color:rgba(255,255,255,.4);color:var(--gold)}
+.story-control:focus-visible{outline:2px solid rgba(255,210,0,.55);outline-offset:2px}
+.story-control svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .story h2{font-size:2.3rem;font-weight:800;color:var(--navy);margin:14px 0 18px;letter-spacing:-.5px;line-height:1.12}
 .story p{color:var(--muted);margin-bottom:16px;font-size:1.02rem}.story p strong{color:var(--ink)}
 .chiprow{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.story-media .chiprow{margin-top:18px}
 .chip-tag{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:700;color:var(--navy);background:var(--paper);border:1px solid var(--line);padding:8px 14px;border-radius:22px}
 .chip-tag svg{width:14px;height:14px;stroke:var(--blue)}
 @media(max-width:820px){.story-grid{grid-template-columns:1fr;gap:34px}.story-visual{min-height:320px}}
+@media(max-width:520px){.story-progress{right:88px}}
+@media(prefers-reduced-motion:reduce){.story-slide,.story-progress span,.story-control{transition:none}}
 /* OUR JOURNEY timeline */
 .journey{background:#fff; padding-top:5px;}
 .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
@@ -120,6 +130,75 @@ section{padding:56px 0}
   .vstage{min-height:420px}
   .vcontent{padding:28px}
   .vcontent h3{font-size:1.5rem}
+}
+/* IMPACT HIGHLIGHTS ACCORDIONS */
+/* was: .highlights{...;overflow:hidden} */
+.highlights{background:linear-gradient(180deg,#fff 0%,var(--paper) 100%);position:relative}
+.highlights::before{content:"";position:absolute;width:420px;height:420px;right:-120px;top:8%;background:radial-gradient(circle,rgba(0,100,164,.05),transparent 70%);border-radius:50%;pointer-events:none;z-index:0}
+.highlights::after{content:"";position:absolute;width:360px;height:360px;left:-120px;bottom:10%;background:radial-gradient(circle,rgba(255,210,0,.06),transparent 70%);border-radius:50%;pointer-events:none;z-index:0}
+.highlights .wrap{position:relative;z-index:2}
+.highlights .sec-head{margin-bottom:38px}
+.impact-accordions{display:block;position:relative}
+.hacc{display:contents}
+
+/* Trigger bar */
+.hacc-trigger{position:sticky;top:var(--sticky-top,0px);z-index:12;width:100%;min-height:74px;margin-top:12px;padding:20px 26px;display:grid;grid-template-columns:minmax(190px,.72fr) minmax(220px,1.28fr) 30px;gap:22px;align-items:center;text-align:left;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:14px;cursor:pointer;box-shadow:0 8px 24px rgba(0,51,102,.06);transition:background .35s ease,border-color .35s ease,color .35s ease,box-shadow .35s ease,border-radius .35s ease}
+.hacc:first-child .hacc-trigger{margin-top:0}
+.hacc-trigger::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:3px;border-radius:0 3px 3px 0;background:linear-gradient(180deg,var(--gold),var(--blue));opacity:0;transition:opacity .35s ease,background .35s ease}
+.hacc-trigger:hover{background:#f4f9fc;border-color:#c4d8e6;box-shadow:0 12px 30px rgba(0,51,102,.10)}
+.hacc-trigger:hover::before{opacity:1}
+.hacc-trigger:focus-visible{outline:3px solid rgba(0,100,164,.28);outline-offset:3px}
+.hacc.open .hacc-trigger{color:#fff;background:linear-gradient(105deg,var(--navy) 0%,#00558a 62%,var(--blue) 100%);border-color:transparent;box-shadow:0 14px 34px rgba(0,34,74,.26);border-radius:14px 14px 0 0}
+.hacc.open .hacc-trigger::before{opacity:1;background:var(--gold);top:16px;bottom:16px}
+.hacc-title{font-size:1.12rem;font-weight:800;line-height:1.25;letter-spacing:-.2px}
+.hacc-summary{font-size:.84rem;font-weight:400;color:var(--muted);line-height:1.45}
+.hacc.open .hacc-summary{color:rgba(255,255,255,.78)}
+.hacc-icon{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:rgba(0,100,164,.08);color:var(--blue);transition:background .35s ease,color .35s ease}
+.hacc-trigger:hover .hacc-icon{background:rgba(0,100,164,.15)}
+.hacc.open .hacc-icon{background:rgba(255,210,0,.18);color:var(--gold)}
+.hacc-icon svg{width:18px;height:18px;stroke:currentColor;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.hacc.open .hacc-icon svg{transform:rotate(var(--scroll-rotation,180deg));transition:none}
+
+/* Panel */
+.hacc-panel{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .48s cubic-bezier(.16,1,.3,1),visibility .48s}
+.hacc.open .hacc-panel{grid-template-rows:1fr;visibility:visible}
+.hacc-panel-clip{min-height:0;overflow:hidden;clip-path:inset(0 0 var(--scroll-clip,0%) 0);opacity:var(--scroll-opacity,1);transform:translateY(var(--scroll-shift,0));transform-origin:top}
+.hacc-panel-body{padding:1px;background:var(--line);border:1px solid var(--line);border-top:0;border-radius:0 0 14px 14px;overflow:hidden;box-shadow:0 16px 34px rgba(0,51,102,.09)}
+.hacc-grid{display:grid;gap:1px;background:var(--line)}
+.hacc-grid.three{grid-template-columns:repeat(3,1fr)}
+.hacc-grid.four{grid-template-columns:repeat(2,1fr)}
+.hacc-grid.two{grid-template-columns:repeat(2,1fr)}
+
+/* Tiles */
+.hitem{position:relative;min-width:0;min-height:184px;padding:30px 28px;background:#fff;overflow:hidden;transition:background .3s ease}
+.hitem::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+.hitem:hover{background:linear-gradient(160deg,#f3f9fc 0%,#fff 62%)}
+.hitem:hover::before{transform:scaleX(1)}
+.hitem-top{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.hitem-icon{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;flex:0 0 44px;background:linear-gradient(135deg,rgba(0,51,102,.07),rgba(0,100,164,.11));transition:background .35s ease,box-shadow .35s ease}
+.hitem:hover .hitem-icon{background:linear-gradient(135deg,var(--navy),var(--blue));box-shadow:0 10px 22px rgba(0,51,102,.24)}
+.hitem-icon svg{width:23px;height:23px;fill:none;stroke:var(--blue);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .35s cubic-bezier(.16,1,.3,1),stroke .35s ease}
+.hitem:hover .hitem-icon svg{transform:scale(1.06);stroke:var(--gold)}
+.hitem h3{font-size:1.06rem;font-weight:800;color:var(--navy);line-height:1.28;transition:color .3s ease}
+.hitem:hover h3{color:var(--blue)}
+.hitem p{font-size:.85rem;line-height:1.65;color:#52697b}
+
+@media(max-width:860px){
+  .hacc-trigger{grid-template-columns:minmax(170px,.8fr) 1.2fr 30px;gap:16px}
+  .hacc-grid.three,.hacc-grid.four{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .hacc-trigger{grid-template-columns:1fr 30px;gap:10px;min-height:58px;padding:14px 18px}
+  .hacc-summary{display:none}
+  .hacc-icon{grid-column:2;grid-row:1}
+  .hacc-panel-body{padding:1px}
+  .hacc-grid.three,.hacc-grid.four,.hacc-grid.two{grid-template-columns:1fr}
+  .hitem{min-height:0;padding:24px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hacc-trigger,.hacc-trigger::before,.hacc-icon,.hacc-icon svg,.hacc-panel,.hitem,.hitem::before,.hitem-icon,.hitem-icon svg{transition:none}
+  .hitem:hover,.hitem:hover .hitem-icon svg{transform:none}
+  .hacc-panel-clip{clip-path:none;opacity:1;transform:none}
 }
 /* IMPACT */
 .impact{background:linear-gradient(135deg,#001d3f 0%,var(--deep) 42%,var(--navy) 100%);position:relative;overflow:hidden;color:#fff;padding:72px 0}
@@ -239,13 +318,15 @@ section{padding:56px 0}
 @media(max-width:820px){.mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.tile.big{grid-column:span 2;grid-row:span 2}.tile.wide{grid-column:span 2}.gal-head h2{font-size:1.8rem}.lb .nav{width:44px;height:44px}}
 @media(max-width:480px){.mosaic{grid-template-columns:1fr;grid-auto-rows:200px}.tile.wide,.tile.big{grid-column:span 1}.tile.big{grid-row:span 1}}
 /* CTA */
-.cta{background:linear-gradient(140deg,var(--deep),var(--navy) 55%,var(--blue));color:#fff;position:relative;overflow:hidden;text-align:center}
-.cta::before{content:"";position:absolute;width:560px;height:560px;left:-160px;top:-160px;background:radial-gradient(circle,rgba(255,210,0,.18),transparent 68%);border-radius:50%}
-.cta::after{content:"";position:absolute;width:560px;height:560px;right:-160px;bottom:-160px;background:radial-gradient(circle,rgba(0,150,220,.28),transparent 68%);border-radius:50%}
+.cta{background:linear-gradient(180deg,#fff 0%,var(--paper) 100%);color:var(--ink);position:relative;text-align:center;border-top:1px solid var(--line)}
+.cta::before{content:"";position:absolute;top:-1px;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue))}
+.cta::after{display:none}
 .cta-in{position:relative;z-index:2;max-width:780px;margin:0 auto}
-.cta h2{font-size:2.5rem;font-weight:800;margin:14px 0 14px;line-height:1.1}
-.cta p{color:rgba(255,255,255,.82);font-size:1.08rem}
-.cta .eyebrow{color:var(--gold);justify-content:center}.cta .eyebrow::before{background:var(--gold)}
+.cta h2{font-size:2.3rem;font-weight:800;color:var(--navy);letter-spacing:-.5px;margin:14px 0;line-height:1.1}
+.cta p{color:var(--muted);font-size:1.08rem}
+.cta .eyebrow{color:var(--blue);justify-content:center}.cta .eyebrow::before{background:linear-gradient(90deg,var(--gold),var(--blue))}
+.cta .btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy);box-shadow:0 10px 24px rgba(0,51,102,.1)}
+.cta .btn-ghost:hover{background:var(--paper);box-shadow:0 15px 30px rgba(0,51,102,.16)}
 .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
 </style>
 </head>
@@ -285,15 +366,22 @@ section{padding:56px 0}
       <h2>Built for Communities. Grounded in Trust.</h2>
     </div>
     <div class="story-grid">
-      <div class="story-visual reveal">
-        <img src="https://sites.uci.edu/cehdr/files/2023/09/Karen-Lincoln-Brain-Works-Event-Speaking.png" alt="CEHDR founding story" onerror="this.src='https://placehold.co/900x600/003366/FFD200?text=Our+Story'">
-        <div class="scrim"></div>
-        <div class="story-est">Est. 2021</div>
-      </div>
-      <div class="reveal">
-        <p>The Center for Environmental Health Disparities Research (CEHDR) was established in 2021 through UC Irvine's <strong>Black Thriving Initiative Faculty Cluster Hiring Program</strong> with a bold and explicit mission: to expand scholarship on the health experiences of Black American communities as they relate to environmental justice.</p>
-        <p>From its very founding, CEHDR was designed not as a traditional academic research unit, but as a <strong>community-facing center</strong> — one where research questions emerge from the communities most affected by environmental health disparities, and where findings are translated directly back through education, advocacy, and action.</p>
-        <p>Based in the Joe C. Wen School of Population and Public Health within the Susan and Henry Samueli College of Health Sciences at UC Irvine, CEHDR has grown from a newly established center into a recognized hub for community-engaged environmental health disparities research.</p>
+      <div class="story-media reveal">
+        <div class="story-visual" aria-label="CEHDR community engagement slideshow">
+          <img class="story-slide active" src="https://sites.uci.edu/cehdr/files/2026/07/KDL-LA-Data-Walk-e1784668199601.png" alt="CEHDR community members participating in a Los Angeles Data Walk" aria-hidden="false" onerror="this.src='https://placehold.co/900x600/003366/FFD200?text=Our+Story'">
+          <img class="story-slide" src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_7-scaled-e1784672836417.jpg" alt="Community guests gathered at a CEHDR Brain Works event" aria-hidden="true" onerror="this.src='https://placehold.co/900x600/0064A4/FFD200?text=Community+Engagement'">
+          <img class="story-slide" src="https://sites.uci.edu/cehdr/files/2026/07/260624-Export-UCI_R5IIPear_260613_284A6684-scaled-e1784673002835.jpg" alt="Dr. Karen Lincoln speaking at a Brain Works community event" aria-hidden="true" onerror="this.src='https://placehold.co/900x600/003366/FFD200?text=Community+Leadership'">
+          <img class="story-slide" src="https://sites.uci.edu/cehdr/files/2025/04/Potential-participant_2-scaled.jpg" alt="Dr. Karen Lincoln with students and community partners" aria-hidden="true" onerror="this.src='https://placehold.co/900x600/0064A4/FFD200?text=Students+and+Partners'">
+          <img class="story-slide" src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_6-scaled-e1784673072997.jpg" alt="CEHDR participants at a Riverside Data Walk" aria-hidden="true" onerror="this.src='https://placehold.co/900x600/003366/FFD200?text=Riverside+Data+Walk'">
+          <div class="story-est">Est. 2021</div>
+          <div class="story-progress" aria-hidden="true">
+            <span class="active"></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="story-controls">
+            <button class="story-control story-prev" type="button" aria-label="Previous story image" title="Previous image"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+            <button class="story-control story-next" type="button" aria-label="Next story image" title="Next image"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+          </div>
+        </div>
         <div class="chiprow">
           <span class="chip-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12l2-2 4 4 8-8 4 4"/></svg>Environmental Justice</span>
           <span class="chip-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 18h6M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>Brain Health</span>
@@ -302,6 +390,12 @@ section{padding:56px 0}
           <span class="chip-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3a6 6 0 0 0 0 12 6 6 0 0 1 0-12z"/></svg>Sleep Health</span>
           <span class="chip-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/></svg>Southern California</span>
         </div>
+      </div>
+      <div class="reveal">
+        <p>The Center for Environmental Health Disparities Research (CEHDR) was established in 2021 through UC Irvine's <strong>Black Thriving Initiative Faculty Cluster Hiring Program</strong> with a bold and explicit mission: to expand scholarship on the health experiences of Black American communities as they relate to environmental justice.</p>
+        <p>From its very founding, CEHDR was designed not as a traditional academic research unit, but as a <strong>community-facing center</strong> — one where research questions emerge from the communities most affected by environmental health disparities, and where findings are translated directly back through education, advocacy, and action.</p>
+        <p>That commitment is reflected in community forums, luncheons, citizen panels, Data Walks, and partnerships that invite residents to shape research priorities and identify local concerns. Initiatives such as the <strong>Joy and Pain Community Study</strong> return findings directly to participants and community partners in accessible ways, strengthening trust, partnership, and accountability.</p>
+        <p>Based in the Joe C. Wen School of Population and Public Health within the Susan and Henry Samueli College of Health Sciences at UC Irvine, CEHDR has grown from a newly established center into a recognized hub for community-engaged environmental health disparities research.</p>
       </div>
     </div>
   </div>
@@ -315,10 +409,10 @@ section{padding:56px 0}
       <!-- <h2>From a New Center to a Regional Hub</h2> -->
     </div>
     <div class="timeline reveal">
-      <div class="tstep"><div class="dot"></div><div class="yr">2021</div><p>Founded through UC Irvine's Black Thriving Initiative Faculty Cluster Hiring Program.</p></div>
-      <div class="tstep"><div class="dot"></div><div class="yr">2023</div><p>Began programming and built a modern communications platform from the ground up.</p></div>
-      <div class="tstep"><div class="dot"></div><div class="yr">2024</div><p>Launched community engagement across three counties and the Join the Team &amp; Community Partner initiatives.</p></div>
-      <div class="tstep"><div class="dot"></div><div class="yr">2025–26</div><p>Secured first foundation awards and built a $2M+ competitive external funding pipeline.</p></div>
+      <div class="tstep"><div class="dot"></div><div class="yr">2021</div><p>Founded through UC Irvine's Black Thriving Initiative Faculty Cluster Hiring Program as a community-facing center for environmental health equity.</p></div>
+      <div class="tstep"><div class="dot"></div><div class="yr">2023</div><p>Began programming and built a public scholarship platform through the website, newsletter, social media, and broader media engagement.</p></div>
+      <div class="tstep"><div class="dot"></div><div class="yr">2024</div><p>Expanded community forums, citizen panels, Data Walks, partnerships, and student field training across Southern California.</p></div>
+      <div class="tstep"><div class="dot"></div><div class="yr">2025–26</div><p>Secured early foundation support and built reusable citizen panel, digital mapping, evaluation, training, and field research systems for future studies.</p></div>
     </div>
   </div>
 </section>
@@ -374,6 +468,174 @@ section{padding:56px 0}
   </div>
 </section>
 
+<!-- CEHDR HIGHLIGHTS -->
+<section class="highlights" id="highlights">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How We Work</span>
+      <h2>CEHDR Highlights</h2>
+      <p>Community knowledge, research capacity, public scholarship, and civic action work together to advance environmental health equity.</p>
+    </div>
+
+    <div class="impact-accordions reveal">
+      <div class="hacc open">
+        <button class="hacc-trigger" id="highlight-listen-trigger" type="button" aria-expanded="true" aria-controls="highlight-listen">
+          <span class="hacc-title">Listen &amp; Partner</span>
+          <span class="hacc-summary">Trust, community voice, and sustained partnership</span>
+          <span class="hacc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="hacc-panel" id="highlight-listen" role="region" aria-labelledby="highlight-listen-trigger">
+          <div class="hacc-panel-clip">
+            <div class="hacc-panel-body">
+              <div class="hacc-grid three">
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h16M12 4v16M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></span><h3>Trusted Science</h3></div>
+                  <p>CEHDR brings science directly into communities most affected by environmental health disparities, grounding its work in trust, partnership, and accountability.</p>
+                </article>
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Community First</h3></div>
+                  <p>Forums, luncheons, citizen panels, Data Walks, and community partnerships create space for residents to shape priorities and identify local concerns.</p>
+                </article>
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12h8M12 8v8M4 7h3l2-3h6l2 3h3v13H4z"/></svg></span><h3>Partnership Power</h3></div>
+                  <p>Health systems, civic offices, advocacy groups, faith-based organizations, alumni, and community organizations strengthen trust, recruitment, dissemination, and sustainability.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hacc open">
+        <button class="hacc-trigger" id="highlight-build-trigger" type="button" aria-expanded="true" aria-controls="highlight-build">
+          <span class="hacc-title">Build Capacity</span>
+          <span class="hacc-summary">Students, curriculum, infrastructure, and field readiness</span>
+          <span class="hacc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="hacc-panel" id="highlight-build" role="region" aria-labelledby="highlight-build-trigger">
+          <div class="hacc-panel-clip">
+            <div class="hacc-panel-body">
+              <div class="hacc-grid four">
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 10 9-5 9 5-9 5-9-5zM7 12.5V17c3 2 7 2 10 0v-4.5"/></svg></span><h3>Student Power</h3></div>
+                  <p>Through RISE, field research, citizen panel support, digital mapping, evaluation, and community engagement, students practice community-engaged research in the field.</p>
+                </article>
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Built to Scale</h3></div>
+                  <p>Reusable citizen panel models, facilitator manuals, participant guides, training systems, mapping tools, surveys, and field protocols strengthen future research.</p>
+                </article>
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg></span><h3>Curriculum Connection</h3></div>
+                  <p>Course integration, distinguished lectures, field practicum opportunities, and student training connect community-engaged environmental justice work to Wen School education.</p>
+                </article>
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3>Field Ready</h3></div>
+                  <p>Interviewer training, human subjects protections, biohazard safety, data collection workflows, and community liaison roles support rigorous community-based research.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hacc open">
+        <button class="hacc-trigger" id="highlight-return-trigger" type="button" aria-expanded="true" aria-controls="highlight-return">
+          <span class="hacc-title">Return Knowledge</span>
+          <span class="hacc-summary">Accessible findings and research translated for the public</span>
+          <span class="hacc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="hacc-panel" id="highlight-return" role="region" aria-labelledby="highlight-return-trigger">
+          <div class="hacc-panel-clip">
+            <div class="hacc-panel-body">
+              <div class="hacc-grid two">
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h14M11 6l6 6-6 6M21 5v14"/></svg></span><h3>Research Returned</h3></div>
+                  <p>Research is not complete until it reaches the people it was designed to serve. The Joy and Pain Community Study and related Data Walks return findings directly to participants and partners.</p>
+                </article>
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16M5 19h.01"/></svg></span><h3>Public Scholarship</h3></div>
+                  <p>National media coverage, the redesigned website, quarterly newsletter, and social platforms translate research into public knowledge across environmental justice and health equity topics.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hacc open">
+        <button class="hacc-trigger" id="highlight-advance-trigger" type="button" aria-expanded="true" aria-controls="highlight-advance">
+          <span class="hacc-title">Advance Equity</span>
+          <span class="hacc-summary">Justice, regional reach, civic voice, and well-being</span>
+          <span class="hacc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="hacc-panel" id="highlight-advance" role="region" aria-labelledby="highlight-advance-trigger">
+          <div class="hacc-panel-clip">
+            <div class="hacc-panel-body">
+              <div class="hacc-grid four">
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 7h14M7 7l-4 7h8L7 7zM17 7l-4 7h8l-4-7z"/></svg></span><h3>Justice Driven</h3></div>
+                  <p>Environmental justice shapes CEHDR's research, partnerships, programs, and policy engagement, connecting environmental exposures, structural inequities, and health outcomes.</p>
+                </article>
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0zM12 7v6M9 10h6"/></svg></span><h3>Regional Reach</h3></div>
+                  <p>Community engagement and research activity span Orange County, Los Angeles County, Riverside County, and the Inland Empire.</p>
+                </article>
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></span><h3>Civic Voice</h3></div>
+                  <p>Engagement with elected officials, county partners, and environmental justice advisory leadership extends CEHDR's work into civic and policy decision-making.</p>
+                </article>
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 4A3.5 3.5 0 0 0 6 7.5c0 .4.07.78.2 1.14A3.5 3.5 0 0 0 7.5 15H10v5M14.5 4A3.5 3.5 0 0 1 18 7.5c0 .4-.07.78-.2 1.14A3.5 3.5 0 0 1 16.5 15H14v5M10 8h4M10 12h4"/></svg></span><h3>Brain Health Equity</h3></div>
+                  <p>CEHDR advances brain health, dementia risk, stress, pain, sleep, and aging as environmental health equity issues at the intersection of environment and well-being.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hacc open">
+        <button class="hacc-trigger" id="highlight-sustain-trigger" type="button" aria-expanded="true" aria-controls="highlight-sustain">
+          <span class="hacc-title">Sustain Growth</span>
+          <span class="hacc-summary">Philanthropic opportunity and funding for the next phase</span>
+          <span class="hacc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </button>
+        <div class="hacc-panel" id="highlight-sustain" role="region" aria-labelledby="highlight-sustain-trigger">
+          <div class="hacc-panel-clip">
+            <div class="hacc-panel-body">
+              <div class="hacc-grid two">
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21V10M7 15l5-5 5 5M5 5h14v4H5z"/></svg></span><h3>Donor Momentum</h3></div>
+                  <p>External sponsorships, foundation support, donor interest, and giving opportunities are creating new pathways for long-term sustainability.</p>
+                </article>
+                <article class="hitem">
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19 10 13l4 4 6-10M15 7h5v5"/></svg></span><h3>Funding Forward</h3></div>
+                  <p>Early external funding and opportunities spanning foundation, climate resilience, PCORI, and multi-campus work position CEHDR for its next phase of growth.</p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE WE WORK -->
+<section class="region" id="region">
+  <div class="wrap">
+    <div class="map-wrap reveal">
+      <img src="https://sites.uci.edu/cehdr/files/2026/07/ChatGPT-Image-Jul-17-2026-10_25_33-PM.png" alt="Map of Southern California highlighting Orange, Los Angeles, Riverside Counties, and the Inland Empire" onerror="this.src='https://placehold.co/1200x600/003366/FFD200?text=Where+We+Work'">
+      <div class="mscrim"></div>
+      <div class="map-copy">
+        <span class="eyebrow">Regional Reach</span>
+        <h2>Where We Work</h2>
+        <p>CEHDR has expanded its footprint across Southern California — bringing community-engaged research directly to the people who need it most, spanning Los Angeles, Riverside, San Bernardino, and Orange County regions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- IMPACT (single consolidated metrics section) -->
 <section class="impact" id="impact">
   <div class="wrap">
@@ -403,28 +665,13 @@ section{padding:56px 0}
   </div>
 </section>
 
-<!-- WHERE WE WORK -->
-<section class="region" id="region">
-  <div class="wrap">
-    <div class="map-wrap reveal">
-      <img src="https://sites.uci.edu/cehdr/files/2026/07/ChatGPT-Image-Jul-17-2026-10_25_33-PM.png" alt="Map of Southern California highlighting Orange, Los Angeles, Riverside Counties, and the Inland Empire" onerror="this.src='https://placehold.co/1200x600/003366/FFD200?text=Where+We+Work'">
-      <div class="mscrim"></div>
-      <div class="map-copy">
-        <span class="eyebrow">Regional Reach</span>
-        <h2>Where We Work</h2>
-        <p>CEHDR has expanded its footprint across Southern California — bringing community-engaged research directly to the people who need it most, spanning Los Angeles, Riverside, San Bernardino, and Orange County regions.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="cta" id="cta">
   <div class="wrap cta-in reveal">
     <span class="eyebrow">Get Involved</span>
     <h2>Join the Movement for Health Equity</h2>
     <p style="font-style:italic;margin-top:18px">"Health equity is not achieved through research alone. It is achieved when research is informed by community voices, translated into meaningful action, and used to create opportunities for all people to live healthier lives."</p>
-    <p style="color:var(--gold);font-weight:700;margin-top:12px">— Dr. Karen D. Lincoln, Director, CEHDR</p>
+    <p style="color:var(--navy);font-weight:700;margin-top:12px">— Dr. Karen D. Lincoln, Director, CEHDR</p>
     <div class="cta-actions">
       <a href="https://cehdr.publichealth.uci.edu/supportcehdr/" class="btn btn-gold">Make an Impact</a>
       <a href="http://eepurl.com/fM1Z5e1Vck" class="btn btn-ghost">Subscribe to Our Newsletter</a>
@@ -435,6 +682,44 @@ section{padding:56px 0}
 <script>
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Founding story slideshow */
+const storySlides=[...document.querySelectorAll('.story-slide')];
+const storyProgress=[...document.querySelectorAll('.story-progress span')];
+const storyVisual=document.querySelector('.story-visual');
+const storyPrev=document.querySelector('.story-prev');
+const storyNext=document.querySelector('.story-next');
+const storyReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let storyIndex=0,storyTimer=null;
+function storySet(i){
+  if(!storySlides.length)return;
+  storyIndex=(i+storySlides.length)%storySlides.length;
+  storySlides.forEach((slide,index)=>{
+    const active=index===storyIndex;
+    slide.classList.toggle('active',active);
+    slide.setAttribute('aria-hidden',String(!active));
+  });
+  storyProgress.forEach((bar,index)=>bar.classList.toggle('active',index===storyIndex));
+}
+function storyStop(){clearInterval(storyTimer);storyTimer=null;}
+function storyStart(){
+  storyStop();
+  if(!storyReducedMotion&&storySlides.length>1&&!document.hidden){
+    storyTimer=setInterval(()=>storySet(storyIndex+1),5800);
+  }
+}
+function storyMove(direction){storySet(storyIndex+direction);storyStart();}
+if(storyVisual&&storySlides.length){
+  storyPrev?.addEventListener('click',()=>storyMove(-1));
+  storyNext?.addEventListener('click',()=>storyMove(1));
+  storyVisual.addEventListener('mouseenter',storyStop);
+  storyVisual.addEventListener('mouseleave',storyStart);
+  storyVisual.addEventListener('focusin',storyStop);
+  storyVisual.addEventListener('focusout',storyStart);
+  document.addEventListener('visibilitychange',()=>document.hidden?storyStop():storyStart());
+  storySet(0);
+  storyStart();
+}
 
 /* Vision / Mission / Values showcase + progress bar */
 const vtabs=document.querySelectorAll('.vtab');
@@ -460,6 +745,65 @@ function vStop(){clearInterval(vTimer);if(vbar)vbar.classList.remove('run');}
 vtabs.forEach(t=>t.addEventListener('click',()=>{clearInterval(vTimer);vSet(+t.dataset.i);vTimer=setInterval(()=>vSet((vIndex+1)%vslides.length),6000);}));
 const vshow=document.querySelector('.vshow');
 if(vshow){vshow.addEventListener('mouseenter',vStop);vshow.addEventListener('mouseleave',vStart);vStart();}
+
+/* Scroll-linked impact highlights accordions */
+const highlightSection=document.querySelector('.highlights');
+const highlightAccordions=[...document.querySelectorAll('.hacc')];
+let highlightTicking=false;
+const highlightReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function updateHighlightStickyOffsets(){
+  let offset=0;
+  highlightAccordions.forEach(acc=>{
+    const trigger=acc.querySelector('.hacc-trigger');
+    trigger.style.setProperty('--sticky-top',`${offset}px`);
+    offset+=trigger.offsetHeight;
+  });
+}
+function setHighlightState(acc,isOpen){
+  acc.classList.toggle('open',isOpen);
+  acc.querySelector('.hacc-trigger').setAttribute('aria-expanded',String(isOpen));
+}
+highlightAccordions.forEach(acc=>{
+  const trigger=acc.querySelector('.hacc-trigger');
+  trigger.addEventListener('click',()=>{
+    setHighlightState(acc,!acc.classList.contains('open'));
+    requestAnimationFrame(updateHighlightAccordion);
+  });
+});
+function updateHighlightAccordion(){
+  highlightTicking=false;
+  if(!highlightSection||!highlightAccordions.length||highlightReducedMotion)return;
+  const sectionRect=highlightSection.getBoundingClientRect();
+  if(sectionRect.top>window.innerHeight||sectionRect.bottom<0)return;
+  const collapseRange=Math.max(150,Math.min(250,window.innerHeight*.24));
+  highlightAccordions.forEach(acc=>{
+    const trigger=acc.querySelector('.hacc-trigger');
+    const panel=acc.querySelector('.hacc-panel');
+    const panelClip=acc.querySelector('.hacc-panel-clip');
+    const panelRect=panel.getBoundingClientRect();
+    const stickyBottom=(parseFloat(trigger.style.getPropertyValue('--sticky-top'))||0)+trigger.offsetHeight;
+    const progress=Math.max(0,Math.min(1,(stickyBottom+collapseRange-panelRect.bottom)/collapseRange));
+    trigger.style.setProperty('--scroll-rotation',`${180*(1-progress)}deg`);
+    panelClip.style.setProperty('--scroll-clip',`${progress*100}%`);
+    panelClip.style.setProperty('--scroll-opacity',String(1-progress*.7));
+    panelClip.style.setProperty('--scroll-shift',`${progress*-12}px`);
+  });
+}
+window.addEventListener('scroll',()=>{
+  if(highlightTicking)return;
+  highlightTicking=true;
+  requestAnimationFrame(updateHighlightAccordion);
+},{passive:true});
+window.addEventListener('resize',()=>{
+  updateHighlightStickyOffsets();
+  updateHighlightAccordion();
+});
+updateHighlightStickyOffsets();
+updateHighlightAccordion();
+document.fonts?.ready.then(()=>{
+  updateHighlightStickyOffsets();
+  updateHighlightAccordion();
+});
 
 /* Count-up for impact stats */
 const counters=document.querySelectorAll('.count');
