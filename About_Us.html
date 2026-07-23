@@ -62,7 +62,7 @@ section{padding:56px 0}
 .story-head{text-align:center;max-width:720px;margin:0 auto 40px}
 .story-head .eyebrow{justify-content:center}
 .story-media{min-width:0}
-.story-visual{position:relative;border-radius:24px;overflow:hidden;min-height:440px;box-shadow:0 30px 60px rgba(0,51,102,.18)}
+.story-visual{position:relative;border-radius:24px;overflow:hidden;min-height:560px;box-shadow:0 30px 60px rgba(0,51,102,.18)}
 .story-slide{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transform:scale(1.035);transition:opacity 1.15s ease,transform 6.2s linear}
 .story-slide.active{opacity:1;transform:scale(1);z-index:1}
 .story-est{position:absolute;top:22px;left:22px;z-index:3;background:var(--gold);color:var(--navy);font-weight:800;font-size:.8rem;padding:8px 16px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,.25)}
@@ -85,7 +85,7 @@ section{padding:56px 0}
 @media(prefers-reduced-motion:reduce){.story-slide,.story-progress span,.story-control{transition:none}}
 /* OUR JOURNEY timeline */
 .journey{background:#fff; padding-top:5px;}
-.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;margin-top:10px}
 .timeline::before{content:"";position:absolute;top:19px;left:6%;right:6%;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue))}
 .tstep{position:relative;padding:0 18px;text-align:center}
 .tstep .dot{width:18px;height:18px;border-radius:50%;background:var(--gold);border:4px solid #fff;box-shadow:0 0 0 3px var(--blue);margin:11px auto 20px}
@@ -322,7 +322,7 @@ section{padding:56px 0}
 .cta::before{content:"";position:absolute;top:-1px;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue))}
 .cta::after{display:none}
 .cta-in{position:relative;z-index:2;max-width:780px;margin:0 auto}
-.cta h2{font-size:2.3rem;font-weight:800;color:var(--navy);letter-spacing:-.5px;margin:14px 0;line-height:1.1}
+.cta h2{font-size:1.8rem;font-weight:800;color:var(--navy);letter-spacing:-.5px;margin:14px 0;line-height:1.1}
 .cta p{color:var(--muted);font-size:1.08rem}
 .cta .eyebrow{color:var(--blue);justify-content:center}.cta .eyebrow::before{background:linear-gradient(90deg,var(--gold),var(--blue))}
 .cta .btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--navy);box-shadow:0 10px 24px rgba(0,51,102,.1)}
@@ -352,8 +352,8 @@ section{padding:56px 0}
   </div>
   <div class="ticker">
     <div class="ticker-track">
-      <span>Trusted Science</span><span>Community First</span><span>Research Returned</span><span>Justice Driven</span><span>Regional Reach</span><span>Student Power</span><span>Built to Scale</span><span>Partnership Power</span><span>Civic Voice</span><span>Public Scholarship</span><span>Curriculum Connection</span><span>Brain Health Equity</span><span>Field Ready</span><span>Funding Forward</span><span>Data to Action</span><span>Aging Equity</span>
-      <span>Trusted Science</span><span>Community First</span><span>Research Returned</span><span>Justice Driven</span><span>Regional Reach</span><span>Student Power</span><span>Built to Scale</span><span>Partnership Power</span><span>Civic Voice</span><span>Public Scholarship</span><span>Curriculum Connection</span><span>Brain Health Equity</span><span>Field Ready</span><span>Funding Forward</span><span>Data to Action</span><span>Aging Equity</span>
+      <span>Trusted Science</span><span>Community First</span><span>Community Engaged</span><span>Justice Driven</span><span>Regional Reach</span><span>Student Power</span><span>Built to Scale</span><span>Partnership Power</span><span>Civic Voice</span><span>Public Scholarship</span><span>Curriculum Connection</span><span>Brain Health Equity</span><span>Field Ready</span><span>Funding Forward</span><span>Data to Action</span><span>Aging Equity</span>
+      <span>Trusted Science</span><span>Community First</span><span>Community Engaged</span><span>Justice Driven</span><span>Regional Reach</span><span>Student Power</span><span>Built to Scale</span><span>Partnership Power</span><span>Civic Voice</span><span>Public Scholarship</span><span>Curriculum Connection</span><span>Brain Health Equity</span><span>Field Ready</span><span>Funding Forward</span><span>Data to Action</span><span>Aging Equity</span>
     </div>
   </div>
 </header>
@@ -382,19 +382,11 @@ section{padding:56px 0}
             <button class="story-control story-next" type="button" aria-label="Next story image" title="Next image"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
           </div>
         </div>
-        <div class="chiprow">
-          <span class="chip-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 12l2-2 4 4 8-8 4 4"/></svg>Environmental Justice</span>
-          <span class="chip-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 18h6M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>Brain Health</span>
-          <span class="chip-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Healthy Aging</span>
-          <span class="chip-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Community-Engaged Research</span>
-          <span class="chip-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3a6 6 0 0 0 0 12 6 6 0 0 1 0-12z"/></svg>Sleep Health</span>
-          <span class="chip-tag"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/></svg>Southern California</span>
-        </div>
       </div>
       <div class="reveal">
         <p>The Center for Environmental Health Disparities Research (CEHDR) was established in 2021 through UC Irvine's <strong>Black Thriving Initiative Faculty Cluster Hiring Program</strong> with a bold and explicit mission: to expand scholarship on the health experiences of Black American communities as they relate to environmental justice.</p>
         <p>From its very founding, CEHDR was designed not as a traditional academic research unit, but as a <strong>community-facing center</strong> — one where research questions emerge from the communities most affected by environmental health disparities, and where findings are translated directly back through education, advocacy, and action.</p>
-        <p>That commitment is reflected in community forums, luncheons, citizen panels, Data Walks, and partnerships that invite residents to shape research priorities and identify local concerns. Initiatives such as the <strong>Joy and Pain Community Study</strong> return findings directly to participants and community partners in accessible ways, strengthening trust, partnership, and accountability.</p>
+        <p>That commitment is reflected in community forums, Conversation Cafés, citizen panels, data walks, participatory scientists, and community partnerships that invite residents to shape research priorities and identify local concerns. Across all of CEHDR's research initiatives, findings are shared with participants and community partners in accessible and culturally responsive ways — strengthening trust, deepening partnerships, and ensuring that the communities who contribute to the research are the first to benefit from it.</p>
         <p>Based in the Joe C. Wen School of Population and Public Health within the Susan and Henry Samueli College of Health Sciences at UC Irvine, CEHDR has grown from a newly established center into a recognized hub for community-engaged environmental health disparities research.</p>
       </div>
     </div>
@@ -411,8 +403,9 @@ section{padding:56px 0}
     <div class="timeline reveal">
       <div class="tstep"><div class="dot"></div><div class="yr">2021</div><p>Founded through UC Irvine's Black Thriving Initiative Faculty Cluster Hiring Program as a community-facing center for environmental health equity.</p></div>
       <div class="tstep"><div class="dot"></div><div class="yr">2023</div><p>Began programming and built a public scholarship platform through the website, newsletter, social media, and broader media engagement.</p></div>
-      <div class="tstep"><div class="dot"></div><div class="yr">2024</div><p>Expanded community forums, citizen panels, Data Walks, partnerships, and student field training across Southern California.</p></div>
-      <div class="tstep"><div class="dot"></div><div class="yr">2025–26</div><p>Secured early foundation support and built reusable citizen panel, digital mapping, evaluation, training, and field research systems for future studies.</p></div>
+      <div class="tstep"><div class="dot"></div><div class="yr">2024</div><p>Launched CEHDR THRIVE and CEHDR IMPACT, expanded community engaged participatory action research, community partnerships, and student field training across Southern California.</p></div>
+      <div class="tstep"><div class="dot"></div><div class="yr">2025</div><p>Launched CEHDR RISE, secured early foundation support.</p></div>
+      <div class="tstep"><div class="dot"></div><div class="yr">2026</div><p>Launched CEHDR CIRCLE, built a comprehensive communications system from the ground up, built scalable citizen panels, digital mapping, evaluation, training, and field research systems for future studies and national implementation.</p></div>
     </div>
   </div>
 </section>
@@ -494,7 +487,7 @@ section{padding:56px 0}
                 </article>
                 <article class="hitem">
                   <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><h3>Community First</h3></div>
-                  <p>Forums, luncheons, citizen panels, Data Walks, and community partnerships create space for residents to shape priorities and identify local concerns.</p>
+                  <p>Our Community Health Information Suite and community partnerships create space for residents to shape priorities and identify local concerns.</p>
                 </article>
                 <article class="hitem">
                   <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12h8M12 8v8M4 7h3l2-3h6l2 3h3v13H4z"/></svg></span><h3>Partnership Power</h3></div>
@@ -522,7 +515,7 @@ section{padding:56px 0}
                 </article>
                 <article class="hitem">
                   <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Built to Scale</h3></div>
-                  <p>Reusable citizen panel models, facilitator manuals, participant guides, training systems, mapping tools, surveys, and field protocols strengthen future research.</p>
+                  <p>Citizen panels, facilitator manuals, participant guides, training systems, mapping tools, surveys, and field protocols strengthen future research.</p>
                 </article>
                 <article class="hitem">
                   <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4zM8 9h8M8 13h5"/></svg></span><h3>Curriculum Connection</h3></div>
@@ -530,7 +523,7 @@ section{padding:56px 0}
                 </article>
                 <article class="hitem">
                   <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 11 12 14 22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h3>Field Ready</h3></div>
-                  <p>Interviewer training, human subjects protections, biohazard safety, data collection workflows, and community liaison roles support rigorous community-based research.</p>
+                  <p>Interviewer training, human subjects protections, biohazard safety, data collection workflows, and participatory scientists support rigorous community-based research.</p>
                 </article>
               </div>
             </div>
@@ -550,7 +543,7 @@ section{padding:56px 0}
               <div class="hacc-grid two">
                 <article class="hitem">
                   <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h14M11 6l6 6-6 6M21 5v14"/></svg></span><h3>Research Returned</h3></div>
-                  <p>Research is not complete until it reaches the people it was designed to serve. The Joy and Pain Community Study and related Data Walks return findings directly to participants and partners.</p>
+                  <p>Research is not complete until it reaches the people it was designed to serve. Meaningful community engagement methods return findings directly to participants and partners.</p>
                 </article>
                 <article class="hitem">
                   <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16M5 19h.01"/></svg></span><h3>Public Scholarship</h3></div>
@@ -585,8 +578,8 @@ section{padding:56px 0}
                   <p>Engagement with elected officials, county partners, and environmental justice advisory leadership extends CEHDR's work into civic and policy decision-making.</p>
                 </article>
                 <article class="hitem">
-                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 4A3.5 3.5 0 0 0 6 7.5c0 .4.07.78.2 1.14A3.5 3.5 0 0 0 7.5 15H10v5M14.5 4A3.5 3.5 0 0 1 18 7.5c0 .4-.07.78-.2 1.14A3.5 3.5 0 0 1 16.5 15H14v5M10 8h4M10 12h4"/></svg></span><h3>Brain Health Equity</h3></div>
-                  <p>CEHDR advances brain health, dementia risk, stress, pain, sleep, and aging as environmental health equity issues at the intersection of environment and well-being.</p>
+                  <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 4A3.5 3.5 0 0 0 6 7.5c0 .4.07.78.2 1.14A3.5 3.5 0 0 0 7.5 15H10v5M14.5 4A3.5 3.5 0 0 1 18 7.5c0 .4-.07.78-.2 1.14A3.5 3.5 0 0 1 16.5 15H14v5M10 8h4M10 12h4"/></svg></span><h3>Environmental Health Equity</h3></div>
+                  <p>CCEHDR advances social determinants of health as environmental health equity issues at the intersection of environment and healthy longevity.</p>
                 </article>
               </div>
             </div>
@@ -610,7 +603,7 @@ section{padding:56px 0}
                 </article>
                 <article class="hitem">
                   <div class="hitem-top"><span class="hitem-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19 10 13l4 4 6-10M15 7h5v5"/></svg></span><h3>Funding Forward</h3></div>
-                  <p>Early external funding and opportunities spanning foundation, climate resilience, PCORI, and multi-campus work position CEHDR for its next phase of growth.</p>
+                  <p>Early external funding and opportunities spanning foundation, state, and federal awards position CEHDR for its next phase of growth.</p>
                 </article>
               </div>
             </div>
@@ -651,7 +644,7 @@ section{padding:56px 0}
     <div class="impact-feats reveal">
       <div class="ifeat">
         <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0V4zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
-        <div><h4>Pacific Life Foundation Award</h4><p>Competitive foundation grant awarded for CEHDR CIRCLE — recognized in an "extremely competitive" process for community-centered approaches to health equity.</p></div>
+        <div><h4>Foundation Awards</h4><p>Competitive foundation grants awarded for CEHDR signature initiatives — recognized in an "extremely competitive" process for community-centered approaches to health equity.</p></div>
       </div>
       <div class="ifeat">
         <div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5" fill="#FFD200" stroke="none"/></svg></div>
@@ -669,8 +662,8 @@ section{padding:56px 0}
 <section class="cta" id="cta">
   <div class="wrap cta-in reveal">
     <span class="eyebrow">Get Involved</span>
-    <h2>Join the Movement for Health Equity</h2>
-    <p style="font-style:italic;margin-top:18px">"Health equity is not achieved through research alone. It is achieved when research is informed by community voices, translated into meaningful action, and used to create opportunities for all people to live healthier lives."</p>
+    <h2>Join the Movement for Environmental Health Equity</h2>
+    <p style="font-style:italic;margin-top:18px">"Environmental Health equity is not achieved through research alone. It is achieved when research is informed by community voices, translated into meaningful action, and used to create opportunities for all people to live healthier lives."</p>
     <p style="color:var(--navy);font-weight:700;margin-top:12px">— Dr. Karen D. Lincoln, Director, CEHDR</p>
     <div class="cta-actions">
       <a href="https://cehdr.publichealth.uci.edu/supportcehdr/" class="btn btn-gold">Make an Impact</a>
