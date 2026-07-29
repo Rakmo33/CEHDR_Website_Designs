@@ -100,6 +100,9 @@ h3:not(.h):not([class*=is-style-h-])+p {
 /* HERO */
 .cehdr-home .hero{height:calc(100vh - var(--nav-h));min-height:580px;position:relative;overflow:hidden;background:#001428}
 .cehdr-home .hero-right{position:absolute;inset:0;z-index:1}
+@media(min-width:961px){
+  .cehdr-home .hero-right{left:auto;width:58%}
+}
 .cehdr-home .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease-in-out}
 .cehdr-home .hero-slide.active{opacity:1}
 .cehdr-home .hero-slide img{width:100%;height:100%;object-fit:cover;display:block;animation:kb1 20s ease-in-out infinite alternate}
@@ -111,8 +114,8 @@ h3:not(.h):not([class*=is-style-h-])+p {
 @keyframes kb4{0%{transform:scale(1.12) translate(-1%,-1%)}100%{transform:scale(1) translate(2%,2%)}}
 @keyframes kb5{0%{transform:scale(1)}100%{transform:scale(1.15) translate(2%,-2%)}}
 .cehdr-home .hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(0,30,60,.15),rgba(0,30,60,.05))}
-.cehdr-home .hero-left{position:absolute;top:0;left:0;bottom:0;width:55%;background:linear-gradient(135deg,#001428 0%,#002d55 35%,var(--navy) 65%,#005b9a 100%);display:flex;flex-direction:column;justify-content:center;padding:0 160px 0 60px;z-index:2;overflow:hidden;clip-path:ellipse(95% 110% at 0% 50%);-webkit-clip-path:ellipse(95% 110% at 0% 50%)}
-.cehdr-home .arc-stroke{position:absolute;top:0;left:0;bottom:0;width:55%;z-index:3;pointer-events:none}
+.cehdr-home .hero-left{position:absolute;top:0;left:0;bottom:0;width:52%;background:linear-gradient(135deg,#001428 0%,#002d55 35%,var(--navy) 65%,#005b9a 100%);display:flex;flex-direction:column;justify-content:center;padding:0 clamp(90px,10vw,140px) 0 60px;z-index:2;overflow:hidden;clip-path:ellipse(95% 110% at 0% 50%);-webkit-clip-path:ellipse(95% 110% at 0% 50%)}
+.cehdr-home .arc-stroke{position:absolute;top:0;left:0;bottom:0;width:52%;z-index:3;pointer-events:none}
 .cehdr-home .arc-stroke svg{width:100%;height:100%;display:block;overflow:visible}
 .cehdr-home .arc-stroke ellipse{fill:none;stroke:rgba(255,217,46,.5);stroke-width:2;animation:arc-pulse 6s ease-in-out infinite}
 @keyframes arc-pulse{0%,100%{stroke:rgba(255,217,46,.4)}50%{stroke:rgba(255,217,46,.85);filter:drop-shadow(0 0 12px rgba(255,217,46,.4))}}
@@ -431,11 +434,11 @@ h3:not(.h):not([class*=is-style-h-])+p {
 
   <header class="hero">
     <div class="hero-right" id="heroSlideshow">
-      <div class="hero-slide active"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Website-Images10-816x499.jpg" alt=""></div>
-      <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png" alt=""></div>
-      <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Advancing-Environmental-Health-Equity-392x240.png" alt=""></div>
-      <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/homepage_banner_CEHDR2.jpg" alt=""></div>
-      <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Guests-at-Brain-Works-Event-Karen-Lincoln-816x499.png" alt=""></div>
+      <div class="hero-slide active"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Website-Images10-816x499.jpg" alt="Hands with a plant"></div>
+      <div class="hero-slide"><img src="https://sites.uci.edu/cehdr/files/2025/03/ddls-april-25.png" alt="Image of a plant"></div>
+      <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2025/03/Promoting-Environmental-Justice-392x240.png" alt="Environmental justice"></div>
+      <div class="hero-slide"><img src="https://sites.uci.edu/cehdr/files/2025/03/homepage_banner_CEHDR2-e1784842264496.jpg" alt="People holding hands"></div>
+      <div class="hero-slide"><img src="https://bpb-us-e2.wpmucdn.com/sites.uci.edu/dist/0/5797/files/2023/09/Guests-at-Brain-Works-Event-Karen-Lincoln-816x499.png" alt="Community members at an event"></div>
       <div class="slide-dots" id="slideDots"></div>
     </div>
 
