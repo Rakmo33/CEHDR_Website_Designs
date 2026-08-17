@@ -9,6 +9,21 @@
 
 <div id="oc-caregiver-guide">
 <style>
+  .entry-content > div:has(#oc-caregiver-guide),
+  .wp-block-columns:has(#oc-caregiver-guide) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  .wp-block-html:has(> #oc-caregiver-guide),
+  .wp-block-column:has(> #oc-caregiver-guide) {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
   #oc-caregiver-guide {
     --primary: #1a5276;
     --secondary: #2e86c1;
@@ -33,9 +48,9 @@
     color: #1c2833;
     line-height: 1.6;
     font-size: 16px;
-    width: 100vw;
-    max-width: 100vw;
-    margin: 0 calc(50% - 50vw) !important;
+    width: 100%;
+    max-width: none;
+    margin: 0 !important;
     position: relative;
     isolation: isolate;
     overflow-x: clip;
@@ -52,6 +67,11 @@
   #oc-caregiver-guide p,
   #oc-caregiver-guide ul,
   #oc-caregiver-guide ol { font-family: inherit; letter-spacing: 0; text-transform: none; }
+  #oc-caregiver-guide h1,
+  #oc-caregiver-guide h2,
+  #oc-caregiver-guide h3,
+  #oc-caregiver-guide h4 { line-height: 1.25; }
+  #oc-caregiver-guide img { display: block; max-width: 100%; height: auto; }
   #oc-caregiver-guide button:focus-visible,
   #oc-caregiver-guide a:focus-visible { outline: 3px solid rgba(46,134,193,.35); outline-offset: 3px; }
   #oc-caregiver-guide .hero {
@@ -71,18 +91,25 @@
     margin-bottom: 10px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+    color: white !important;
+    font-weight: 400;
+    line-height: 1.4;
+    vertical-align: baseline;
+    white-space: normal;
   }
   #oc-caregiver-guide .hero h1 {
     font-size: 2em;
     font-weight: 800;
     margin-bottom: 6px;
     text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    color: white !important;
   }
   #oc-caregiver-guide .hero h2 {
     font-size: 1.05em;
     font-weight: 400;
     opacity: 0.92;
     margin-bottom: 10px;
+    color: white !important;
   }
   #oc-caregiver-guide .hero .subtitle {
     font-size: 0.9em;
@@ -105,30 +132,81 @@
     justify-content: center;
     padding: 0 8px;
     position: sticky;
-    top: 0;
+    top: var(--wp-admin--admin-bar--height, 0px);
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   }
-  #oc-caregiver-guide nav.tab-bar button {
-    background: none;
-    border: none;
-    color: rgba(255,255,255,0.75);
-    padding: 11px 14px;
+  #oc-caregiver-guide nav.tab-bar .tab-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: rgba(255,255,255,0.75) !important;
+    padding: 11px 14px !important;
     font-size: 0.82em;
     cursor: pointer;
-    border-bottom: 3px solid transparent;
+    border-bottom: 3px solid transparent !important;
     font-weight: 600;
     transition: all 0.2s;
     white-space: nowrap;
     letter-spacing: 0.02em;
+    line-height: 1.5;
+    text-decoration: none !important;
+    appearance: none;
+    -webkit-appearance: none;
   }
-  #oc-caregiver-guide nav.tab-bar button:hover { color: white; background: rgba(255,255,255,0.08); }
-  #oc-caregiver-guide nav.tab-bar button.active { color: white; border-bottom-color: #e67e22; background: rgba(255,255,255,0.10); }
+  #oc-caregiver-guide nav.tab-bar .tab-icon {
+    flex: 0 0 auto;
+    line-height: 1;
+  }
+  #oc-caregiver-guide nav.tab-bar .tab-icon .emoji {
+    margin: 0 !important;
+  }
+  #oc-caregiver-guide nav.tab-bar .tab-link:hover { color: white !important; background: rgba(255,255,255,0.08) !important; }
+  #oc-caregiver-guide nav.tab-bar .tab-link.active { color: white !important; border-bottom-color: #e67e22 !important; background: rgba(255,255,255,0.10) !important; }
 
   #oc-caregiver-guide .tab-content { display: none; padding: 24px 20px 40px; max-width: 960px; margin: 0 auto; }
   #oc-caregiver-guide .tab-content.active { display: block; }
+  #oc-caregiver-guide .tab-content:target { display: block; scroll-margin-top: calc(var(--wp-admin--admin-bar--height, 0px) + 58px); }
+  #oc-caregiver-guide:has(.tab-content:target) .tab-content.active:not(:target) { display: none; }
+  #oc-caregiver-guide:has(.tab-content:target) nav.tab-bar .tab-link.active {
+    color: rgba(255,255,255,0.75) !important;
+    border-bottom-color: transparent !important;
+    background: none !important;
+  }
+  #oc-caregiver-guide:has(#tab-overview:target) .tab-link[href="#tab-overview"],
+  #oc-caregiver-guide:has(#tab-prepare:target) .tab-link[href="#tab-prepare"],
+  #oc-caregiver-guide:has(#tab-heat:target) .tab-link[href="#tab-heat"],
+  #oc-caregiver-guide:has(#tab-air:target) .tab-link[href="#tab-air"],
+  #oc-caregiver-guide:has(#tab-wildfire:target) .tab-link[href="#tab-wildfire"],
+  #oc-caregiver-guide:has(#tab-flood:target) .tab-link[href="#tab-flood"],
+  #oc-caregiver-guide:has(#tab-power:target) .tab-link[href="#tab-power"],
+  #oc-caregiver-guide:has(#tab-agencies:target) .tab-link[href="#tab-agencies"] {
+    color: white !important;
+    border-bottom-color: #e67e22 !important;
+    background: rgba(255,255,255,0.10) !important;
+  }
 
   #oc-caregiver-guide h3 { font-size: 1.18em; color: var(--primary); margin-bottom: 8px; }
+  #oc-caregiver-guide .tab-content a:not(.tab-link) {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  #oc-caregiver-guide .tab-content a:not(.tab-link):hover { color: var(--secondary); }
+  #oc-caregiver-guide .tab-content a:focus-visible {
+    outline: 3px solid rgba(0, 100, 164, 0.28);
+    outline-offset: 3px;
+  }
+  #oc-caregiver-guide .emergency-contacts a {
+    color: #fff !important;
+    text-decoration-color: rgba(255,255,255,0.62) !important;
+  }
   #oc-caregiver-guide h4 { font-size: 0.99em; color: #2c3e50; margin-bottom: 5px; font-weight: 700; }
 
   #oc-caregiver-guide .intro-box {
@@ -156,6 +234,9 @@
   #oc-caregiver-guide .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; margin-bottom: 20px; }
 
   #oc-caregiver-guide .card {
+    display: block;
+    position: relative;
+    min-width: 0;
     background: white;
     border-radius: 12px;
     padding: 16px 18px;
@@ -209,6 +290,7 @@
   #oc-caregiver-guide .section-header.power { background: linear-gradient(90deg, #2c3e50 0%, #7f8c8d 100%); }
   #oc-caregiver-guide .section-header .icon { font-size: 1.8em; }
   #oc-caregiver-guide .section-header h2 { font-size: 1.1em; font-weight: 700; }
+  #oc-caregiver-guide .section-header h2 { color: white !important; }
   #oc-caregiver-guide .section-header p { font-size: 0.82em; opacity: 0.9; }
 
   #oc-caregiver-guide .phase-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-bottom: 20px; }
@@ -221,6 +303,7 @@
   #oc-caregiver-guide .phase-box h4 {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 6px;
     margin-bottom: 8px;
     font-size: 0.92em;
@@ -231,6 +314,25 @@
   #oc-caregiver-guide .phase-box ul { padding-left: 16px; }
   #oc-caregiver-guide .phase-box li { font-size: 0.84em; color: #333; margin-bottom: 4px; }
   #oc-caregiver-guide .phase-box li strong { color: #1a5276; }
+
+  #oc-caregiver-guide .card ul,
+  #oc-caregiver-guide .phase-box ul {
+    list-style: disc outside !important;
+    padding-left: 1.35rem !important;
+  }
+  #oc-caregiver-guide .card li,
+  #oc-caregiver-guide .phase-box li {
+    display: list-item !important;
+    list-style: inherit !important;
+    position: relative;
+    margin-left: 0 !important;
+    padding-left: 0.15rem !important;
+  }
+  #oc-caregiver-guide .card li::before,
+  #oc-caregiver-guide .phase-box li::before {
+    content: none !important;
+    display: none !important;
+  }
 
   #oc-caregiver-guide .dementia-tip {
     background: #fff9e6;
@@ -306,6 +408,10 @@
     padding: 2px 10px;
     font-size: 0.77em;
     font-weight: 600;
+    line-height: 1.35;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    margin-left: auto;
     margin-right: 4px;
     margin-bottom: 4px;
   }
@@ -322,6 +428,13 @@
     margin-top: 20px;
   }
   #oc-caregiver-guide footer strong { color: white; }
+  #oc-caregiver-guide footer a {
+    color: #fff !important;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
 
   #oc-caregiver-guide .lang-note {
     background: #f9ebff;
@@ -351,7 +464,7 @@
     bottom: 20px;
     right: 20px;
     background: var(--primary);
-    color: white;
+    color: white !important;
     border: none;
     border-radius: 50%;
     width: 40px;
@@ -361,6 +474,25 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     z-index: 200;
     display: none;
+    place-items: center;
+    padding: 0 !important;
+    line-height: 1;
+    text-decoration: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  @media (max-width: 600px) {
+    #oc-caregiver-guide nav.tab-bar {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) var(--primary);
+      -webkit-overflow-scrolling: touch;
+    }
+    #oc-caregiver-guide nav.tab-bar .tab-link { flex: 0 0 auto; min-height: 46px; }
   }
 </style>
 
@@ -372,15 +504,15 @@
   <p class="project-tag">Developed in support of the UCI Climate Collaboration Project Grant · UCI Wen School of Population and Public Health</p>
 </div>
 
-<nav class="tab-bar" id="tabBar">
-  <button class="active" onclick="window.ocCaregiverShowTab('overview')">🏠 Overview</button>
-  <button onclick="window.ocCaregiverShowTab('prepare')">📋 Be Prepared</button>
-  <button onclick="window.ocCaregiverShowTab('heat')">🌡️ Extreme Heat</button>
-  <button onclick="window.ocCaregiverShowTab('air')">💨 Air Pollution</button>
-  <button onclick="window.ocCaregiverShowTab('wildfire')">🔥 Wildfire</button>
-  <button onclick="window.ocCaregiverShowTab('flood')">🌊 Flooding</button>
-  <button onclick="window.ocCaregiverShowTab('power')">⚡ Power Outage</button>
-  <button onclick="window.ocCaregiverShowTab('agencies')">📞 OC Resources</button>
+<nav class="tab-bar" id="tabBar" aria-label="Caregiver guide sections">
+  <a class="tab-link active" href="#tab-overview"><span class="tab-icon" aria-hidden="true">🏠</span><span>Overview</span></a>
+  <a class="tab-link" href="#tab-prepare"><span class="tab-icon" aria-hidden="true">📋</span><span>Be Prepared</span></a>
+  <a class="tab-link" href="#tab-heat"><span class="tab-icon" aria-hidden="true">🌡️</span><span>Extreme Heat</span></a>
+  <a class="tab-link" href="#tab-air"><span class="tab-icon" aria-hidden="true">💨</span><span>Air Pollution</span></a>
+  <a class="tab-link" href="#tab-wildfire"><span class="tab-icon" aria-hidden="true">🔥</span><span>Wildfire</span></a>
+  <a class="tab-link" href="#tab-flood"><span class="tab-icon" aria-hidden="true">🌊</span><span>Flooding</span></a>
+  <a class="tab-link" href="#tab-power"><span class="tab-icon" aria-hidden="true">⚡</span><span>Power Outage</span></a>
+  <a class="tab-link" href="#tab-agencies"><span class="tab-icon" aria-hidden="true">📞</span><span>OC Resources</span></a>
 </nav>
 
 <!-- OVERVIEW TAB -->
@@ -442,14 +574,14 @@
   <div class="emergency-contacts">
     <h3>🆘 Critical Emergency Numbers — Orange County</h3>
     <div class="ec-grid">
-      <div class="ec-item"><div class="ec-label">Emergency / 911</div><div class="ec-number">9-1-1</div></div>
-      <div class="ec-item"><div class="ec-label">OC 2-1-1 (Services & Info)</div><div class="ec-number">2-1-1</div></div>
-      <div class="ec-item"><div class="ec-label">Alzheimer's OC Helpline</div><div class="ec-number">(844) 373-4400</div></div>
-      <div class="ec-item"><div class="ec-label">OC Health Care Agency</div><div class="ec-number">(714) 834-3000</div></div>
-      <div class="ec-item"><div class="ec-label">Caregiver Resource Ctr OC</div><div class="ec-number">(800) 543-8312</div></div>
-      <div class="ec-item"><div class="ec-label">OC Emergency Mgmt</div><div class="ec-number">(714) 628-7085</div></div>
-      <div class="ec-item"><div class="ec-label">Poison Control</div><div class="ec-number">(800) 222-1222</div></div>
-      <div class="ec-item"><div class="ec-label">SCAQMD AQI Info</div><div class="ec-number">(800) 288-7664</div></div>
+      <div class="ec-item"><div class="ec-label">Emergency / 911</div><div class="ec-number"><a href="tel:911">9-1-1</a></div></div>
+      <div class="ec-item"><div class="ec-label">OC 2-1-1 (Services & Info)</div><div class="ec-number"><a href="tel:211">2-1-1</a></div></div>
+      <div class="ec-item"><div class="ec-label">Alzheimer's OC Helpline</div><div class="ec-number"><a href="tel:+18443734400">(844) 373-4400</a></div></div>
+      <div class="ec-item"><div class="ec-label">OC Health Care Agency</div><div class="ec-number"><a href="tel:+17148343000">(714) 834-3000</a></div></div>
+      <div class="ec-item"><div class="ec-label">Caregiver Resource Ctr OC</div><div class="ec-number"><a href="tel:+18005438312">(800) 543-8312</a></div></div>
+      <div class="ec-item"><div class="ec-label">OC Emergency Mgmt</div><div class="ec-number"><a href="tel:+17146287085">(714) 628-7085</a></div></div>
+      <div class="ec-item"><div class="ec-label">Poison Control</div><div class="ec-number"><a href="tel:+18002221222">(800) 222-1222</a></div></div>
+      <div class="ec-item"><div class="ec-label">SCAQMD AQI Info</div><div class="ec-number"><a href="tel:+18002887664">(800) 288-7664</a></div></div>
     </div>
   </div>
 </div>
@@ -525,7 +657,7 @@
         <li>Identify the <strong>nearest OC cooling center</strong> (see OC Resources tab)</li>
         <li>Install window AC or fans; check functionality before summer</li>
         <li>Keep curtains/blinds closed on south/west-facing windows during daytime</li>
-        <li>Sign up for <strong>OC Alert</strong> (ocgov.com/ocalert) for heat emergency notifications</li>
+        <li>Sign up for <strong>OC Alert</strong> (<a href="https://www.ocgov.com/ocalert" target="_blank" rel="noopener noreferrer">ocgov.com/ocalert</a>) for heat emergency notifications</li>
         <li>Ensure caregiver respite backup for prolonged heat events</li>
         <li>Enroll PLwD in <strong>SoCal Edison Medical Baseline</strong> for energy cost help</li>
         <li>Have electrolyte drinks and water stored and accessible</li>
@@ -539,7 +671,7 @@
         <li>Use <strong>cool, damp cloths</strong> on neck, wrists, and forehead; avoid sudden cold shocks</li>
         <li>Keep indoors in AC; if no AC — go to a <strong>cooling center or mall</strong></li>
         <li>Avoid strenuous activity between 10 AM – 4 PM</li>
-        <li><strong>Watch for heat stroke</strong>: hot/dry skin, confusion worsening, loss of consciousness → Call 911</li>
+        <li><strong>Watch for heat stroke</strong>: hot/dry skin, confusion worsening, loss of consciousness → Call <a href="tel:911">911</a></li>
         <li>Keep blinds closed; use fans + bowls of ice for low-tech cooling</li>
         <li>Dress in <strong>loose, light-colored clothing</strong> — assist PLwD in changing if needed</li>
       </ul>
@@ -562,19 +694,19 @@
     <div class="card heat">
       <div class="card-icon">❄️</div>
       <h3>OC Health Care Agency — Cooling Center Locator</h3>
-      <p class="phone">2-1-1 or (714) 834-3000</p>
-      <p>Dial 211 or visit <strong>ocdementia.org</strong> for real-time cooling center locations during heat emergencies. Centers are announced via OC Alert.</p>
+      <p class="phone"><a href="tel:211">2-1-1</a> or <a href="tel:+17148343000">(714) 834-3000</a></p>
+      <p>Dial <a href="tel:211">211</a> or visit <strong><a href="https://ocdementia.org/" target="_blank" rel="noopener noreferrer">ocdementia.org</a></strong> for real-time cooling center locations during heat emergencies. Centers are announced via OC Alert.</p>
     </div>
     <div class="card heat">
       <div class="card-icon">🏛️</div>
       <h3>OC Public Libraries & Senior Centers</h3>
-      <p class="phone">2-1-1</p>
-      <p>Many OC public libraries and senior centers serve as cooling sites during heat events. Call 211 for the nearest location accepting seniors with cognitive impairment.</p>
+      <p class="phone"><a href="tel:211">2-1-1</a></p>
+      <p>Many OC public libraries and senior centers serve as cooling sites during heat events. Call <a href="tel:211">211</a> for the nearest location accepting seniors with cognitive impairment.</p>
     </div>
     <div class="card heat">
       <div class="card-icon">🌡️</div>
       <h3>NWS Heat Alerts — OC</h3>
-      <p class="web">weather.gov/lox | AirNow.gov</p>
+      <p class="web"><a href="https://www.weather.gov/lox/" target="_blank" rel="noopener noreferrer">weather.gov/lox</a> | <a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">AirNow.gov</a></p>
       <p>Sign up for National Weather Service heat alerts. When a Heat Advisory, Watch, or Warning is issued for OC, activate your heat plan immediately.</p>
     </div>
   </div>
@@ -605,7 +737,7 @@
         <li>Get a <strong>HEPA air purifier</strong> for the bedroom and main living area</li>
         <li>Seal gaps around doors/windows with towels or weather stripping during smoke events</li>
         <li>Know the PLwD's <strong>respiratory medications</strong> and keep inhalers stocked</li>
-        <li>Bookmark <strong>AirNow.gov</strong> and SCAQMD's AQI alerts; subscribe to SCAQMD email alerts</li>
+        <li>Bookmark <strong><a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">AirNow.gov</a></strong> and <a href="https://www.aqmd.gov/" target="_blank" rel="noopener noreferrer">SCAQMD's AQI alerts</a>; subscribe to SCAQMD email alerts</li>
         <li>Ask their doctor: "At what AQI level should we keep them strictly indoors?"</li>
       </ul>
     </div>
@@ -640,14 +772,14 @@
     <div class="card air">
       <div class="card-icon">🌫️</div>
       <h3>SCAQMD — South Coast Air Quality Management District</h3>
-      <p class="phone">(800) 288-7664</p>
-      <p class="web">aqmd.gov | AirNow.gov</p>
+      <p class="phone"><a href="tel:+18002887664">(800) 288-7664</a></p>
+      <p class="web"><a href="https://www.aqmd.gov/" target="_blank" rel="noopener noreferrer">aqmd.gov</a> | <a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">AirNow.gov</a></p>
       <p>Real-time AQI maps, smoke forecasts, and health advisories for Orange County. Sign up for free email/text air quality alerts.</p>
     </div>
     <div class="card air">
       <div class="card-icon">📊</div>
       <h3>AirNow.gov & PurpleAir</h3>
-      <p class="web">airnow.gov | purpleair.com</p>
+      <p class="web"><a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">airnow.gov</a> | <a href="https://www.purpleair.com/" target="_blank" rel="noopener noreferrer">purpleair.com</a></p>
       <p>Check the AQI color scale daily: Green (OK) → Yellow (Sensitive groups caution) → Orange/Red (PLwD STAY INDOORS) → Purple/Maroon (Evacuate).</p>
     </div>
   </div>
@@ -674,11 +806,11 @@
     <div class="phase-box">
       <h4><span>✅</span> BEFORE Wildfire Season <span class="pill before">Prepare</span></h4>
       <ul>
-        <li>Sign up for <strong>OC Alert</strong> (ocgov.com/ocalert) — get warnings by text/call/email</li>
-        <li>Know your <strong>evacuation zone</strong> — check ocgov.com for your zone letter</li>
+        <li>Sign up for <strong>OC Alert</strong> (<a href="https://www.ocgov.com/ocalert" target="_blank" rel="noopener noreferrer">ocgov.com/ocalert</a>) — get warnings by text/call/email</li>
+        <li>Know your <strong>evacuation zone</strong> — check <a href="https://www.ocgov.com/" target="_blank" rel="noopener noreferrer">ocgov.com</a> for your zone letter</li>
         <li>Pre-identify a <strong>dementia-aware evacuation destination</strong> — inform them in advance</li>
         <li>Practice a <strong>"no-discussion" departure routine</strong> — pre-pack the car with the Go-Bag</li>
-        <li>Note shelters that accept individuals with <strong>access and functional needs</strong> (AFN) — call 211 for OC AFN shelter locations</li>
+        <li>Note shelters that accept individuals with <strong>access and functional needs</strong> (AFN) — call <a href="tel:211">211</a> for OC AFN shelter locations</li>
         <li>Keep the car's gas tank at <strong>half full or more</strong> during fire season</li>
         <li>Clear dry brush/vegetation within 30 feet of your home</li>
         <li>Alert neighbors about the PLwD — ask them to check in if they see smoke</li>
@@ -692,7 +824,7 @@
         <li>Use your <strong>rehearsed calm phrase</strong>: "It's time for our trip." Do not explain the fire</li>
         <li>Dress PLwD in long sleeves and closed-toe shoes — pack their comfort bag</li>
         <li>Take all medications, medical equipment, and the Go-Bag folder</li>
-        <li>Alert 911 if the PLwD refuses to leave — mention cognitive impairment for AFN assistance</li>
+        <li>Alert <a href="tel:911">911</a> if the PLwD refuses to leave — mention cognitive impairment for AFN assistance</li>
         <li>Follow <strong>designated evacuation routes only</strong> — do not improvise routes</li>
         <li>Once evacuated, maintain PLwD's <strong>routine as closely as possible</strong>: same meal times, same sleep schedule, familiar music</li>
         <li>If sheltering, ask for a <strong>quiet area</strong> away from crowds and alarms</li>
@@ -717,21 +849,21 @@
     <div class="card fire">
       <div class="card-icon">🚒</div>
       <h3>OC Fire Authority</h3>
-      <p class="phone">(714) 573-6000</p>
-      <p class="web">ocfa.org</p>
+      <p class="phone"><a href="tel:+17145736000">(714) 573-6000</a></p>
+      <p class="web"><a href="https://www.ocfa.org/" target="_blank" rel="noopener noreferrer">ocfa.org</a></p>
       <p>Wildfire evacuation orders, fire weather watches, and community preparedness resources for all OC jurisdictions.</p>
     </div>
     <div class="card fire">
       <div class="card-icon">📢</div>
       <h3>OC Alert System</h3>
-      <p class="web">ocgov.com/ocalert</p>
+      <p class="web"><a href="https://www.ocgov.com/ocalert" target="_blank" rel="noopener noreferrer">ocgov.com/ocalert</a></p>
       <p>Register your phone number to receive emergency alerts, evacuation orders, and shelter-in-place notices by text, call, or email.</p>
     </div>
     <div class="card fire">
       <div class="card-icon">🏕️</div>
       <h3>OC AFN Shelters (211 OC)</h3>
-      <p class="phone">2-1-1</p>
-      <p>Call 211 to locate Access and Functional Needs shelters during wildfire evacuations — these have additional support for PLwD and mobility-limited individuals.</p>
+      <p class="phone"><a href="tel:211">2-1-1</a></p>
+      <p>Call <a href="tel:211">211</a> to locate Access and Functional Needs shelters during wildfire evacuations — these have additional support for PLwD and mobility-limited individuals.</p>
     </div>
   </div>
 </div>
@@ -757,7 +889,7 @@
     <div class="phase-box">
       <h4><span>✅</span> BEFORE Flood Season <span class="pill before">Prepare</span></h4>
       <ul>
-        <li>Know your <strong>flood zone</strong> — check FEMA Flood Map: msc.fema.gov</li>
+        <li>Know your <strong>flood zone</strong> — check FEMA Flood Map: <a href="https://msc.fema.gov/portal/home" target="_blank" rel="noopener noreferrer">msc.fema.gov</a></li>
         <li>Move medications, medical records, and important documents to <strong>upper floors or a waterproof bag</strong></li>
         <li>Purchase flood insurance if in a flood zone — standard homeowners insurance does NOT cover flooding</li>
         <li>Identify <strong>ground-floor hazards</strong> — PLwD may try to walk in water or touch electrical outlets near floodwater</li>
@@ -772,11 +904,11 @@
         <li>Monitor OC Public Works flood alerts and NWS flash flood warnings</li>
         <li><strong>Never allow PLwD near floodwater</strong> — all floodwater is contaminated</li>
         <li>Turn off electricity at the breaker if water is entering the home</li>
-        <li>Move to the <strong>highest floor</strong> if unable to evacuate; call 911</li>
+        <li>Move to the <strong>highest floor</strong> if unable to evacuate; call <a href="tel:911">911</a></li>
         <li>When evacuating: use your calm reassurance phrase; carry them or use a wheelchair on elevated ground</li>
         <li>Do not use elevators during active flooding</li>
         <li>Pack Go-Bag, medications, and comfort items before water rises</li>
-        <li>Contact <strong>211</strong> for nearest shelter accepting AFN individuals</li>
+        <li>Contact <strong><a href="tel:211">211</a></strong> for nearest shelter accepting AFN individuals</li>
       </ul>
     </div>
     <div class="phase-box">
@@ -786,7 +918,7 @@
         <li>Keep PLwD away from mold-damaged areas — mold spores cause respiratory harm</li>
         <li>Check all medications — discard any that were exposed to floodwater</li>
         <li>Watch for increased agitation, confusion, or behavioral symptoms — displacement stress is prolonged</li>
-        <li>Apply for FEMA Disaster Assistance: disasterassistance.gov or call 1-800-621-3362</li>
+        <li>Apply for FEMA Disaster Assistance: <a href="https://www.disasterassistance.gov/" target="_blank" rel="noopener noreferrer">disasterassistance.gov</a> or call <a href="tel:+18006213362">1-800-621-3362</a></li>
         <li>Contact <strong>OC Social Services Agency</strong> for emergency housing and financial assistance</li>
         <li>Re-establish familiar routines as soon as safely possible</li>
       </ul>
@@ -797,22 +929,22 @@
     <div class="card flood">
       <div class="card-icon">🌊</div>
       <h3>OC Public Works — Flood Control</h3>
-      <p class="phone">(714) 955-0200</p>
-      <p class="web">ocpublicworks.com</p>
+      <p class="phone"><a href="tel:+17149550200">(714) 955-0200</a></p>
+      <p class="web"><a href="https://ocpublicworks.com/" target="_blank" rel="noopener noreferrer">ocpublicworks.com</a></p>
       <p>Flood alerts, channel status, and emergency notifications for Orange County flood control infrastructure.</p>
     </div>
     <div class="card flood">
       <div class="card-icon">🏛️</div>
       <h3>FEMA Disaster Assistance</h3>
-      <p class="phone">1-800-621-3362</p>
-      <p class="web">disasterassistance.gov</p>
+      <p class="phone"><a href="tel:+18006213362">1-800-621-3362</a></p>
+      <p class="web"><a href="https://www.disasterassistance.gov/" target="_blank" rel="noopener noreferrer">disasterassistance.gov</a></p>
       <p>Apply for federal disaster assistance after flooding events. Available in multiple languages. Assistance available for medical equipment replacement.</p>
     </div>
     <div class="card flood">
       <div class="card-icon">🏠</div>
       <h3>OC Social Services Agency</h3>
-      <p class="phone">(714) 541-7600</p>
-      <p class="web">ssa.ocgov.com</p>
+      <p class="phone"><a href="tel:+17145417600">(714) 541-7600</a></p>
+      <p class="web"><a href="https://ssa.ocgov.com/" target="_blank" rel="noopener noreferrer">ssa.ocgov.com</a></p>
       <p>Emergency housing assistance, IHSS services, and CalFresh/CalWORKS support for OC residents affected by disasters including flooding.</p>
     </div>
   </div>
@@ -857,7 +989,7 @@
         <li>Keep routines as normal as possible — same meal times, same activities</li>
         <li>Use battery-powered music player with familiar music to reduce anxiety</li>
         <li>Do NOT use generators, grills, or camp stoves <strong>indoors</strong> — carbon monoxide risk</li>
-        <li>Report medical equipment needs to SCE: <strong>(800) 655-4555</strong></li>
+        <li>Report medical equipment needs to SCE: <strong><a href="tel:+18006554555">(800) 655-4555</a></strong></li>
         <li>Keep mobile phone charged via car charger or battery bank</li>
       </ul>
     </div>
@@ -878,15 +1010,15 @@
     <div class="card power">
       <div class="card-icon">💡</div>
       <h3>SoCal Edison — Medical Baseline & Life Support</h3>
-      <p class="phone">(800) 655-4555</p>
-      <p class="web">sce.com/medicalbaseline</p>
+      <p class="phone"><a href="tel:+18006554555">(800) 655-4555</a></p>
+      <p class="web"><a href="https://www.sce.com/medicalbaseline" target="_blank" rel="noopener noreferrer">sce.com/medicalbaseline</a></p>
       <p>Enroll to receive advance notice of planned Public Safety Power Shutoffs (PSPS) and reduced energy rates for households with medical needs.</p>
     </div>
     <div class="card power">
       <div class="card-icon">🏥</div>
       <h3>CalOptima (Medical Equipment Support)</h3>
-      <p class="phone">(888) 587-8088</p>
-      <p class="web">caloptima.org</p>
+      <p class="phone"><a href="tel:+18885878088">(888) 587-8088</a></p>
+      <p class="web"><a href="https://www.caloptima.org/" target="_blank" rel="noopener noreferrer">caloptima.org</a></p>
       <p>Orange County's Medi-Cal managed care plan. Contact regarding backup medical equipment (oxygen, CPAP) coverage and emergency medication refills during disasters.</p>
     </div>
   </div>
@@ -909,21 +1041,21 @@
   <div class="oc-agency-card">
     <span class="role">Dementia Support | Disaster Preparedness</span>
     <h4>Alzheimer's Orange County</h4>
-    <p>📞 Helpline: <strong>(844) 373-4400</strong> | 🌐 alzheimersorangecounty.org</p>
+    <p>📞 Helpline: <strong><a href="tel:+18443734400">(844) 373-4400</a></strong> | 🌐 <a href="https://www.alzheimersorangecounty.org/" target="_blank" rel="noopener noreferrer">alzheimersorangecounty.org</a></p>
     <p>24/7 helpline for families and caregivers. Provides caregiver education, support groups, dementia-specific emergency preparedness programs, care consultations, and community outreach. Project partner for the Resilient Minds initiative. Offers bilingual services and memory café programs.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Caregiver Support | Counseling | Respite</span>
     <h4>Caregiver Resource Center — Orange County</h4>
-    <p>📞 <strong>(800) 543-8312</strong> | 🌐 caregivercenter.org</p>
+    <p>📞 <strong><a href="tel:+18005438312">(800) 543-8312</a></strong> | 🌐 <a href="https://www.caregivercenter.org/" target="_blank" rel="noopener noreferrer">caregivercenter.org</a></p>
     <p>Free services for family caregivers of adults with cognitive impairment: caregiver assessment, individual counseling, legal and financial consultation, respite care, support groups, and care management. Serves family members who care for PLwD at home.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">African American Elders | Community Outreach</span>
     <h4>Advocates for African American Elders (AAAE) — UCI</h4>
-    <p>🌐 aaae.uci.edu</p>
+    <p>🌐 <a href="https://aaae.uci.edu/" target="_blank" rel="noopener noreferrer">aaae.uci.edu</a></p>
     <p>UCI-based program focused on brain health and aging equity for African American older adults and their caregivers in Southern California. Co-leads community education and outreach for the Resilient Minds initiative.</p>
   </div>
 
@@ -932,21 +1064,21 @@
   <div class="oc-agency-card">
     <span class="role">Public Health | Emergency Health | Behavioral Health</span>
     <h4>OC Health Care Agency</h4>
-    <p>📞 <strong>(714) 834-3000</strong> | 🌐 ochealthinfo.com</p>
+    <p>📞 <strong><a href="tel:+17148343000">(714) 834-3000</a></strong> | 🌐 <a href="https://www.ochealthinfo.com/" target="_blank" rel="noopener noreferrer">ochealthinfo.com</a></p>
     <p>Coordinates public health emergency response, cooling centers during heat events, behavioral health crisis services, and disease prevention programs. Key partner for climate-health preparedness in OC communities.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Medi-Cal | Medical Equipment | Emergency Medication</span>
     <h4>CalOptima Health (OC Medi-Cal)</h4>
-    <p>📞 <strong>(888) 587-8088</strong> | 🌐 caloptima.org</p>
+    <p>📞 <strong><a href="tel:+18885878088">(888) 587-8088</a></strong> | 🌐 <a href="https://www.caloptima.org/" target="_blank" rel="noopener noreferrer">caloptima.org</a></p>
     <p>Managed care plan for OC Medi-Cal beneficiaries. Covers prescription refills, durable medical equipment, home health, and In-Home Supportive Services. Contact for emergency medication access during disasters.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Geriatric Care | Memory Disorders | UCI Health</span>
     <h4>UCI Health — Memory Disorders Program</h4>
-    <p>📞 <strong>(888) 824-2255</strong> | 🌐 health.uci.edu</p>
+    <p>📞 <strong><a href="tel:+18888242255">(888) 824-2255</a></strong> | 🌐 <a href="https://health.uci.edu/" target="_blank" rel="noopener noreferrer">health.uci.edu</a></p>
     <p>Comprehensive geriatric and memory disorder care at UC Irvine. Connects to the Resilient Minds research team. Contact for dementia diagnosis, medication management, and caregiver counseling.</p>
   </div>
 
@@ -955,21 +1087,21 @@
   <div class="oc-agency-card">
     <span class="role">In-Home Care | IHSS Caregivers | Social Services</span>
     <h4>OC Social Services Agency (IHSS Program)</h4>
-    <p>📞 <strong>(714) 541-7600</strong> | 🌐 ssa.ocgov.com</p>
+    <p>📞 <strong><a href="tel:+17145417600">(714) 541-7600</a></strong> | 🌐 <a href="https://ssa.ocgov.com/" target="_blank" rel="noopener noreferrer">ssa.ocgov.com</a></p>
     <p>In-Home Supportive Services (IHSS) provides paid in-home care for eligible low-income adults with disabilities. Covers personal care, meal preparation, and protective supervision. Emergency IHSS augmentation may be available during declared disasters.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Meals | Nutrition | Social Connection</span>
     <h4>Meals on Wheels Orange County</h4>
-    <p>📞 <strong>(714) 548-6325</strong> | 🌐 mealsonwheelsoc.org</p>
+    <p>📞 <strong><a href="tel:+17145486325">(714) 548-6325</a></strong> | 🌐 <a href="https://www.mealsonwheelsoc.org/" target="_blank" rel="noopener noreferrer">mealsonwheelsoc.org</a></p>
     <p>Home-delivered meals for homebound seniors, including those with dementia. Meal delivery staff serve as a daily wellness check — a critical safety net for isolated PLwD. Emergency meal services available during declared disasters.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Senior Services | Area Agency on Aging</span>
     <h4>OC Office on Aging (Area Agency on Aging)</h4>
-    <p>📞 <strong>(714) 480-6450</strong> | 🌐 occoa.org</p>
+    <p>📞 <strong><a href="tel:+17144806450">(714) 480-6450</a></strong> | 🌐 <a href="https://www.occoa.org/" target="_blank" rel="noopener noreferrer">occoa.org</a></p>
     <p>Coordinates senior services across OC including case management, transportation, adult day programs, caregiver support, and legal assistance. Gateway to many OC aging services through the Older Americans Act.</p>
   </div>
 
@@ -978,49 +1110,49 @@
   <div class="oc-agency-card">
     <span class="role">Emergency Management | AFN Registry | Sheltering</span>
     <h4>OC Emergency Management</h4>
-    <p>📞 <strong>(714) 628-7085</strong> | 🌐 ocgov.com/emergency</p>
+    <p>📞 <strong><a href="tel:+17146287085">(714) 628-7085</a></strong> | 🌐 <a href="https://www.ocgov.com/emergency" target="_blank" rel="noopener noreferrer">ocgov.com/emergency</a></p>
     <p>Coordinates OC emergency response including disaster declarations, evacuation orders, and shelter operations. Register your household on the Access and Functional Needs (AFN) Registry to ensure emergency responders know PLwD live at your address.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Emergency Alerts | Evacuation Notifications</span>
     <h4>OC Alert — Emergency Notification System</h4>
-    <p>🌐 ocgov.com/ocalert</p>
+    <p>🌐 <a href="https://www.ocgov.com/ocalert" target="_blank" rel="noopener noreferrer">ocgov.com/ocalert</a></p>
     <p>Register your phone number, email, and address to receive emergency alerts, evacuation orders, shelter-in-place notices, and public safety announcements via text, call, or email. Free. Available in multiple languages.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Wandering | GPS Tracking | Missing Persons</span>
     <h4>OC Sheriff's Department — Safe Return Program / MedicAlert</h4>
-    <p>📞 <strong>(714) 647-7000</strong> | 🌐 MedicAlert + Alzheimer's Association Safe Return: 800-625-3780</p>
+    <p>📞 <strong><a href="tel:+17146477000">(714) 647-7000</a></strong> | 🌐 MedicAlert + Alzheimer's Association Safe Return: <a href="tel:+18006253780">800-625-3780</a></p>
     <p>Register the PLwD with MedicAlert Alzheimer's Association Safe Return for 24/7 nationwide emergency response to wandering. Contact OC Sheriff if the PLwD becomes missing during an emergency.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Wildfire | Fire Prevention | Emergency Response</span>
     <h4>Orange County Fire Authority</h4>
-    <p>📞 <strong>(714) 573-6000</strong> | 🌐 ocfa.org</p>
+    <p>📞 <strong><a href="tel:+17145736000">(714) 573-6000</a></strong> | 🌐 <a href="https://www.ocfa.org/" target="_blank" rel="noopener noreferrer">ocfa.org</a></p>
     <p>Wildfire emergency response, evacuation orders, fire weather watches, and community preparedness programs for most OC cities. Offers free home wildfire assessments.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Air Quality | AQI Alerts | Smoke Advisories</span>
     <h4>South Coast AQMD</h4>
-    <p>📞 <strong>(800) 288-7664</strong> | 🌐 aqmd.gov | AirNow.gov</p>
+    <p>📞 <strong><a href="tel:+18002887664">(800) 288-7664</a></strong> | 🌐 <a href="https://www.aqmd.gov/" target="_blank" rel="noopener noreferrer">aqmd.gov</a> | <a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">AirNow.gov</a></p>
     <p>Monitors and reports air quality across Southern California. Sign up for free daily AQI email alerts by ZIP code. Issues Smoke Advisories and health guidance during wildfire smoke events.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Information & Referral | 24/7 Hotline</span>
     <h4>211 Orange County</h4>
-    <p>📞 <strong>Dial 2-1-1</strong> | 🌐 211oc.org</p>
-    <p>Free, confidential 24/7 information and referral service. Connect to cooling centers, shelters, food banks, mental health services, transportation, and any local service. Available in 200+ languages via interpreter. Dial 2-1-1 from any phone.</p>
+    <p>📞 <strong><a href="tel:211">Dial 2-1-1</a></strong> | 🌐 <a href="https://www.211oc.org/" target="_blank" rel="noopener noreferrer">211oc.org</a></p>
+    <p>Free, confidential 24/7 information and referral service. Connect to cooling centers, shelters, food banks, mental health services, transportation, and any local service. Available in 200+ languages via interpreter. Dial <a href="tel:211">2-1-1</a> from any phone.</p>
   </div>
 
   <div class="oc-agency-card">
     <span class="role">Utility Support | Medical Baseline | Power Outages</span>
     <h4>Southern California Edison — Medical Baseline Program</h4>
-    <p>📞 <strong>(800) 655-4555</strong> | 🌐 sce.com/medicalbaseline</p>
+    <p>📞 <strong><a href="tel:+18006554555">(800) 655-4555</a></strong> | 🌐 <a href="https://www.sce.com/medicalbaseline" target="_blank" rel="noopener noreferrer">sce.com/medicalbaseline</a></p>
     <p>Reduced electricity rates and advance notice of planned Public Safety Power Shutoffs (PSPS) for households with qualifying medical conditions including dementia-related equipment (oxygen, CPAP). Register before an emergency occurs.</p>
   </div>
 </div>
@@ -1029,10 +1161,10 @@
   <strong>Resilient Minds, Resilient Communities</strong> · UCI Climate Collaboration Project Grant<br>
   Lead PI: Karen D. Lincoln, PhD · Co-PIs: Julie Rousseau, PhD · Nalini Venkatasubramanian, PhD · Jung-Ah Lee, PhD<br>
   Partner Organizations: Alzheimer's Orange County · Caregiver Resource Center Orange County · AAAE · OC Health Care Agency<br>
-  <em>This guide is for informational purposes. Always call 911 in a life-threatening emergency.</em>
+  <em>This guide is for informational purposes. Always call <a href="tel:911">911</a> in a life-threatening emergency.</em>
 </footer>
 
-<button class="scroll-top" id="ocScrollBtn" onclick="document.getElementById('oc-caregiver-guide').scrollIntoView({behavior:'smooth'})" aria-label="Back to the top of the caregiver guide">↑</button>
+<a class="scroll-top" id="ocScrollBtn" href="#oc-caregiver-guide" aria-label="Back to the top of the caregiver guide">↑</a>
 </div>
 
 <script>
@@ -1040,20 +1172,10 @@
   const page = document.getElementById('oc-caregiver-guide');
   if (!page) return;
 
-  window.ocCaregiverShowTab = function(name) {
-    page.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-    page.querySelectorAll('.tab-bar button').forEach(b => b.classList.remove('active'));
-    page.querySelector('#tab-' + name).classList.add('active');
-    const buttons = page.querySelectorAll('.tab-bar button');
-    const map = {'overview':0,'prepare':1,'heat':2,'air':3,'wildfire':4,'flood':5,'power':6,'agencies':7};
-    buttons[map[name]].classList.add('active');
-    page.scrollIntoView({behavior:'smooth'});
-  };
-
   const scrollButton = page.querySelector('#ocScrollBtn');
   window.addEventListener('scroll', function() {
-    const pageTop = page.getBoundingClientRect().top;
-    scrollButton.style.display = pageTop < -300 ? 'block' : 'none';
+    const pageRect = page.getBoundingClientRect();
+    scrollButton.style.display = pageRect.top < -300 && pageRect.bottom > 120 ? 'grid' : 'none';
   });
 })();
 </script>
