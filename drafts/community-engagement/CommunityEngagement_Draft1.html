@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Community Engagement Draft 1 | CEHDR</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="cehdr-community-page">
+<style>
+.entry-content:has(#cehdr-community-page) > .wp-block-columns.alignfull,
+.entry-content:has(#cehdr-community-page) > .wp-block-columns.alignfull > .wp-block-column,
+.entry-content:has(#cehdr-community-page) > div,
+.wp-block-column:has(#cehdr-community-page){margin-top:0!important;margin-bottom:0!important;padding:0!important}
+.entry-content:has(#cehdr-community-page) > .wp-block-columns.alignfull,
+#page-wrapper:has(#cehdr-community-page){overflow-x:clip!important;overflow-y:visible!important}
+#cehdr-community-page{--blue:#0064A4;--navy:#003366;--deep:#00224a;--gold:#FFD200;--ink:#12233b;--muted:#5a6b7d;--paper:#f6f9fc;--line:#e2ebf3;color:var(--ink);background:#fff;line-height:1.6;position:relative;isolation:isolate;overflow-x:clip}
+#cehdr-community-page,#cehdr-community-page *,#cehdr-community-page *::before,#cehdr-community-page *::after{box-sizing:border-box;margin:0;padding:0}
+#cehdr-community-page,#cehdr-community-page button,#cehdr-community-page input,#cehdr-community-page a,#cehdr-community-page h1,#cehdr-community-page h2,#cehdr-community-page h3,#cehdr-community-page h4,#cehdr-community-page p,#cehdr-community-page span,#cehdr-community-page div{font-family:'Roboto Slab',serif!important}
+#cehdr-community-page button{color:inherit}
+#cehdr-community-page img{display:block;max-width:100%}
+#cehdr-community-page svg{display:block}
+#cehdr-community-page a{color:inherit}
+#cehdr-community-page .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+#cehdr-community-page .section{padding:72px 0;position:relative}
+#cehdr-community-page .section-head{max-width:780px;margin:0 auto 40px;text-align:center}
+#cehdr-community-page .section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+#cehdr-community-page .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--blue);font-size:.72rem;font-weight:800;letter-spacing:2.5px;text-transform:uppercase}
+#cehdr-community-page .eyebrow::before{content:"";width:26px;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue));border-radius:2px}
+#cehdr-community-page .section-head .eyebrow{justify-content:center}
+#cehdr-community-page h2{font-size:2.3rem;line-height:1.13;font-weight:800;letter-spacing:-.5px;color:var(--navy);margin:14px 0 12px}
+#cehdr-community-page .section-intro{font-size:1.03rem;color:var(--muted);max-width:720px}
+#cehdr-community-page .section-head .section-intro{margin-left:auto;margin-right:auto}
+#cehdr-community-page .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+#cehdr-community-page .reveal.in{opacity:1;transform:none}
+#cehdr-community-page .btn{min-height:46px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 23px;border-radius:30px;border:1px solid transparent;text-decoration:none;font-size:.88rem;font-weight:800;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+#cehdr-community-page .btn:hover{transform:translateY(-3px)}
+#cehdr-community-page .btn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#cehdr-community-page .btn-gold{background:var(--gold);color:var(--navy);box-shadow:0 10px 25px rgba(255,210,0,.26)}
+#cehdr-community-page .btn-blue{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;box-shadow:0 12px 30px rgba(0,51,102,.22)}
+#cehdr-community-page .btn-ghost{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.38);color:#fff}
+#cehdr-community-page button:focus-visible,#cehdr-community-page a:focus-visible{outline:3px solid rgba(0,100,164,.28);outline-offset:3px}
+
+/* HERO: documentary image field with an editorial title lockup */
+#cehdr-community-page .ce-hero{min-height:680px;display:flex;align-items:flex-end;position:relative;color:#fff;background:url('https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_1.jpeg') center 38%/cover no-repeat;overflow:hidden}
+#cehdr-community-page .ce-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,34,74,.96) 0%,rgba(0,34,74,.82) 39%,rgba(0,34,74,.34) 70%,rgba(0,34,74,.18) 100%)}
+#cehdr-community-page .ce-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:9px;background:linear-gradient(90deg,var(--gold) 0 18%,var(--blue) 18% 64%,rgba(255,255,255,.8) 64%)}
+#cehdr-community-page .hero-copy{position:relative;z-index:2;width:min(820px,76%);padding:108px 0 82px}
+#cehdr-community-page .hero-copy .eyebrow{color:var(--gold)}
+#cehdr-community-page .hero-copy .eyebrow::before{background:var(--gold)}
+#cehdr-community-page .hero-copy h1{font-size:clamp(2.3rem,3.6vw,3.45rem);line-height:1.08;font-weight:800;letter-spacing:-.5px;color:#fff!important;margin:22px 0 22px;max-width:720px}
+#cehdr-community-page .hero-copy h1 span{color:var(--gold)}
+#cehdr-community-page .hero-lead{max-width:670px;font-size:1.1rem;color:rgba(255,255,255,.86);line-height:1.75}
+#cehdr-community-page .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+#cehdr-community-page .hero-marker{position:absolute;right:5.5%;bottom:68px;z-index:3;width:212px;padding:18px 0 16px;border-top:3px solid var(--gold);border-bottom:1px solid rgba(255,255,255,.42)}
+#cehdr-community-page .hero-marker b{display:block;color:#fff;font-size:1rem;margin-bottom:5px}
+#cehdr-community-page .hero-marker span{display:block;color:rgba(255,255,255,.72);font-size:.78rem;line-height:1.5}
+/* IMPACT EVIDENCE RAIL */
+#cehdr-community-page .evidence{background:#fff;padding:58px 0}
+#cehdr-community-page .evidence-layout{display:block}
+#cehdr-community-page .evidence-copy{max-width:780px;margin:0 auto 36px;text-align:center}
+#cehdr-community-page .evidence-copy .eyebrow{justify-content:center}
+#cehdr-community-page .evidence-copy h2{font-size:2.3rem;margin:12px 0 0}
+#cehdr-community-page .evidence-layout>div:last-child{max-width:920px;margin:0 auto}
+#cehdr-community-page .evidence-rail{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+#cehdr-community-page .evidence-stat{padding:27px 24px 25px;border:1px solid var(--line);border-radius:14px;position:relative;background:linear-gradient(145deg,#fff,var(--paper));box-shadow:0 12px 30px rgba(0,51,102,.07);transition:.3s}
+#cehdr-community-page .evidence-stat:first-child{border-left:1px solid var(--line)}
+#cehdr-community-page .evidence-stat::before{content:"";position:absolute;top:-2px;left:24px;width:42px;height:4px;background:linear-gradient(90deg,var(--gold),var(--blue))}
+#cehdr-community-page .evidence-stat:hover{transform:translateY(-5px);box-shadow:0 22px 45px rgba(0,51,102,.13)}
+#cehdr-community-page .evidence-stat strong{display:block;font-size:2.7rem;line-height:1;font-weight:800;font-variant-numeric:tabular-nums;background:linear-gradient(110deg,var(--navy),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+#cehdr-community-page .evidence-stat span{display:block;color:var(--muted);font-size:.82rem;line-height:1.45;margin-top:9px}
+#cehdr-community-page .source-note{color:var(--muted);font-size:.7rem;margin-top:14px;text-align:center}
+
+/* HOW IT WORKS: open field pathway, not a card grid */
+#cehdr-community-page .pathway{background:linear-gradient(153deg,var(--deep),var(--navy),#09334d);color:#fff}
+#cehdr-community-page .pathway h2{color:#fff}
+#cehdr-community-page .pathway .eyebrow{color:var(--gold)}
+#cehdr-community-page .pathway .eyebrow::before{background:var(--gold)}
+#cehdr-community-page .pathway .section-intro{color:rgba(255,255,255,.72)}
+#cehdr-community-page .field-path{display:grid;grid-template-columns:repeat(5,1fr);position:relative;padding-top:28px}
+#cehdr-community-page .field-path::before{content:"";position:absolute;left:8%;right:8%;top:47px;height:3px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--navy))}
+#cehdr-community-page .field-step{position:relative;padding:0 22px;text-align:center;transition:.3s}
+#cehdr-community-page .step-mark{width:40px;height:40px;display:grid;place-items:center;margin:0 auto 22px;border:3px solid #fff;border-radius:10px;background:var(--navy);color:var(--gold);box-shadow:0 0 0 1px var(--line),0 8px 18px rgba(0,51,102,.18);font-weight:800;position:relative;z-index:2}
+#cehdr-community-page .field-step:nth-child(2n) .step-mark{background:var(--blue)}
+#cehdr-community-page .field-step h3{font-size:1rem;line-height:1.3;color:#fff;font-weight:800;margin-bottom:8px}
+#cehdr-community-page .field-step p{font-size:.79rem;line-height:1.55;color:rgba(255,255,255,.68)}
+#cehdr-community-page .field-step:hover{transform:translateY(-5px)}
+#cehdr-community-page .field-step:hover .step-mark{background:var(--gold);color:var(--navy);box-shadow:0 0 0 1px var(--gold),0 14px 28px rgba(0,51,102,.2)}
+
+/* CHIS EXPLORER */
+#cehdr-community-page .suite{background:#fff}
+#cehdr-community-page .suite-console{border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 30px 70px rgba(0,51,102,.14);overflow:hidden}
+#cehdr-community-page .suite-visual{background:linear-gradient(180deg,#fff,var(--paper));padding:18px;position:relative}
+#cehdr-community-page .suite-visual img{width:100%;border-radius:12px}
+#cehdr-community-page .suite-expand{position:absolute;right:31px;top:31px;width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(0,51,102,.18);border-radius:10px;background:rgba(255,255,255,.9);color:var(--navy);box-shadow:0 8px 22px rgba(0,51,102,.14);cursor:pointer;transition:.25s}
+#cehdr-community-page .suite-expand:hover{background:var(--navy);color:var(--gold);transform:translateY(-2px)}
+#cehdr-community-page .suite-expand svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#cehdr-community-page .suite-tabs{display:grid;grid-template-columns:repeat(5,1fr);background:var(--deep);padding:9px;gap:7px}
+#cehdr-community-page .suite-tab{min-height:68px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:transparent;color:rgba(255,255,255,.74);cursor:pointer;padding:10px 9px;font-weight:700;font-size:.76rem;transition:.25s}
+#cehdr-community-page .suite-tab:hover{background:rgba(255,255,255,.07);color:#fff}
+#cehdr-community-page .suite-tab.active{background:#fff;color:var(--navy);border-color:#fff;box-shadow:inset 0 -4px var(--gold)}
+#cehdr-community-page .suite-detail{min-height:196px;display:grid;grid-template-columns:210px 1fr;gap:36px;padding:34px 38px;background:#fff;align-items:start}
+#cehdr-community-page .suite-detail-label{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--blue);font-weight:800;padding-top:5px}
+#cehdr-community-page .suite-detail-label strong{display:block;font-size:1.3rem;letter-spacing:0;text-transform:none;color:var(--navy);line-height:1.25;margin-top:8px}
+#cehdr-community-page .suite-detail-copy p{color:var(--muted);font-size:.96rem;line-height:1.7}
+#cehdr-community-page .suite-detail-copy b{color:var(--ink)}
+
+/* DATA STUDIO */
+#cehdr-community-page .signals{background:linear-gradient(180deg,var(--paper),#eef4fa);color:var(--ink)}
+#cehdr-community-page .signals h2{color:var(--navy)}
+#cehdr-community-page .signals .eyebrow{color:var(--blue)}
+#cehdr-community-page .signals .eyebrow::before{background:linear-gradient(90deg,var(--gold),var(--blue))}
+#cehdr-community-page .signals .section-intro{color:var(--muted)}
+#cehdr-community-page .viz-dashboard{display:grid;grid-template-columns:1.08fr .92fr;gap:16px}
+#cehdr-community-page .viz-panel{position:relative;padding:27px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:linear-gradient(145deg,var(--deep),var(--navy));box-shadow:0 24px 60px rgba(0,51,102,.16);overflow:hidden;transition:transform .3s,border-color .3s,background .3s}
+#cehdr-community-page .viz-panel:hover{transform:translateY(-4px);border-color:rgba(255,210,0,.48);background:linear-gradient(145deg,var(--deep),#004278);box-shadow:0 30px 68px rgba(0,34,74,.24)}
+#cehdr-community-page .viz-panel.wide{grid-column:span 2}
+#cehdr-community-page .viz-panel h3{font-size:1.08rem;color:#fff;font-weight:800;margin-bottom:5px;text-align:center}
+#cehdr-community-page .viz-kicker{display:block;margin-bottom:11px;color:var(--gold);font-size:.64rem;font-weight:800;letter-spacing:1.7px;text-transform:uppercase;text-align:center}
+#cehdr-community-page .chart-note{font-size:.7rem;color:rgba(255,255,255,.58);line-height:1.5;margin-bottom:23px;text-align:center}
+#cehdr-community-page .bar-list{display:grid;gap:17px}
+#cehdr-community-page .bar-row{display:grid;grid-template-columns:minmax(160px,230px) 1fr 54px;gap:15px;align-items:center}
+#cehdr-community-page .bar-label{font-size:.78rem;color:rgba(255,255,255,.84)}
+#cehdr-community-page .bar-track{height:11px;background:rgba(255,255,255,.13);border-radius:4px;overflow:hidden}
+#cehdr-community-page .bar-fill{height:100%;background:linear-gradient(90deg,var(--gold),#fff);border-radius:4px;transform-origin:left;animation:chartGrow .9s cubic-bezier(.16,1,.3,1) both}
+#cehdr-community-page .bar-score{font-size:.76rem;font-weight:800;color:var(--gold);text-align:right;font-variant-numeric:tabular-nums}
+#cehdr-community-page .viz-pair{display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:center}
+#cehdr-community-page .donut{width:170px;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(var(--gold) 0 70%,rgba(255,255,255,.13) 70% 100%);box-shadow:0 0 0 12px rgba(255,255,255,.04)}
+#cehdr-community-page .donut::after{content:"";width:108px;aspect-ratio:1;border-radius:50%;background:var(--deep);position:absolute}
+#cehdr-community-page .donut strong{position:relative;z-index:2;color:#fff;font-size:2rem;font-weight:800}
+#cehdr-community-page .donut strong span{display:block;color:rgba(255,255,255,.6);font-size:.56rem;letter-spacing:1px;text-align:center;text-transform:uppercase;margin-top:4px}
+#cehdr-community-page .donut-copy p{font-size:.84rem;color:rgba(255,255,255,.75);line-height:1.65}
+#cehdr-community-page .column-chart{height:220px;display:flex;align-items:flex-end;gap:18px;padding:15px 12px 0;border-bottom:1px solid rgba(255,255,255,.2);background:repeating-linear-gradient(0deg,transparent 0 43px,rgba(255,255,255,.07) 44px)}
+#cehdr-community-page .column-item{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:9px}
+#cehdr-community-page .column-item i{display:block;width:min(46px,70%);height:var(--bar);background:linear-gradient(180deg,var(--gold),var(--blue));border-radius:8px 8px 2px 2px;box-shadow:0 8px 24px rgba(0,100,164,.3);animation:columnRise .9s cubic-bezier(.16,1,.3,1) both}
+#cehdr-community-page .column-item b{color:#fff;font-size:.7rem;font-weight:800}
+#cehdr-community-page .column-item span{min-height:35px;color:rgba(255,255,255,.62);font-size:.59rem;text-align:center;line-height:1.25}
+#cehdr-community-page .trend-chart{width:100%;height:230px;display:block;overflow:visible}
+#cehdr-community-page .trend-grid{stroke:rgba(255,255,255,.12);stroke-width:1}
+#cehdr-community-page .trend-area{fill:url(#trendFill)}
+#cehdr-community-page .trend-line{fill:none;stroke:var(--gold);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:700;stroke-dashoffset:700;animation:drawLine 1.4s .2s cubic-bezier(.16,1,.3,1) forwards}
+#cehdr-community-page .trend-dot{fill:#fff;stroke:var(--blue);stroke-width:4}
+#cehdr-community-page .trend-label{fill:rgba(255,255,255,.66);font:700 11px 'Roboto Slab',serif}
+#cehdr-community-page .data-map{min-height:285px;position:relative;border-radius:13px;overflow:hidden;background:var(--deep)}
+#cehdr-community-page .data-map img{width:100%;height:285px;object-fit:cover;opacity:.72;filter:saturate(.75) contrast(1.08)}
+#cehdr-community-page .map-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,34,74,.2),rgba(0,34,74,.84))}
+#cehdr-community-page .map-legend{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:220px;padding:20px;border-left:3px solid var(--gold);background:rgba(0,34,74,.78);backdrop-filter:blur(8px)}
+#cehdr-community-page .map-legend b{display:block;color:#fff;font-size:.86rem;margin-bottom:8px}
+#cehdr-community-page .map-legend p{color:rgba(255,255,255,.67);font-size:.68rem;line-height:1.55}
+#cehdr-community-page .concept-flag{display:inline-block;margin-top:11px;padding:5px 8px;border:1px solid rgba(255,210,0,.45);border-radius:7px;color:var(--gold);font-size:.56rem;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+@keyframes chartGrow{from{transform:scaleX(0)}}
+@keyframes columnRise{from{height:0}}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+
+/* GOOGLE MY MAPS ACTIVITY */
+#cehdr-community-page .map-activity{background:linear-gradient(153deg,var(--deep),var(--navy),#09334d);color:#fff}
+#cehdr-community-page .map-activity-layout{display:block}
+#cehdr-community-page .map-activity-copy{max-width:780px;margin:0 auto 36px;padding:0;text-align:center}
+#cehdr-community-page .map-activity-copy .eyebrow{justify-content:center;color:var(--gold)}
+#cehdr-community-page .map-activity-copy .eyebrow::before{background:var(--gold)}
+#cehdr-community-page .map-activity-copy h2{margin:14px 0 16px}
+#cehdr-community-page .map-activity-copy h2{color:#fff}
+#cehdr-community-page .map-activity-copy p{max-width:680px;margin:0 auto;color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.7}
+#cehdr-community-page .map-activity-link{margin-top:24px}
+#cehdr-community-page .map-embed-shell{border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 30px 70px rgba(0,51,102,.16);overflow:hidden}
+#cehdr-community-page .map-embed-bar{min-height:54px;padding:12px 17px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--navy);color:#fff}
+#cehdr-community-page .map-embed-bar strong{font-size:.78rem;font-weight:800}
+#cehdr-community-page .map-embed-bar span{color:rgba(255,255,255,.58);font-size:.64rem}
+#cehdr-community-page .map-embed{height:520px;background:var(--paper)}
+#cehdr-community-page .map-embed iframe{display:block;width:100%;height:100%;border:0}
+
+/* PRIORITY LAB */
+#cehdr-community-page .priority-lab{background:#fff}
+#cehdr-community-page .priority-shell{display:grid;grid-template-columns:1fr .86fr;gap:34px;align-items:stretch}
+#cehdr-community-page .rank-tool{border:1px solid var(--line);border-radius:18px;padding:30px;background:linear-gradient(145deg,#fff,var(--paper));box-shadow:0 24px 55px rgba(0,51,102,.1)}
+#cehdr-community-page .rank-tool h3,#cehdr-community-page .pulse-panel h3{font-size:1.25rem;color:var(--navy);font-weight:800;margin-bottom:7px}
+#cehdr-community-page .tool-intro{font-size:.8rem;color:var(--muted);margin-bottom:21px}
+#cehdr-community-page .rank-list{display:grid;gap:8px;counter-reset:rank}
+#cehdr-community-page .rank-item{counter-increment:rank;display:grid;grid-template-columns:34px 1fr 82px;gap:12px;align-items:center;min-height:56px;padding:8px 10px;background:#fff;border:1px solid var(--line);border-radius:10px;transition:.25s}
+#cehdr-community-page .rank-item::before{content:counter(rank);display:grid;place-items:center;height:34px;border-radius:8px;background:var(--navy);color:var(--gold);font-weight:800;font-size:.8rem}
+#cehdr-community-page .rank-item span{font-size:.8rem;font-weight:700;color:var(--ink)}
+#cehdr-community-page .rank-controls{display:flex;gap:5px;justify-content:flex-end}
+#cehdr-community-page .rank-controls button{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:8px;background:var(--paper);cursor:pointer;color:var(--blue)}
+#cehdr-community-page .rank-controls button:hover{background:var(--navy);color:var(--gold)}
+#cehdr-community-page .rank-controls svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+#cehdr-community-page .rank-submit{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:20px}
+#cehdr-community-page .rank-message{font-size:.73rem;color:var(--blue);font-weight:700;min-height:18px}
+#cehdr-community-page .pulse-panel{border-radius:18px;padding:30px;color:#fff;background:linear-gradient(150deg,var(--deep),var(--navy));position:relative;overflow:hidden}
+#cehdr-community-page .pulse-panel h3{color:#fff}
+#cehdr-community-page .pulse-panel .tool-intro{color:rgba(255,255,255,.68)}
+#cehdr-community-page .word-field{min-height:270px;display:flex;flex-wrap:wrap;align-content:center;justify-content:center;gap:9px 15px;padding:22px 5px}
+#cehdr-community-page .word{color:rgba(255,255,255,.76);font-weight:700;line-height:1.1;transition:.2s}
+#cehdr-community-page .word:nth-child(3n){color:var(--gold)}
+#cehdr-community-page .word.top{font-size:2rem;color:#fff;font-weight:800}
+#cehdr-community-page .word.high{font-size:1.45rem}
+#cehdr-community-page .word.mid{font-size:1rem}
+#cehdr-community-page .leader-rule{height:3px;background:linear-gradient(90deg,var(--gold),var(--blue));margin:4px 0 18px}
+#cehdr-community-page .leader-list{display:grid;gap:8px}
+#cehdr-community-page .leader-row{display:grid;grid-template-columns:26px 1fr auto;gap:10px;align-items:center;font-size:.75rem}
+#cehdr-community-page .leader-row b{color:var(--gold)}
+#cehdr-community-page .leader-row span:last-child{color:rgba(255,255,255,.58)}
+
+/* QUIZ */
+#cehdr-community-page .quiz-section{background:linear-gradient(153deg,var(--deep),var(--navy),#09334d);color:#fff}
+#cehdr-community-page .quiz-section h2{color:#fff}
+#cehdr-community-page .quiz-section .eyebrow{color:var(--gold)}
+#cehdr-community-page .quiz-section .eyebrow::before{background:var(--gold)}
+#cehdr-community-page .quiz-section .section-intro{color:rgba(255,255,255,.72)}
+#cehdr-community-page .quiz-shell{display:grid;grid-template-columns:300px 1fr;min-height:430px;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 26px 60px rgba(0,51,102,.12)}
+#cehdr-community-page .quiz-aside{background:var(--navy);color:#fff;padding:36px;display:flex;flex-direction:column;justify-content:space-between}
+#cehdr-community-page .quiz-aside strong{font-size:2.7rem;line-height:1;color:var(--gold);font-weight:800}
+#cehdr-community-page .quiz-aside span{display:block;margin-top:8px;color:rgba(255,255,255,.65);font-size:.78rem}
+#cehdr-community-page .quiz-progress{height:5px;background:rgba(255,255,255,.17);border-radius:3px;overflow:hidden}
+#cehdr-community-page .quiz-progress i{display:block;height:100%;width:20%;background:var(--gold);transition:width .4s ease}
+#cehdr-community-page .quiz-main{padding:42px;background:#fff}
+#cehdr-community-page .quiz-kicker{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;color:var(--blue);font-weight:800}
+#cehdr-community-page .quiz-question{font-size:1.45rem;line-height:1.35;color:var(--navy);font-weight:800;margin:12px 0 25px}
+#cehdr-community-page .quiz-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#cehdr-community-page .quiz-option{min-height:58px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);padding:13px 15px;text-align:left;font-size:.8rem;font-weight:700;cursor:pointer;transition:.2s}
+#cehdr-community-page .quiz-option:hover{border-color:var(--blue);background:#fff}
+#cehdr-community-page .quiz-option.correct{border-color:var(--blue);background:rgba(0,100,164,.08);box-shadow:inset 4px 0 var(--blue)}
+#cehdr-community-page .quiz-option.wrong{border-color:var(--gold);background:rgba(255,210,0,.13);box-shadow:inset 4px 0 var(--gold)}
+#cehdr-community-page .quiz-feedback{min-height:65px;margin-top:18px;padding:13px 15px;border-left:3px solid var(--gold);background:var(--paper);color:var(--muted);font-size:.78rem;display:none}
+#cehdr-community-page .quiz-feedback.show{display:block}
+#cehdr-community-page .quiz-next{margin-top:17px;display:none}
+#cehdr-community-page .quiz-next.show{display:inline-flex}
+
+/* DID YOU KNOW */
+#cehdr-community-page .facts{background:var(--gold);padding:0;overflow:hidden}
+#cehdr-community-page .fact-layout{display:grid;grid-template-columns:220px 1fr;align-items:stretch}
+#cehdr-community-page .fact-label{background:var(--navy);color:#fff;padding:34px 28px;font-size:1.1rem;font-weight:800;display:flex;align-items:center}
+#cehdr-community-page .fact-stage{position:relative;min-height:128px;padding:29px 42px;display:flex;align-items:center}
+#cehdr-community-page .fact-item{position:absolute;left:42px;right:42px;opacity:0;transform:translateY(12px);transition:.45s;pointer-events:none;color:var(--navy);font-weight:700;font-size:1.03rem;line-height:1.55}
+#cehdr-community-page .fact-item.active{opacity:1;transform:none}
+#cehdr-community-page .fact-count{position:absolute;right:22px;bottom:13px;font-size:.65rem;color:rgba(0,51,102,.58);font-weight:800;letter-spacing:1px}
+
+/* UPCOMING EVENTS: compact agenda inside the opening light section */
+#cehdr-community-page .events-compact{padding-bottom:42px;margin-bottom:48px;border-bottom:1px solid var(--line)}
+#cehdr-community-page .events-compact .section-head{margin-bottom:22px}
+#cehdr-community-page .events-compact .section-head h2{font-size:1.9rem;margin-top:10px}
+#cehdr-community-page .events-compact .section-intro{font-size:.88rem}
+#cehdr-community-page .event-agenda{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:1040px;margin:0 auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper)}
+#cehdr-community-page .event-row{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;align-items:start;padding:20px 22px;border-right:1px solid var(--line);transition:background .25s ease}
+#cehdr-community-page .event-row:last-child{border-right:0}
+#cehdr-community-page .event-row:hover{background:#fff}
+#cehdr-community-page .event-date{padding-left:11px;border-left:3px solid var(--gold)}
+#cehdr-community-page .event-date strong{display:block;color:var(--navy);font-size:.9rem;font-weight:800;line-height:1.1}
+#cehdr-community-page .event-date span{display:block;margin-top:5px;color:var(--muted);font-size:.55rem;font-weight:700;line-height:1.35;letter-spacing:.7px;text-transform:uppercase}
+#cehdr-community-page .event-copy span{display:block;margin-bottom:5px;color:var(--blue);font-size:.58rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase}
+#cehdr-community-page .event-copy h3{color:var(--navy);font-size:.88rem;font-weight:800;line-height:1.35}
+#cehdr-community-page .event-status{grid-column:2;margin-top:8px;color:var(--muted);font-size:.62rem;font-weight:700}
+#cehdr-community-page .events-footer{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:20px;text-align:center}
+#cehdr-community-page .events-footer p{max-width:520px;color:var(--muted);font-size:.72rem}
+#cehdr-community-page .events-footer .btn{min-height:40px;padding:9px 17px;font-size:.75rem}
+
+/* GALLERY: adapted from ImageGallery.html */
+#cehdr-community-page .gallery{background:linear-gradient(180deg,#fff,#eef4fa)}
+#cehdr-community-page .filters{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:28px;justify-content:center}
+#cehdr-community-page .chip{min-height:44px;display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:700;color:var(--navy);background:#fff;border:1px solid var(--line);padding:9px 17px;border-radius:24px;cursor:pointer;transition:.25s}
+#cehdr-community-page .chip:hover{border-color:var(--blue)}
+#cehdr-community-page .chip.active{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;border-color:transparent;box-shadow:0 8px 20px rgba(0,51,102,.18)}
+#cehdr-community-page .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:16px}
+#cehdr-community-page .tile{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(0,51,102,.10);cursor:pointer;transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s,opacity .4s}
+#cehdr-community-page .tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+#cehdr-community-page .tile:hover{transform:translateY(-5px);box-shadow:0 22px 44px rgba(0,51,102,.22)}
+#cehdr-community-page .tile:hover img{transform:scale(1.07)}
+#cehdr-community-page .tile .scrim{position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(0,34,74,.84) 100%)}
+#cehdr-community-page .tile .cap{position:absolute;left:16px;right:16px;bottom:14px;z-index:2}
+#cehdr-community-page .tile .tag{display:inline-block;font-size:.58rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:4px 9px;border-radius:12px;margin-bottom:7px}
+#cehdr-community-page .tile h4{color:#fff;font-size:.9rem;font-weight:700;line-height:1.3}
+#cehdr-community-page .tile.wide{grid-column:span 2}
+#cehdr-community-page .tile.big{grid-column:span 2;grid-row:span 2}
+#cehdr-community-page .tile.tall{grid-row:span 2}
+#cehdr-community-page .tile.hide{display:none}
+#cehdr-community-page .gallery-foot{text-align:center;margin-top:30px}
+#cehdr-community-page .lb{position:fixed;inset:0;z-index:1000;background:rgba(0,20,45,.94);display:none;align-items:center;justify-content:center;padding:70px 82px}
+#cehdr-community-page .lb.open{display:flex}
+#cehdr-community-page .lb-stage{max-width:94%;max-height:78vh;display:flex;align-items:center;justify-content:center}
+#cehdr-community-page .lb-stage img{max-width:100%;max-height:78vh;border-radius:14px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
+#cehdr-community-page .lb button{position:absolute;display:grid;place-items:center;border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
+#cehdr-community-page .lb button[hidden]{display:none}
+#cehdr-community-page .lb button:hover{background:var(--gold);color:var(--navy)}
+#cehdr-community-page .lb button svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+#cehdr-community-page .lb-close{top:24px;right:28px;width:44px;height:44px;border-radius:10px}
+#cehdr-community-page .lb-nav{top:50%;transform:translateY(-50%);width:50px;height:50px;border-radius:10px}
+#cehdr-community-page .lb-prev{left:22px}.lb-next{right:22px}
+#cehdr-community-page .lb-caption{position:absolute;left:0;right:0;bottom:24px;text-align:center;color:#fff;font-size:.86rem;font-weight:700}
+
+/* VIDEO PLACEHOLDER */
+#cehdr-community-page .video-lab{background:linear-gradient(153deg,var(--deep),var(--navy),#09334d);color:#fff}
+#cehdr-community-page .video-lab h2{color:#fff}
+#cehdr-community-page .video-lab .eyebrow{color:var(--gold)}
+#cehdr-community-page .video-lab .eyebrow::before{background:var(--gold)}
+#cehdr-community-page .video-lab .section-intro{color:rgba(255,255,255,.7)}
+#cehdr-community-page .video-placeholder{min-height:520px;max-width:1020px;margin:0 auto;border:1px solid rgba(255,255,255,.18);border-radius:20px;position:relative;overflow:hidden;background:url('https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_10.jpeg') center/cover;box-shadow:0 30px 70px rgba(0,0,0,.24)}
+#cehdr-community-page .video-placeholder::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,34,74,.2),rgba(0,34,74,.9))}
+#cehdr-community-page .video-placeholder-copy{position:absolute;z-index:2;left:38px;right:38px;bottom:36px;text-align:center}
+#cehdr-community-page .video-placeholder-icon{width:52px;height:52px;margin:0 auto 18px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.45);border-radius:12px;background:rgba(255,255,255,.12);color:var(--gold);backdrop-filter:blur(8px)}
+#cehdr-community-page .video-placeholder-icon svg{width:24px;height:24px;fill:currentColor}
+#cehdr-community-page .video-placeholder-copy h3{font-size:1.55rem;color:#fff;font-weight:800;margin-bottom:8px}
+#cehdr-community-page .video-placeholder-copy p{max-width:650px;margin:0 auto;color:rgba(255,255,255,.76);font-size:.84rem;line-height:1.65}
+
+/* PARTNERS */
+#cehdr-community-page .partners{background:linear-gradient(153deg,var(--deep),var(--navy),#09334d);color:#fff}
+#cehdr-community-page .partners h2{color:#fff}
+#cehdr-community-page .partners .eyebrow{color:var(--gold)}
+#cehdr-community-page .partners .eyebrow::before{background:var(--gold)}
+#cehdr-community-page .partners .section-intro{color:rgba(255,255,255,.72)}
+#cehdr-community-page .partner-console{border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:0 30px 70px rgba(0,51,102,.14);overflow:hidden}
+#cehdr-community-page .partner-feature{display:grid;grid-template-columns:.82fr 1.18fr;min-height:320px}
+#cehdr-community-page .partner-logo-stage{display:grid;place-items:center;padding:45px;background:linear-gradient(145deg,var(--paper),#fff);position:relative}
+#cehdr-community-page .partner-logo-stage::before{content:"";position:absolute;left:26px;top:26px;width:54px;height:4px;background:linear-gradient(90deg,var(--gold),var(--blue))}
+#cehdr-community-page .partner-logo-stage img{max-width:280px;max-height:150px;object-fit:contain;filter:saturate(.9);transition:opacity .25s,transform .35s}
+#cehdr-community-page .partner-story{padding:46px 50px;background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:center}
+#cehdr-community-page .partner-story small{color:var(--gold);font-size:.65rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+#cehdr-community-page .partner-story h3{color:#fff;font-size:1.55rem;line-height:1.25;margin:12px 0 12px;font-weight:800}
+#cehdr-community-page .partner-story p{color:rgba(255,255,255,.72);font-size:.84rem;line-height:1.65;max-width:560px}
+#cehdr-community-page .partner-count{margin-top:22px;color:rgba(255,255,255,.48);font-size:.65rem;font-weight:800;letter-spacing:1px}
+#cehdr-community-page .logo-rail{display:flex;gap:8px;padding:12px;background:var(--deep);overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--gold) rgba(255,255,255,.1)}
+#cehdr-community-page .partner-logo{flex:0 0 132px;height:88px;padding:13px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.88);cursor:pointer;transition:.25s;display:grid;place-items:center}
+#cehdr-community-page .partner-logo img{max-width:100%;max-height:58px;object-fit:contain;filter:none;opacity:.7}
+#cehdr-community-page .partner-logo:hover,#cehdr-community-page .partner-logo.active{background:#fff;border-color:#fff;transform:translateY(-3px)}
+#cehdr-community-page .partner-logo:hover img,#cehdr-community-page .partner-logo.active img{filter:none;opacity:1}
+#cehdr-community-page .partner-note{font-size:.7rem;color:rgba(255,255,255,.62);text-align:center;margin-top:18px}
+
+/* VOICES STORY STAGE */
+#cehdr-community-page .voices{background:#fff}
+#cehdr-community-page .voice-stage{min-height:570px;position:relative;border-radius:22px;overflow:hidden;background:url('https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_6.jpeg') center/cover;box-shadow:0 30px 70px rgba(0,51,102,.18)}
+#cehdr-community-page .voice-stage::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,34,74,.94) 0 47%,rgba(0,34,74,.48) 72%,rgba(0,34,74,.15))}
+#cehdr-community-page .voice-content{position:relative;z-index:2;width:58%;min-height:570px;padding:58px;display:flex;flex-direction:column;justify-content:center;color:#fff}
+#cehdr-community-page .voice-content .eyebrow{color:var(--gold)}
+#cehdr-community-page .voice-content .eyebrow::before{background:var(--gold)}
+#cehdr-community-page .quote-mark{font-size:4.8rem;line-height:.6;color:var(--gold);font-weight:800;margin:0 0 18px}
+#cehdr-community-page .voice-text{color:#fff;font-size:1.45rem;line-height:1.55;font-weight:600;max-width:610px}
+#cehdr-community-page .voice-credit{display:block;margin-top:22px;color:rgba(255,255,255,.68);font-size:.72rem;line-height:1.5}
+#cehdr-community-page .voice-switcher{position:absolute;z-index:3;left:58px;bottom:35px;display:flex;gap:8px}
+#cehdr-community-page .voice-switch{min-height:44px;padding:9px 15px;border:1px solid rgba(255,255,255,.24);border-radius:9px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.68);font-size:.68rem;font-weight:800;cursor:pointer;transition:.25s}
+#cehdr-community-page .voice-switch:hover,#cehdr-community-page .voice-switch.active{background:#fff;color:var(--navy);border-color:#fff}
+#cehdr-community-page .voice-approval{position:absolute;z-index:3;right:24px;bottom:22px;max-width:280px;padding:13px 16px;border-left:3px solid var(--gold);background:rgba(0,34,74,.78);color:rgba(255,255,255,.68);font-size:.62rem;line-height:1.5}
+
+/* PARTICIPATION ROUTER */
+#cehdr-community-page .participate{background:linear-gradient(153deg,var(--deep),var(--navy),#09334d);color:#fff}
+#cehdr-community-page .participate h2{color:#fff}
+#cehdr-community-page .participate .eyebrow{color:var(--gold)}
+#cehdr-community-page .participate .eyebrow::before{background:var(--gold)}
+#cehdr-community-page .participate .section-intro{color:rgba(255,255,255,.7)}
+#cehdr-community-page .route-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+#cehdr-community-page .route{min-height:205px;padding:27px 22px;border:1px solid rgba(255,255,255,.18);border-radius:14px;background:rgba(255,255,255,.05);text-decoration:none;position:relative;transition:.25s;overflow:hidden}
+#cehdr-community-page .route::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--blue));transform:scaleX(0);transform-origin:left;transition:.3s}
+#cehdr-community-page .route:hover{background:#fff;color:var(--navy);transform:translateY(-7px);box-shadow:0 22px 46px rgba(0,0,0,.2)}
+#cehdr-community-page .route:hover::before{transform:scaleX(1)}
+#cehdr-community-page .route-index{color:var(--gold);font-size:.7rem;font-weight:800;letter-spacing:1px}
+#cehdr-community-page .route h3{font-size:1rem;font-weight:800;margin:33px 0 8px;color:#fff}
+#cehdr-community-page .route:hover h3{color:var(--navy)}
+#cehdr-community-page .route p{font-size:.72rem;color:rgba(255,255,255,.58);line-height:1.5}
+#cehdr-community-page .route:hover p{color:var(--muted)}
+#cehdr-community-page .route svg{position:absolute;right:17px;bottom:17px;width:18px;height:18px;fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+@media(max-width:920px){
+  #cehdr-community-page .section{padding:60px 0}
+  #cehdr-community-page .hero-marker{display:none}
+  #cehdr-community-page .hero-copy{width:88%}
+  #cehdr-community-page .field-path{grid-template-columns:1fr 1fr;gap:30px 10px}
+  #cehdr-community-page .field-path::before{display:none}
+  #cehdr-community-page .viz-dashboard{grid-template-columns:1fr}
+  #cehdr-community-page .viz-panel.wide{grid-column:auto}
+  #cehdr-community-page .partner-feature{grid-template-columns:1fr}
+  #cehdr-community-page .priority-shell{grid-template-columns:1fr}
+  #cehdr-community-page .quiz-shell{grid-template-columns:230px 1fr}
+  #cehdr-community-page .route-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:720px){
+  #cehdr-community-page .wrap{padding:0 20px}
+  #cehdr-community-page .section{padding:48px 0}
+  #cehdr-community-page h2{font-size:1.78rem}
+  #cehdr-community-page .section-head{margin-bottom:28px}
+  #cehdr-community-page .ce-hero{min-height:620px;background-position:62% center}
+  #cehdr-community-page .ce-hero::before{background:linear-gradient(180deg,rgba(0,34,74,.42),rgba(0,34,74,.93) 61%,rgba(0,34,74,.98))}
+  #cehdr-community-page .hero-copy{width:100%;padding:230px 0 58px}
+  #cehdr-community-page .hero-copy h1{font-size:1.9rem;line-height:1.12}
+  #cehdr-community-page .hero-lead{font-size:.94rem;line-height:1.65}
+  #cehdr-community-page .evidence-rail{grid-template-columns:1fr}
+  #cehdr-community-page .evidence-stat{border:1px solid var(--line)}
+  #cehdr-community-page .field-path{grid-template-columns:1fr}
+  #cehdr-community-page .field-step{display:grid;grid-template-columns:42px 1fr;text-align:left;column-gap:15px;padding:0}
+  #cehdr-community-page .step-mark{grid-row:1/3;margin:0}
+  #cehdr-community-page .suite-visual{padding:8px}
+  #cehdr-community-page .suite-expand{right:16px;top:16px;width:42px;height:42px}
+  #cehdr-community-page .suite-tabs{grid-template-columns:1fr 1fr}
+  #cehdr-community-page .suite-tab{min-height:55px}
+  #cehdr-community-page .suite-detail{grid-template-columns:1fr;gap:12px;padding:26px 22px}
+  #cehdr-community-page .viz-panel{padding:23px 18px}
+  #cehdr-community-page .viz-pair{grid-template-columns:1fr;justify-items:center;text-align:center}
+  #cehdr-community-page .column-chart{gap:7px;padding-left:0;padding-right:0}
+  #cehdr-community-page .column-item span{font-size:.52rem}
+  #cehdr-community-page .data-map,#cehdr-community-page .data-map img{height:330px}
+  #cehdr-community-page .map-legend{left:18px;right:18px;top:auto;bottom:18px;transform:none;width:auto}
+  #cehdr-community-page .map-embed{height:460px}
+  #cehdr-community-page .bar-row{grid-template-columns:1fr 45px;gap:8px}
+  #cehdr-community-page .bar-track{grid-column:1/3}
+  #cehdr-community-page .bar-score{grid-column:2;grid-row:1}
+  #cehdr-community-page .rank-tool,#cehdr-community-page .pulse-panel{padding:23px 17px}
+  #cehdr-community-page .rank-item{grid-template-columns:30px 1fr 76px}
+  #cehdr-community-page .quiz-shell{grid-template-columns:1fr}
+  #cehdr-community-page .quiz-aside{padding:24px;min-height:150px}
+  #cehdr-community-page .quiz-main{padding:27px 20px}
+  #cehdr-community-page .quiz-options{grid-template-columns:1fr}
+  #cehdr-community-page .fact-layout{grid-template-columns:1fr}
+  #cehdr-community-page .fact-label{padding:18px 20px}
+  #cehdr-community-page .fact-stage{min-height:170px;padding:26px 20px 38px}
+  #cehdr-community-page .fact-item{left:20px;right:20px;font-size:.9rem}
+  #cehdr-community-page .events-compact{padding-bottom:32px;margin-bottom:38px}
+  #cehdr-community-page .event-agenda{display:flex;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:var(--blue) var(--paper)}
+  #cehdr-community-page .event-row{flex:0 0 82%;grid-template-columns:68px minmax(0,1fr);min-height:136px;padding:17px 12px;border-right:1px solid var(--line);scroll-snap-align:start}
+  #cehdr-community-page .event-row:last-child{border-right:0}
+  #cehdr-community-page .events-footer{flex-direction:column;gap:16px}
+  #cehdr-community-page .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+  #cehdr-community-page .tile.big{grid-column:span 2;grid-row:span 2}
+  #cehdr-community-page .tile.wide{grid-column:span 2}
+  #cehdr-community-page .video-placeholder{min-height:410px}
+  #cehdr-community-page .video-placeholder-copy{left:22px;right:22px;bottom:26px}
+  #cehdr-community-page .partner-story{padding:35px 25px}
+  #cehdr-community-page .partner-logo-stage{padding:42px 25px}
+  #cehdr-community-page .voice-stage,#cehdr-community-page .voice-content{min-height:620px}
+  #cehdr-community-page .voice-stage::before{background:linear-gradient(180deg,rgba(0,34,74,.38),rgba(0,34,74,.94) 48%)}
+  #cehdr-community-page .voice-content{width:100%;padding:180px 25px 130px;justify-content:flex-end}
+  #cehdr-community-page .voice-text{font-size:1.12rem}
+  #cehdr-community-page .voice-switcher{left:25px;right:25px;bottom:62px;overflow-x:auto}
+  #cehdr-community-page .voice-switch{flex:0 0 auto}
+  #cehdr-community-page .voice-approval{left:25px;right:25px;bottom:14px;max-width:none;padding:8px 11px}
+  #cehdr-community-page .route-grid{grid-template-columns:1fr 1fr}
+  #cehdr-community-page .lb{padding:70px 18px}
+  #cehdr-community-page .lb-nav{width:44px;height:44px}
+  #cehdr-community-page .lb-prev{left:6px}.lb-next{right:6px}
+}
+@media(max-width:480px){
+  #cehdr-community-page .hero-actions .btn{width:100%}
+  #cehdr-community-page .suite-tabs{grid-template-columns:1fr}
+  #cehdr-community-page .mosaic{grid-template-columns:1fr;grid-auto-rows:210px}
+  #cehdr-community-page .tile.big,#cehdr-community-page .tile.wide{grid-column:span 1;grid-row:span 1}
+  #cehdr-community-page .tile.tall{grid-row:span 1}
+  #cehdr-community-page .route-grid{grid-template-columns:1fr}
+  #cehdr-community-page .map-embed{height:400px}
+  #cehdr-community-page .map-embed-bar{align-items:flex-start;flex-direction:column;gap:2px}
+}
+@media(prefers-reduced-motion:reduce){
+  #cehdr-community-page *,#cehdr-community-page *::before,#cehdr-community-page *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+  #cehdr-community-page .reveal{opacity:1;transform:none}
+}
+</style>
+
+<header class="ce-hero" id="top">
+  <div class="wrap" style="width:100%">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Community Engagement at CEHDR</span>
+      <h1>Community Knowledge.<br><span>Shared Power.</span><br>Healthier Futures.</h1>
+      <p class="hero-lead">We bring residents, researchers, students, healthcare leaders, and community organizations together to identify priorities, shape research, understand data, and translate knowledge into action.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#priority-lab">Share Your Priorities <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#participate">Find Your Place <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-marker"><b>Southern California</b><span>Orange, Los Angeles, and Riverside Counties</span></div>
+</header>
+
+<section class="evidence" id="impact">
+  <div class="wrap">
+    <section class="events-compact reveal" id="events" aria-labelledby="events-title">
+      <div class="section-head"><span class="eyebrow">Gather, Learn, Connect</span><h2 id="events-title">Upcoming Events</h2><p class="section-intro">Confirmed dates and registration details will be added as community programming is scheduled.</p></div>
+      <div class="event-agenda">
+        <article class="event-row"><div class="event-date"><strong>TBA</strong><span>Date pending</span></div><div class="event-copy"><span>Conversation Cafe</span><h3>Community conversation and shared learning</h3></div><div class="event-status">Details coming soon</div></article>
+        <article class="event-row"><div class="event-date"><strong>TBA</strong><span>Date pending</span></div><div class="event-copy"><span>Data Walk</span><h3>Explore findings alongside the community</h3></div><div class="event-status">Details coming soon</div></article>
+        <article class="event-row"><div class="event-date"><strong>TBA</strong><span>Date pending</span></div><div class="event-copy"><span>Community Learning</span><h3>Environmental health information in action</h3></div><div class="event-status">Details coming soon</div></article>
+      </div>
+      <div class="events-footer"><p>Subscribe for confirmed dates, registration links, and CEHDR updates.</p><a class="btn btn-gold" href="http://eepurl.com/fM1Z5e1Vck">Get Event Updates <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v3M17 3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></a></div>
+    </section>
+    <div class="evidence-layout reveal">
+      <div class="evidence-copy"><span class="eyebrow">Engagement in Action</span><h2>A growing regional community</h2></div>
+      <div>
+        <div class="evidence-rail">
+          <div class="evidence-stat"><strong data-count="497">0</strong><span>documented community and event attendees</span></div>
+          <div class="evidence-stat"><strong data-count="213">0</strong><span>survey responses informing CEHDR activities</span></div>
+          <div class="evidence-stat"><strong data-count="3">0</strong><span>Southern California counties represented</span></div>
+        </div>
+        <p class="source-note">CEHDR documented activities, 2023-2026. Counts are presented as reporting-period totals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section pathway" id="how-we-work">
+  <div class="wrap">
+    <div class="section-head center reveal"><span class="eyebrow">How Engagement Creates Change</span><h2>From lived experience to shared action</h2><p class="section-intro">Community engagement is a continuous exchange. Each stage informs the next, and findings return to the people who helped create the knowledge.</p></div>
+    <div class="field-path reveal">
+      <div class="field-step"><div class="step-mark">01</div><h3>Listen</h3><p>Residents identify experiences, assets, barriers, and priorities.</p></div>
+      <div class="field-step"><div class="step-mark">02</div><h3>Learn Together</h3><p>Accessible formats create space for questions and shared understanding.</p></div>
+      <div class="field-step"><div class="step-mark">03</div><h3>Set Priorities</h3><p>Community members interpret evidence and determine what matters most.</p></div>
+      <div class="field-step"><div class="step-mark">04</div><h3>Shape Research</h3><p>Priorities guide study design, recruitment, programs, and partnerships.</p></div>
+      <div class="field-step"><div class="step-mark">05</div><h3>Return Results</h3><p>Findings are shared in useful, culturally responsive, and actionable ways.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section suite" id="suite">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">Community Health Information Suite</span><h2>Five ways to turn information into participation</h2><p class="section-intro">The suite combines approachable learning formats with community decision-making. Select a format to explore what participants do and how their input moves forward.</p></div>
+    <div class="suite-console reveal">
+      <div class="suite-visual"><img src="https://sites.uci.edu/cehdr/files/2026/07/Community-Engagement-Model-CEM.png" alt="Community Health Information Suite showing Talk Show Model, Game Show, Conversation Cafe, Citizen Panels, and Data Walk"><button class="suite-expand" id="suiteExpand" type="button" aria-label="Expand Community Health Information Suite image"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button></div>
+      <div class="suite-tabs" role="tablist" aria-label="Community Health Information Suite methods">
+        <button class="suite-tab active" role="tab" aria-selected="true" data-suite="talk">Talk Show Model</button>
+        <button class="suite-tab" role="tab" aria-selected="false" data-suite="game">Game Show</button>
+        <button class="suite-tab" role="tab" aria-selected="false" data-suite="cafe">Conversation Cafe</button>
+        <button class="suite-tab" role="tab" aria-selected="false" data-suite="walk">Data Walk</button>
+        <button class="suite-tab" role="tab" aria-selected="false" data-suite="panel">Citizen Panels</button>
+      </div>
+      <div class="suite-detail" aria-live="polite">
+        <div class="suite-detail-label">Selected Format<strong id="suiteTitle">Talk Show Model</strong></div>
+        <div class="suite-detail-copy"><p id="suiteCopy"><b>What happens:</b> A host guides an accessible conversation with community members, researchers, and knowledgeable guests. The familiar format helps translate complex health topics while making room for different perspectives and audience questions.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section video-lab" id="video">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">Community Engagement Video</span><h2>See community engagement in action</h2><p class="section-intro">A short video will bring together community voices, images, and moments from CEHDR activities.</p></div>
+    <div class="video-placeholder reveal" role="img" aria-label="Placeholder for a future CEHDR community engagement video">
+      <div class="video-placeholder-copy"><span class="video-placeholder-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span><h3>Video Coming Soon</h3><p>A concise visual story will show how CEHDR listens, learns with communities, and returns knowledge in useful and accessible ways.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section signals" id="signals">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">Community Data Studio</span><h2>One story, many ways to see it</h2><p class="section-intro">This concept gallery intentionally keeps several visualization formats together for review. Verified CEHDR data can determine which formats remain in the published page.</p></div>
+    <div class="viz-dashboard reveal">
+      <div class="viz-panel wide"><span class="viz-kicker">Horizontal Ranking</span><h3>Community-Identified Environmental Priorities</h3><p class="chart-note">Average rank score across documented survey events. A lower score indicates a higher priority.</p><div class="bar-list">
+        <div class="bar-row"><span class="bar-label">Air Pollution</span><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div><span class="bar-score">1.9</span></div>
+        <div class="bar-row"><span class="bar-label">Extreme Heat</span><div class="bar-track"><div class="bar-fill" style="width:79%"></div></div><span class="bar-score">2.3</span></div>
+        <div class="bar-row"><span class="bar-label">Poor Water Quality</span><div class="bar-track"><div class="bar-fill" style="width:67%"></div></div><span class="bar-score">3.0</span></div>
+        <div class="bar-row"><span class="bar-label">Wildfires and Smoke</span><div class="bar-track"><div class="bar-fill" style="width:60%"></div></div><span class="bar-score">3.4</span></div>
+      </div></div>
+      <div class="viz-panel"><span class="viz-kicker">Donut Chart</span><h3>Interest in Clinical Trials</h3><p class="chart-note">Combined responses from two 2024 community events, N = 65.</p><div class="viz-pair"><div class="donut"><strong>70%<span>Interested</span></strong></div><div class="donut-copy"><p>Seven in ten respondents expressed interest in learning about clinical trials, suggesting an opportunity for accessible and trusted education.</p></div></div></div>
+      <div class="viz-panel"><span class="viz-kicker">Vertical Comparison</span><h3>Engagement Format Mix</h3><p class="chart-note">Design concept only. Replace sample heights with verified event or participation counts.</p><div class="column-chart"><div class="column-item"><i style="--bar:78%"></i><b>Talk</b><span>Talk Show</span></div><div class="column-item"><i style="--bar:58%"></i><b>Play</b><span>Game Show</span></div><div class="column-item"><i style="--bar:84%"></i><b>Discuss</b><span>Conversation Cafe</span></div><div class="column-item"><i style="--bar:67%"></i><b>Interpret</b><span>Data Walk</span></div><div class="column-item"><i style="--bar:48%"></i><b>Advise</b><span>Citizen Panels</span></div></div><span class="concept-flag">Sample values for layout review</span></div>
+      <div class="viz-panel"><span class="viz-kicker">Line and Area Graph</span><h3>Engagement Momentum Over Time</h3><p class="chart-note">A possible annual progress view. Add verified year-by-year totals before publication.</p><svg class="trend-chart" viewBox="0 0 520 230" role="img" aria-label="Conceptual line graph showing engagement increasing from 2023 through 2026"><defs><linearGradient id="trendFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD200" stop-opacity=".34"/><stop offset="1" stop-color="#0064A4" stop-opacity=".03"/></linearGradient></defs><path class="trend-grid" d="M35 35H500M35 95H500M35 155H500M35 205H500"/><path class="trend-area" d="M42 181 L185 147 L330 91 L478 42 L478 205 L42 205 Z"/><path class="trend-line" d="M42 181 L185 147 L330 91 L478 42"/><circle class="trend-dot" cx="42" cy="181" r="7"/><circle class="trend-dot" cx="185" cy="147" r="7"/><circle class="trend-dot" cx="330" cy="91" r="7"/><circle class="trend-dot" cx="478" cy="42" r="7"/><text class="trend-label" x="30" y="225">2023</text><text class="trend-label" x="169" y="225">2024</text><text class="trend-label" x="314" y="225">2025</text><text class="trend-label" x="460" y="225">2026</text></svg><span class="concept-flag">Trend placeholder</span></div>
+      <div class="viz-panel"><span class="viz-kicker">Geographic Visualization</span><h3>Where Responses and Activities Connect</h3><p class="chart-note">A county-level map could compare event counts, priority responses, or partner activity without displaying participant-level locations.</p><div class="data-map"><img src="https://sites.uci.edu/cehdr/files/2026/07/ChatGPT-Image-Jul-17-2026-10_25_33-PM.png" alt="Southern California map concept for aggregated community engagement data"><div class="map-scrim"></div><div class="map-legend"><b>Possible Map Layers</b><p>Event locations<br>Response totals by county<br>Top environmental priority<br>Partner and activity density</p><span class="concept-flag">Aggregate data only</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section map-activity" id="community-map">
+  <div class="wrap map-activity-layout">
+    <div class="map-activity-copy reveal"><span class="eyebrow">Interactive Map Activity</span><h2>Explore the community map</h2><p>Move through the available locations and layers to explore the place-based information collected in CEHDR's Google My Maps activity.</p><a class="btn btn-gold map-activity-link" href="https://www.google.com/maps/d/u/0/embed?mid=1UZVMvIfmWJZFIDkaU90TZSVwHTerYno&amp;ehbc=2E312F" target="_blank" rel="noopener">Open Full Map <svg viewBox="0 0 24 24"><path d="M14 3h7v7M10 14L21 3M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg></a></div>
+    <div class="map-embed-shell reveal">
+      <div class="map-embed-bar"><strong>CEHDR Community Map</strong><span>Google My Maps activity</span></div>
+      <div class="map-embed"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1UZVMvIfmWJZFIDkaU90TZSVwHTerYno&amp;ehbc=2E312F" title="CEHDR Google My Maps community activity" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<section class="section priority-lab" id="priority-lab">
+  <div class="wrap">
+    <div class="section-head center reveal"><span class="eyebrow">Your Turn</span><h2>What should receive attention first?</h2><p class="section-intro">Arrange the environmental topics in your preferred order. The controlled list keeps submissions focused and prevents inappropriate free-text entries.</p></div>
+    <div class="priority-shell reveal">
+      <div class="rank-tool"><h3>Rate Your Priorities</h3><p class="tool-intro">Use the arrow controls to move each topic. Your first item is your highest priority.</p><div class="rank-list" id="rankList"></div><div class="rank-submit"><span class="rank-message" id="rankMessage" role="status"></span><button class="btn btn-blue" id="rankSubmit" type="button">Submit Ranking <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div></div>
+      <div class="pulse-panel"><h3>Community Priority Leaderboard</h3><p class="tool-intro">Historical order from CEHDR's documented survey events, shown alongside a controlled topic cloud.</p><div class="word-field" aria-label="Community priority word cloud"><span class="word top">Air Pollution</span><span class="word high">Access to Healthcare</span><span class="word mid">Extreme Heat</span><span class="word high">Mental Health</span><span class="word mid">Water Quality</span><span class="word mid">Community Voice</span><span class="word high">Research Priorities</span><span class="word mid">Convenience</span><span class="word mid">Return Results</span></div><div class="leader-rule"></div><div class="leader-list"><div class="leader-row"><b>01</b><span>Air Pollution</span><span>1.9 avg.</span></div><div class="leader-row"><b>02</b><span>Extreme Heat</span><span>2.3 avg.</span></div><div class="leader-row"><b>03</b><span>Poor Water Quality</span><span>3.0 avg.</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section quiz-section" id="quiz">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">Community Knowledge Quiz</span><h2>Five quick questions. Five useful insights.</h2><p class="section-intro">Each answer reveals a CEHDR research or engagement finding and explains why it matters.</p></div>
+    <div class="quiz-shell reveal">
+      <aside class="quiz-aside"><div><strong id="quizNumber">01</strong><span id="quizCounter">Question 1 of 5</span></div><div><div class="quiz-progress"><i id="quizProgress"></i></div><span id="quizScore">Score: 0</span></div></aside>
+      <div class="quiz-main"><span class="quiz-kicker">Choose one answer</span><h3 class="quiz-question" id="quizQuestion">Sample Question</h3><div class="quiz-options" id="quizOptions"></div><div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div><button class="btn btn-blue quiz-next" id="quizNext" type="button">Next Question <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </div>
+  </div>
+</section>
+
+<section class="facts" aria-label="Did you know facts">
+  <div class="wrap fact-layout"><div class="fact-label">Did You Know?</div><div class="fact-stage" id="factStage"><p class="fact-item active">Seventy percent of respondents at two 2024 community events expressed interest in learning about clinical trials.</p><p class="fact-item">Community members ranked having a say in how research is conducted as their leading research participation priority.</p><p class="fact-item">CEHDR's Data Walks invite residents to interpret visual findings alongside researchers and connect data with lived experience.</p><p class="fact-item">Community members identified air pollution and extreme heat as the two leading environmental priorities in documented survey events.</p><p class="fact-item">Selected community applicants have trained as citizen scientists, survey interviewers, and Citizen Panel facilitators.</p><span class="fact-count" id="factCount">01 / 05</span></div></div>
+</section>
+
+<section class="section gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head center reveal"><span class="eyebrow">Our Community in Focus</span><h2>Moments that move the mission</h2><p class="section-intro">Filter the gallery to explore Data Walks, community partnerships, events, and CEHDR teams in action.</p></div>
+    <div class="filters reveal"><button class="chip active" data-filter="all">All</button><button class="chip" data-filter="datawalk">Data Walks</button><button class="chip" data-filter="community">Community</button><button class="chip" data-filter="events">Events</button><button class="chip" data-filter="team">Team</button></div>
+    <div class="mosaic reveal" id="mosaic">
+      <div class="tile big" data-cat="datawalk"><img src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_1.jpeg" alt="Data Walk in the community"><div class="scrim"></div><div class="cap"><span class="tag">Data Walk</span><h4>Returning findings to the community</h4></div></div>
+      <div class="tile wide" data-cat="community"><img src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_10.jpeg" alt="Community engagement workshop"><div class="scrim"></div><div class="cap"><span class="tag">Community</span><h4>Partnership and collaborative learning</h4></div></div>
+      <div class="tile" data-cat="team"><img src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_11.jpeg" alt="CEHDR team member"><div class="scrim"></div><div class="cap"><span class="tag">Team</span><h4>Researchers in the field</h4></div></div>
+      <div class="tile" data-cat="events"><img src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_4.jpeg" alt="IMPACT speaker series event"><div class="scrim"></div><div class="cap"><span class="tag">Events</span><h4>IMPACT Distinguished Speaker Series</h4></div></div>
+      <div class="tile wide" data-cat="datawalk"><img src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_5.jpeg" alt="Data Walk in Riverside County"><div class="scrim"></div><div class="cap"><span class="tag">Data Walk</span><h4>Joy and Pain Study community findings</h4></div></div>
+      <div class="tile tall" data-cat="community"><img src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_6.jpeg" alt="Community survey outreach"><div class="scrim"></div><div class="cap"><span class="tag">Community</span><h4>Listening with residents</h4></div></div>
+      <div class="tile tall" data-cat="team"><img src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_8.jpeg" alt="RISE fellows"><div class="scrim"></div><div class="cap"><span class="tag">Team</span><h4>RISE Fellows in action</h4></div></div>
+      <div class="tile" data-cat="events"><img src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_7.jpeg" alt="Earth Week lecture"><div class="scrim"></div><div class="cap"><span class="tag">Events</span><h4>Earth Week public scholarship</h4></div></div>
+      <div class="tile" data-cat="datawalk"><img src="https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_9.jpeg" alt="Data Walk in Orange County"><div class="scrim"></div><div class="cap"><span class="tag">Data Walk</span><h4>Sharing results in Orange County</h4></div></div>
+    </div>
+    <div class="gallery-foot"><button class="btn btn-blue" id="openGallery" type="button">Open Gallery <svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button></div>
+  </div>
+</section>
+
+<section class="section partners" id="partners">
+  <div class="wrap">
+    <div class="section-head center reveal"><span class="eyebrow">Friends of CEHDR</span><h2>A network visitors can explore</h2><p class="section-intro">Select a published partner logo to bring it into focus. This treatment recognizes the network without reducing every organization to an identical box.</p></div>
+    <div class="partner-console reveal">
+      <div class="partner-feature">
+        <div class="partner-logo-stage"><img id="partnerFeatureLogo" src="https://cehdr.publichealth.uci.edu/files/2025/04/aaae_logo_w_tag-1.jpg" alt="Advocates for African American Elders logo"></div>
+        <div class="partner-story"><small id="partnerType">Community Advocacy</small><h3 id="partnerName">Advocates for African American Elders</h3><p id="partnerCopy">Community partners help CEHDR build trust, connect with residents, identify relevant concerns, and create more accessible pathways into environmental health information and research.</p><span class="partner-count" id="partnerCount">01 / 08</span></div>
+      </div>
+      <div class="logo-rail" role="tablist" aria-label="Friends of CEHDR">
+        <button class="partner-logo active" role="tab" aria-selected="true" data-partner="aaae"><img src="https://cehdr.publichealth.uci.edu/files/2025/04/aaae_logo_w_tag-1.jpg" alt="Advocates for African American Elders"></button>
+        <button class="partner-logo" role="tab" aria-selected="false" data-partner="lacare"><img src="https://cehdr.publichealth.uci.edu/files/2025/04/logo_lac.png" alt="LA Care Health Plan"></button>
+        <button class="partner-logo" role="tab" aria-selected="false" data-partner="mind"><img src="https://cehdr.publichealth.uci.edu/files/2025/04/UCI-MIND.jpg" alt="UCI MIND"></button>
+        <button class="partner-logo" role="tab" aria-selected="false" data-partner="pharmacy"><img src="https://cehdr.publichealth.uci.edu/files/2025/04/uci_web_school_pharmacy_phar.png" alt="UCI School of Pharmacy and Pharmaceutical Sciences"></button>
+        <button class="partner-logo" role="tab" aria-selected="false" data-partner="heaal"><img src="https://cehdr.publichealth.uci.edu/files/2025/04/HEAAL-Logo.png" alt="HEAAL"></button>
+        <button class="partner-logo" role="tab" aria-selected="false" data-partner="nan"><img src="https://cehdr.publichealth.uci.edu/files/2025/04/NAN-OC_2-Logo.png" alt="National Action Network Orange County"></button>
+        <button class="partner-logo" role="tab" aria-selected="false" data-partner="aaaf"><img src="https://cehdr.publichealth.uci.edu/files/2025/04/aaaf-logo_square_500px-01-01-2048x2048-1-e1744673223568.png" alt="African American Alliance Fund"></button>
+        <button class="partner-logo" role="tab" aria-selected="false" data-partner="caloptima"><img src="https://cehdr.publichealth.uci.edu/files/2025/04/CalOptima-e1744673268135.png" alt="CalOptima Health"></button>
+      </div>
+    </div>
+    <p class="partner-note">Logo URLs were retrieved from the current CEHDR Community Engagement page. Confirm current relationships and logo-use approval before publication.</p>
+  </div>
+</section>
+
+<section class="section voices" id="voices">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">Voices of CEHDR</span><h2>Community perspectives at the center</h2></div>
+    <div class="voice-stage reveal" id="voiceStage">
+      <div class="voice-content"><span class="quote-mark">“</span><p class="voice-text" id="voiceText">Approved community participant reflection will appear here, describing what it felt like to be heard and how the activity made environmental health information more useful.</p><span class="voice-credit" id="voiceCredit">Community participant, location and program with permission</span></div>
+      <div class="voice-switcher" role="tablist" aria-label="CEHDR voice perspectives"><button class="voice-switch active" role="tab" aria-selected="true" data-voice="participant">Participant</button><button class="voice-switch" role="tab" aria-selected="false" data-voice="partner">Community Partner</button><button class="voice-switch" role="tab" aria-selected="false" data-voice="student">Student Researcher</button></div>
+      <div class="voice-approval">Concept copy only. Replace with approved quotations and attribution after receiving written permission.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section participate" id="participate">
+  <div class="wrap">
+    <div class="section-head center reveal"><span class="eyebrow">Choose Your Path</span><h2>There is more than one way to participate</h2><p class="section-intro">Offer direct, low-friction pathways for people who want to learn, contribute, partner, volunteer, or stay connected.</p></div>
+    <div class="route-grid reveal"><a class="route" href="#"><span class="route-index">PATH 01</span><h3>Attend an Event</h3><p>Join a public forum, learning activity, or community gathering.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="route" href="#"><span class="route-index">PATH 02</span><h3>Join a Citizen Panel</h3><p>Bring community knowledge into collective discussion and decision-making.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="route" href="#"><span class="route-index">PATH 03</span><h3>Become a Partner</h3><p>Collaborate on outreach, education, research, or dissemination.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="route" href="#"><span class="route-index">PATH 04</span><h3>Volunteer</h3><p>Contribute professional skills, local knowledge, or event support.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="route" href="http://eepurl.com/fM1Z5e1Vck"><span class="route-index">PATH 05</span><h3>Stay Connected</h3><p>Receive community stories, research findings, and upcoming opportunities.</p><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<div class="lb" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Community gallery">
+  <button class="lb-close" id="lbClose" type="button" aria-label="Close gallery"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <div class="lb-stage"><img id="lbImage" alt=""></div>
+  <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Next image"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<script>
+(function(){
+  const page=document.getElementById('cehdr-community-page');
+  if(!page)return;
+
+  const io=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target);}
+  }),{threshold:.1});
+  page.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const countIo=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target,end=Number(el.dataset.count),start=performance.now(),duration=900;
+    function tick(now){const p=Math.min((now-start)/duration,1),e=1-Math.pow(1-p,3);el.textContent=Math.round(end*e).toLocaleString();if(p<1)requestAnimationFrame(tick);}
+    requestAnimationFrame(tick);countIo.unobserve(el);
+  }),{threshold:.7});
+  page.querySelectorAll('[data-count]').forEach(el=>countIo.observe(el));
+
+  const suiteData={
+    talk:{title:'Talk Show Model',copy:'<b>What happens:</b> A host guides an accessible conversation with community members, researchers, and knowledgeable guests. The familiar format helps translate complex health topics while making room for different perspectives and audience questions.'},
+    game:{title:'Game Show',copy:'<b>What happens:</b> Participants answer questions, solve challenges, and revisit key information through an energetic learning format. A built-in reward structure encourages participation while reinforcing complex health and research concepts.'},
+    cafe:{title:'Conversation Cafe',copy:'<b>What happens:</b> Residents meet researchers, public agencies, and community organizations in an informal setting. Participants can ask questions, discuss current concerns, learn about local initiatives, and explore ways to become involved.'},
+    walk:{title:'Data Walk',copy:'<b>What happens:</b> Community members review charts, maps, and visual findings together. They connect patterns with lived experience, identify missing context, and help determine priorities, interpretations, and possible actions.'},
+    panel:{title:'Citizen Panels',copy:'<b>What happens:</b> Self-governing groups of community members deliberate on priorities, neighborhood conditions, outreach, research participation, and Community Equity Board recommendations. Their knowledge helps adapt research to local contexts.'}
+  };
+  const suiteTitle=page.querySelector('#suiteTitle'),suiteCopy=page.querySelector('#suiteCopy');
+  page.querySelectorAll('.suite-tab').forEach(tab=>tab.addEventListener('click',()=>{
+    page.querySelectorAll('.suite-tab').forEach(t=>{t.classList.remove('active');t.setAttribute('aria-selected','false');});
+    tab.classList.add('active');tab.setAttribute('aria-selected','true');
+    const data=suiteData[tab.dataset.suite];suiteTitle.textContent=data.title;suiteCopy.innerHTML=data.copy;
+  }));
+
+  const priorityItems=['Air Pollution','Extreme Heat','Poor Water Quality','Wildfires and Smoke','Severe Weather and Flooding','Drought'];
+  const rankList=page.querySelector('#rankList');
+  function renderRanks(){rankList.innerHTML='';priorityItems.forEach((label,index)=>{const item=document.createElement('div');item.className='rank-item';item.innerHTML='<span>'+label+'</span><div class="rank-controls"><button type="button" aria-label="Move '+label+' up" data-move="up" '+(index===0?'disabled':'')+'><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button><button type="button" aria-label="Move '+label+' down" data-move="down" '+(index===priorityItems.length-1?'disabled':'')+'><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button></div>';item.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{const delta=btn.dataset.move==='up'?-1:1,target=index+delta;[priorityItems[index],priorityItems[target]]=[priorityItems[target],priorityItems[index]];renderRanks();}));rankList.appendChild(item);});}
+  renderRanks();
+  page.querySelector('#rankSubmit').addEventListener('click',()=>{try{localStorage.setItem('cehdrPriorityConcept',JSON.stringify({ranking:priorityItems,date:new Date().toISOString()}));}catch(e){}page.querySelector('#rankMessage').textContent='Thank you. Your concept ranking was saved in this browser.';});
+
+  const quiz=[
+    {q:'Which environmental issue received the highest priority ranking in CEHDR survey events?',o:['Extreme heat','Air pollution','Poor water quality','Wildfire smoke'],a:1,f:'Air pollution received the strongest environmental priority ranking, with an average score of 1.9. Lower scores represented higher priority.'},
+    {q:'What did community members rank as most important for research participation?',o:['Shorter surveys','Having a say in how research is done','Receiving a prize','Online-only participation'],a:1,f:'Having a say in how research is conducted ranked first. This supports shared decision-making and community advisory structures.'},
+    {q:'What happens during a CEHDR Data Walk?',o:['Participants compete in a race','Researchers present without discussion','Community members interpret visual data together','Visitors tour a laboratory'],a:2,f:'Data Walks invite community members to examine charts, maps, and findings, then add lived experience and local context.'},
+    {q:'What percentage of respondents at two 2024 events wanted to learn about clinical trials?',o:['35%','55%','70%','90%'],a:2,f:'Seventy percent expressed interest in learning about clinical trials. The result came from 65 combined respondents at two specific events.'},
+    {q:'Which activity is designed as an informal conversation with researchers and community organizations?',o:['Conversation Cafe','Game Show','Data Walk','Lecture series'],a:0,f:'Conversation Cafes create approachable spaces for questions, dialogue, local information, and pathways into community research activities.'}
+  ];
+  let quizIndex=0,quizScore=0,answered=false;
+  const quizQuestion=page.querySelector('#quizQuestion'),quizOptions=page.querySelector('#quizOptions'),quizFeedback=page.querySelector('#quizFeedback'),quizNext=page.querySelector('#quizNext');
+  function renderQuiz(){answered=false;const item=quiz[quizIndex];page.querySelector('#quizNumber').textContent=String(quizIndex+1).padStart(2,'0');page.querySelector('#quizCounter').textContent='Question '+(quizIndex+1)+' of '+quiz.length;page.querySelector('#quizProgress').style.width=((quizIndex+1)/quiz.length*100)+'%';page.querySelector('#quizScore').textContent='Score: '+quizScore;quizQuestion.textContent=item.q;quizOptions.innerHTML='';quizFeedback.classList.remove('show');quizNext.classList.remove('show');item.o.forEach((option,index)=>{const btn=document.createElement('button');btn.type='button';btn.className='quiz-option';btn.textContent=option;btn.addEventListener('click',()=>answerQuiz(index,btn));quizOptions.appendChild(btn);});quizNext.querySelector('svg').style.display='block';quizNext.childNodes[0].nodeValue=quizIndex===quiz.length-1?'See Results ':'Next Question ';}
+  function answerQuiz(index,btn){if(answered)return;answered=true;const item=quiz[quizIndex],buttons=[...quizOptions.children];buttons[item.a].classList.add('correct');if(index===item.a){quizScore++;}else{btn.classList.add('wrong');}buttons.forEach(b=>b.disabled=true);quizFeedback.textContent=(index===item.a?'Correct. ':'Good try. ')+item.f;quizFeedback.classList.add('show');quizNext.classList.add('show');page.querySelector('#quizScore').textContent='Score: '+quizScore;}
+  quizNext.addEventListener('click',()=>{if(quizIndex<quiz.length-1){quizIndex++;renderQuiz();}else{quizQuestion.textContent='You scored '+quizScore+' out of '+quiz.length+'.';quizOptions.innerHTML='';quizFeedback.textContent='The goal is not only a score. Each question introduces a finding or engagement method that can support informed community participation.';quizFeedback.classList.add('show');quizNext.classList.remove('show');page.querySelector('#quizCounter').textContent='Quiz complete';}});
+  renderQuiz();
+
+  const facts=[...page.querySelectorAll('.fact-item')];let factIndex=0;
+  setInterval(()=>{facts[factIndex].classList.remove('active');factIndex=(factIndex+1)%facts.length;facts[factIndex].classList.add('active');page.querySelector('#factCount').textContent=String(factIndex+1).padStart(2,'0')+' / '+String(facts.length).padStart(2,'0');},6000);
+
+  const chips=[...page.querySelectorAll('.chip')],tiles=[...page.querySelectorAll('.tile')];
+  chips.forEach(chip=>chip.addEventListener('click',()=>{chips.forEach(c=>c.classList.remove('active'));chip.classList.add('active');const filter=chip.dataset.filter;tiles.forEach(tile=>tile.classList.toggle('hide',filter!=='all'&&tile.dataset.cat!==filter));}));
+  const lb=page.querySelector('#galleryLightbox'),lbImage=page.querySelector('#lbImage'),lbCaption=page.querySelector('#lbCaption'),lbPrevButton=page.querySelector('#lbPrev'),lbNextButton=page.querySelector('#lbNext');let lbTiles=tiles,lbIndex=0;
+  function showLb(index){lbTiles=tiles.filter(t=>getComputedStyle(t).display!=='none');lbIndex=(index+lbTiles.length)%lbTiles.length;const tile=lbTiles[lbIndex],img=tile.querySelector('img');lbImage.src=img.src;lbImage.alt=img.alt;lbCaption.textContent=tile.querySelector('h4').textContent+'  |  '+(lbIndex+1)+' of '+lbTiles.length;}
+  function openLb(tile){lbPrevButton.hidden=false;lbNextButton.hidden=false;lbTiles=tiles.filter(t=>getComputedStyle(t).display!=='none');showLb(lbTiles.indexOf(tile));lb.classList.add('open');document.body.style.overflow='hidden';}
+  function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+  tiles.forEach(tile=>tile.addEventListener('click',()=>openLb(tile)));
+  page.querySelector('#openGallery').addEventListener('click',()=>openLb(tiles.filter(t=>getComputedStyle(t).display!=='none')[0]));
+  page.querySelector('#suiteExpand').addEventListener('click',()=>{const suiteImage=page.querySelector('.suite-visual img');lbPrevButton.hidden=true;lbNextButton.hidden=true;lbImage.src=suiteImage.src;lbImage.alt=suiteImage.alt;lbCaption.textContent='Community Health Information Suite';lb.classList.add('open');document.body.style.overflow='hidden';});
+  page.querySelector('#lbClose').addEventListener('click',closeLb);page.querySelector('#lbPrev').addEventListener('click',()=>showLb(lbIndex-1));page.querySelector('#lbNext').addEventListener('click',()=>showLb(lbIndex+1));
+  lb.addEventListener('click',event=>{if(event.target===lb)closeLb();});
+  document.addEventListener('keydown',event=>{if(!lb.classList.contains('open'))return;if(event.key==='Escape')closeLb();if(event.key==='ArrowLeft')showLb(lbIndex-1);if(event.key==='ArrowRight')showLb(lbIndex+1);});
+
+  const partnerData={
+    aaae:{name:'Advocates for African American Elders',type:'Community Advocacy',copy:'Community partners help CEHDR build trust, connect with residents, identify relevant concerns, and create more accessible pathways into environmental health information and research.'},
+    lacare:{name:'LA Care Health Plan',type:'Community Health System',copy:'Health system relationships can connect community-engaged research with trusted care networks, health education, outreach, and practical pathways to community well-being.'},
+    mind:{name:'UCI MIND',type:'Research and Healthy Aging',copy:'Academic collaborators can connect specialized research knowledge with community priorities, accessible education, and opportunities for meaningful participation.'},
+    pharmacy:{name:'UCI School of Pharmacy and Pharmaceutical Sciences',type:'Academic Collaboration',copy:'Cross-campus partners strengthen interdisciplinary learning and help translate complex health information for broader community audiences.'},
+    heaal:{name:'HEAAL',type:'Health Equity Network',copy:'Equity-focused organizations extend community reach and help ensure that engagement reflects the needs, experiences, and strengths of historically marginalized communities.'},
+    nan:{name:'National Action Network Orange County',type:'Civic and Community Advocacy',copy:'Civic partners bring local context, trusted relationships, and pathways for connecting environmental health priorities with public conversation and action.'},
+    aaaf:{name:'African American Alliance Fund',type:'Community Philanthropy',copy:'Philanthropic relationships can help sustain trusted engagement, community education, student development, and future research infrastructure.'},
+    caloptima:{name:'CalOptima Health',type:'Community Health System',copy:'Regional health partners can support outreach, access, education, and connections between community priorities and population health initiatives.'}
+  };
+  const partnerButtons=[...page.querySelectorAll('.partner-logo')];
+  partnerButtons.forEach((button,index)=>button.addEventListener('click',()=>{partnerButtons.forEach(item=>{item.classList.remove('active');item.setAttribute('aria-selected','false');});button.classList.add('active');button.setAttribute('aria-selected','true');const data=partnerData[button.dataset.partner],logo=button.querySelector('img'),feature=page.querySelector('#partnerFeatureLogo');feature.style.opacity='0';feature.style.transform='translateY(8px)';setTimeout(()=>{feature.src=logo.src;feature.alt=logo.alt+' logo';feature.style.opacity='1';feature.style.transform='none';},140);page.querySelector('#partnerType').textContent=data.type;page.querySelector('#partnerName').textContent=data.name;page.querySelector('#partnerCopy').textContent=data.copy;page.querySelector('#partnerCount').textContent=String(index+1).padStart(2,'0')+' / '+String(partnerButtons.length).padStart(2,'0');}));
+
+  const voiceData={
+    participant:{text:'Approved community participant reflection will appear here, describing what it felt like to be heard and how the activity made environmental health information more useful.',credit:'Community participant, location and program with permission',image:'https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_6.jpeg'},
+    partner:{text:'Approved community partner reflection will appear here, focusing on trust, sustained collaboration, and the value of connecting research with local priorities.',credit:'Community organization representative with permission',image:'https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_10.jpeg'},
+    student:{text:'Approved student researcher reflection will appear here, showing how field experience changed their understanding of ethical, community-engaged environmental health research.',credit:'Student researcher or community scientist with permission',image:'https://sites.uci.edu/cehdr/files/2026/07/datawalk_additional_8.jpeg'}
+  };
+  page.querySelectorAll('.voice-switch').forEach(button=>button.addEventListener('click',()=>{page.querySelectorAll('.voice-switch').forEach(item=>{item.classList.remove('active');item.setAttribute('aria-selected','false');});button.classList.add('active');button.setAttribute('aria-selected','true');const data=voiceData[button.dataset.voice];page.querySelector('#voiceText').textContent=data.text;page.querySelector('#voiceCredit').textContent=data.credit;page.querySelector('#voiceStage').style.backgroundImage="url('"+data.image+"')";}));
+
+})();
+</script>
+</div>
+</body>
+</html>
