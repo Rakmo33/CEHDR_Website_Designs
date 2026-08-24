@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inland Empire Caregiver Emergency Resource Guide</title>
+</head>
+<body>
+
+<div id="ie-caregiver-guide">
+<style>
+  .entry-content > div:has(#ie-caregiver-guide),
+  .wp-block-columns:has(#ie-caregiver-guide) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  .wp-block-html:has(> #ie-caregiver-guide),
+  .wp-block-column:has(> #ie-caregiver-guide) {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+  #ie-caregiver-guide {
+    --primary: #1a5276;
+    --secondary: #2e86c1;
+    --accent: #e67e22;
+    --green: #1e8449;
+    --red: #c0392b;
+    --purple: #6c3483;
+    --teal: #148f77;
+    --light: #f4f6f7;
+    --dark: #1c2833;
+    --heat: #e74c3c;
+    --air: #8e44ad;
+    --flood: #2980b9;
+    --fire: #e67e22;
+    --power: #7f8c8d;
+  }
+  #ie-caregiver-guide,
+  #ie-caregiver-guide * { box-sizing: border-box; margin: 0; padding: 0; }
+  #ie-caregiver-guide {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #eaf0fb;
+    color: #1c2833;
+    line-height: 1.6;
+    font-size: 16px;
+    width: 100%;
+    max-width: none;
+    margin: 0 !important;
+    position: relative;
+    isolation: isolate;
+    overflow-x: clip;
+    text-align: left;
+  }
+  #ie-caregiver-guide button,
+  #ie-caregiver-guide input,
+  #ie-caregiver-guide select,
+  #ie-caregiver-guide textarea { font: inherit; }
+  #ie-caregiver-guide h1,
+  #ie-caregiver-guide h2,
+  #ie-caregiver-guide h3,
+  #ie-caregiver-guide h4,
+  #ie-caregiver-guide p,
+  #ie-caregiver-guide ul,
+  #ie-caregiver-guide ol { font-family: inherit; letter-spacing: 0; text-transform: none; }
+  #ie-caregiver-guide h1,
+  #ie-caregiver-guide h2,
+  #ie-caregiver-guide h3,
+  #ie-caregiver-guide h4 { line-height: 1.25; }
+  #ie-caregiver-guide img { display: block; max-width: 100%; height: auto; }
+  #ie-caregiver-guide button:focus-visible,
+  #ie-caregiver-guide a:focus-visible { outline: 3px solid rgba(46,134,193,.35); outline-offset: 3px; }
+  #ie-caregiver-guide .hero {
+    background: linear-gradient(135deg, #1a5276 0%, #2e86c1 60%, #148f77 100%);
+    color: white;
+    padding: 36px 28px 28px;
+    text-align: center;
+    position: relative;
+  }
+  #ie-caregiver-guide .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.45);
+    border-radius: 20px;
+    font-size: 0.78em;
+    padding: 3px 14px;
+    margin-bottom: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: white !important;
+    font-weight: 400;
+    line-height: 1.4;
+    vertical-align: baseline;
+    white-space: normal;
+  }
+  #ie-caregiver-guide .hero h1 {
+    font-size: 2em;
+    font-weight: 800;
+    margin-bottom: 6px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    color: white !important;
+  }
+  #ie-caregiver-guide .hero h2 {
+    font-size: 1.05em;
+    font-weight: 400;
+    opacity: 0.92;
+    margin-bottom: 10px;
+    color: white !important;
+  }
+  #ie-caregiver-guide .hero .subtitle {
+    font-size: 0.9em;
+    opacity: 0.8;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  #ie-caregiver-guide .project-tag {
+    margin-top: 14px;
+    font-size: 0.78em;
+    opacity: 0.75;
+    font-style: italic;
+  }
+
+  #ie-caregiver-guide nav.tab-bar {
+    background: #1a5276;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    justify-content: center;
+    padding: 0 8px;
+    position: sticky;
+    top: var(--wp-admin--admin-bar--height, 0px);
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  }
+  #ie-caregiver-guide nav.tab-bar .tab-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    color: rgba(255,255,255,0.75) !important;
+    padding: 11px 14px !important;
+    font-size: 0.82em;
+    cursor: pointer;
+    border-bottom: 3px solid transparent !important;
+    font-weight: 600;
+    transition: all 0.2s;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    text-decoration: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  #ie-caregiver-guide nav.tab-bar .tab-icon {
+    flex: 0 0 auto;
+    line-height: 1;
+  }
+  #ie-caregiver-guide nav.tab-bar .tab-icon .emoji {
+    margin: 0 !important;
+  }
+  #ie-caregiver-guide nav.tab-bar .tab-link:hover { color: white !important; background: rgba(255,255,255,0.08) !important; }
+  #ie-caregiver-guide nav.tab-bar .tab-link.active { color: white !important; border-bottom-color: #e67e22 !important; background: rgba(255,255,255,0.10) !important; }
+
+  #ie-caregiver-guide .tab-content { display: none; padding: 24px 20px 40px; max-width: 960px; margin: 0 auto; }
+  #ie-caregiver-guide .tab-content.active { display: block; }
+  #ie-caregiver-guide .tab-content:target { display: block; scroll-margin-top: calc(var(--wp-admin--admin-bar--height, 0px) + 58px); }
+  #ie-caregiver-guide:has(.tab-content:target) .tab-content.active:not(:target) { display: none; }
+  #ie-caregiver-guide:has(.tab-content:target) nav.tab-bar .tab-link.active {
+    color: rgba(255,255,255,0.75) !important;
+    border-bottom-color: transparent !important;
+    background: none !important;
+  }
+  #ie-caregiver-guide:has(#tab-overview:target) .tab-link[href="#tab-overview"],
+  #ie-caregiver-guide:has(#tab-prepare:target) .tab-link[href="#tab-prepare"],
+  #ie-caregiver-guide:has(#tab-heat:target) .tab-link[href="#tab-heat"],
+  #ie-caregiver-guide:has(#tab-air:target) .tab-link[href="#tab-air"],
+  #ie-caregiver-guide:has(#tab-wildfire:target) .tab-link[href="#tab-wildfire"],
+  #ie-caregiver-guide:has(#tab-flood:target) .tab-link[href="#tab-flood"],
+  #ie-caregiver-guide:has(#tab-power:target) .tab-link[href="#tab-power"],
+  #ie-caregiver-guide:has(#tab-agencies:target) .tab-link[href="#tab-agencies"] {
+    color: white !important;
+    border-bottom-color: #e67e22 !important;
+    background: rgba(255,255,255,0.10) !important;
+  }
+
+  #ie-caregiver-guide h3 { font-size: 1.18em; color: var(--primary); margin-bottom: 8px; }
+  #ie-caregiver-guide .tab-content a:not(.tab-link) {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  #ie-caregiver-guide .tab-content a:not(.tab-link):hover { color: var(--secondary); }
+  #ie-caregiver-guide .tab-content a:focus-visible {
+    outline: 3px solid rgba(0, 100, 164, 0.28);
+    outline-offset: 3px;
+  }
+  #ie-caregiver-guide .emergency-contacts a {
+    color: #fff !important;
+    text-decoration-color: rgba(255,255,255,0.62) !important;
+  }
+  #ie-caregiver-guide h4 { font-size: 0.99em; color: #2c3e50; margin-bottom: 5px; font-weight: 700; }
+
+  #ie-caregiver-guide .intro-box {
+    background: white;
+    border-left: 5px solid var(--secondary);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  }
+  #ie-caregiver-guide .intro-box p { font-size: 0.95em; color: #2c3e50; margin-bottom: 8px; }
+  #ie-caregiver-guide .intro-box p:last-child { margin-bottom: 0; }
+
+  #ie-caregiver-guide .how-to-use {
+    background: #eaf4fb;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 0.88em;
+    color: #1a5276;
+    border: 1px solid #aed6f1;
+  }
+  #ie-caregiver-guide .how-to-use strong { display: block; margin-bottom: 4px; }
+
+  #ie-caregiver-guide .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; margin-bottom: 20px; }
+
+  #ie-caregiver-guide .card {
+    display: block;
+    position: relative;
+    min-width: 0;
+    background: white;
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--secondary);
+    transition: box-shadow 0.2s;
+  }
+  #ie-caregiver-guide .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.13); }
+  #ie-caregiver-guide .card.heat { border-top-color: var(--heat); }
+  #ie-caregiver-guide .card.air { border-top-color: var(--air); }
+  #ie-caregiver-guide .card.flood { border-top-color: var(--flood); }
+  #ie-caregiver-guide .card.fire { border-top-color: var(--fire); }
+  #ie-caregiver-guide .card.power { border-top-color: var(--power); }
+  #ie-caregiver-guide .card.agency { border-top-color: var(--green); }
+  #ie-caregiver-guide .card.general { border-top-color: var(--teal); }
+
+  #ie-caregiver-guide .card .card-icon { font-size: 1.7em; margin-bottom: 6px; }
+  #ie-caregiver-guide .card h3 { font-size: 1em; margin-bottom: 4px; }
+  #ie-caregiver-guide .card p, #ie-caregiver-guide .card li { font-size: 0.87em; color: #444; }
+  #ie-caregiver-guide .card ul { padding-left: 16px; margin-top: 4px; }
+  #ie-caregiver-guide .card li { margin-bottom: 3px; }
+  #ie-caregiver-guide .card .phone { font-weight: 700; color: var(--primary); font-size: 0.95em; }
+  #ie-caregiver-guide .card .web { font-size: 0.82em; color: #7f8c8d; word-break: break-all; }
+  #ie-caregiver-guide .card .tag {
+    display: inline-block;
+    background: #eaf4fb;
+    color: var(--secondary);
+    border-radius: 10px;
+    font-size: 0.74em;
+    padding: 1px 8px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  #ie-caregiver-guide .card.agency .tag { background: #eafaf1; color: var(--green); }
+
+  #ie-caregiver-guide .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(90deg, #1a5276 0%, #2e86c1 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-bottom: 18px;
+    margin-top: 10px;
+  }
+  #ie-caregiver-guide .section-header.heat { background: linear-gradient(90deg, #922b21 0%, #e74c3c 100%); }
+  #ie-caregiver-guide .section-header.air { background: linear-gradient(90deg, #4a235a 0%, #8e44ad 100%); }
+  #ie-caregiver-guide .section-header.flood { background: linear-gradient(90deg, #1a5276 0%, #2980b9 100%); }
+  #ie-caregiver-guide .section-header.fire { background: linear-gradient(90deg, #784212 0%, #e67e22 100%); }
+  #ie-caregiver-guide .section-header.power { background: linear-gradient(90deg, #2c3e50 0%, #7f8c8d 100%); }
+  #ie-caregiver-guide .section-header .icon { font-size: 1.8em; }
+  #ie-caregiver-guide .section-header h2 { font-size: 1.1em; font-weight: 700; }
+  #ie-caregiver-guide .section-header h2 { color: white !important; }
+  #ie-caregiver-guide .section-header p { font-size: 0.82em; opacity: 0.9; }
+
+  #ie-caregiver-guide .phase-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  #ie-caregiver-guide .phase-box {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  }
+  #ie-caregiver-guide .phase-box h4 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: 0.92em;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #eee;
+  }
+  #ie-caregiver-guide .phase-box h4 span { font-size: 1.1em; }
+  #ie-caregiver-guide .phase-box ul { padding-left: 16px; }
+  #ie-caregiver-guide .phase-box li { font-size: 0.84em; color: #333; margin-bottom: 4px; }
+  #ie-caregiver-guide .phase-box li strong { color: #1a5276; }
+
+  #ie-caregiver-guide .card ul,
+  #ie-caregiver-guide .phase-box ul {
+    list-style: disc outside !important;
+    padding-left: 1.35rem !important;
+  }
+  #ie-caregiver-guide .card li,
+  #ie-caregiver-guide .phase-box li {
+    display: list-item !important;
+    list-style: inherit !important;
+    position: relative;
+    margin-left: 0 !important;
+    padding-left: 0.15rem !important;
+  }
+  #ie-caregiver-guide .card li::before,
+  #ie-caregiver-guide .phase-box li::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  #ie-caregiver-guide .dementia-tip {
+    background: #fff9e6;
+    border-left: 4px solid #f39c12;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    font-size: 0.87em;
+  }
+  #ie-caregiver-guide .dementia-tip strong { color: #e67e22; display: block; margin-bottom: 3px; }
+
+  #ie-caregiver-guide .alert-box {
+    background: #fdedec;
+    border-left: 4px solid #e74c3c;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    font-size: 0.87em;
+  }
+  #ie-caregiver-guide .alert-box strong { color: #c0392b; display: block; margin-bottom: 3px; }
+
+  #ie-caregiver-guide .checklist {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    margin-bottom: 16px;
+  }
+  #ie-caregiver-guide .checklist h3 { margin-bottom: 10px; }
+  #ie-caregiver-guide .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 5px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.88em;
+  }
+  #ie-caregiver-guide .checklist-item:last-child { border-bottom: none; }
+  #ie-caregiver-guide .checklist-item .check { color: var(--green); font-size: 1em; margin-top: 2px; flex-shrink: 0; }
+  #ie-caregiver-guide .checklist-item .category { font-size: 0.75em; background: #eaf0fb; color: var(--primary); padding: 1px 6px; border-radius: 8px; white-space: nowrap; flex-shrink: 0; }
+
+  #ie-caregiver-guide .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 600px) { #ie-caregiver-guide .two-col { grid-template-columns: 1fr; } }
+
+  #ie-caregiver-guide .oc-agency-card {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--green);
+    margin-bottom: 12px;
+  }
+  #ie-caregiver-guide .oc-agency-card h4 { color: var(--green); font-size: 0.97em; margin-bottom: 4px; }
+  #ie-caregiver-guide .oc-agency-card p { font-size: 0.84em; color: #444; margin-bottom: 3px; }
+  #ie-caregiver-guide .oc-agency-card .role { font-size: 0.79em; background: #eafaf1; color: var(--green); padding: 1px 8px; border-radius: 8px; display: inline-block; margin-bottom: 4px; }
+
+  #ie-caregiver-guide .emergency-contacts {
+    background: linear-gradient(135deg, #1a5276, #148f77);
+    color: white;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+  #ie-caregiver-guide .emergency-contacts h3 { color: white; margin-bottom: 10px; font-size: 1.05em; }
+  #ie-caregiver-guide .ec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+  #ie-caregiver-guide .ec-item { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 8px 12px; }
+  #ie-caregiver-guide .ec-item .ec-label { font-size: 0.75em; opacity: 0.85; }
+  #ie-caregiver-guide .ec-item .ec-number { font-size: 1.1em; font-weight: 700; }
+
+  #ie-caregiver-guide .pill {
+    display: inline-block;
+    border-radius: 12px;
+    padding: 2px 10px;
+    font-size: 0.77em;
+    font-weight: 600;
+    line-height: 1.35;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    margin-left: auto;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
+  #ie-caregiver-guide .pill.before { background: #d5f5e3; color: #1e8449; }
+  #ie-caregiver-guide .pill.during { background: #fdebd0; color: #784212; }
+  #ie-caregiver-guide .pill.after { background: #d6eaf8; color: #1a5276; }
+
+  #ie-caregiver-guide footer {
+    background: #1c2833;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 16px;
+    font-size: 0.8em;
+    margin-top: 20px;
+  }
+  #ie-caregiver-guide footer strong { color: white; }
+  #ie-caregiver-guide footer a {
+    color: #fff !important;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+
+  #ie-caregiver-guide .lang-note {
+    background: #f9ebff;
+    border: 1px solid #c39bd3;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.86em;
+    color: #4a235a;
+    margin-bottom: 16px;
+  }
+
+  #ie-caregiver-guide .kit-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  #ie-caregiver-guide .kit-item {
+    background: white;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.85em;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  #ie-caregiver-guide .kit-item .ki { font-size: 1.2em; flex-shrink: 0; }
+
+  #ie-caregiver-guide .scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--primary);
+    color: white !important;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 200;
+    display: none;
+    place-items: center;
+    padding: 0 !important;
+    line-height: 1;
+    text-decoration: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  @media (max-width: 600px) {
+    #ie-caregiver-guide nav.tab-bar {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) var(--primary);
+      -webkit-overflow-scrolling: touch;
+    }
+    #ie-caregiver-guide nav.tab-bar .tab-link { flex: 0 0 auto; min-height: 46px; }
+  }
+</style>
+
+<div class="hero">
+  <div class="badge">Inland Empire Caregiver Resource Guide</div>
+  <h1>🧠 Resilient Minds, Resilient Communities</h1>
+  <h2>Environmental Emergency Preparedness Guide for Persons with Dementia, Caregivers & Families</h2>
+  <p class="subtitle">A dementia-specific, culturally responsive guide covering Extreme Heat, Air Pollution, Wildfire, Flooding & Power Outages — with Inland Empire resources.</p>
+  <p class="project-tag">Developed in support of the UCI Climate Collaboration Project Grant · UCI Wen School of Population and Public Health</p>
+</div>
+
+<nav class="tab-bar" id="tabBar" aria-label="Caregiver guide sections">
+  <a class="tab-link active" href="#tab-overview"><span class="tab-icon" aria-hidden="true">🏠</span><span>Overview</span></a>
+  <a class="tab-link" href="#tab-prepare"><span class="tab-icon" aria-hidden="true">📋</span><span>Be Prepared</span></a>
+  <a class="tab-link" href="#tab-heat"><span class="tab-icon" aria-hidden="true">🌡️</span><span>Extreme Heat</span></a>
+  <a class="tab-link" href="#tab-air"><span class="tab-icon" aria-hidden="true">💨</span><span>Air Pollution</span></a>
+  <a class="tab-link" href="#tab-wildfire"><span class="tab-icon" aria-hidden="true">🔥</span><span>Wildfire</span></a>
+  <a class="tab-link" href="#tab-flood"><span class="tab-icon" aria-hidden="true">🌊</span><span>Flooding</span></a>
+  <a class="tab-link" href="#tab-power"><span class="tab-icon" aria-hidden="true">⚡</span><span>Power Outage</span></a>
+  <a class="tab-link" href="#tab-agencies"><span class="tab-icon" aria-hidden="true">📞</span><span>Inland Empire Resources</span></a>
+</nav>
+
+<!-- OVERVIEW TAB -->
+<div id="tab-overview" class="tab-content active">
+  <div class="intro-box">
+    <h3>About This Guide</h3>
+    <p>This guide was designed specifically for <strong>family caregivers, professional care teams, and loved ones</strong> of persons living with dementia (PLwD) in Riverside and San Bernardino counties. It is not a general emergency guide — it addresses the <em>unique challenges</em> that cognitive impairment creates during environmental emergencies.</p>
+    <p>People with dementia may not recognize danger, may resist instructions, may wander, or may be unable to communicate symptoms like overheating or difficulty breathing. This guide gives caregivers <strong>practical, dementia-informed steps</strong> before, during, and after each type of emergency.</p>
+    <p>The Inland Empire spans urban valleys, deserts, foothills, and mountain communities. Extreme heat, wildfire, smoke, flash flooding, winter weather, and power shutoffs vary sharply by location, so caregivers should register for the alert system serving each county and city where care occurs.</p>
+  </div>
+
+  <div class="how-to-use">
+    <strong>📌 How to Use This Guide</strong>
+    Use the tabs above to navigate by hazard type. Each section includes: (1) Why this hazard is especially dangerous for PLwD, (2) dementia-specific tips BEFORE, DURING, and AFTER the event, and (3) links to Inland Empire agencies. The <strong>Inland Empire Resources</strong> tab lists all local agencies with contact information.
+  </div>
+
+  <div class="lang-note">
+    🌐 <strong>Language Access:</strong> Many Inland Empire agencies offer services in Spanish, Vietnamese, Korean, Chinese, and other languages. When calling, ask: "Do you have services in [language]?" / "¿Tienen servicios en español?"
+  </div>
+
+  <div class="section-header">
+    <div class="icon">⚠️</div>
+    <div><h2>Why Dementia Changes Everything in an Emergency</h2><p>Understanding unique vulnerabilities</p></div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card general">
+      <div class="card-icon">🌡️</div>
+      <h3>Cannot Self-Regulate Temperature</h3>
+      <p>PLwD often cannot sense or communicate that they are overheating or dangerously cold. They may refuse to drink water or remove heavy clothing during heat emergencies.</p>
+    </div>
+    <div class="card general">
+      <div class="card-icon">🚨</div>
+      <h3>Cannot Follow Evacuation Instructions</h3>
+      <p>Complex multi-step evacuation instructions are extremely difficult for PLwD to follow. Sirens, crowds, and displacement cause intense confusion, fear, and agitation.</p>
+    </div>
+    <div class="card general">
+      <div class="card-icon">💊</div>
+      <h3>Medication Management Risk</h3>
+      <p>Many dementia medications require refrigeration or consistent schedules. Power outages and displacement put medication continuity at serious risk.</p>
+    </div>
+    <div class="card general">
+      <div class="card-icon">🚶</div>
+      <h3>Wandering & Elopement Risk</h3>
+      <p>Environmental disruptions dramatically increase wandering. Smoke, loud noises, and unfamiliar surroundings can trigger a PLwD to leave a safe space.</p>
+    </div>
+    <div class="card general">
+      <div class="card-icon">😟</div>
+      <h3>Behavioral Symptoms Worsen</h3>
+      <p>Anxiety, agitation, depression, and aggression all intensify during emergencies and displacement — even days or weeks after the event ends.</p>
+    </div>
+    <div class="card general">
+      <div class="card-icon">🫁</div>
+      <h3>Heightened Respiratory & Cardiac Risk</h3>
+      <p>Dementia-affected older adults commonly have cardiovascular and respiratory conditions that are severely worsened by wildfire smoke and extreme heat.</p>
+    </div>
+  </div>
+
+  <div class="emergency-contacts">
+    <h3>🆘 Critical Emergency Numbers — Inland Empire</h3>
+    <div class="ec-grid">
+      <div class="ec-item"><div class="ec-label">Emergency / 911</div><div class="ec-number"><a href="tel:911">9-1-1</a></div></div>
+      <div class="ec-item"><div class="ec-label">Inland Empire 2-1-1 (Services & Info)</div><div class="ec-number"><a href="tel:211">2-1-1</a></div></div>
+      <div class="ec-item"><div class="ec-label">Alzheimer's Association — California Southland Helpline</div><div class="ec-number"><a href="tel:+18002723900">(800) 272-3900</a></div></div>
+      <div class="ec-item"><div class="ec-label">Riverside Office on Aging</div><div class="ec-number"><a href="tel:+18779324100">(877) 932-4100</a></div></div>
+      <div class="ec-item"><div class="ec-label">Inland Caregiver Resource Center</div><div class="ec-number"><a href="tel:+18006756694">(800) 675-6694</a></div></div>
+      <div class="ec-item"><div class="ec-label">SB County Senior Information</div><div class="ec-number"><a href="tel:+18005102020">(800) 510-2020</a></div></div>
+      <div class="ec-item"><div class="ec-label">Poison Control</div><div class="ec-number"><a href="tel:+18002221222">(800) 222-1222</a></div></div>
+      <div class="ec-item"><div class="ec-label">SCAQMD AQI Info</div><div class="ec-number"><a href="tel:+18002887664">(800) 288-7664</a></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- PREPARE TAB -->
+<div id="tab-prepare" class="tab-content">
+  <div class="section-header">
+    <div class="icon">📋</div>
+    <div><h2>Year-Round Preparedness for Dementia Households</h2><p>Steps to take NOW — before any emergency occurs</p></div>
+  </div>
+
+  <div class="dementia-tip">
+    <strong>💡 Dementia Caregiver Tip</strong>
+    Involve the person with dementia in preparedness activities when possible and when they are calm. Familiar routines and familiar faces are the most powerful tools during any emergency. Practice and repetition now make emergencies less frightening later.
+  </div>
+
+  <div class="checklist">
+    <h3>✅ Essential Emergency Preparedness Checklist for PLwD Households</h3>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">ID</span><span>Create a laminated ID card for the PLwD with name, address, emergency contacts, diagnoses, and medications — keep one on their person at all times.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Medical</span><span>Compile a "Go Bag" medical folder: copies of all prescriptions, medication list with dosages, physician contacts, insurance cards, and advance directives.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Medical</span><span>Maintain a 7–14 day supply of all medications; ask your pharmacist and health plan about emergency refill options.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Safety</span><span>Ask local law enforcement about wandering-response programs and consider <a href="https://www.medicalert.org/alz" target="_blank" rel="noopener noreferrer">MedicAlert</a> identification and 24/7 support.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Safety</span><span>Place door alarms and window sensors to prevent elopement; consider a GPS tracking device worn by the PLwD.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Plan</span><span>Create a written Personal Emergency Plan with at least 2 backup contacts who know the PLwD's needs, triggers, and calming strategies.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Plan</span><span>Identify two evacuation destinations: one local (friend/family) and one further away (motel, shelter) that is dementia-aware.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Alerts</span><span>Riverside County residents: register for <a href="https://rivcoready.org/alert-rivco" target="_blank" rel="noopener noreferrer">Alert RivCo</a>. San Bernardino County residents: register for <a href="https://prepare.sbcounty.gov/" target="_blank" rel="noopener noreferrer">TENS/Ready SB</a>. Also check for a city-specific alert system.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Utilities</span><span>Contact SoCalGas and Southern California Edison to enroll in the Medical Baseline Program for reduced rates and priority notification during outages.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Comfort</span><span>Pack a "comfort bag" with familiar objects: a favorite photo album, a soft blanket, a cherished item, and a playlist of favorite music to reduce agitation during displacement.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Home</span><span>Install a backup battery for medical devices (CPAP, nebulizer, etc.) and keep a manual can opener, flashlights, and battery-powered fan/radio.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Neighbors</span><span>Tell trusted neighbors about the PLwD so they can check in during emergencies. Post a "PLwD lives here" notice inside a door for first responders if comfortable.</span></div>
+    <div class="checklist-item"><span class="check">✔</span><span class="category">Pets</span><span>Identify pet-friendly shelters and boarding; a familiar pet is a powerful calming resource for PLwD — do not leave pets behind.</span></div>
+  </div>
+
+  <h3 style="margin-bottom:10px;">🎒 Go-Bag Essentials for Dementia Households</h3>
+  <div class="kit-grid">
+    <div class="kit-item"><span class="ki">💊</span><span>14-day medication supply + list</span></div>
+    <div class="kit-item"><span class="ki">🪪</span><span>ID card + insurance cards</span></div>
+    <div class="kit-item"><span class="ki">📄</span><span>Medical records & advance directives</span></div>
+    <div class="kit-item"><span class="ki">💧</span><span>Water (1 gallon/person/day × 3 days)</span></div>
+    <div class="kit-item"><span class="ki">🍱</span><span>Non-perishable easy-to-eat foods</span></div>
+    <div class="kit-item"><span class="ki">🩺</span><span>Blood pressure cuff & thermometer</span></div>
+    <div class="kit-item"><span class="ki">😷</span><span>N95 masks (wildfire/air quality)</span></div>
+    <div class="kit-item"><span class="ki">🧴</span><span>Incontinence supplies</span></div>
+    <div class="kit-item"><span class="ki">🔦</span><span>Flashlight + batteries + radio</span></div>
+    <div class="kit-item"><span class="ki">🖼️</span><span>Comfort items: photos, music, blanket</span></div>
+    <div class="kit-item"><span class="ki">🔋</span><span>Phone charger + backup battery</span></div>
+    <div class="kit-item"><span class="ki">💰</span><span>Cash in small bills</span></div>
+  </div>
+</div>
+
+<!-- EXTREME HEAT TAB -->
+<div id="tab-heat" class="tab-content">
+  <div class="section-header heat">
+    <div class="icon">🌡️</div>
+    <div><h2>Extreme Heat</h2><p>Dementia-specific guidance for heat emergencies in Inland Empire</p></div>
+  </div>
+
+  <div class="alert-box">
+    <strong>🚨 Critical Risk for PLwD</strong>
+    Persons with dementia often cannot feel or communicate heat stress. Many dementia medications (antipsychotics, diuretics, anticholinergics) impair the body's ability to regulate temperature and increase heat stroke risk dramatically. Do NOT wait for the PLwD to ask for help — monitor continuously.
+  </div>
+
+  <div class="dementia-tip">
+    <strong>💡 Dementia Caregiver Tip</strong>
+    If the PLwD resists going to a cooling center, reframe it: "Let's go get a cool drink" or "We're going to visit somewhere with a nice breeze." Use simple, positive, one-step instructions. Arguing or explaining the heat danger often increases resistance.
+  </div>
+
+  <div class="phase-row">
+    <div class="phase-box">
+      <h4><span>✅</span> BEFORE a Heat Event <span class="pill before">Prepare</span></h4>
+      <ul>
+        <li>Know your PLwD's <strong>heat-related medications</strong> — ask their doctor about heat risks</li>
+        <li>Identify the <strong>nearest Inland Empire cooling center</strong> (see Inland Empire Resources tab)</li>
+        <li>Install window AC or fans; check functionality before summer</li>
+        <li>Keep curtains/blinds closed on south/west-facing windows during daytime</li>
+        <li>Register for <strong>Alert RivCo</strong> or <strong>San Bernardino County TENS/Ready SB</strong>, depending on the address, plus any city-specific alert system</li>
+        <li>Ensure caregiver respite backup for prolonged heat events</li>
+        <li>Enroll PLwD in <strong>SoCal Edison Medical Baseline</strong> for energy cost help</li>
+        <li>Have electrolyte drinks and water stored and accessible</li>
+      </ul>
+    </div>
+    <div class="phase-box">
+      <h4><span>⚠️</span> DURING a Heat Event <span class="pill during">Act</span></h4>
+      <ul>
+        <li>Check temperature and <strong>signs of heat illness every 30–60 minutes</strong>: flushed skin, confusion, dry mouth, fast heartbeat</li>
+        <li>Offer water and cool drinks <strong>every 15–20 minutes</strong> — do not wait for them to ask</li>
+        <li>Use <strong>cool, damp cloths</strong> on neck, wrists, and forehead; avoid sudden cold shocks</li>
+        <li>Keep indoors in AC; if no AC — go to a <strong>cooling center or mall</strong></li>
+        <li>Avoid strenuous activity between 10 AM – 4 PM</li>
+        <li><strong>Watch for heat stroke</strong>: hot/dry skin, confusion worsening, loss of consciousness → Call <a href="tel:911">911</a></li>
+        <li>Keep blinds closed; use fans + bowls of ice for low-tech cooling</li>
+        <li>Dress in <strong>loose, light-colored clothing</strong> — assist PLwD in changing if needed</li>
+      </ul>
+    </div>
+    <div class="phase-box">
+      <h4><span>🔄</span> AFTER a Heat Event <span class="pill after">Recover</span></h4>
+      <ul>
+        <li>Monitor for <strong>delayed dehydration symptoms</strong> for 24–48 hours after heat breaks</li>
+        <li>Check medications: were any doses missed or skipped? Contact provider to adjust</li>
+        <li>Watch for <strong>increased confusion or behavioral changes</strong> — these can persist for days</li>
+        <li>Report any heat illness symptoms to their physician, even if mild</li>
+        <li>Re-establish <strong>normal routines</strong> as quickly as possible to reduce ongoing agitation</li>
+        <li>Debrief: what worked? Update your emergency plan</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom:10px;">🏢 Inland Empire Cooling Centers — Key Contacts</h3>
+  <div class="card-grid">
+    <div class="card heat">
+      <div class="card-icon">❄️</div>
+      <h3>County Cooling Centers and Cool Centers</h3>
+      <p class="phone"><a href="tel:211">2-1-1</a></p>
+      <p>Call <a href="tel:211">211</a>. Riverside residents can also contact the Office on Aging at <a href="tel:+18779324100">(877) 932-4100</a>; San Bernardino residents can contact Senior Information and Assistance at <a href="tel:+18005102020">(800) 510-2020</a>.</p>
+    </div>
+    <div class="card heat">
+      <div class="card-icon">🏛️</div>
+      <h3>Inland Empire Public Libraries & Senior Centers</h3>
+      <p class="phone"><a href="tel:211">2-1-1</a></p>
+      <p>Many Inland Empire public libraries and senior centers serve as cooling sites during heat events. Call <a href="tel:211">211</a> for the nearest location accepting seniors with cognitive impairment.</p>
+    </div>
+    <div class="card heat">
+      <div class="card-icon">🌡️</div>
+      <h3>NWS Heat Alerts — Inland Empire</h3>
+      <p class="web"><a href="https://www.weather.gov/sgx/" target="_blank" rel="noopener noreferrer">weather.gov/sgx</a> | <a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">AirNow.gov</a></p>
+      <p>Sign up for National Weather Service heat alerts. When a Heat Advisory, Watch, or Warning is issued for Inland Empire, activate your heat plan immediately.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AIR POLLUTION TAB -->
+<div id="tab-air" class="tab-content">
+  <div class="section-header air">
+    <div class="icon">💨</div>
+    <div><h2>Air Pollution & Poor Air Quality</h2><p>Protecting PLwD from smoke, smog, and hazardous air days</p></div>
+  </div>
+
+  <div class="alert-box">
+    <strong>🚨 Critical Risk for PLwD</strong>
+    Older adults with dementia often have underlying COPD, asthma, or heart disease. They cannot reliably report breathing difficulty or chest pain. Wildfire smoke, ozone, and particulate matter can trigger rapid health decline. Never assume a PLwD is "fine" because they haven't complained.
+  </div>
+
+  <div class="dementia-tip">
+    <strong>💡 Dementia Caregiver Tip</strong>
+    PLwD may try to go outside despite poor air quality. Redirect with indoor activities: folding laundry, sorting objects, looking at photo albums, or watching familiar TV shows. Gently close doors and explain in simple terms: "The air outside is smoky today — let's stay cozy inside."
+  </div>
+
+  <div class="phase-row">
+    <div class="phase-box">
+      <h4><span>✅</span> BEFORE <span class="pill before">Prepare</span></h4>
+      <ul>
+        <li>Purchase <strong>N95 or KN95 masks</strong> in the PLwD's correct size — practice wearing them when calm</li>
+        <li>Get a <strong>HEPA air purifier</strong> for the bedroom and main living area</li>
+        <li>Seal gaps around doors/windows with towels or weather stripping during smoke events</li>
+        <li>Know the PLwD's <strong>respiratory medications</strong> and keep inhalers stocked</li>
+        <li>Bookmark <strong><a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">AirNow.gov</a></strong> and <a href="https://www.aqmd.gov/" target="_blank" rel="noopener noreferrer">SCAQMD's AQI alerts</a>; subscribe to SCAQMD email alerts</li>
+        <li>Ask their doctor: "At what AQI level should we keep them strictly indoors?"</li>
+      </ul>
+    </div>
+    <div class="phase-box">
+      <h4><span>⚠️</span> DURING Poor Air Quality <span class="pill during">Act</span></h4>
+      <ul>
+        <li>Keep all windows and doors <strong>tightly closed</strong></li>
+        <li>Run the <strong>HEPA air purifier</strong> on high in rooms where PLwD spends time</li>
+        <li>Set HVAC to <strong>recirculate</strong> (not fresh air intake)</li>
+        <li>If PLwD must go outside briefly, assist them in wearing an <strong>N95 mask</strong></li>
+        <li>Watch for: increased coughing, wheezing, shortness of breath, chest tightness, <strong>new or worsening confusion</strong> — these are signs of smoke exposure</li>
+        <li>Do NOT use candles, fireplaces, or fry foods — these worsen indoor air</li>
+        <li>Keep PLwD <strong>hydrated</strong> — dry air and smoke increase dehydration risk</li>
+        <li>AQI 150+ (Unhealthy): strict indoor stay for all PLwD<br>AQI 200+ (Very Unhealthy): consider evacuation to cleaner air location</li>
+      </ul>
+    </div>
+    <div class="phase-box">
+      <h4><span>🔄</span> AFTER <span class="pill after">Recover</span></h4>
+      <ul>
+        <li>Ventilate home only after <strong>AQI returns below 100</strong></li>
+        <li>Wipe down surfaces with damp cloth — smoke particles settle on furniture</li>
+        <li>Replace HEPA air purifier filters as directed</li>
+        <li>Report any new respiratory symptoms to the physician — even mild ones</li>
+        <li>Monitor for cognitive changes or behavioral decline for several days</li>
+        <li>Wash all bedding and clothing exposed to smoke</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom:10px;">📱 Air Quality Monitoring Tools</h3>
+  <div class="card-grid">
+    <div class="card air">
+      <div class="card-icon">🌫️</div>
+      <h3>SCAQMD — South Coast Air Quality Management District</h3>
+      <p class="phone"><a href="tel:+18002887664">(800) 288-7664</a></p>
+      <p class="web"><a href="https://www.aqmd.gov/" target="_blank" rel="noopener noreferrer">aqmd.gov</a> | <a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">AirNow.gov</a></p>
+      <p>Real-time AQI maps, smoke forecasts, and health advisories for Inland Empire. Sign up for free email/text air quality alerts.</p>
+    </div>
+    <div class="card air">
+      <div class="card-icon">📊</div>
+      <h3>AirNow.gov & PurpleAir</h3>
+      <p class="web"><a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">airnow.gov</a> | <a href="https://www.purpleair.com/" target="_blank" rel="noopener noreferrer">purpleair.com</a></p>
+      <p>Check the AQI color scale daily: Green (OK) → Yellow (Sensitive groups caution) → Orange/Red (PLwD STAY INDOORS) → Purple/Maroon (Evacuate).</p>
+    </div>
+  </div>
+</div>
+
+<!-- WILDFIRE TAB -->
+<div id="tab-wildfire" class="tab-content">
+  <div class="section-header fire">
+    <div class="icon">🔥</div>
+    <div><h2>Wildfire & Evacuation</h2><p>Dementia-specific wildfire preparedness and evacuation guidance for Inland Empire</p></div>
+  </div>
+
+  <div class="alert-box">
+    <strong>🚨 Critical Risk for PLwD</strong>
+    PLwD cannot reliably follow multi-step evacuation orders. Sirens, smoke, and emergency personnel in uniforms or respirators are terrifying and disorienting. Behavioral symptoms — including combativeness and refusal to leave — are common. Caregivers must have a practiced, simple plan. Never wait until a mandatory evacuation is issued — evacuate at the WARNING stage.
+  </div>
+
+  <div class="dementia-tip">
+    <strong>💡 Dementia Caregiver Tip</strong>
+    Practice a simplified "evacuation routine" during calm times so it feels familiar. Use one calm, reassuring phrase such as: "It's time for our trip. Let's get in the car." Avoid words like "fire," "danger," or "evacuate" — these trigger panic. Bring the comfort bag, a familiar blanket, and any beloved pet.
+  </div>
+
+  <div class="phase-row">
+    <div class="phase-box">
+      <h4><span>✅</span> BEFORE Wildfire Season <span class="pill before">Prepare</span></h4>
+      <ul>
+        <li>Sign up for <strong><a href="https://rivcoready.org/alert-rivco" target="_blank" rel="noopener noreferrer">Alert RivCo</a></strong> or <strong><a href="https://prepare.sbcounty.gov/" target="_blank" rel="noopener noreferrer">San Bernardino County TENS/Ready SB</a></strong></li>
+        <li>Know two evacuation routes and follow official county and city alerts for current evacuation maps and orders</li>
+        <li>Pre-identify a <strong>dementia-aware evacuation destination</strong> — inform them in advance</li>
+        <li>Practice a <strong>"no-discussion" departure routine</strong> — pre-pack the car with the Go-Bag</li>
+        <li>Call <a href="tel:211">211</a> for current shelter information and explain all dementia, mobility, communication, medical-equipment, and caregiver needs</li>
+        <li>Keep the car's gas tank at <strong>half full or more</strong> during fire season</li>
+        <li>Clear dry brush/vegetation within 30 feet of your home</li>
+        <li>Alert neighbors about the PLwD — ask them to check in if they see smoke</li>
+        <li>Have a <strong>secondary caregiver</strong> designated who knows the plan</li>
+      </ul>
+    </div>
+    <div class="phase-box">
+      <h4><span>⚠️</span> DURING a Wildfire Threat <span class="pill during">Act</span></h4>
+      <ul>
+        <li><strong>Evacuate EARLY — do not wait</strong> for mandatory order; PLwD evacuation takes more time</li>
+        <li>Use your <strong>rehearsed calm phrase</strong>: "It's time for our trip." Do not explain the fire</li>
+        <li>Dress PLwD in long sleeves and closed-toe shoes — pack their comfort bag</li>
+        <li>Take all medications, medical equipment, and the Go-Bag folder</li>
+        <li>Alert <a href="tel:911">911</a> if the PLwD refuses to leave — mention cognitive impairment for AFN assistance</li>
+        <li>Follow <strong>designated evacuation routes only</strong> — do not improvise routes</li>
+        <li>Once evacuated, maintain PLwD's <strong>routine as closely as possible</strong>: same meal times, same sleep schedule, familiar music</li>
+        <li>If sheltering, ask for a <strong>quiet area</strong> away from crowds and alarms</li>
+      </ul>
+    </div>
+    <div class="phase-box">
+      <h4><span>🔄</span> AFTER Returning Home <span class="pill after">Recover</span></h4>
+      <ul>
+        <li>Do NOT return until officially cleared — ash contains toxic heavy metals and carcinogens</li>
+        <li>Wear N95 masks during cleanup; keep PLwD <strong>away from cleanup activities</strong></li>
+        <li>Expect significant <strong>behavioral changes for weeks after displacement</strong> — increase patience, structure, and reassurance</li>
+        <li>Re-establish home routines immediately; familiar surroundings are deeply stabilizing</li>
+        <li>Contact <strong>Alzheimer's Association — California Southland</strong> helpline for post-disaster caregiver support</li>
+        <li>Check with physician: were medications maintained? Any new health concerns?</li>
+        <li>Document losses for FEMA/insurance — Alzheimer's Association — California Southland can help navigate claims</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom:10px;">🏠 Inland Empire Wildfire Evacuation Resources</h3>
+  <div class="card-grid">
+    <div class="card fire">
+      <div class="card-icon">🚒</div>
+      <h3>County Fire and Emergency Information</h3>
+      <p class="web"><a href="https://rivcoready.org/active-events" target="_blank" rel="noopener noreferrer">Riverside active events</a> | <a href="https://prepare.sbcounty.gov/" target="_blank" rel="noopener noreferrer">San Bernardino preparedness</a></p>
+      <p>Use the page for the county where the incident is occurring and follow official evacuation warnings and orders immediately.</p>
+    </div>
+    <div class="card fire">
+      <div class="card-icon">📢</div>
+      <h3>Alert RivCo and San Bernardino County TENS</h3>
+      <p class="web"><a href="https://rivcoready.org/alert-rivco" target="_blank" rel="noopener noreferrer">Alert RivCo</a> | <a href="https://prepare.sbcounty.gov/" target="_blank" rel="noopener noreferrer">TENS/Ready SB</a></p>
+      <p>Register phones and addresses with the appropriate county system. Some cities operate an additional local alert system.</p>
+    </div>
+    <div class="card fire">
+      <div class="card-icon">🏕️</div>
+      <h3>Shelter Information — 211 Inland Empire</h3>
+      <p class="phone"><a href="tel:211">2-1-1</a></p>
+      <p>Call <a href="tel:211">211</a> for current shelter information. Describe dementia, mobility, communication, medical-equipment, and caregiver needs before traveling.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FLOOD TAB -->
+<div id="tab-flood" class="tab-content">
+  <div class="section-header flood">
+    <div class="icon">🌊</div>
+    <div><h2>Flooding & Flash Floods</h2><p>Flood preparedness for dementia-affected households in Inland Empire</p></div>
+  </div>
+
+  <div class="alert-box">
+    <strong>🚨 Critical Risk for PLwD</strong>
+    PLwD may not understand the danger of floodwater (6 inches of moving water can knock down an adult). They may wander into flooded areas, resist evacuation, or become extremely agitated by loud rain and unfamiliar sounds. Begin evacuation preparations well before conditions become dangerous.
+  </div>
+
+  <div class="dementia-tip">
+    <strong>💡 Dementia Caregiver Tip</strong>
+    Rain sounds, thunder, and water intrusion into the home are highly disorienting for PLwD. Use a calm voice, soothing music, and a "story" framing: "We're going on a little adventure to stay at [name's] house tonight." Avoid showing them floodwater if possible — visual exposure to flood conditions worsens panic.
+  </div>
+
+  <div class="phase-row">
+    <div class="phase-box">
+      <h4><span>✅</span> BEFORE Flood Season <span class="pill before">Prepare</span></h4>
+      <ul>
+        <li>Know your <strong>flood zone</strong> — check FEMA Flood Map: <a href="https://msc.fema.gov/portal/home" target="_blank" rel="noopener noreferrer">msc.fema.gov</a></li>
+        <li>Move medications, medical records, and important documents to <strong>upper floors or a waterproof bag</strong></li>
+        <li>Purchase flood insurance if in a flood zone — standard homeowners insurance does NOT cover flooding</li>
+        <li>Identify <strong>ground-floor hazards</strong> — PLwD may try to walk in water or touch electrical outlets near floodwater</li>
+        <li>Know <strong>two evacuation routes</strong> from your home/neighborhood</li>
+        <li>Elevate CPAP machines, nebulizers, and other electrical medical equipment</li>
+        <li>Keep non-slip mats and clear pathways in case of partial flooding</li>
+      </ul>
+    </div>
+    <div class="phase-box">
+      <h4><span>⚠️</span> DURING a Flood Event <span class="pill during">Act</span></h4>
+      <ul>
+        <li>Monitor RivCo Ready or Ready SB County along with National Weather Service flash-flood warnings</li>
+        <li><strong>Never allow PLwD near floodwater</strong> — all floodwater is contaminated</li>
+        <li>Turn off electricity at the breaker if water is entering the home</li>
+        <li>Move to the <strong>highest floor</strong> if unable to evacuate; call <a href="tel:911">911</a></li>
+        <li>When evacuating: use your calm reassurance phrase; carry them or use a wheelchair on elevated ground</li>
+        <li>Do not use elevators during active flooding</li>
+        <li>Pack Go-Bag, medications, and comfort items before water rises</li>
+        <li>Contact <strong><a href="tel:211">211</a></strong> for nearest shelter accepting AFN individuals</li>
+      </ul>
+    </div>
+    <div class="phase-box">
+      <h4><span>🔄</span> AFTER Flooding <span class="pill after">Recover</span></h4>
+      <ul>
+        <li>Do NOT return until health authorities declare the home safe — mold grows within 24–48 hours</li>
+        <li>Keep PLwD away from mold-damaged areas — mold spores cause respiratory harm</li>
+        <li>Check all medications — discard any that were exposed to floodwater</li>
+        <li>Watch for increased agitation, confusion, or behavioral symptoms — displacement stress is prolonged</li>
+        <li>Apply for FEMA Disaster Assistance: <a href="https://www.disasterassistance.gov/" target="_blank" rel="noopener noreferrer">disasterassistance.gov</a> or call <a href="tel:+18006213362">1-800-621-3362</a></li>
+        <li>Contact the resident's county aging or social-services department for emergency housing, food, IHSS, and financial-assistance referrals</li>
+        <li>Re-establish familiar routines as soon as safely possible</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card flood">
+      <div class="card-icon">🌊</div>
+      <h3>County Flood and Storm Information</h3>
+      <p class="web"><a href="https://rivcoready.org/active-events" target="_blank" rel="noopener noreferrer">RivCo Ready</a> | <a href="https://prepare.sbcounty.gov/" target="_blank" rel="noopener noreferrer">Ready SB County</a></p>
+      <p>Official incident updates, emergency alerts, evacuation information, and recovery resources for Riverside and San Bernardino counties.</p>
+    </div>
+    <div class="card flood">
+      <div class="card-icon">🏛️</div>
+      <h3>FEMA Disaster Assistance</h3>
+      <p class="phone"><a href="tel:+18006213362">1-800-621-3362</a></p>
+      <p class="web"><a href="https://www.disasterassistance.gov/" target="_blank" rel="noopener noreferrer">disasterassistance.gov</a></p>
+      <p>Apply for federal disaster assistance after flooding events. Available in multiple languages. Assistance available for medical equipment replacement.</p>
+    </div>
+    <div class="card flood">
+      <div class="card-icon">🏠</div>
+      <h3>County Social and Aging Services</h3>
+      <p class="phone">Riverside: <a href="tel:+18779324100">(877) 932-4100</a> | San Bernardino: <a href="tel:+18005102020">(800) 510-2020</a></p>
+      <p>Ask about IHSS, nutrition, transportation, caregiver support, and disaster-related referrals available in the resident's county.</p>
+    </div>
+  </div>
+</div>
+
+<!-- POWER OUTAGE TAB -->
+<div id="tab-power" class="tab-content">
+  <div class="section-header power">
+    <div class="icon">⚡</div>
+    <div><h2>Extended Power Outages</h2><p>Protecting PLwD during prolonged electrical failures</p></div>
+  </div>
+
+  <div class="alert-box">
+    <strong>🚨 Critical Risk for PLwD</strong>
+    Power outages disrupt medication refrigeration, medical devices (CPAP, oxygen, nebulizers), lighting, and temperature control simultaneously. Darkness and unfamiliar sounds cause extreme disorientation for PLwD. Even a short outage can trigger prolonged behavioral distress.
+  </div>
+
+  <div class="dementia-tip">
+    <strong>💡 Dementia Caregiver Tip</strong>
+    Keep battery-powered nightlights throughout the home year-round — familiar light sources reduce nighttime confusion during outages. A battery-powered music player with familiar, calming music is one of the most powerful tools to reduce agitation when all other systems fail.
+  </div>
+
+  <div class="phase-row">
+    <div class="phase-box">
+      <h4><span>✅</span> BEFORE an Outage <span class="pill before">Prepare</span></h4>
+      <ul>
+        <li>Enroll in <strong>SoCal Edison Medical Baseline Program</strong> for reduced rates and priority restoration</li>
+        <li>Register with <strong>SCE's Medical Needs program</strong> if PLwD uses life-sustaining equipment</li>
+        <li>Have a <strong>7-day refrigerated medication plan</strong> — ask pharmacist about storage temperatures and options during outages</li>
+        <li>Purchase a <strong>backup battery or generator</strong> for medical devices (CPAP, oxygen concentrator)</li>
+        <li>Keep battery-powered nightlights, flashlights, and lanterns charged and accessible</li>
+        <li>Have a manual medication list and dosage schedule printed (not just on phone)</li>
+        <li>Stock non-perishable, easy-prep foods that require no cooking</li>
+      </ul>
+    </div>
+    <div class="phase-box">
+      <h4><span>⚠️</span> DURING an Outage <span class="pill during">Act</span></h4>
+      <ul>
+        <li>Immediately activate battery-powered lighting — darkness is severely disorienting for PLwD</li>
+        <li>Check medication refrigeration — most insulin requires refrigeration; call pharmacist if unsure</li>
+        <li>Monitor temperature: if home exceeds 90°F → <strong>go to a cooling center or friend's home</strong></li>
+        <li>Keep routines as normal as possible — same meal times, same activities</li>
+        <li>Use battery-powered music player with familiar music to reduce anxiety</li>
+        <li>Do NOT use generators, grills, or camp stoves <strong>indoors</strong> — carbon monoxide risk</li>
+        <li>Report medical equipment needs to SCE: <strong><a href="tel:+18006554555">(800) 655-4555</a></strong></li>
+        <li>Keep mobile phone charged via car charger or battery bank</li>
+      </ul>
+    </div>
+    <div class="phase-box">
+      <h4><span>🔄</span> AFTER Power Restores <span class="pill after">Recover</span></h4>
+      <ul>
+        <li>Check all refrigerated medications — discard if temperature was >46°F for >2 hours</li>
+        <li>Replace any food that may have spoiled — do not feed PLwD questionable food items</li>
+        <li>Restart all medical devices and confirm proper functioning</li>
+        <li>Watch for behavioral symptoms that may linger for days after the disruption</li>
+        <li>Contact physician if any medications were missed or refrigeration was compromised</li>
+        <li>Replenish emergency supplies and recharge all backup batteries</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card power">
+      <div class="card-icon">💡</div>
+      <h3>SoCal Edison — Medical Baseline & Life Support</h3>
+      <p class="phone"><a href="tel:+18006554555">(800) 655-4555</a></p>
+      <p class="web"><a href="https://www.sce.com/medicalbaseline" target="_blank" rel="noopener noreferrer">sce.com/medicalbaseline</a></p>
+      <p>Enroll to receive advance notice of planned Public Safety Power Shutoffs (PSPS) and reduced energy rates for households with medical needs.</p>
+    </div>
+    <div class="card power">
+      <div class="card-icon">🏥</div>
+      <h3>IEHP Member Services</h3>
+      <p class="phone"><a href="tel:+18004404347">(800) 440-4347</a></p>
+      <p class="web"><a href="https://www.iehp.org/" target="_blank" rel="noopener noreferrer">iehp.org</a></p>
+      <p>Medi-Cal members can ask IEHP about urgent prescriptions, durable medical equipment, transportation, and continuity of care during a disaster.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AGENCIES TAB -->
+<div id="tab-agencies" class="tab-content">
+  <div class="section-header">
+    <div class="icon">📞</div>
+    <div><h2>Inland Empire Resource Directory</h2><p>Key agencies for persons with dementia, caregivers & families</p></div>
+  </div>
+
+  <div class="dementia-tip">
+    <strong>💡 Tip for Caregivers</strong>
+    Call these agencies NOW — before an emergency — to register, ask questions, and understand services available. Many programs have waitlists. Building relationships with these agencies ahead of time can be lifesaving.
+  </div>
+
+  <h3 style="color:#1e8449; margin-bottom:12px;">🧠 Dementia & Caregiver Support</h3>
+
+  <div class="oc-agency-card">
+    <span class="role">Dementia Support | Disaster Preparedness</span>
+    <h4>Alzheimer's Association — California Southland</h4>
+    <p>📞 Helpline: <strong><a href="tel:+18002723900">(800) 272-3900</a></strong> | 🌐 <a href="https://www.alz.org/socal" target="_blank" rel="noopener noreferrer">alz.org/socal</a></p>
+    <p>Free 24/7 helpline with dementia information, care consultations, crisis support, local referrals, and language assistance.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Caregiver Support | Counseling | Respite</span>
+    <h4>Inland Caregiver Resource Center</h4>
+    <p>📞 <strong><a href="tel:+18006756694">(800) 675-6694</a></strong> | 🌐 <a href="https://inlandcaregivers.org/" target="_blank" rel="noopener noreferrer">inlandcaregivers.org</a></p>
+    <p>Regional caregiver resource center serving Riverside and San Bernardino counties. Services include caregiver assessment, education, support, respite assistance, and referrals; availability varies by program funding.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">African American Elders | Community Outreach</span>
+    <h4>Advocates for African American Elders (AAAE) — UCI</h4>
+    <p>🌐 <a href="https://aaae.uci.edu/" target="_blank" rel="noopener noreferrer">aaae.uci.edu</a></p>
+    <p>UCI-based program focused on brain health and aging equity for African American older adults and their caregivers in Southern California. Co-leads community education and outreach for the Resilient Minds initiative.</p>
+  </div>
+
+  <h3 style="color:#1e8449; margin-bottom:12px; margin-top:20px;">🏥 Health & Medical Services</h3>
+
+  <div class="oc-agency-card">
+    <span class="role">Public Health | Emergency Health | Behavioral Health</span>
+    <h4>Riverside and San Bernardino County Public Health</h4>
+    <p>🌐 <a href="https://www.ruhealth.org/public-health" target="_blank" rel="noopener noreferrer">Riverside University Health System—Public Health</a> | <a href="https://dph.sbcounty.gov/" target="_blank" rel="noopener noreferrer">San Bernardino County Public Health</a></p>
+    <p>County public-health information, health advisories, disease prevention, and emergency health guidance. Use the department serving the resident's address.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Medi-Cal | Medical Equipment | Emergency Medication</span>
+    <h4>Inland Empire Health Plan (IEHP)</h4>
+    <p>📞 <strong><a href="tel:+18004404347">(800) 440-4347</a></strong> | 🌐 <a href="https://www.iehp.org/" target="_blank" rel="noopener noreferrer">iehp.org</a></p>
+    <p>Medi-Cal health plan serving Riverside and San Bernardino counties. Members should ask about urgent prescriptions, durable medical equipment, transportation, and continuity of care during an emergency.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Geriatric Care | Memory Disorders | UCI Health</span>
+    <h4>UCI Health — Memory Disorders Program</h4>
+    <p>📞 <strong><a href="tel:+18888242255">(888) 824-2255</a></strong> | 🌐 <a href="https://health.uci.edu/" target="_blank" rel="noopener noreferrer">health.uci.edu</a></p>
+    <p>Comprehensive geriatric and memory disorder care at UC Irvine. Connects to the Resilient Minds research team. Contact for dementia diagnosis, medication management, and caregiver counseling.</p>
+  </div>
+
+  <h3 style="color:#1e8449; margin-bottom:12px; margin-top:20px;">🏠 Home & Community Services</h3>
+
+  <div class="oc-agency-card">
+    <span class="role">In-Home Care | IHSS Caregivers | Social Services</span>
+    <h4>County IHSS and Aging Services</h4>
+    <p>🌐 <a href="https://rivcodpss.org/ihss" target="_blank" rel="noopener noreferrer">Riverside County IHSS</a> | <a href="https://hss.sbcounty.gov/daas/" target="_blank" rel="noopener noreferrer">San Bernardino DAAS</a></p>
+    <p>County entry points for In-Home Supportive Services, adult protective services, aging programs, and referrals. Contact the county where the care recipient lives.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Meals | Nutrition | Social Connection</span>
+    <h4>County Nutrition and Home-Delivered Meal Programs</h4>
+    <p>📞 Riverside: <strong><a href="tel:+18779324100">(877) 932-4100</a></strong> | San Bernardino: <strong><a href="tel:+18005102020">(800) 510-2020</a></strong></p>
+    <p>Ask the appropriate county aging office about congregate meals, home-delivered meals, eligibility, and emergency nutrition resources.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Senior Services | Area Agency on Aging</span>
+    <h4>Riverside Office on Aging and San Bernardino DAAS</h4>
+    <p>📞 Riverside: <strong><a href="tel:+18779324100">(877) 932-4100</a></strong> | San Bernardino: <strong><a href="tel:+18005102020">(800) 510-2020</a></strong></p>
+    <p>Area Agency on Aging services including information and assistance, caregiver support, nutrition, transportation, legal assistance, and long-term-care referrals.</p>
+  </div>
+
+  <h3 style="color:#1e8449; margin-bottom:12px; margin-top:20px;">🚨 Emergency Preparedness & Safety</h3>
+
+  <div class="oc-agency-card">
+    <span class="role">Emergency Management | Alerts | Sheltering</span>
+    <h4>Riverside and San Bernardino Emergency Management</h4>
+    <p>🌐 <a href="https://rivcoready.org/" target="_blank" rel="noopener noreferrer">RivCo Ready</a> | <a href="https://prepare.sbcounty.gov/" target="_blank" rel="noopener noreferrer">Ready SB County</a></p>
+    <p>Preparedness guidance, official incident information, evacuation updates, shelter information, and recovery resources. Use the county page serving the affected address.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Emergency Alerts | Evacuation Notifications</span>
+    <h4>Alert RivCo and San Bernardino County TENS</h4>
+    <p>🌐 <a href="https://rivcoready.org/alert-rivco" target="_blank" rel="noopener noreferrer">Alert RivCo</a> | <a href="https://prepare.sbcounty.gov/" target="_blank" rel="noopener noreferrer">TENS/Ready SB</a></p>
+    <p>Register all caregiver phones and addresses. Riverside County also recommends Genasys Protect; some cities in both counties maintain separate local alert systems.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Wandering | GPS Tracking | Missing Persons</span>
+    <h4>MedicAlert Wandering Support</h4>
+    <p>📞 <strong><a href="tel:+18006253780">(800) 625-3780</a></strong> | 🌐 <a href="https://www.medicalert.org/alz" target="_blank" rel="noopener noreferrer">medicalert.org/alz</a></p>
+    <p>Identification and 24/7 emergency support for people at risk of wandering. If a person is missing or in immediate danger, call <a href="tel:911">911</a> first.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Wildfire | Fire Prevention | Emergency Response</span>
+    <h4>Riverside County Fire and San Bernardino County Fire</h4>
+    <p>🌐 <a href="https://www.rvcfire.org/" target="_blank" rel="noopener noreferrer">Riverside County Fire</a> | <a href="https://sbcfire.org/" target="_blank" rel="noopener noreferrer">San Bernardino County Fire</a></p>
+    <p>Fire-safety information and incident resources. Follow county emergency-management alerts for evacuation warnings and orders.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Air Quality | AQI Alerts | Smoke Advisories</span>
+    <h4>South Coast AQMD</h4>
+    <p>📞 <strong><a href="tel:+18002887664">(800) 288-7664</a></strong> | 🌐 <a href="https://www.aqmd.gov/" target="_blank" rel="noopener noreferrer">aqmd.gov</a> | <a href="https://www.airnow.gov/" target="_blank" rel="noopener noreferrer">AirNow.gov</a></p>
+    <p>Monitors and reports air quality across Southern California. Sign up for free daily AQI email alerts by ZIP code. Issues Smoke Advisories and health guidance during wildfire smoke events.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Information & Referral | 24/7 Hotline</span>
+    <h4>211 Inland Empire</h4>
+    <p>📞 <strong><a href="tel:211">Dial 2-1-1</a></strong> | 🌐 <a href="https://www.211ie.org/" target="_blank" rel="noopener noreferrer">211ie.org</a></p>
+    <p>Free, confidential 24/7 information and referral service. Connect to cooling centers, shelters, food banks, mental health services, transportation, and any local service. Available in 200+ languages via interpreter. Dial <a href="tel:211">2-1-1</a> from any phone.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Utility Support | Medical Baseline | Power Outages</span>
+    <h4>Southern California Edison — Medical Baseline Program</h4>
+    <p>📞 <strong><a href="tel:+18006554555">(800) 655-4555</a></strong> | 🌐 <a href="https://www.sce.com/medicalbaseline" target="_blank" rel="noopener noreferrer">sce.com/medicalbaseline</a></p>
+    <p>Reduced electricity rates and advance notice of planned Public Safety Power Shutoffs (PSPS) for households with qualifying medical conditions including dementia-related equipment (oxygen, CPAP). Register before an emergency occurs.</p>
+  </div>
+</div>
+
+<footer>
+  <strong>Resilient Minds, Resilient Communities</strong> · UCI Climate Collaboration Project Grant<br>
+  Lead PI: Karen D. Lincoln, PhD · Co-PIs: Julie Rousseau, PhD · Nalini Venkatasubramanian, PhD · Jung-Ah Lee, PhD<br>
+  Regional resources: Inland Caregiver Resource Center · Riverside Office on Aging · San Bernardino DAAS · County emergency-management systems<br>
+  <em>This guide is for informational purposes. Always call <a href="tel:911">911</a> in a life-threatening emergency.</em>
+</footer>
+
+<a class="scroll-top" id="ieScrollBtn" href="#ie-caregiver-guide" aria-label="Back to the top of the caregiver guide">↑</a>
+</div>
+
+<script>
+(() => {
+  const page = document.getElementById('ie-caregiver-guide');
+  if (!page) return;
+
+  const scrollButton = page.querySelector('#ieScrollBtn');
+  window.addEventListener('scroll', function() {
+    const pageRect = page.getBoundingClientRect();
+    scrollButton.style.display = pageRect.top < -300 && pageRect.bottom > 120 ? 'grid' : 'none';
+  });
+})();
+</script>
+</body>
+</html>
