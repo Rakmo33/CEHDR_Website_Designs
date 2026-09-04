@@ -156,7 +156,7 @@ h3:not(.h):not([class*=is-style-h-])+p {
 .cehdr-home .hp-num{font-family:'Roboto Slab',serif;font-size:1.2rem;font-weight:900;color:var(--navy);line-height:1}
 .cehdr-home .hp-bot .hp-num{color:var(--gold)}.cehdr-home .hp-lbl{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:2px}
 .cehdr-home .hp-bot .hp-lbl{color:rgba(255,255,255,.6)}
-.cehdr-home .hero-newsletter{margin-top:14px;position:relative;z-index:6}
+.cehdr-home .hero-newsletter{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:6}
 .cehdr-home .btn-newsletter{
   display:inline-flex;align-items:center;gap:9px;
   padding:9px 20px;font-size:.82rem;font-weight:700;
@@ -461,12 +461,18 @@ h3:not(.h):not([class*=is-style-h-])+p {
         <a class="btn-gold" target="_blank" href="https://cehdr.publichealth.uci.edu/supportcehdr/"><i class="fa-solid fa-gift"></i> Make an Impact</a>
         <a class="btn-ghost-white" target="_blank" href="https://cehdr.publichealth.uci.edu/research/">Explore Our Research <i class="fa-solid fa-arrow-right"></i></a>
       </div>
-      <!-- newsletter button below the two CTAs -->
+      <!-- compact resource buttons below the two primary CTAs -->
       <div class="hero-newsletter">
         <a class="btn-newsletter" target="_blank" rel="noopener"
           href="https://mailchi.mp/728b87b673e4/cehdr-summer-2026-newsletter">
           Summer 2026 Newsletter
           <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.72rem"></i>
+        </a>
+        <a class="btn-newsletter" target="_blank" rel="noopener"
+          href="https://cehdr.publichealth.uci.edu/oc-caregiver-resource-guide/">
+          <i class="fa-solid fa-book-medical" aria-hidden="true"></i>
+          OC Caregiver Resource Guide
+          <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:.72rem" aria-hidden="true"></i>
         </a>
       </div>    
     </div>
