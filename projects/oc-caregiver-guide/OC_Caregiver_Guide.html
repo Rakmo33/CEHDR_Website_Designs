@@ -81,21 +81,47 @@
     text-align: center;
     position: relative;
   }
-  #oc-caregiver-guide .hero .badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.18);
-    border: 1.5px solid rgba(255,255,255,0.45);
-    border-radius: 20px;
-    font-size: 0.78em;
-    padding: 3px 14px;
-    margin-bottom: 10px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+  #oc-caregiver-guide .hero .cehdr-brand {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    gap: 10px;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.40);
+    border-radius: 30px;
+    padding: 6px 18px 6px 8px;
+    margin-bottom: 14px;
     color: white !important;
-    font-weight: 400;
-    line-height: 1.4;
-    vertical-align: baseline;
-    white-space: normal;
+  }
+  #oc-caregiver-guide .hero .brand-logo {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    overflow: hidden;
+    padding: 3px;
+    border-radius: 50%;
+    background: white;
+  }
+  #oc-caregiver-guide .hero .brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+  #oc-caregiver-guide .hero .brand-text { min-width: 0; text-align: left; }
+  #oc-caregiver-guide .hero .brand-text .line1 {
+    color: white !important;
+    font-size: 0.82em;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: 0.04em;
+  }
+  #oc-caregiver-guide .hero .brand-text .line2 {
+    color: white !important;
+    margin-top: 1px;
+    font-size: 0.73em;
+    line-height: 1.35;
+    opacity: 0.88;
   }
   #oc-caregiver-guide .hero h1 {
     font-size: 2em;
@@ -117,12 +143,13 @@
     max-width: 700px;
     margin: 0 auto;
   }
-  #oc-caregiver-guide .project-tag {
-    margin-top: 14px;
-    font-size: 0.78em;
-    opacity: 0.75;
+  #oc-caregiver-guide .developed-by {
+    margin-top: 6px;
+    font-size: 0.8em;
+    opacity: 0.8;
     font-style: italic;
   }
+  #oc-caregiver-guide .developed-by strong { font-style: normal; opacity: 1; }
 
   #oc-caregiver-guide nav.tab-bar {
     background: #1a5276;
@@ -483,6 +510,9 @@
   }
 
   @media (max-width: 600px) {
+    #oc-caregiver-guide .hero .cehdr-brand { width: 100%; padding-right: 12px; border-radius: 22px; }
+    #oc-caregiver-guide .hero .brand-text .line1 { font-size: 0.74em; }
+    #oc-caregiver-guide .hero .brand-text .line2 { font-size: 0.66em; }
     #oc-caregiver-guide nav.tab-bar {
       flex-wrap: nowrap;
       justify-content: flex-start;
@@ -497,11 +527,17 @@
 </style>
 
 <div class="hero">
-  <div class="badge">UCI · Center for Environmental Health Disparities Research (CEHDR)</div>
+  <div class="cehdr-brand">
+    <div class="brand-logo"><img src="https://sites.uci.edu/cehdr/files/2026/08/uci-logo.png" alt="UC Irvine logo"></div>
+    <div class="brand-text">
+      <div class="line1">Center for Environmental Health Disparities Research (CEHDR)</div>
+      <div class="line2">Joe C. Wen School of Population and Public Health · University of California, Irvine</div>
+    </div>
+  </div>
   <h1>🧠 Resilient Minds, Resilient Communities</h1>
   <h2>Environmental Emergency Preparedness Guide for Persons with Dementia, Caregivers & Families</h2>
   <p class="subtitle">A dementia-specific, culturally responsive guide covering Extreme Heat, Air Pollution, Wildfire, Flooding & Power Outages — with Orange County resources.</p>
-  <p class="project-tag">Developed by the <strong>Center for Environmental Health Disparities Research (CEHDR)</strong> <br>Joe C. Wen School of Population and Public Health · University of California, Irvine</p>
+  <p class="developed-by">Developed by the <strong>Center for Environmental Health Disparities Research (CEHDR)</strong><br>Joe C. Wen School of Population and Public Health · University of California, Irvine</p>
 </div>
 
 <nav class="tab-bar" id="tabBar" aria-label="Caregiver guide sections">
@@ -577,6 +613,7 @@
       <div class="ec-item"><div class="ec-label">Emergency / 911</div><div class="ec-number"><a href="tel:911">9-1-1</a></div></div>
       <div class="ec-item"><div class="ec-label">OC 2-1-1 (Services & Info)</div><div class="ec-number"><a href="tel:211">2-1-1</a></div></div>
       <div class="ec-item"><div class="ec-label">Alzheimer's OC Helpline</div><div class="ec-number"><a href="tel:+18443734400">(844) 373-4400</a></div></div>
+      <div class="ec-item"><div class="ec-label">Alzheimer's Association Orange County Chapter (24/7 Helpline)</div><div class="ec-number"><a href="tel:+18002723900">(800) 272-3900</a></div></div>
       <div class="ec-item"><div class="ec-label">OC Health Care Agency</div><div class="ec-number"><a href="tel:+17148343000">(714) 834-3000</a></div></div>
       <div class="ec-item"><div class="ec-label">Caregiver Resource Ctr OC</div><div class="ec-number"><a href="tel:+18005438312">(800) 543-8312</a></div></div>
       <div class="ec-item"><div class="ec-label">OC Emergency Mgmt</div><div class="ec-number"><a href="tel:+17146287085">(714) 628-7085</a></div></div>
@@ -1034,6 +1071,13 @@
     <h4>Alzheimer's Orange County</h4>
     <p>📞 Helpline: <strong><a href="tel:+18443734400">(844) 373-4400</a></strong> | 🌐 <a href="https://www.alzheimersorangecounty.org/" target="_blank" rel="noopener noreferrer">alzheimersorangecounty.org</a></p>
     <p>24/7 helpline for families and caregivers. Provides caregiver education, support groups, dementia-specific emergency preparedness programs, care consultations, and community outreach. Offers bilingual services and memory café programs.</p>
+  </div>
+
+  <div class="oc-agency-card">
+    <span class="role">Dementia Support | Education | 24/7 Helpline</span>
+    <h4>Alzheimer's Association Orange County Chapter</h4>
+    <p>📞 Local office: <strong><a href="tel:+19494268544">(949) 426-8544</a></strong> | 24/7 Helpline: <strong><a href="tel:+18002723900">(800) 272-3900</a></strong> | 🌐 <a href="https://www.alz.org/oc" target="_blank" rel="noopener noreferrer">alz.org/oc</a></p>
+    <p>Provides support services, care options, education, confidential crisis assistance, and local resources for people living with Alzheimer's or another dementia, families, and caregivers throughout Orange County.</p>
   </div>
 
   <div class="oc-agency-card">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inland Empire Caregiver Emergency Resource Guide</title>
+<title>Resilient Minds: Environmental Emergency Resource Guide | Inland Empire</title>
 </head>
 <body>
 
@@ -81,22 +81,31 @@
     text-align: center;
     position: relative;
   }
-  #ie-caregiver-guide .hero .badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.18);
-    border: 1.5px solid rgba(255,255,255,0.45);
-    border-radius: 20px;
-    font-size: 0.78em;
-    padding: 3px 14px;
-    margin-bottom: 10px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+  #ie-caregiver-guide .hero .cehdr-brand {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    gap: 10px;
+    background: rgba(255,255,255,0.15);
+    border: 1.5px solid rgba(255,255,255,0.40);
+    border-radius: 30px;
+    padding: 6px 18px 6px 8px;
+    margin-bottom: 14px;
     color: white !important;
-    font-weight: 400;
-    line-height: 1.4;
-    vertical-align: baseline;
-    white-space: normal;
   }
+  #ie-caregiver-guide .hero .brand-logo {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    overflow: hidden;
+    padding: 3px;
+    border-radius: 50%;
+    background: white;
+  }
+  #ie-caregiver-guide .hero .brand-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+  #ie-caregiver-guide .hero .brand-text { min-width: 0; text-align: left; }
+  #ie-caregiver-guide .hero .brand-text .line1 { color: white !important; font-size: 0.82em; font-weight: 700; line-height: 1.35; letter-spacing: 0.04em; }
+  #ie-caregiver-guide .hero .brand-text .line2 { color: white !important; margin-top: 1px; font-size: 0.73em; line-height: 1.35; opacity: 0.88; }
   #ie-caregiver-guide .hero h1 {
     font-size: 2em;
     font-weight: 800;
@@ -117,12 +126,13 @@
     max-width: 700px;
     margin: 0 auto;
   }
-  #ie-caregiver-guide .project-tag {
-    margin-top: 14px;
-    font-size: 0.78em;
-    opacity: 0.75;
+  #ie-caregiver-guide .developed-by {
+    margin-top: 6px;
+    font-size: 0.8em;
+    opacity: 0.8;
     font-style: italic;
   }
+  #ie-caregiver-guide .developed-by strong { font-style: normal; opacity: 1; }
 
   #ie-caregiver-guide nav.tab-bar {
     background: #1a5276;
@@ -483,6 +493,9 @@
   }
 
   @media (max-width: 600px) {
+    #ie-caregiver-guide .hero .cehdr-brand { width: 100%; padding-right: 12px; border-radius: 22px; }
+    #ie-caregiver-guide .hero .brand-text .line1 { font-size: 0.74em; }
+    #ie-caregiver-guide .hero .brand-text .line2 { font-size: 0.66em; }
     #ie-caregiver-guide nav.tab-bar {
       flex-wrap: nowrap;
       justify-content: flex-start;
@@ -497,11 +510,17 @@
 </style>
 
 <div class="hero">
-  <div class="badge">Inland Empire Caregiver Resource Guide</div>
+  <div class="cehdr-brand">
+    <div class="brand-logo"><img src="https://sites.uci.edu/cehdr/files/2026/08/uci-logo.png" alt="UC Irvine logo"></div>
+    <div class="brand-text">
+      <div class="line1">Center for Environmental Health Disparities Research (CEHDR)</div>
+      <div class="line2">Joe C. Wen School of Population and Public Health · University of California, Irvine</div>
+    </div>
+  </div>
   <h1>🧠 Resilient Minds, Resilient Communities</h1>
   <h2>Environmental Emergency Preparedness Guide for Persons with Dementia, Caregivers & Families</h2>
   <p class="subtitle">A dementia-specific, culturally responsive guide covering Extreme Heat, Air Pollution, Wildfire, Flooding & Power Outages — with Inland Empire resources.</p>
-  <p class="project-tag">Developed in support of the UCI Climate Collaboration Project Grant · UCI Wen School of Population and Public Health</p>
+  <p class="developed-by">Developed by the <strong>Center for Environmental Health Disparities Research (CEHDR)</strong><br>Joe C. Wen School of Population and Public Health · University of California, Irvine</p>
 </div>
 
 <nav class="tab-bar" id="tabBar" aria-label="Caregiver guide sections">
@@ -576,7 +595,7 @@
     <div class="ec-grid">
       <div class="ec-item"><div class="ec-label">Emergency / 911</div><div class="ec-number"><a href="tel:911">9-1-1</a></div></div>
       <div class="ec-item"><div class="ec-label">Inland Empire 2-1-1 (Services & Info)</div><div class="ec-number"><a href="tel:211">2-1-1</a></div></div>
-      <div class="ec-item"><div class="ec-label">Alzheimer's Association — California Southland Helpline</div><div class="ec-number"><a href="tel:+18002723900">(800) 272-3900</a></div></div>
+      <div class="ec-item"><div class="ec-label">Alzheimer's Association California Southland Chapter (24/7 Helpline)</div><div class="ec-number"><a href="tel:+18002723900">(800) 272-3900</a></div></div>
       <div class="ec-item"><div class="ec-label">Riverside Office on Aging</div><div class="ec-number"><a href="tel:+18779324100">(877) 932-4100</a></div></div>
       <div class="ec-item"><div class="ec-label">Inland Caregiver Resource Center</div><div class="ec-number"><a href="tel:+18006756694">(800) 675-6694</a></div></div>
       <div class="ec-item"><div class="ec-label">SB County Senior Information</div><div class="ec-number"><a href="tel:+18005102020">(800) 510-2020</a></div></div>
@@ -837,9 +856,9 @@
         <li>Wear N95 masks during cleanup; keep PLwD <strong>away from cleanup activities</strong></li>
         <li>Expect significant <strong>behavioral changes for weeks after displacement</strong> — increase patience, structure, and reassurance</li>
         <li>Re-establish home routines immediately; familiar surroundings are deeply stabilizing</li>
-        <li>Contact <strong>Alzheimer's Association — California Southland</strong> helpline for post-disaster caregiver support</li>
+        <li>Contact the <strong>Alzheimer's Association California Southland Chapter</strong> helpline for post-disaster caregiver support</li>
         <li>Check with physician: were medications maintained? Any new health concerns?</li>
-        <li>Document losses for FEMA/insurance — Alzheimer's Association — California Southland can help navigate claims</li>
+        <li>Document losses for FEMA/insurance. The Alzheimer's Association California Southland Chapter can help navigate claims.</li>
       </ul>
     </div>
   </div>
@@ -1037,9 +1056,9 @@
 
   <div class="oc-agency-card">
     <span class="role">Dementia Support | Disaster Preparedness</span>
-    <h4>Alzheimer's Association — California Southland</h4>
+    <h4>Alzheimer's Association California Southland Chapter</h4>
     <p>📞 Helpline: <strong><a href="tel:+18002723900">(800) 272-3900</a></strong> | 🌐 <a href="https://www.alz.org/socal" target="_blank" rel="noopener noreferrer">alz.org/socal</a></p>
-    <p>Free 24/7 helpline with dementia information, care consultations, crisis support, local referrals, and language assistance.</p>
+    <p>Provides free educational programs, support services, care consultations, crisis assistance, local referrals, and language assistance for people living with Alzheimer's or another dementia, families, and caregivers across Riverside and San Bernardino counties.</p>
   </div>
 
   <div class="oc-agency-card">
@@ -1155,10 +1174,13 @@
 </div>
 
 <footer>
-  <strong>Resilient Minds, Resilient Communities</strong> · UCI Climate Collaboration Project Grant<br>
-  Lead PI: Karen D. Lincoln, PhD · Co-PIs: Julie Rousseau, PhD · Nalini Venkatasubramanian, PhD · Jung-Ah Lee, PhD<br>
-  Regional resources: Inland Caregiver Resource Center · Riverside Office on Aging · San Bernardino DAAS · County emergency-management systems<br>
-  <em>This guide is for informational purposes. Always call <a href="tel:911">911</a> in a life-threatening emergency.</em>
+  <strong>UCI CEHDR</strong> · Est. UC Irvine<br>
+  <strong>Center for Environmental Health Disparities Research (CEHDR)</strong><br>
+  Joe C. Wen School of Population and Public Health · University of California, Irvine<br>
+  📍 UC Irvine Health Sciences Complex · 856 Health Sciences Quad, Suite 3200 · University of California, Irvine · Irvine, CA 92617<br>
+  ✉️ <a href="mailto:cehdr@uci.edu">cehdr@uci.edu</a> · 🌐 <a href="https://cehdr.publichealth.uci.edu/" target="_blank" rel="noopener noreferrer">cehdr.publichealth.uci.edu</a><br>
+  <em>This guide is for informational and educational purposes only. Always call <a href="tel:911">9-1-1</a> in a life-threatening emergency.</em><br>
+  © Center for Environmental Health Disparities Research (CEHDR) · Joe C. Wen School of Population and Public Health · UC Irvine
 </footer>
 
 <a class="scroll-top" id="ieScrollBtn" href="#ie-caregiver-guide" aria-label="Back to the top of the caregiver guide">↑</a>
