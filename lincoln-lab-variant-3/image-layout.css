@@ -1,0 +1,81 @@
+/* Viewport layout and predictable image bounds. */
+/* Uniform team cards at every breakpoint. */
+#team .team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 24px;
+  align-items: stretch;
+  background: transparent;
+  border: 0;
+}
+#team .team-grid .person:nth-child(n) {
+  display: flex;
+  flex-direction: column;
+  grid-column: auto;
+  grid-row: auto;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  transform: none;
+}
+#team .team-grid .person:nth-child(n) .person-photo {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+  flex: 0 0 auto;
+}
+#team .team-grid .person-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#team .team-grid .person:nth-child(n) .person-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+  padding: 24px;
+}
+#team .team-grid .person:nth-child(n) .person-copy h3 {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+#team .team-grid .person-copy .edit {
+  margin-top: auto;
+  padding-top: 16px;
+}
+@media (max-width: 980px) {
+  #team .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 580px) {
+  #team .team-grid { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; }
+}
+body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+body>header,body>footer{flex-shrink:0}
+body>main{flex:1;min-height:0}
+body.contact-page>main{display:flex;flex-direction:column}
+.contact-page #contact{flex:1;width:100%;display:flex;align-items:center;padding-block:64px}
+.contact-page .contact-card{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+.director-photo{width:100%;max-width:380px;align-self:center;justify-self:center}
+.director-photo img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top}
+.framework-image{width:100%;max-width:580px;justify-self:center;align-self:center}
+.framework-image img{display:block;max-height:440px}
+.framework-detail .aaae-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:40px;min-height:0}
+.framework-detail .aaae-copy{grid-area:auto;width:100%;margin:0;min-width:0;padding:30px}
+.framework-detail .framework-image{grid-area:auto}
+.portrait-wrap{width:100%;min-width:0}
+.home-slideshow{position:relative;overflow:hidden;aspect-ratio:4/3;border-radius:var(--radius);box-shadow:var(--shadow);isolation:isolate;background:var(--ice)}
+.home-slideshow img{position:absolute;inset:0;width:100%;height:100%;max-height:none;object-fit:cover;border-radius:0;box-shadow:none;opacity:0;transition:opacity 1.2s ease}
+.home-slideshow img.is-active{opacity:1}
+.slideshow-toggle{position:absolute;z-index:2;right:12px;bottom:12px;width:44px;height:44px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.6);border-radius:12px;color:#fff;background:rgba(0,0,0,.65);cursor:pointer}
+.slideshow-toggle svg{width:18px;height:18px;fill:currentColor}
+@media(max-width:980px){.framework-detail .aaae-grid{grid-template-columns:1fr;gap:24px}.director-photo{max-width:320px}.framework-image{max-width:560px;margin-inline:auto}.contact-page #contact{padding-block:38px}.portrait-wrap{max-width:340px}}
+@media(max-width:520px){.director-photo{max-width:280px}.framework-detail .aaae-copy{padding:24px}.contact-page .contact-card{width:calc(100% - 26px)}.home-slideshow{aspect-ratio:4/3}}
+@media(prefers-reduced-motion:reduce){.home-slideshow img{transition:none}}
+#community .aaae-grid{min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:34px}#community .aaae-copy{grid-area:auto;width:100%;margin:0;padding:32px}#community .framework-image{grid-area:auto;width:100%;margin:0}.director-grid{align-items:center}.director-photo{align-self:center}.director-photo img{height:auto;aspect-ratio:4/5}.portrait-wrap{max-width:370px;margin-inline:auto}@media(max-width:980px){#community .aaae-grid{grid-template-columns:1fr}#community .framework-image{margin:auto}.portrait-wrap{max-width:320px}}

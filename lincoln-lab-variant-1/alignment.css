@@ -1,0 +1,56 @@
+/* Explicit foregrounds keep nested light and dark surfaces readable. */
+.research-grid .research-card:first-child { color: #fff; }
+.research-grid .research-card:first-child h3,
+.research-grid .research-card:first-child h3 a { color: #fff; }
+.research-grid .research-card:first-child p { color: #fff; opacity: .92; }
+.research-grid .research-card:first-child .num { color: #fff; }
+.contact-card .contact-box { color: var(--ink); }
+.contact-card .contact-box strong { color: var(--navy); }
+.contact-card .contact-box p { color: var(--muted); }
+.contact-card > div:first-child > p { color: #fff; }
+.news-grid .news-feature h3,
+.news-grid .news-feature p { color: #fff; }
+footer .footer-small { color: #e6e9ef; }
+/* Orderly alignment without changing each variant's palette or typography. */
+main *, footer * { min-width: 0; }
+main :is(h1,h2,h3,h4,p,a,span,strong,li) { overflow-wrap: anywhere; }
+main :is(.metrics,.metric,.project-card,.research-card,.person,.pub,.step,.credential,.news-item,.portrait-frame,.director-photo,.btn),
+main :is(.metrics,.metric,.project-card,.research-card,.person,.pub,.step,.credential,.news-item,.portrait-frame,.director-photo,.btn):hover,
+main .reveal { transform: none !important; rotate: none !important; }
+.hero::before,.hero::after,.project-card::before,.project-card::after { transform: none !important; rotate: none !important; }
+.metric-band { margin-top: 0; padding-bottom: 32px; }
+.metrics { align-items: stretch; }
+.metric:nth-child(n) { margin: 0; }
+.portrait-label { position: relative; inset: auto; width: 100%; margin: 18px 0 0; }
+.portrait-frame,.director-photo { box-shadow: var(--shadow); }
+.micro-card { display: none; }
+.project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; align-items: stretch; }
+.project-grid .project-card:nth-child(n) { grid-column: auto; width: 100%; margin: 0; border-radius: 12px; }
+.process .step:nth-child(n) { margin: 0; align-self: stretch; min-height: 0; }
+.process { align-items: stretch; padding-block: 24px; }
+.process .step .dot { margin-bottom: 16px; }
+#community .aaae-grid { min-height: 0; }
+.project-grid .project-card:nth-child(n) { min-height: 0; }
+#information-suite .research-card:nth-child(n) { min-height: 0; }
+.news-grid { display: grid; grid-template-columns: minmax(0,1.2fr) minmax(0,1fr); gap: 24px; align-items: stretch; }
+.news-grid .news-feature { grid-column: auto; width: 100%; margin: 0; min-height: 0; }
+.news-grid .news-stack { display: grid; grid-template-columns: minmax(0,1fr); gap: 16px; width: 100%; margin: 0; }
+.news-grid .news-item:nth-child(n) { grid-column: auto; margin: 0; }
+.pub-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 0; }
+.pub-grid .pub:nth-child(n) { display: grid; grid-template-columns: 90px minmax(0,1fr); grid-row: auto; grid-column: auto; gap: 14px 24px; margin: 0; }
+.pub-grid .pub:nth-child(n) :is(p,a) { grid-column: 2; grid-row: auto; }
+.credential-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.credential-list .credential { margin: 0; }
+.hero-note,.hero-actions,.county-row { flex-wrap: wrap; }
+@media(max-width:980px) {
+ .news-grid { grid-template-columns: minmax(0,1fr); }
+ .hero-grid { gap: 36px; }
+}
+@media(max-width:680px) {
+ .project-grid { grid-template-columns: minmax(0,1fr); }
+ .pub-grid .pub:nth-child(n) { grid-template-columns: minmax(0,1fr); }
+ .pub-grid .pub:nth-child(n) :is(p,a) { grid-column: 1; }
+ .credential-list { grid-template-columns: minmax(0,1fr); }
+ .process .step:nth-child(n) { grid-template-columns: 48px minmax(0,1fr); }
+ .process .step p { grid-column: 2; }
+}

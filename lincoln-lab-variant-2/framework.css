@@ -1,0 +1,23 @@
+/* Extensions use each original variant's existing design tokens. */
+.framework-intro{max-width:780px;color:var(--muted);font-size:1.05rem;line-height:1.75;margin:0 0 36px}
+.framework-image{margin:0;min-width:0;align-self:center}
+.framework-image img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow)}
+.framework-detail{scroll-margin-top:100px}
+.framework-detail h2{font-size:2.5rem;line-height:1.15;margin:12px 0 24px}
+.framework-detail .aaae-grid{align-items:center}
+.framework-focus{padding-left:22px;color:var(--muted);margin:18px 0 28px}
+.framework-focus li{padding-left:5px;margin:8px 0}
+.director-story{max-width:850px;margin:auto;color:var(--muted);font-size:1.04rem;line-height:1.9}
+.director-story p{margin:0 0 25px}
+.research-card h3 a{text-decoration:none}
+.research-card h3 a:hover{text-decoration:underline;text-underline-offset:5px}
+.hero-note a{text-decoration:none}
+#information-suite .research-card{min-height:230px}
+#information-suite .research-card h3,#information-suite .research-card p{max-width:100%}
+@media(min-width:981px){.framework-detail:nth-of-type(even) .aaae-copy{order:2}}
+@media(max-width:1180px){
+.navlinks{display:none;position:absolute;top:78px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--line);padding:18px 24px;flex-direction:column;align-items:flex-start;box-shadow:var(--shadow)}
+.navlinks.open{display:flex}.menu-btn{display:block;width:44px;height:44px}.navlinks a{padding:10px 0}
+}
+@media(max-width:680px){.framework-detail h2{font-size:2rem}.framework-intro{font-size:1rem}.director-story{font-size:1rem}.framework-image{margin-top:24px}}
+
