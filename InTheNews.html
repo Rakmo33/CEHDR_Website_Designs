@@ -25,7 +25,7 @@
 #cehdr-in-the-news .stories{padding:56px 0 28px;background:#fff}
 #cehdr-in-the-news .section-line{text-align:center;margin-bottom:34px;color:var(--blue);font-size:.74rem;font-weight:800;letter-spacing:1.5px!important;text-transform:uppercase!important}
 #cehdr-in-the-news .section-line::after{content:'';display:block;width:44px;height:3px;margin:12px auto 0;background:var(--gold)}
-#cehdr-in-the-news .news-story{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:44px;align-items:center;padding:0 0 42px;border-bottom:1px solid var(--line)}
+#cehdr-in-the-news .news-story{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:44px;align-items:center;padding:0 0 42px;border-bottom:1px solid var(--line)}
 #cehdr-in-the-news .news-story+.news-story{padding-top:42px}
 #cehdr-in-the-news .news-story:last-child{padding-bottom:0;border-bottom:0}
 #cehdr-in-the-news .story-image{display:block;position:relative;overflow:hidden;border-radius:18px;background:var(--paper);aspect-ratio:3/2;box-shadow:0 20px 42px rgba(0,51,102,.13)}
@@ -47,7 +47,8 @@
 .entry-content:has(#cehdr-in-the-news)>.wp-block-columns,.entry-content:has(#cehdr-in-the-news)>.wp-block-columns>.wp-block-column,.entry-content>#cehdr-in-the-news{margin-top:0!important;margin-bottom:0!important}
 .entry-content :is(.wp-block-group,.wp-block-group__inner-container,.wp-block-html,.wp-block-column):has(#cehdr-in-the-news){margin-block:0!important;padding-block:0!important;min-width:0}
 .entry-content:has(#cehdr-in-the-news)>.wp-block-columns.alignfull{overflow-x:clip!important;overflow-y:visible!important}
-.entry-content:has(#cehdr-in-the-news),#page-wrapper:has(#cehdr-in-the-news){overflow-x:clip!important}
+.entry-content:has(#cehdr-in-the-news){overflow:visible!important}
+#page-wrapper:has(#cehdr-in-the-news){overflow-x:clip!important}
 .entry-content:has(#cehdr-in-the-news)>:first-child{margin-top:0!important}
 .entry-content:has(#cehdr-in-the-news)>:last-child{margin-bottom:0!important}
 .entry-content:has(#cehdr-in-the-news)>p.wp-block-paragraph:empty{display:none!important}
