@@ -186,62 +186,71 @@
 #cehdr-events .video-frame.video-waiting{opacity:.25;transform:translateY(18px)}
 #cehdr-events .video-frame.video-reveal{transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1)}
 @media(prefers-reduced-motion:reduce){#cehdr-events .video-frame.video-reveal{transition:none;transform:none;opacity:1}}
+#cehdr-events .resource-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin-top:28px;border-top:1px solid var(--line)}
+#cehdr-events .resource{padding:24px 0;border-bottom:1px solid var(--line)}
+#cehdr-events .resource h3{font-size:1.18rem}
+#cehdr-events .resource p{color:var(--muted);font-size:.92rem;margin:8px 0 12px}
+#cehdr-events .resource a{font-weight:700}
+#cehdr-events .resource .pending{color:var(--muted);font-size:.82rem;font-weight:700;text-transform:uppercase}
+#cehdr-events .resource-feature{background:var(--paper)}
+#cehdr-events .resource-feature .sec-head{max-width:820px}
+#cehdr-events .resource-feature .eyebrow{color:var(--blue)}
+#cehdr-events .resource-feature h2{color:var(--navy)}
+#cehdr-events .resource-video{aspect-ratio:16/9;max-width:960px;margin:28px auto 0;border:3px solid var(--gold);background:var(--deep)}
+#cehdr-events .resource-video iframe{display:block;width:100%;height:100%;border:0}
+#cehdr-events .resource-video-note{text-align:center;margin-top:14px;color:var(--muted)}
+@media(max-width:620px){#cehdr-events .resource-list{grid-template-columns:1fr}#cehdr-events .resource-video{border-width:2px}}
+#cehdr-events .flipbooks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:34px}
+#cehdr-events .flipbook{min-width:0}
+#cehdr-events .flipbook a{display:block;color:var(--navy);text-decoration:none!important}
+#cehdr-events .flipbook img{width:100%;aspect-ratio:3/4;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 12px 30px rgba(0,51,102,.1);transition:transform .25s,box-shadow .25s}
+#cehdr-events .flipbook a:hover img{transform:translateY(-4px);box-shadow:0 18px 36px rgba(0,51,102,.16)}
+#cehdr-events .flipbook h3{font-size:1.08rem;margin:16px 0 6px}
+#cehdr-events .flipbook p{color:var(--muted);font-size:.9rem}
+#cehdr-events .flipbook .open-book{display:inline-block;color:var(--blue);font-size:.85rem;font-weight:800;margin-top:10px;text-decoration:underline;text-underline-offset:4px}
+#cehdr-events .kit-and-guide{display:grid;grid-template-columns:140px minmax(0,1fr);gap:22px;align-items:center;max-width:760px;margin:38px auto 0;padding-top:24px;border-top:1px solid var(--line)}
+#cehdr-events .kit-and-guide img{width:140px;max-height:130px;object-fit:contain}
+#cehdr-events .kit-and-guide h3{margin-bottom:6px}
+#cehdr-events .kit-and-guide p{color:var(--muted);font-size:.9rem;margin-bottom:8px}
+#cehdr-events .kit-and-guide a{font-weight:800}
+#cehdr-events .video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:34px}
+#cehdr-events .video-item{min-width:0}
+#cehdr-events .video-item h3{margin-bottom:14px}
+#cehdr-events .video-item .resource-video{margin:0;border-width:2px;border-radius:6px;overflow:hidden}
+#cehdr-events .video-item p{color:var(--muted);font-size:.9rem;margin-top:12px}
+#cehdr-events section[aria-labelledby="cehdr-resources-title"]{background:#fff}
+#cehdr-events .kit-video{background:var(--deep)}
+#cehdr-events .kit-video :is(.eyebrow,h2){color:#fff}
+#cehdr-events .kit-video .sec-head p{color:rgba(255,255,255,.9)}
+#cehdr-events .kit-video .resource-video{box-shadow:0 20px 48px rgba(0,0,0,.22)}
+@media(max-width:760px){#cehdr-events .flipbooks{grid-template-columns:repeat(2,minmax(0,1fr))}#cehdr-events .video-grid{grid-template-columns:1fr}}
+@media(max-width:520px){#cehdr-events .flipbooks{grid-template-columns:1fr;gap:30px}#cehdr-events .kit-and-guide{grid-template-columns:90px minmax(0,1fr);gap:16px}#cehdr-events .kit-and-guide img{width:90px}}
+@media(prefers-reduced-motion:reduce){#cehdr-events .flipbook img{transition:none}}
 </style>
-<header class="page-head"><div class="wrap"><div class="eyebrow">CEHDR at UC Irvine</div><h1>Events</h1><p>Connect with community. Share knowledge. Build a healthier future.</p></div></header>
+<header class="page-head"><div class="wrap"><div class="eyebrow">CEHDR at UC Irvine</div><h1>Community Forum</h1><p>Healthy longevity, caregiving, and emergency preparedness resources.</p></div></header>
 <main>
 <section class="event-intro" aria-labelledby="cehdr-event-title"><div class="wrap"><div class="feature">
-<div class="event-label">Upcoming community forum / October 2026</div>
+<div class="event-label">Community forum resources</div>
 <h2 id="cehdr-event-title">Community Forum on Healthy Longevity, Caregiving &amp; Emergency Preparedness</h2>
-<p>A free community event featuring emergency preparedness education, trusted local resources, community partners, and complimentary lunch.</p>
+<p>Thank you to everyone who joined CEHDR, Advocates for African American Elders, and our community partners. Explore the forum topics and resources below to keep the conversation going.</p>
 </div></div></section>
-<section class="band" aria-labelledby="cehdr-video-title"><div class="wrap"><div class="sec-head"><div class="eyebrow">Community in focus</div><h2 id="cehdr-video-title">A healthier, more prepared community</h2></div>
-<div class="video-frame" id="cehdr-paclife-video"><iframe width="1011" height="569" src="https://www.youtube.com/embed/2ozst4qDhZo?autoplay=0&amp;mute=0&amp;playsinline=1" title="Are You Prepared? Free Emergency Preparedness Forum | Santa Ana, Oct. 10, 2026" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-<dl class="details"><div><dt><svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4m8-4v4M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/></svg>When</dt><dd>Saturday, October 10, 2026</dd></div><div><dt><svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Time</dt><dd>10:00 a.m.&ndash;2:00 p.m.<small>Pacific time</small></dd></div><div><dt><svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Where</dt><dd>Second Baptist Church<small>4300 Westminster Avenue, Santa Ana</small></dd></div></dl>
-<div class="actions"><a class="btn" href="https://cehdr.eventbrite.com/" target="_blank" rel="noopener">Register on Eventbrite <span aria-hidden="true">&rarr;</span></a><a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Second+Baptist+Church+4300+Westminster+Ave+Santa+Ana+CA+92703" target="_blank" rel="noopener">Get directions</a></div>
-<p class="video-link"><a class="text-link" href="https://www.youtube.com/watch?v=2ozst4qDhZo" target="_blank" rel="noopener">Watch on YouTube</a></p>
-</div></section>
-<section class="band themes" aria-labelledby="cehdr-forum-topics"><div class="wrap"><div class="sec-head"><div class="eyebrow">What brings us together</div><h2 id="cehdr-forum-topics">Knowledge. Connection. Preparedness.</h2><p>Practical information for older adults, caregivers, and families in Orange County.</p></div><div class="topic-list"><article class="topic"><h3>Healthy longevity</h3><p>Live well, stay strong, and plan ahead, with expert perspectives on aging and brain health.</p></article><article class="topic"><h3>Caregiver support</h3><p>Discover resources, services, and support for caregivers and the people they care for.</p></article><article class="topic"><h3>Emergency preparedness</h3><p>Learn practical strategies to prepare yourself and your family for emergencies, including extreme heat, earthquakes, storms, and wildfires.</p></article><article class="topic"><h3>Community resources</h3><p>Connect with trusted local organizations and explore services at the community resource fair.</p></article></div></div></section>
-<section class="band perks" aria-labelledby="cehdr-perks-title"><div class="wrap"><div class="sec-head"><div class="eyebrow">Included with your day</div><h2 id="cehdr-perks-title">Come for the conversation.<br>Leave better prepared.</h2></div><div class="perk-grid"><article class="perk"><svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4V2h6v2M8 10h8M8 18h8"/><rect x="5" y="4" width="14" height="18" rx="3"/><path d="M8 14h8v5H8z"/></svg><h3>Preparedness kits</h3><p>Pick up a CEHDR preparedness kit during the event program.</p></article><article class="perk"><svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v7a2 2 0 0 0 4 0V2M6 2v20M20 2c-4 0-5 6-5 10h5m0-10v20"/></svg><h3>Complimentary lunch</h3><p>Enjoy lunch and fellowship. Select your lunch preference when registering.</p></article><article class="perk"><svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8H7a3 3 0 1 1 3-3l2 3Zm0 0h5a3 3 0 1 0-3-3l-2 3Z"/></svg><h3>Giveaways</h3><p>Event giveaways, alongside helpful information and community resources.</p></article><article class="perk"><svg class="event-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9"/></svg><h3>Free parking</h3><p>Free parking at Second Baptist Church.</p></article></div><p class="perk-note">Space is limited. Registration is required to receive kits and lunch.</p></div></section>
+<section class="band resource-feature" aria-labelledby="cehdr-recording-title"><div class="wrap"><div class="sec-head"><div class="eyebrow">Watch the forum</div><h2 id="cehdr-recording-title">A conversation worth revisiting</h2><p>Watch the community forum on healthy longevity, caregiving, and emergency preparedness.</p></div><div class="resource-video"><iframe src="https://www.youtube.com/embed/4NxNqpTp6mY" title="Watch the CEHDR Community Forum on Healthy Longevity, Caregiving and Emergency Preparedness" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div></section>
+<section class="band themes" aria-labelledby="cehdr-forum-topics"><div class="wrap"><div class="sec-head"><div class="eyebrow">Forum conversations</div><h2 id="cehdr-forum-topics">Knowledge. Connection. Preparedness.</h2><p>Practical information for older adults, caregivers, and families in Orange County.</p></div><div class="topic-list"><article class="topic"><h3>Healthy longevity</h3><p>Perspectives on aging, brain health, and planning ahead.</p></article><article class="topic"><h3>Caregiver support</h3><p>Resources and support for caregivers and the people they care for.</p></article><article class="topic"><h3>Emergency preparedness</h3><p>Strategies for preparing for extreme heat, earthquakes, storms, and wildfires.</p></article><article class="topic"><h3>Community resources</h3><p>Connections with local organizations and services.</p></article></div></div></section>
 <section class="band" aria-labelledby="cehdr-speakers-title"><div class="wrap"><div class="sec-head"><div class="eyebrow">Expert insights. Real solutions.</div><h2 id="cehdr-speakers-title">Meet your host and speakers</h2><p>A live community talk show bringing together perspectives on healthy aging, caregiving, brain health, and disaster preparedness.</p></div><div class="speaker-list">
 <article class="speaker"><img class="speaker-portrait" src="https://sites.uci.edu/cehdr/files/2024/11/Karen-Lincoln-Headshot-2026-scaled.jpeg" alt="Karen D. Lincoln" width="160" height="200" loading="lazy" decoding="async"><div class="speaker-copy"><div class="event-label">Your host</div><h3>Karen D. Lincoln</h3><span class="credentials">PhD, MSW, MA, FGSA, FAASWW</span><p class="role">Professor &amp; Director, CEHDR, UC Irvine</p><p>Public health leader and sociologist advancing health equity through research, policy, and advocacy, with a focus on Black older adults, women, and communities affected by inequitable care.</p></div></article>
 <article class="speaker"><img class="speaker-portrait" src="https://sites.uci.edu/cehdr/files/2026/09/Tia-Delaney-Stewart.jpeg" alt="Tia Delaney-Stewart" width="160" height="200" loading="lazy" decoding="async"><div class="speaker-copy"><div class="event-label">Guest speaker</div><h3>Tia Delaney-Stewart</h3><span class="credentials">MSN-Ed, RN, PHN</span><p class="role">National Director of Diversity, Equity, and Inclusion Engagement, Alzheimer's Association</p><p>Nurse leader with over 30 years of experience in home health and hospice, supporting older adults and healthy aging through engagement and advocacy.</p></div></article>
 <article class="speaker"><img class="speaker-portrait" src="https://sites.uci.edu/cehdr/files/2026/09/Kacie-Deters.avif" alt="Kacie Deters" width="160" height="200" loading="lazy" decoding="async"><div class="speaker-copy"><div class="event-label">Guest speaker</div><h3>Kacie Deters</h3><span class="credentials">PhD</span><p class="role">Assistant Professor of Integrative Biology and Physiology, UCLA</p><p>Neuroscientist specializing in cognitive decline, Alzheimer's disease, and racial disparities in brain health. Her lab leads community-engaged research and education for older adults in Black communities.</p></div></article>
-<article class="speaker"><img class="speaker-portrait" src="https://sites.uci.edu/cehdr/files/2026/09/Andrew-Grundig.jpeg" alt="Andrew Grundig" width="160" height="200" loading="lazy" decoding="async"><div class="speaker-copy"><div class="event-label">Guest speaker</div><h3>Andrew Grundig</h3><p class="role">LAFD CERT Call-Out Team Member; Former Battalion 6 Coordinator, Los Angeles Fire Department</p><p>Public safety advocate and disaster response leader who trains community members in personal preparedness, emergency workflows, and disaster resilience.</p></div></article>
+<article class="speaker"><img class="speaker-portrait" src="https://sites.uci.edu/cehdr/files/2026/07/Claudia_Davis.jpg" alt="Claudia M. Davis" width="160" height="200" loading="lazy" decoding="async"><div class="speaker-copy"><div class="event-label">Guest speaker</div><h3>Claudia M. Davis</h3><span class="credentials">PhD, MN, CNS, PHN</span><p class="role">Associate Professor of Teaching, UC Irvine Sue &amp; Bill Gross School of Nursing</p><p>Nurse educator and breast cancer researcher whose community-based work focuses on survivorship, health disparities, Black families, and the social determinants of health.</p></div></article>
 </div></div></section>
-<section class="band" aria-labelledby="cehdr-attend-title"><div class="wrap"><div class="attend-grid"><div class="attend-copy"><div class="event-label">Join us in Orange County</div><h2 id="cehdr-attend-title">A place for you.<br>A stronger community for all.</h2><p>Join AAAE, CEHDR, and community partners for a free day of emergency preparedness education, helpful resources, and community connection.</p><p>Participants will learn practical ways to prepare themselves and their families for emergencies. The event will feature trusted community organizations, informational resources, and complimentary lunch.</p><p>Questions about attending or partnering with CEHDR? <a href="mailto:cehdr@uci.edu">Contact cehdr@uci.edu</a>.</p>
-<aside class="registration" id="cehdr-event-registration" aria-labelledby="cehdr-registration-title"><div class="event-label">October 10, 2026</div><h3 id="cehdr-registration-title">Be part of the conversation</h3><p>Registration is required. Please select your lunch preference when registering. Additional program details will be announced soon.</p>
-<div class="actions"><a class="btn" href="https://cehdr.eventbrite.com/" target="_blank" rel="noopener">Register on Eventbrite <span aria-hidden="true">&rarr;</span></a></div></aside></div>
-<div class="flyer" id="cehdr-event-flyer"><h3>Event flyer</h3><a href="https://sites.uci.edu/cehdr/files/2026/09/SBC-Event-Flyer-2026.png" target="_blank" rel="noopener" aria-label="Open event flyer at full size in a new tab"><img src="https://sites.uci.edu/cehdr/files/2026/09/SBC-Event-Flyer-2026.png" alt="CEHDR Community Forum event flyer" loading="lazy"></a><a class="text-link" href="https://sites.uci.edu/cehdr/files/2026/09/SBC-Event-Flyer-2026.png" target="_blank" rel="noopener">View full-size flyer (opens in a new tab)</a></div>
-</div></div></section>
-<section class="band venue" aria-labelledby="cehdr-venue-title"><div class="wrap"><div class="sec-head"><div class="eyebrow">Plan your visit</div><h2 id="cehdr-venue-title">Second Baptist Church</h2><p>4300 Westminster Avenue, Santa Ana<br>Saturday, October 10, 2026 &middot; 10:00 a.m.&ndash;2:00 p.m.</p></div><iframe class="map-frame" src="https://maps.google.com/maps?q=Second%20Baptist%20Church%204300%20Westminster%20Avenue%20Santa%20Ana&amp;z=15&amp;output=embed" title="Map to Second Baptist Church, 4300 Westminster Avenue, Santa Ana" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><div class="actions"><a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Second+Baptist+Church+4300+Westminster+Ave+Santa+Ana+CA+92703" target="_blank" rel="noopener">Open directions in Google Maps</a></div></div></section>
+<section class="band resource-feature" aria-labelledby="cehdr-resources-title"><div class="wrap"><div class="sec-head"><div class="eyebrow">Keep learning</div><h2 id="cehdr-resources-title">Forum resources</h2><p>Open the digital booklets and keep these practical guides close at hand.</p></div><div class="flipbooks">
+<article class="flipbook"><a href="https://sites.uci.edu/cehdr/pdf/emergency-preparedness-event-is-your-phone-ready/" target="_blank" rel="noopener" aria-label="Open Is Your Phone Ready? tech station flipbook in a new tab"><img src="https://sites.uci.edu/cehdr/files/2026/10/Tech-Station-Thumbnail-scaled.jpg" alt="Tech station postcard cover" loading="lazy" decoding="async"><h3>Is Your Phone Ready?</h3><p>Tech station tips to help you prepare your phone for an emergency.</p><span class="open-book">Open flipbook</span></a></article>
+<article class="flipbook"><a href="https://sites.uci.edu/cehdr/pdf/emergency-preparedness-event-preparedness-kit-guide/" target="_blank" rel="noopener" aria-label="Open Emergency Preparedness Kit Guide flipbook in a new tab"><img src="https://sites.uci.edu/cehdr/files/2026/10/Preparedness-Kit-Guide-Thumbnail.jpg" alt="Emergency preparedness kit guide cover" loading="lazy" decoding="async"><h3>Preparedness Kit Guide</h3><p>Review supplies and information to include in your household kit.</p><span class="open-book">Open flipbook</span></a></article>
+<article class="flipbook"><a href="https://sites.uci.edu/cehdr/pdf/emergency-preparedness-event-program-booklet/" target="_blank" rel="noopener" aria-label="Open Community Forum program booklet flipbook in a new tab"><img src="https://sites.uci.edu/cehdr/files/2026/10/Program-Booklet-Thumbnail.jpg" alt="Community Forum program booklet cover" loading="lazy" decoding="async"><h3>Program Booklet</h3><p>Revisit the forum program, speakers, and partners.</p><span class="open-book">Open flipbook</span></a></article>
+</div><div class="kit-and-guide"><img src="https://sites.uci.edu/cehdr/files/2026/10/Preparedness-Kit-Image.jpg" alt="CEHDR emergency preparedness kit" loading="lazy" decoding="async"><div><h3>Caregiver resource guide</h3><p>Find local services and practical support for caregivers and families in Orange County.</p><a href="https://cehdr.publichealth.uci.edu/oc-caregiver-resource-guide/">Explore the OC caregiver guide</a></div></div></div></section>
+<section class="band kit-video" aria-labelledby="cehdr-kit-video-title"><div class="wrap"><div class="sec-head"><div class="eyebrow">Put it into practice</div><h2 id="cehdr-kit-video-title">Make your kit work for you</h2><p>Personalize an emergency kit for your household and the people you care for.</p></div><div class="resource-video"><iframe src="https://www.youtube.com/embed/X03ZhGLqd7I" title="Watch the emergency kit personalization guide" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div></section>
+<section class="band" aria-labelledby="cehdr-contact-title"><div class="wrap"><div class="sec-head"><div class="eyebrow">Stay connected</div><h2 id="cehdr-contact-title">Continue the conversation</h2><p>Questions about these resources or community partnerships? <a href="mailto:cehdr@uci.edu">Email CEHDR</a>.</p></div></div></section>
 </main>
 <footer class="partnership"><div class="wrap"><p>A partnership of Advocates for African American Elders (AAAE) and the Center for Environmental Health Disparities Research (CEHDR) at UC Irvine.</p></div></footer>
 </div>
-<script>
-(() => {
-  const frame = document.querySelector('#cehdr-events #cehdr-paclife-video');
-  if (!frame || !('IntersectionObserver' in window)) return;
-  const player = frame.querySelector('iframe');
-  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reducedMotion.matches) return;
-  frame.classList.add('video-reveal', 'video-waiting');
-  let manuallyFocused = false;
-  // Do not reload a player that the visitor has already interacted with.
-  window.addEventListener('blur', () => {
-    if (document.activeElement === player) manuallyFocused = true;
-  });
-  const observer = new IntersectionObserver(entries => {
-    const entry = entries[0];
-    if (!entry.isIntersecting || entry.intersectionRatio < 0.5) return;
-    frame.classList.remove('video-waiting');
-    observer.disconnect();
-    if (manuallyFocused || reducedMotion.matches) return;
-    const url = new URL(player.src);
-    url.searchParams.set('autoplay', '1');
-    player.src = url.href;
-  }, { threshold: [0, 0.5] });
-  observer.observe(frame);
-})();
-</script>
 </body>
 </html>
