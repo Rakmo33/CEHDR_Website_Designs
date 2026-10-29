@@ -1,4 +1,15 @@
 .DS_Store
 settings.json
 tmp
-/codex/
+/codex/tmp/
+/codex/deliverables/
+/codex/output/CEHDR_Administrative_Task_Report_May-August_2026.docx
+/codex/output/pdf/*.pdf
+/codex/output/evaluations-20261026/
+/codex/output/evaluation-imports-20261026/
+/codex/output/event-checklist/
+/codex/output/post-event-20261012/
+/codex/output/registration/
+/codex/output/event-admin-report/
+/codex/output/pdf/evaluation-chunks/
+/codex/output/images/andrew-segment-images.zip

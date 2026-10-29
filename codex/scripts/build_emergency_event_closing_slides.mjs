@@ -7,10 +7,10 @@ import { resolvePresentationFont } from "/Users/rakmo33/.codex/plugins/cache/ope
 const workspaceDir = "/Users/rakmo33/Documents/CEHDR/CEHDR_Website_Designs";
 const skillDir = "/Users/rakmo33/.codex/plugins/cache/openai-primary-runtime/presentations/26.904.11930/skills/presentations";
 const runtimePython = "/Users/rakmo33/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3";
-const finalPath = path.join(workspaceDir, "output/presentations/emergency-preparedness-acknowledgement-and-thank-you-slides.pptx");
-const bgPath = path.join(workspaceDir, "output/images/emergency-event-navy-gold-background.png");
-const partnerPath = path.join(workspaceDir, "tmp/presentations/emergency-event/partner-strip.png");
-const stagingDir = path.join(workspaceDir, ".codex-finalizer/emergency-event-closing-slides");
+const finalPath = path.join(workspaceDir, "codex/output/presentations/emergency-preparedness-acknowledgement-and-thank-you-slides.pptx");
+const bgPath = path.join(workspaceDir, "codex/output/images/emergency-event-navy-gold-background.png");
+const partnerPath = path.join(workspaceDir, "codex/tmp/workspace-temporary/presentations/emergency-event/partner-strip.png");
+const stagingDir = path.join(workspaceDir, "codex/tmp/emergency-event-closing-slides");
 const candidatePath = path.join(stagingDir, "candidate.pptx");
 
 const NAVY = "06234A";

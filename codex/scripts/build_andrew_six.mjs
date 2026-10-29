@@ -3,8 +3,8 @@ import path from 'node:path';
 import {Presentation,PresentationFile} from '/Users/rakmo33/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/@oai/artifact-tool/dist/artifact_tool.mjs';
 import {finalizePresentation} from '/Users/rakmo33/.codex/plugins/cache/openai-primary-runtime/presentations/26.904.11930/skills/presentations/container_tools/artifact_tool_utils.mjs';
 const root='/Users/rakmo33/Documents/CEHDR/CEHDR_Website_Designs';
-const dir=path.join(root,'tmp/andrew-six');
-const out=path.join(root,'output/presentations/andrew-six-screens.pptx');
+const dir=path.join(root,'codex/tmp/workspace-temporary/andrew-six');
+const out=path.join(root,'codex/output/presentations/andrew-six-screens.pptx');
 const skill='/Users/rakmo33/.codex/plugins/cache/openai-primary-runtime/presentations/26.904.11930/skills/presentations';
 await fs.mkdir(dir,{recursive:true});
 await fs.mkdir(path.dirname(out),{recursive:true});
@@ -67,5 +67,5 @@ const candidate=path.join(dir,'candidate.pptx');
 await(await PresentationFile.exportPptx(p)).save(candidate);
 await finalizePresentation({workspaceDir:root,candidatePath:candidate,finalPath:out,pythonExecutable:'/Users/rakmo33/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3',integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','18288000,10287000','--validate-heading-fit'],explicitTotalSlideCount:6,requiredNativeChartOwnerSlides:[],requiredNativeTableOwnerSlides:[],fontPolicy:{basis:'design',families:['Impact','Arial']},verifyArtifactToolImport:true,receiptPath:path.join(dir,'validation.json')});
 for(let i=0;i<p.slides.items.length;i++){const b=await p.export({slide:p.slides.items[i],format:'png',scale:0.6});await fs.writeFile(path.join(dir,`slide-${i+1}.png`),new Uint8Array(await b.arrayBuffer()));}
-await fs.writeFile(path.join(root,'output/presentations/andrew-voiceover-script.txt'),notes.map((n,i)=>`SLIDE ${i+1}\n${n}`).join('\n\n'));
+await fs.writeFile(path.join(root,'codex/output/presentations/andrew-voiceover-script.txt'),notes.map((n,i)=>`SLIDE ${i+1}\n${n}`).join('\n\n'));
 console.log(out);
