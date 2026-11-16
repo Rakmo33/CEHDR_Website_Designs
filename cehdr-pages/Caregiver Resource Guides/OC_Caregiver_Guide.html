@@ -74,6 +74,21 @@
   #oc-caregiver-guide img { display: block; max-width: 100%; height: auto; }
   #oc-caregiver-guide button:focus-visible,
   #oc-caregiver-guide a:focus-visible { outline: 3px solid rgba(46,134,193,.35); outline-offset: 3px; }
+  #oc-caregiver-guide .region-switcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    padding: 14px 24px;
+    background: #fff9eb;
+    border-bottom: 2px solid #e7b863;
+    text-align: center;
+  }
+  #oc-caregiver-guide .region-switcher p { color: #243746; font-size: 0.92em; font-weight: 700; }
+  #oc-caregiver-guide .region-switcher .region-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px 20px; }
+  #oc-caregiver-guide .region-switcher a { color: #1a5276 !important; font-size: 0.92em; font-weight: 700; text-decoration: underline !important; text-underline-offset: 3px; }
+  #oc-caregiver-guide .region-switcher a:hover { color: #0b3856 !important; }
   #oc-caregiver-guide .hero {
     background: linear-gradient(135deg, #1a5276 0%, #2e86c1 60%, #148f77 100%);
     color: white;
@@ -525,6 +540,14 @@
     #oc-caregiver-guide nav.tab-bar .tab-link { flex: 0 0 auto; min-height: 46px; }
   }
 </style>
+
+<aside class="region-switcher" aria-label="Other caregiver resource guides">
+  <p>Not from Orange County? Explore another caregiver resource guide:</p>
+  <div class="region-links">
+    <a href="https://sites.uci.edu/cehdr/la-caregiver-resource-guide/">Los Angeles County &#8599;</a>
+    <a href="https://sites.uci.edu/cehdr/inland-empire-caregiver-resource-guide/">Inland Empire &#8599;</a>
+  </div>
+</aside>
 
 <div class="hero">
   <div class="cehdr-brand">
