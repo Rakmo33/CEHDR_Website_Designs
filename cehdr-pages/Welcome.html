@@ -146,9 +146,10 @@ h3:not(.h):not([class*=is-style-h-])+p {
 .cehdr-home .btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(255,217,46,.65)}
 .cehdr-home .btn-ghost-white{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border:2px solid rgba(255,255,255,.4);color:#fff;font-weight:700;font-size:.88rem;text-decoration:none;border-radius:8px;transition:all .25s}
 .cehdr-home .btn-ghost-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
-.cehdr-home .slide-dots{position:absolute;bottom:20px;right:30px;display:flex;gap:8px;z-index:6}
-.cehdr-home .slide-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;border:none;transition:all .3s}
-.cehdr-home .slide-dot.active{background:var(--gold);width:24px;border-radius:4px;box-shadow:0 0 10px rgba(255,217,46,.6)}
+.cehdr-home .slide-dots{position:absolute;bottom:12px;right:20px;display:flex;gap:0;z-index:6}
+.cehdr-home .slide-dot,.cehdr-home .carousel-dot{position:relative;display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;min-width:44px;min-height:44px;padding:0!important;border:0;background:transparent!important;box-shadow:none!important;cursor:pointer}
+.cehdr-home .slide-dot::after{content:"";width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);transition:all .3s}
+.cehdr-home .slide-dot.active::after{width:24px;border-radius:4px;background:var(--gold);box-shadow:0 0 10px rgba(255,217,46,.6)}
 .cehdr-home .hero-pill{position:absolute;background:var(--white);border-radius:12px;box-shadow:0 8px 26px rgba(0,0,0,.18);padding:11px 14px;display:flex;align-items:center;gap:10px;animation:pill-float 5s ease-in-out infinite;z-index:5}
 @keyframes pill-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .cehdr-home .hp-top{top:30px;right:30px}.cehdr-home .hp-bot{bottom:80px;right:30px;animation-delay:2s;background:var(--navy)}
@@ -306,14 +307,14 @@ h3:not(.h):not([class*=is-style-h-])+p {
 .cehdr-home .nc-img{width:100%;height:210px;object-fit:cover;object-position:top center;display:block;background:linear-gradient(135deg,var(--navy),var(--teal-m))}
 .cehdr-home .nc-body{padding:22px}.cehdr-home .nc-source{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
 .cehdr-home .nc-date{font-size:.7rem;color:var(--muted);margin-bottom:10px}
-.cehdr-home .nc-tag{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:700;background:linear-gradient(135deg,var(--teal-l),#d4ecf0);color:var(--teal-m);border-radius:20px;padding:4px 12px;margin-bottom:10px}
+.cehdr-home .nc-tag{display:inline-flex;align-items:center;gap:5px;font-size:.66rem;font-weight:700;background:linear-gradient(135deg,var(--teal-l),#d4ecf0);color:#245d63;border-radius:20px;padding:4px 12px;margin-bottom:10px}
 .cehdr-home .nc-title{font-family:'Roboto Slab',serif;font-size:1rem;font-weight:700;color:var(--navy);line-height:1.4;text-decoration:none;display:block;margin-bottom:10px}
 .cehdr-home .nc-title:hover{color:var(--blue)}
 .cehdr-home .nc-quote{font-size:.82rem;font-style:italic;color:var(--muted);line-height:1.65;margin-bottom:14px;padding-left:11px;border-left:3px solid var(--teal)}
 .cehdr-home .nc-link{font-size:.82rem;font-weight:700;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:5px}
-.cehdr-home .carousel-controls{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:32px}
-.cehdr-home .carousel-dot{width:9px;height:9px;border-radius:50%;background:#ccd8e5;cursor:pointer;transition:all .2s;border:none}
-.cehdr-home .carousel-dot.active{background:linear-gradient(135deg,var(--blue),var(--teal-m));width:24px;border-radius:5px}
+.cehdr-home .carousel-controls{display:flex;align-items:center;justify-content:center;gap:0;margin-top:14px}
+.cehdr-home .carousel-dot::after{content:"";width:9px;height:9px;border-radius:50%;background:#9daec0;transition:all .2s}
+.cehdr-home .carousel-dot.active::after{width:24px;border-radius:5px;background:var(--blue)}
 
 /* IMPACT */
 .cehdr-home .impact-section{background:linear-gradient(135deg,#000814 0%,#001428 25%,#001e38 50%,var(--navy) 80%,#005080 100%);padding:40px 0;position:relative;overflow:hidden;text-align:center}
@@ -428,6 +429,12 @@ h3:not(.h):not([class*=is-style-h-])+p {
 }
 .cehdr-home .nl-btn:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(0,58,99,.55)}
 .cehdr-home .nl-btn i{font-size:.95rem;color:var(--gold)}
+.cehdr-home a:focus-visible,.cehdr-home button:focus-visible{outline:3px solid #FFD200!important;outline-offset:2px!important}
+.cehdr-home .carousel-dot:focus-visible{outline-color:#003A63!important}
+@media (prefers-reduced-motion:reduce){
+  .cehdr-home *,.cehdr-home *::before,.cehdr-home *::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .cehdr-home .fade-up,.cehdr-home .fade-left,.cehdr-home .fade-right{opacity:1!important;transform:none!important}
+}
 </style>
 
 <div class="cehdr-home">
@@ -700,15 +707,23 @@ h3:not(.h):not([class*=is-style-h-])+p {
   var root=document.querySelector('.cehdr-home');
   if(!root) return;
 
+  root.querySelectorAll('.news-card').forEach(function(card){
+    var title=card.querySelector('.nc-title');
+    var link=card.querySelector('.nc-link');
+    if(title&&link) link.setAttribute('aria-label','Read More: '+title.textContent.trim());
+  });
+
   /* Hero slideshow */
   var slides=root.querySelectorAll('.hero-slide'),dotsEl=root.querySelector('#slideDots');
   var curSlide=0;
-  slides.forEach(function(_,i){var d=document.createElement('button');d.className='slide-dot'+(i===0?' active':'');d.addEventListener('click',function(){showSlide(i);});dotsEl.appendChild(d);});
-  function showSlide(idx){slides[curSlide].classList.remove('active');dotsEl.children[curSlide].classList.remove('active');curSlide=idx;slides[curSlide].classList.add('active');dotsEl.children[curSlide].classList.add('active');}
+  slides.forEach(function(_,i){var d=document.createElement('button');d.type='button';d.className='slide-dot'+(i===0?' active':'');d.setAttribute('aria-label','Show hero image '+(i+1)+' of '+slides.length);d.setAttribute('aria-pressed',i===0?'true':'false');d.addEventListener('click',function(){showSlide(i);});dotsEl.appendChild(d);});
+  function showSlide(idx){slides[curSlide].classList.remove('active');dotsEl.children[curSlide].classList.remove('active');dotsEl.children[curSlide].setAttribute('aria-pressed','false');curSlide=idx;slides[curSlide].classList.add('active');dotsEl.children[curSlide].classList.add('active');dotsEl.children[curSlide].setAttribute('aria-pressed','true');}
   var slideTimer=setInterval(function(){showSlide((curSlide+1)%slides.length);},5000);
   var heroSlideshow=root.querySelector('#heroSlideshow');
   heroSlideshow.addEventListener('mouseenter',function(){clearInterval(slideTimer);});
   heroSlideshow.addEventListener('mouseleave',function(){slideTimer=setInterval(function(){showSlide((curSlide+1)%slides.length);},5000);});
+  heroSlideshow.addEventListener('focusin',function(){clearInterval(slideTimer);});
+  heroSlideshow.addEventListener('focusout',function(e){if(!heroSlideshow.contains(e.relatedTarget)){clearInterval(slideTimer);slideTimer=setInterval(function(){showSlide((curSlide+1)%slides.length);},5000);}});
 
   /* Scroll reveal */
   var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('animated');});},{threshold:0.1});
@@ -718,14 +733,17 @@ h3:not(.h):not([class*=is-style-h-])+p {
   var track=root.querySelector('#carousel'),cards=track.querySelectorAll('.news-card'),ctrlEl=root.querySelector('#carousel-controls');
   var current=0,perView=3,total,autoTimer;
   function getPerView(){return window.innerWidth<600?1:window.innerWidth<960?2:3;}
-  function buildDots(){ctrlEl.innerHTML='';total=Math.ceil(cards.length/perView);for(var i=0;i<total;i++){(function(i){var d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.addEventListener('click',function(){goTo(i);});ctrlEl.appendChild(d);})(i);}}
+  function buildDots(){ctrlEl.innerHTML='';total=Math.ceil(cards.length/perView);for(var i=0;i<total;i++){(function(i){var d=document.createElement('button');d.type='button';d.className='carousel-dot'+(i===0?' active':'');d.setAttribute('aria-label','Show news group '+(i+1)+' of '+total);d.setAttribute('aria-pressed',i===0?'true':'false');d.addEventListener('click',function(){goTo(i);});ctrlEl.appendChild(d);})(i);}}
   function setWidths(){var gap=26,w=track.parentElement.clientWidth,cw=(w-gap*(perView-1))/perView;cards.forEach(function(c){c.style.flex='0 0 '+cw+'px';c.style.maxWidth=cw+'px';});}
-  function goTo(idx){var gap=26,cw=cards[0].getBoundingClientRect().width;current=Math.max(0,Math.min(idx,total-1));track.style.transform='translateX(-'+(current*(cw+gap)*perView)+'px)';ctrlEl.querySelectorAll('.carousel-dot').forEach(function(d,i){d.classList.toggle('active',i===current);});}
+  function goTo(idx){var gap=26,cw=cards[0].getBoundingClientRect().width;current=Math.max(0,Math.min(idx,total-1));track.style.transform='translateX(-'+(current*(cw+gap)*perView)+'px)';ctrlEl.querySelectorAll('.carousel-dot').forEach(function(d,i){d.classList.toggle('active',i===current);d.setAttribute('aria-pressed',i===current?'true':'false');});}
   function next(){goTo((current+1)%total);}
   function init(){perView=getPerView();setWidths();buildDots();current=0;track.style.transform='translateX(0)';}
   init();autoTimer=setInterval(next,5000);
   track.parentElement.addEventListener('mouseenter',function(){clearInterval(autoTimer);});
   track.parentElement.addEventListener('mouseleave',function(){autoTimer=setInterval(next,5000);});
+  var carouselRegion=track.parentElement.parentElement;
+  carouselRegion.addEventListener('focusin',function(){clearInterval(autoTimer);});
+  carouselRegion.addEventListener('focusout',function(e){if(!carouselRegion.contains(e.relatedTarget)){clearInterval(autoTimer);autoTimer=setInterval(next,5000);}});
   window.addEventListener('resize',function(){clearInterval(autoTimer);init();autoTimer=setInterval(next,5000);});
 })();
 </script>
